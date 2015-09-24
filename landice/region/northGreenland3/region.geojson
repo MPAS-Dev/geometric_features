@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "northGreenland3",
 			"component": "landice",
-			"tags": "",
+			"tags": "northGreenland",
 			"author": "http://icesat4.gsfc.nasa.gov/cryo_data/ant_grn_drainage_systems.php",
 			"object": "region"
 		 },
