@@ -9,12 +9,11 @@ def match_tag_list(feature, master_tags):#{{{
 	
 	feature_tag_list = feature_tags.split(';')
 
-	test = True
+	test = False
 	for tag in master_tags:
 		if tag in feature_tag_list:
-			test = test and True
-		else:
-			test = test and False
+			test = True
+			break
 
 	return test
 #}}}
