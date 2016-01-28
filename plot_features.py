@@ -99,13 +99,15 @@ def plot_features_file(featurefile, plotname):
 
 			map = plot_base(maptype)
 			try:
-				if polytype == 'MultiPolygon' or polytype == 'MultiLineString':
+				if polytype == 'MultiPolygon':
+					for poly in coords:
+						for shape in poly:
+							points = np.asarray(shape)
+							map.plot(points[:,0], points[:,1], linewidth=2.0, color=colors[color_num], latlon=True)
+				elif polytype == 'Polygon' or polytype == 'MultiLineString':
 					for poly in coords:
 						points = np.asarray(poly)
 						map.plot(points[:,0], points[:,1], linewidth=2.0, color=colors[color_num], latlon=True)
-				elif polytype == 'Polygon':
-					points = np.asarray(coords)
-					map.plot(points[:,0], points[:,1], linewidth=2.0, color=colors[color_num], latlon=True)
 				elif polytype == 'LineString':
 					points = np.asarray(coords)
 					# due to bug in basemap http://stackoverflow.com/questions/31839047/valueerror-in-python-basemap/32252594#32252594
