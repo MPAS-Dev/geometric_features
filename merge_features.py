@@ -87,6 +87,7 @@ if args.features_dir:
 				del feature_file
 
 out_file.write('{"type": "FeatureCollection",\n')
+out_file.write(' "groupName": "enterNameHere",\n')
 out_file.write(' "features":\n')
 out_file.write('\t[\n')
 write_all_features(all_features, out_file, '\t\t')
