@@ -1,17 +1,17 @@
 {"type": "FeatureCollection",
  "features":
-    [
-        {"type": "Feature",
-         "properties": {
-            "name": "Antarctica_IMBIE26",
-            "component": "landice",
-            "tags": "AntarcticPenninsulaIMBIE;LarsenCIceShelfDrainage",
-            "author": "http://icesat4.gsfc.nasa.gov/cryo_data/ant_grn_drainage_systems.php",
-            "object": "region"
-         },
-         "geometry":
-            {"type": "Polygon",
-             "coordinates":
+	[
+		{"type": "Feature",
+		 "properties": {
+			"name": "Antarctica_IMBIE26",
+			"component": "landice",
+			"tags": "AntarcticPenninsulaIMBIE;LarsenCIceShelfDrainage",
+			"author": "http://icesat4.gsfc.nasa.gov/cryo_data/ant_grn_drainage_systems.php",
+			"object": "region"
+		 },
+		 "geometry":
+			{"type": "Polygon",
+			 "coordinates":
 				[
 					[
 						[ -56.980803, -63.371484],
