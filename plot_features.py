@@ -23,6 +23,26 @@ def plot_base(maptype): #{{{
         map = Basemap(projection='ortho', lat_0=45, lon_0=-100, resolution='l')
         map.drawmeridians(np.arange(0,360,30))
         map.drawparallels(np.arange(-90,90,30))
+    elif maptype == 'aeqd':
+        map = Basemap(projection='aeqd', lat_0=0, lon_0=0)
+        map.drawparallels(np.arange(-80,81,20),labels=[1,1,0,0])
+        map.drawmeridians(np.arange(0,360,60),labels=[0,0,0,1])
+    elif maptype == 'eck4':
+        map = Basemap(projection='eck4',lon_0=0)
+        map.drawparallels(np.arange(-80,81,20),labels=[1,1,0,0])
+        map.drawmeridians(np.arange(0,360,60),labels=[0,0,0,1])
+    elif maptype == 'cyl':
+        map = Basemap(projection='cyl',llcrnrlat=-90,urcrnrlat=90,llcrnrlon=-180,urcrnrlon=180)
+        map.drawparallels(np.arange(-80,81,20),labels=[1,1,0,0])
+        map.drawmeridians(np.arange(0,360,60),labels=[0,0,0,1])
+    elif maptype == 'merc':
+        map = Basemap(projection='merc',llcrnrlat=-80,urcrnrlat=80,llcrnrlon=-180,urcrnrlon=180,lat_ts=20)
+        map.drawparallels(np.arange(-80,81,20),labels=[1,1,0,0])
+        map.drawmeridians(np.arange(0,360,60),labels=[0,0,0,1])
+    elif maptype == 'vandg':
+        map = Basemap(projection='vandg',lon_0=0,resolution='c')
+        map.drawparallels(np.arange(-80,81,20),labels=[1,1,0,0])
+        map.drawmeridians(np.arange(0,360,60),labels=[0,0,0,1])
     elif maptype == 'mill':
         map = Basemap(llcrnrlon=0,llcrnrlat=-90,urcrnrlon=360,urcrnrlat=90,projection='mill')
         map.drawparallels(np.arange(-80,81,20),labels=[1,1,0,0])
