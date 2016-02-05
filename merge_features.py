@@ -56,35 +56,49 @@ new_file = True
 first_feature = True
 if os.path.exists(file_to_append):
 	new_file = False
-	with open(file_to_append) as f:
-		appended_file = json.load(f)
-		for feature in appended_file['features']:
-			all_features['features'].append(feature)
-		del appended_file
+	try:
+		with open(file_to_append) as f:
+			appended_file = json.load(f)
+			for feature in appended_file['features']:
+				all_features['features'].append(feature)
+			del appended_file
+	except:
+		new_file = True
 
 out_file = open(file_to_append, 'w')
 
 if args.feature_file:
-	with open(args.feature_file) as f:
-		feature_file = json.load(f)
+	try:
+		with open(args.feature_file) as f:
+			feature_file = json.load(f)
 
-		for feature in feature_file['features']:
-			if match_tag_list(feature, master_tag_list):
-				if not feature_already_exists(all_features, feature):
-					all_features['features'].append(feature)
+			for feature in feature_file['features']:
+				if match_tag_list(feature, master_tag_list):
+					if not feature_already_exists(all_features, feature):
+						all_features['features'].append(feature)
 
-		del feature_file
+			del feature_file
+	except:
+		print "Error parsing geojson file: %s"%(args.feature_file)
 
 if args.features_dir:
+	paths = []
 	for (dirpath, dirnames, filenames) in os.walk(args.features_dir):
-		for filename in sorted(filenames):
-			with open('%s/%s'%(dirpath, filename), 'r') as f:
+		for filename in filenames:
+			paths.append('%s/%s'%(dirpath, filename))
+
+	for path in sorted(paths):
+		try:
+			with open('%s'%(path), 'r') as f:
 				feature_file = json.load(f)
 				for feature in feature_file['features']:
 					if match_tag_list(feature, master_tag_list):
 						if not feature_already_exists(all_features, feature):
 							all_features['features'].append(feature)
 				del feature_file
+		except:
+			print "Error parsing geojson file: %s"%(path)
+	del paths
 
 out_file.write('{"type": "FeatureCollection",\n')
 out_file.write(' "groupName": "enterNameHere",\n')
