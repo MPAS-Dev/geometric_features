@@ -107,12 +107,14 @@ def plot_features_file(featurefile, plotname):
 
     fig = plt.figure(figsize=(16,12),dpi=100)
     for anum, maptype in enumerate(['mill2','mill', 'northpole', 'southpole']):
+        print 'plot type: %s'%maptype
         ax = fig.add_subplot(2,2,1+anum)
         feature_num = 0
         for feature in featuredat['features']:
             polytype = feature['geometry']['type']
             coords = feature['geometry']['coordinates']
             feature = feature['properties']['name']
+            print '  feature: %s'%feature
 
             color_num = feature_num % len(colors)
             marker_num = feature_num % len(markers)
@@ -123,20 +125,24 @@ def plot_features_file(featurefile, plotname):
                     for poly in coords:
                         for shape in poly:
                             points = np.asarray(shape)
-                            map.plot(points[:,0], points[:,1], linewidth=2.0, color=colors[color_num], latlon=True)
+                            (x, y) = map(points[:,0], points[:,1])
+                            map.plot(x, y, linewidth=2.0, color=colors[color_num])
                 elif polytype == 'Polygon' or polytype == 'MultiLineString':
                     for poly in coords:
                         points = np.asarray(poly)
-                        map.plot(points[:,0], points[:,1], linewidth=2.0, color=colors[color_num], latlon=True)
+                        (x, y) = map(points[:,0], points[:,1])
+                        map.plot(x, y, linewidth=2.0, color=colors[color_num])
                 elif polytype == 'LineString':
                     points = np.asarray(coords)
                     # due to bug in basemap http://stackoverflow.com/questions/31839047/valueerror-in-python-basemap/32252594#32252594
                     lons = [points[0,0],points[0,0],points[1,0],points[1,0]]
                     lats = [points[0,1],points[0,1],points[1,1],points[1,1]]
-                    map.plot(lons, lats, linewidth=2.0, color=colors[color_num], latlon=True)
+                    (x, y) = map(lons, lats)
+                    map.plot(x, y, linewidth=2.0, color=colors[color_num])
                 elif polytype == 'Point':
                     points = np.asarray(coords)
-                    map.plot(points[0], points[1], markers[marker_num], markersize=20, color=colors[color_num], latlon=True)
+                    (x, y) = map(points[:,0], points[:,1])
+                    map.plot(x, y, markers[marker_num], markersize=20, color=colors[color_num])
                 else:
                     assert False, 'Geometry %s not known.'%(polytype)
             except:
