@@ -1,114 +1,95 @@
 #!/usr/bin/env python
 """
 This script plots a file containing multiple features onto a basemap using
-matplotlib's basemap.
+cartopy.
 
-It requires basemap: http://matplotlib.org/basemap/
+It requires cartopy: http://scitools.org.uk/cartopy/docs/latest/index.html
 
 The -f flag is used to pass in a features file that will be plotted, and the -o
 flag can optionally be used to specify the name of the image that will be
 generated.  If more than one map type is used, the name of the map type will
 be appended to the image name.  The option -m flag can be used to specify a 
 comma-separated list of map types to be plotted.  If no map type is specified, 
-all maps are used.  Possible map types are 'ortho', 'aeqd', 'eck4', 'cyl',
-'merc', 'vandg', 'mill', 'mill2', 'robin', 'robin2', 'hammer', 'northpole', 
+all maps are used.  Possible map types are 'cyl', 'merc', 'mill', 'mill2', 
+'moll', 'moll2', 'robin', 'robin2', 'ortho', 'northpole', 
 'southpole', 'atlantic', 'pacific', 'americas', 'asia'
 
 Authors: Xylar Asay-Davis, Doug Jacobsen, Phillip J. Wolfram
-Last Modified: 02/07/2016
+Last Modified: 02/08/2016
 """
 
 import numpy as np
 import json
 import matplotlib.pyplot as plt
-from mpl_toolkits.basemap import Basemap
+#from mpl_toolkits.basemap import Basemap
 import os.path
-from matplotlib.patches import Polygon
+#from matplotlib.patches import Polygon
 
-def plot_base(maptype): #{{{
+import cartopy.crs
+import cartopy.feature
 
-    if maptype == 'ortho':
-        map = Basemap(projection='ortho', lat_0=45, lon_0=-100, resolution='l')
-        map.drawmeridians(np.arange(0,360,30))
-        map.drawparallels(np.arange(-90,90,30))
-    elif maptype == 'aeqd':
-        map = Basemap(projection='aeqd', lat_0=0, lon_0=0, resolution='l')
-        map.drawparallels(np.arange(-80,81,20))
-        map.drawmeridians(np.arange(0,360,60))
-    elif maptype == 'eck4':
-        map = Basemap(projection='eck4',lon_0=0, resolution='l')
-        map.drawparallels(np.arange(-80,81,20),labels=[1,1,0,0])
-        map.drawmeridians(np.arange(0,360,60),labels=[0,0,0,1])
-    elif maptype == 'cyl':
-        map = Basemap(projection='cyl',llcrnrlat=-90,urcrnrlat=90,llcrnrlon=-180,urcrnrlon=180, resolution='l')
-        map.drawparallels(np.arange(-80,81,20),labels=[1,1,0,0])
-        map.drawmeridians(np.arange(0,360,60),labels=[0,0,0,1])
-    elif maptype == 'merc':
-        map = Basemap(projection='merc',llcrnrlat=-80,urcrnrlat=80,llcrnrlon=-180,urcrnrlon=180,lat_ts=20, resolution='l')
-        map.drawparallels(np.arange(-80,81,20),labels=[1,1,0,0])
-        map.drawmeridians(np.arange(0,360,60),labels=[0,0,0,1])
-    elif maptype == 'vandg':
-        map = Basemap(projection='vandg',lon_0=0,resolution='l')
-        map.drawparallels(np.arange(-80,81,20))
-        map.drawmeridians(np.arange(0,360,60))
-    elif maptype == 'mill':
-        map = Basemap(llcrnrlon=0,llcrnrlat=-90,urcrnrlon=360,urcrnrlat=90,projection='mill', resolution='l')
-        map.drawparallels(np.arange(-80,81,20),labels=[1,1,0,0])
-        map.drawmeridians(np.arange(0,360,60),labels=[0,0,0,1])
-    elif maptype == 'mill2':
-        map = Basemap(llcrnrlon=-180,llcrnrlat=-90,urcrnrlon=180,urcrnrlat=90,projection='mill', resolution='l')
-        map.drawparallels(np.arange(-80,81,20),labels=[1,1,0,0])
-        map.drawmeridians(np.arange(0,360,60),labels=[0,0,0,1])
-    elif maptype == 'robin':
-        map = Basemap(projection='robin',lon_0=0,lat_0=0, resolution='l')
-        map.drawparallels(np.arange(-80,81,20),labels=[1,1,0,0])
-        map.drawmeridians(np.arange(0,360,60),labels=[0,0,0,1])
-    elif maptype == 'robin2':
-        map = Basemap(projection='robin',lon_0=180,lat_0=0, resolution='l')
-        map.drawparallels(np.arange(-80,81,20),labels=[1,1,0,0])
-        map.drawmeridians(np.arange(0,360,60),labels=[0,0,0,1])
-    elif maptype == 'hammer':
-        map = Basemap(projection='hammer',lon_0=0, resolution='l')
-        map.drawmeridians(np.arange(0,360,30))
-        map.drawparallels(np.arange(-90,90,30))
-    elif maptype == 'northpole':
-        map = Basemap(projection='ortho', lat_0=90, lon_0=-180, resolution='l')
-        map.drawmeridians(np.arange(0,360,30))
-        map.drawparallels(np.arange(-90,90,30))
-    elif maptype == 'southpole':
-        map = Basemap(projection='ortho', lat_0=-90, lon_0=0, resolution='l')
-        map.drawmeridians(np.arange(0,360,30))
-        map.drawparallels(np.arange(-90,90,30))
-    elif maptype == 'atlantic':
-        map = Basemap(projection='ortho', lat_0=0, lon_0=0, resolution='l')
-        map.drawmeridians(np.arange(0,360,30))
-        map.drawparallels(np.arange(-90,90,30))
-    elif maptype == 'pacific':
-        map = Basemap(projection='ortho', lat_0=0, lon_0=-180, resolution='l')
-        map.drawmeridians(np.arange(0,360,30))
-        map.drawparallels(np.arange(-90,90,30))
-    elif maptype == 'americas':
-        map = Basemap(projection='ortho', lat_0=0, lon_0=-90, resolution='l')
-        map.drawmeridians(np.arange(0,360,30))
-        map.drawparallels(np.arange(-90,90,30))
-    elif maptype == 'asia':
-        map = Basemap(projection='ortho', lat_0=0, lon_0=90, resolution='l')
-        map.drawmeridians(np.arange(0,360,30))
-        map.drawparallels(np.arange(-90,90,30))
+
+
+def plot_base(mapType): #{{{
+
+    if mapType == 'cyl':
+        projection = cartopy.crs.PlateCarree()
+    elif mapType == 'merc':
+        projection = cartopy.crs.Mercator()
+    elif mapType == 'mill':
+        projection = cartopy.crs.Miller()
+    elif mapType == 'mill2':
+        projection = cartopy.crs.Miller(central_longitude=180.)
+    elif mapType == 'moll':
+        projection = cartopy.crs.Mollweide()
+    elif mapType == 'moll2':
+        projection = cartopy.crs.Mollweide(central_longitude=180.)
+    elif mapType == 'robin':
+        projection = cartopy.crs.Robinson()
+    elif mapType == 'robin2':
+        projection = cartopy.crs.Robinson(central_longitude=180.)
+
+    elif mapType == 'ortho':
+        projection = cartopy.crs.Orthographic(central_longitude=-100., central_latitude=45.)
+    elif mapType == 'northpole':
+        projection = cartopy.crs.Orthographic(central_longitude=0., central_latitude=90.)
+    elif mapType == 'southpole':
+        projection = cartopy.crs.Orthographic(central_longitude=0., central_latitude=-90.)
+    elif mapType == 'atlantic':
+        projection = cartopy.crs.Orthographic(central_longitude=0., central_latitude=0.)
+    elif mapType == 'pacific':
+        projection = cartopy.crs.Orthographic(central_longitude=180., central_latitude=0.)
+    elif mapType == 'americas':
+        projection = cartopy.crs.Orthographic(central_longitude=-90., central_latitude=0.)
+    elif mapType == 'asia':
+        projection = cartopy.crs.Orthographic(central_longitude=90., central_latitude=0.)
+
     else:
-        raise NameError("Didn't select a valid maptype!")
+        raise NameError("Didn't select a valid mapType!")
 
-    map.drawcoastlines(linewidth=0.25)
-    map.drawcountries(linewidth=0.25)
-    map.fillcontinents(color='#e0e0e0', lake_color='white')
-    map.drawmapboundary(fill_color='white')
+    
+    ax = plt.axes(projection=projection)
+    resolution = '50m'
+    ax.add_feature(cartopy.feature.NaturalEarthFeature('physical', 'land', resolution,
+                   edgecolor='face', facecolor=cartopy.feature.COLORS['land']))
+    ax.add_feature(cartopy.feature.NaturalEarthFeature('physical', 'coastline', resolution,
+                   edgecolor='black', facecolor='none'))
+                   
+                   
+    draw_labels = mapType in ['merc','cyl']
+    
+    ax.gridlines(crs=cartopy.crs.PlateCarree(), draw_labels=draw_labels,
+                 linewidth=0.5, color='gray', linestyle='--')
+                   
+    if not draw_labels:
+        plt.tight_layout()
 
-    return map #}}}
+    return (ax,projection) #}}}
 
 def divide_poly_segments(points): #{{{
 
     inPoints = np.asarray(points)
-    minDist = 1.0 # one-degree segments
+    minDist = 4.0 # 4-degree segments
     dLon = inPoints[1:,0] - inPoints[0:-1,0]
     dLat = inPoints[1:,1] - inPoints[0:-1,1]
     dist = np.sqrt(dLon**2 + dLat**2)
@@ -140,28 +121,16 @@ def divide_poly_segments(points): #{{{
 def plot_poly(mapInfo, points, color, filled=True): #{{{
 
     points = divide_poly_segments(points)
+    #points = np.asarray(points)
+    
+    refProjection = cartopy.crs.PlateCarree()
     
     for mapIndex in range(len(mapInfo)):
-        (mapType, map, plotFileName, fig, offsets, supportsFill) = mapInfo[mapIndex]
-        plt.figure(fig.number) 
-        for offset in offsets:
-            lon = points[:,0]+offset
-            lat = points[:,1]
-            if(mapType == 'robin2'):
-                mask = np.logical_or(lon < 0.,lon > 360.)
-                lon[mask] = np.nan
-                lon[mask] = np.nan
-
-            (x, y) = map(lon, lat)
-                
-            mask = x == 1e30
-            x[mask] = np.nan
-            y[mask] = np.nan
-            if(filled and supportsFill):
-                xy = zip(x,y)
-                poly = Polygon( xy, facecolor=color, alpha=0.4)
-                plt.gca().add_patch(poly)
-            map.plot(x, y, linewidth=2.0, color=color)
+        (mapType, ax, projection, plotFileName, fig) = mapInfo[mapIndex]
+        x = points[:,0]
+        y = points[:,1]
+        ax.fill(x, y, transform=refProjection, color=color, alpha=0.4)
+        ax.plot(x, y, transform=refProjection, color=color, linewidth=2.0)
 
     return #}}}
   
@@ -169,12 +138,11 @@ def plot_point(mapInfo, points, marker, color): #{{{
 
     points = np.asarray(points)
     
+    refProjection = cartopy.crs.PlateCarree()
+
     for mapIndex in range(len(mapInfo)):
-        (mapType, map, plotFileName, fig, offsets, supportsFill) = mapInfo[mapIndex]
-        plt.figure(fig.number) 
-        for offset in offsets:
-            (x, y) = map(points[:,0] + offset, points[:,1])
-            map.plot(x, y, marker, markersize=20, color=color)
+        (mapType, ax, projection, plotFileName, fig) = mapInfo[mapIndex]
+        ax.plot(points[:,0], points[:,1], marker = marker, transform=refProjection, color=color)
 
     return #}}}
 
@@ -219,7 +187,7 @@ def plot_features_file(featurefile, mapInfo): #{{{
         feature_num = feature_num + 1
 
     for mapIndex in range(len(mapInfo)):
-        (mapType, map, plotFileName, fig, offsets, supportsFill) = mapInfo[mapIndex]
+        (mapType, ax, projection, plotFileName, fig) = mapInfo[mapIndex]
         print 'saving ' + plotFileName
         plt.figure(mapIndex+1) 
         plt.savefig(plotFileName)
@@ -238,10 +206,9 @@ if __name__ == "__main__":
 
 
     if not args.map_type:
-        mapTypes = ['ortho', 'aeqd', 'eck4', 'cyl',
-                    'merc', 'vandg', 'mill', 'mill2',
-                    'robin', 'robin2', 'hammer', 'northpole', 'southpole',
-                    'atlantic','pacific', 'americas', 'asia']
+        mapTypes = ['cyl', 'merc', 'mill', 'mill2', 
+                    'moll', 'moll2', 'robin', 'robin2', 'ortho', 'northpole', 
+                    'southpole', 'atlantic', 'pacific', 'americas', 'asia']
     else:
         mapTypes = args.map_type.split(',')
 
@@ -253,17 +220,13 @@ if __name__ == "__main__":
     for mapType in mapTypes:
         print 'plot type: %s'%mapType
         fig = plt.figure(figsize=(16,12),dpi=100)
-        map = plot_base(mapType)
-        if mapType in ['mill', 'robin2']:
-            offsets = [0., 360.]
-        else:
-            offsets = [0.]
-        supportsFill = mapType in ['eck4', 'cyl','vandg', 'mill', 'mill2','robin', 'hammer']
+        (ax,projection) = plot_base(mapType)
+                
         if(len(mapTypes) == 1):
             plotFileName = args.features_plotname
         else:
             plotFileName = '%s_%s.png'%(os.path.splitext(args.features_plotname)[0],mapType)
-        mapInfo.append((mapType, map, plotFileName, fig, offsets, supportsFill))
+        mapInfo.append((mapType, ax, projection, plotFileName, fig))
         
     plot_features_file(args.features_file, mapInfo)
 
