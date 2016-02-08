@@ -14,7 +14,7 @@ all maps are used.  Possible map types are 'ortho', 'aeqd', 'eck4', 'cyl',
 'merc', 'vandg', 'mill', 'mill2', 'robin', 'robin2', 'hammer', 'northpole', 
 'southpole', 'atlantic', 'pacific', 'americas', 'asia'
 
-Authors: Phillip J. Wolfram, Doug Jacobsen, Xylar Asay-Davis
+Authors: Xylar Asay-Davis, Doug Jacobsen, Phillip J. Wolfram
 Last Modified: 02/07/2016
 """
 
@@ -26,6 +26,7 @@ import os.path
 from matplotlib.patches import Polygon
 
 def plot_base(maptype): #{{{
+
     if maptype == 'ortho':
         map = Basemap(projection='ortho', lat_0=45, lon_0=-100, resolution='l')
         map.drawmeridians(np.arange(0,360,30))
@@ -101,9 +102,11 @@ def plot_base(maptype): #{{{
     map.drawcountries(linewidth=0.25)
     map.fillcontinents(color='#e0e0e0', lake_color='white')
     map.drawmapboundary(fill_color='white')
+
     return map #}}}
 
-def divide_poly_segments(points):
+def divide_poly_segments(points): #{{{
+
     inPoints = np.asarray(points)
     minDist = 1.0 # one-degree segments
     dLon = inPoints[1:,0] - inPoints[0:-1,0]
@@ -132,9 +135,10 @@ def divide_poly_segments(points):
             endIndex = inPoints.shape[0]
         outPoints = np.append(outPoints, inPoints[segIndex+1:endIndex,:], axis=0)
         
-    return outPoints
+    return outPoints #}}}
 
-def plot_poly(mapInfo, points, color, filled=True):
+def plot_poly(mapInfo, points, color, filled=True): #{{{
+
     points = divide_poly_segments(points)
     
     for mapIndex in range(len(mapInfo)):
@@ -158,8 +162,11 @@ def plot_poly(mapInfo, points, color, filled=True):
                 poly = Polygon( xy, facecolor=color, alpha=0.4)
                 plt.gca().add_patch(poly)
             map.plot(x, y, linewidth=2.0, color=color)
+
+    return #}}}
   
-def plot_point(mapInfo, points, marker, color):
+def plot_point(mapInfo, points, marker, color): #{{{
+
     points = np.asarray(points)
     
     for mapIndex in range(len(mapInfo)):
@@ -169,16 +176,18 @@ def plot_point(mapInfo, points, marker, color):
             (x, y) = map(points[:,0] + offset, points[:,1])
             map.plot(x, y, marker, markersize=20, color=color)
 
-def plot_features_file(featurefile, mapInfo):
+    return #}}}
+
+def plot_features_file(featurefile, mapInfo): #{{{
     
     # open up the database
     with open(featurefile) as f:
         featuredat = json.load(f)
 
-    colors = ['blue', 'green', 'red', 'cyan', 'magenta', 'yellow', 'black']
+    # use colorbrewer qualitative 7 data class colors, "7-class Accent": http://colorbrewer2.org/
+    colors = ['#7fc97f' ,'#beaed4', '#fdc086', '#ffff99','#386cb0','#f0027f','#bf5b17']
     markers = ['o', 's', 'v', '^', '>', '<', '*', 'p', 'D', 'h']
 
- 
     feature_num = 0
 
     for feature in featuredat['features']:
@@ -208,11 +217,14 @@ def plot_features_file(featurefile, mapInfo):
             print 'Error plotting %s'%(feature)
 
         feature_num = feature_num + 1
+
     for mapIndex in range(len(mapInfo)):
         (mapType, map, plotFileName, fig, offsets, supportsFill) = mapInfo[mapIndex]
         print 'saving ' + plotFileName
         plt.figure(mapIndex+1) 
         plt.savefig(plotFileName)
+
+    return #}}}
 
 
 if __name__ == "__main__":
