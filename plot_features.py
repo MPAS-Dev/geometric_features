@@ -184,7 +184,8 @@ def plot_features_file(featurefile, mapInfo): #{{{
     with open(featurefile) as f:
         featuredat = json.load(f)
 
-    colors = ['blue', 'green', 'red', 'cyan', 'magenta', 'yellow', 'black']
+    # use colorbrewer qualitative 7 data class colors, "7-class Accent": http://colorbrewer2.org/
+    colors = ['#7fc97f' ,'#beaed4', '#fdc086', '#ffff99','#386cb0','#f0027f','#bf5b17']
     markers = ['o', 's', 'v', '^', '>', '<', '*', 'p', 'D', 'h']
 
     feature_num = 0
