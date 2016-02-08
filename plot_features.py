@@ -71,9 +71,9 @@ def plot_base(mapType): #{{{
     ax = plt.axes(projection=projection)
     resolution = '50m'
     ax.add_feature(cartopy.feature.NaturalEarthFeature('physical', 'land', resolution,
-                   edgecolor='face', facecolor=cartopy.feature.COLORS['land']))
+                   edgecolor='face', facecolor=cartopy.feature.COLORS['land']), zorder=1)
     ax.add_feature(cartopy.feature.NaturalEarthFeature('physical', 'coastline', resolution,
-                   edgecolor='black', facecolor='none'))
+                   edgecolor='black', facecolor='none'), zorder=2)
                    
                    
     draw_labels = mapType in ['merc','cyl']
@@ -129,8 +129,8 @@ def plot_poly(mapInfo, points, color, filled=True): #{{{
         (mapType, ax, projection, plotFileName, fig) = mapInfo[mapIndex]
         x = points[:,0]
         y = points[:,1]
-        ax.fill(x, y, transform=refProjection, color=color, alpha=0.4)
-        ax.plot(x, y, transform=refProjection, color=color, linewidth=2.0)
+        ax.fill(x, y, transform=refProjection, color=color, alpha=0.4, zorder=3)
+        ax.plot(x, y, transform=refProjection, color=color, linewidth=2.0, zorder=4)
 
     return #}}}
   
@@ -142,7 +142,7 @@ def plot_point(mapInfo, points, marker, color): #{{{
 
     for mapIndex in range(len(mapInfo)):
         (mapType, ax, projection, plotFileName, fig) = mapInfo[mapIndex]
-        ax.plot(points[:,0], points[:,1], marker = marker, transform=refProjection, color=color)
+        ax.plot(points[:,0], points[:,1], marker = marker, transform=refProjection, color=color, zorder=5)
 
     return #}}}
 
