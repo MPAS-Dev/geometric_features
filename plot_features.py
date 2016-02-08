@@ -103,7 +103,7 @@ def plot_base(maptype): #{{{
     map.drawmapboundary(fill_color='white')
     return map #}}}
 
-def divide_poly_segments(points):
+def divide_poly_segments(points): #{{{
     inPoints = np.asarray(points)
     minDist = 1.0 # one-degree segments
     dLon = inPoints[1:,0] - inPoints[0:-1,0]
@@ -132,9 +132,9 @@ def divide_poly_segments(points):
             endIndex = inPoints.shape[0]
         outPoints = np.append(outPoints, inPoints[segIndex+1:endIndex,:], axis=0)
         
-    return outPoints
+    return outPoints #}}}
 
-def plot_poly(mapInfo, points, color, filled=True):
+def plot_poly(mapInfo, points, color, filled=True): #{{{
     points = divide_poly_segments(points)
     
     for mapIndex in range(len(mapInfo)):
@@ -158,8 +158,10 @@ def plot_poly(mapInfo, points, color, filled=True):
                 poly = Polygon( xy, facecolor=color, alpha=0.4)
                 plt.gca().add_patch(poly)
             map.plot(x, y, linewidth=2.0, color=color)
+
+    return #}}}
   
-def plot_point(mapInfo, points, marker, color):
+def plot_point(mapInfo, points, marker, color): #{{{
     points = np.asarray(points)
     
     for mapIndex in range(len(mapInfo)):
@@ -169,7 +171,9 @@ def plot_point(mapInfo, points, marker, color):
             (x, y) = map(points[:,0] + offset, points[:,1])
             map.plot(x, y, marker, markersize=20, color=color)
 
-def plot_features_file(featurefile, mapInfo):
+    return #}}}
+
+def plot_features_file(featurefile, mapInfo): #{{{
     
     # open up the database
     with open(featurefile) as f:
@@ -213,6 +217,8 @@ def plot_features_file(featurefile, mapInfo):
         print 'saving ' + plotFileName
         plt.figure(mapIndex+1) 
         plt.savefig(plotFileName)
+
+    return #}}}
 
 
 if __name__ == "__main__":
