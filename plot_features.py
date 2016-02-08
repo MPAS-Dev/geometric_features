@@ -14,7 +14,7 @@ all maps are used.  Possible map types are 'ortho', 'aeqd', 'eck4', 'cyl',
 'merc', 'vandg', 'mill', 'mill2', 'robin', 'robin2', 'hammer', 'northpole', 
 'southpole', 'atlantic', 'pacific', 'americas', 'asia'
 
-Authors: Phillip J. Wolfram, Doug Jacobsen, Xylar Asay-Davis
+Authors: Xylar Asay-Davis, Doug Jacobsen, Phillip J. Wolfram
 Last Modified: 02/07/2016
 """
 
