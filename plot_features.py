@@ -26,6 +26,7 @@ import os.path
 from matplotlib.patches import Polygon
 
 def plot_base(maptype): #{{{
+
     if maptype == 'ortho':
         map = Basemap(projection='ortho', lat_0=45, lon_0=-100, resolution='l')
         map.drawmeridians(np.arange(0,360,30))
@@ -101,9 +102,11 @@ def plot_base(maptype): #{{{
     map.drawcountries(linewidth=0.25)
     map.fillcontinents(color='#e0e0e0', lake_color='white')
     map.drawmapboundary(fill_color='white')
+
     return map #}}}
 
 def divide_poly_segments(points): #{{{
+
     inPoints = np.asarray(points)
     minDist = 1.0 # one-degree segments
     dLon = inPoints[1:,0] - inPoints[0:-1,0]
@@ -135,6 +138,7 @@ def divide_poly_segments(points): #{{{
     return outPoints #}}}
 
 def plot_poly(mapInfo, points, color, filled=True): #{{{
+
     points = divide_poly_segments(points)
     
     for mapIndex in range(len(mapInfo)):
@@ -162,6 +166,7 @@ def plot_poly(mapInfo, points, color, filled=True): #{{{
     return #}}}
   
 def plot_point(mapInfo, points, marker, color): #{{{
+
     points = np.asarray(points)
     
     for mapIndex in range(len(mapInfo)):
@@ -182,7 +187,6 @@ def plot_features_file(featurefile, mapInfo): #{{{
     colors = ['blue', 'green', 'red', 'cyan', 'magenta', 'yellow', 'black']
     markers = ['o', 's', 'v', '^', '>', '<', '*', 'p', 'D', 'h']
 
- 
     feature_num = 0
 
     for feature in featuredat['features']:
@@ -212,6 +216,7 @@ def plot_features_file(featurefile, mapInfo): #{{{
             print 'Error plotting %s'%(feature)
 
         feature_num = feature_num + 1
+
     for mapIndex in range(len(mapInfo)):
         (mapType, map, plotFileName, fig, offsets, supportsFill) = mapInfo[mapIndex]
         print 'saving ' + plotFileName
