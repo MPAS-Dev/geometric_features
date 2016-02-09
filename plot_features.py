@@ -26,43 +26,28 @@ import os.path as ospath
 import cartopy.crs
 import cartopy.feature
 
+def build_projections(): #{{{
+    projections = {}
+    projections['cyl'] = cartopy.crs.PlateCarree()
+    projections['merc'] = cartopy.crs.Mercator()
+    projections['mill'] = cartopy.crs.Miller()
+    projections['mill2'] = cartopy.crs.Miller(central_longitude=180.)
+    projections['moll'] = cartopy.crs.Mollweide()
+    projections['moll2'] = cartopy.crs.Mollweide(central_longitude=180.)
+    projections['robin'] = cartopy.crs.Robinson()
+    projections['robin2'] = cartopy.crs.Robinson(central_longitude=180.)
 
-def plot_base(mapType): #{{{
+    projections['ortho'] = cartopy.crs.Orthographic(central_longitude=-100., central_latitude=45.)
+    projections['northpole'] = cartopy.crs.Orthographic(central_longitude=0., central_latitude=90.)
+    projections['southpole'] = cartopy.crs.Orthographic(central_longitude=0., central_latitude=-90.)
+    projections['atlantic'] = cartopy.crs.Orthographic(central_longitude=0., central_latitude=0.)
+    projections['pacific'] = cartopy.crs.Orthographic(central_longitude=180., central_latitude=0.)
+    projections['americas'] = cartopy.crs.Orthographic(central_longitude=-90., central_latitude=0.)
+    projections['asia'] = cartopy.crs.Orthographic(central_longitude=90., central_latitude=0.)
 
-    if mapType == 'cyl':
-        projection = cartopy.crs.PlateCarree()
-    elif mapType == 'merc':
-        projection = cartopy.crs.Mercator()
-    elif mapType == 'mill':
-        projection = cartopy.crs.Miller()
-    elif mapType == 'mill2':
-        projection = cartopy.crs.Miller(central_longitude=180.)
-    elif mapType == 'moll':
-        projection = cartopy.crs.Mollweide()
-    elif mapType == 'moll2':
-        projection = cartopy.crs.Mollweide(central_longitude=180.)
-    elif mapType == 'robin':
-        projection = cartopy.crs.Robinson()
-    elif mapType == 'robin2':
-        projection = cartopy.crs.Robinson(central_longitude=180.)
+    return projections #}}}
 
-    elif mapType == 'ortho':
-        projection = cartopy.crs.Orthographic(central_longitude=-100., central_latitude=45.)
-    elif mapType == 'northpole':
-        projection = cartopy.crs.Orthographic(central_longitude=0., central_latitude=90.)
-    elif mapType == 'southpole':
-        projection = cartopy.crs.Orthographic(central_longitude=0., central_latitude=-90.)
-    elif mapType == 'atlantic':
-        projection = cartopy.crs.Orthographic(central_longitude=0., central_latitude=0.)
-    elif mapType == 'pacific':
-        projection = cartopy.crs.Orthographic(central_longitude=180., central_latitude=0.)
-    elif mapType == 'americas':
-        projection = cartopy.crs.Orthographic(central_longitude=-90., central_latitude=0.)
-    elif mapType == 'asia':
-        projection = cartopy.crs.Orthographic(central_longitude=90., central_latitude=0.)
-
-    else:
-        raise NameError("Didn't select a valid mapType!")
+def plot_base(mapType, projection): #{{{
 
     ax = plt.axes(projection=projection)
     resolution = '50m'
@@ -116,16 +101,14 @@ def divide_poly_segments(points): #{{{
 def plot_poly(mapInfo, points, color, filled=True): #{{{
 
     points = divide_poly_segments(points)
-    #points = np.asarray(points)
 
     refProjection = cartopy.crs.PlateCarree()
 
-    for mapIndex in range(len(mapInfo)):
-        (mapType, ax, projection, plotFileName, fig) = mapInfo[mapIndex]
+    for mapType in mapInfo:
+        (ax, projection, plotFileName, fig) = mapInfo[mapType]
         x = points[:,0]
         y = points[:,1]
-        ax.fill(x, y, transform=refProjection, color=color, alpha=0.4, zorder=3)
-        ax.plot(x, y, transform=refProjection, color=color, linewidth=2.0, zorder=4)
+        ax.fill(x, y, transform=refProjection, color=color, alpha=0.4, linewidth=2.0, zorder=3)
 
     return #}}}
 
@@ -135,8 +118,8 @@ def plot_point(mapInfo, points, marker, color): #{{{
 
     refProjection = cartopy.crs.PlateCarree()
 
-    for mapIndex in range(len(mapInfo)):
-        (mapType, ax, projection, plotFileName, fig) = mapInfo[mapIndex]
+    for mapType in mapInfo:
+        (ax, projection, plotFileName, fig) = mapInfo[mapType]
         ax.plot(points[:,0], points[:,1], marker = marker, transform=refProjection, color=color, zorder=5)
 
     return #}}}
@@ -181,11 +164,10 @@ def plot_features_file(featurefile, mapInfo): #{{{
 
         feature_num = feature_num + 1
 
-    for mapIndex in range(len(mapInfo)):
-        (mapType, ax, projection, plotFileName, fig) = mapInfo[mapIndex]
+    for mapType in mapInfo:
+        (ax, projection, plotFileName, fig) = mapInfo[mapType]
         print 'saving ' + plotFileName
-        plt.figure(mapIndex+1)
-        plt.savefig(plotFileName)
+        fig.savefig(plotFileName)
 
     return #}}}
 
@@ -210,18 +192,19 @@ if __name__ == "__main__":
     if not args.features_plotname:
         args.features_plotname = ospath.splitext(args.features_file)[0] + '.png'
 
+    projections = build_projections()
 
-    mapInfo = []
+    mapInfo = {}
     for mapType in mapTypes:
         print 'plot type: %s'%mapType
         fig = plt.figure(figsize=(16,12),dpi=100)
-        (ax,projection) = plot_base(mapType)
+        (ax,projection) = plot_base(mapType,projections[mapType])
 
         if(len(mapTypes) == 1):
             plotFileName = args.features_plotname
         else:
             plotFileName = '%s_%s.png'%(ospath.splitext(args.features_plotname)[0],mapType)
-        mapInfo.append((mapType, ax, projection, plotFileName, fig))
+        mapInfo[mapType] = (ax, projection, plotFileName, fig)
 
     plot_features_file(args.features_file, mapInfo)
 
