@@ -18,11 +18,10 @@ Authors: Xylar Asay-Davis, Doug Jacobsen, Phillip J. Wolfram
 Last Modified: 02/08/2016
 """
 
-import numpy as np
+import os.path
 import json
+import numpy as np
 import matplotlib.pyplot as plt
-import os.path as ospath
-
 import cartopy.crs
 import cartopy.feature
 
@@ -190,7 +189,7 @@ if __name__ == "__main__":
         mapTypes = args.map_type.split(',')
 
     if not args.features_plotname:
-        args.features_plotname = ospath.splitext(args.features_file)[0] + '.png'
+        args.features_plotname = os.path.splitext(args.features_file)[0] + '.png'
 
     projections = build_projections()
 
@@ -203,7 +202,7 @@ if __name__ == "__main__":
         if(len(mapTypes) == 1):
             plotFileName = args.features_plotname
         else:
-            plotFileName = '%s_%s.png'%(ospath.splitext(args.features_plotname)[0],mapType)
+            plotFileName = '%s_%s.png'%(os.path.splitext(args.features_plotname)[0],mapType)
         mapInfo[mapType] = (ax, projection, plotFileName, fig)
 
     plot_features_file(args.features_file, mapInfo)
