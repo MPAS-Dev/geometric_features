@@ -12,7 +12,7 @@ A typical workflow will look like:
 * Edit features:
  - Edit features.geojson
 * Visualize features:
- - ./plot_features.py <br /> (Note: requires basemap package, e.g., conda install -c `https://conda.anaconda.org/anaconda basemap`)
+ - ./plot_features.py <br /> (Note: requires cartopy package, e.g., `conda install -c scitools cartopy`)
 * Split features:
  - ./split_features.py
 
