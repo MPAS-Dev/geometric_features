@@ -20,3 +20,12 @@ A typical workflow will look like:
 their respective directories. This will help everyone maintain the repository,
 and allow tools to parse them cleanly.
 
+An example workflow to select and plot region features is
+
+```
+$ rm features.geojson
+$ ./merge_features.py -d ocean
+$ ./merge_features.py -f iceshelves/region/Ronne_1/region.geojson
+$ ./merge_features.py -d landice
+$ ./plot_features.py -f features.geojson
+```
