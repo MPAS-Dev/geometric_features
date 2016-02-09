@@ -18,11 +18,10 @@ Authors: Xylar Asay-Davis, Doug Jacobsen, Phillip J. Wolfram
 Last Modified: 02/08/2016
 """
 
-import numpy as np
-import json
-import matplotlib.pyplot as plt
 import os.path
-
+import json
+import numpy as np
+import matplotlib.pyplot as plt
 import cartopy.crs
 import cartopy.feature
 
