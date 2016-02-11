@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Persian Gulf",
 			"component": "ocean",
-			"tags": "Persian_Gulf;Indian_Basin",
+			"tags": "Persian_Gulf",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

@@ -21,6 +21,8 @@ parser.add_argument("-f", "--feature_file", dest="feature_file",
                     required=True)
 parser.add_argument("-t", "--tag", dest="tag", help="Tag to add to all features", 
                     metavar="TAG", required=True)
+parser.add_argument("-r", "--remove", dest="remove", action='store_true',
+                    help="Use this tag to signal removing a tag instead of adding")
 
 args = parser.parse_args()
 
@@ -28,29 +30,34 @@ args = parser.parse_args()
 out_file_name = args.feature_file
 all_features = defaultdict(list)
 
-new_file = True
-first_feature = True
 if os.path.exists(out_file_name):
-  new_file = False
-  try:
-    with open(out_file_name) as f:
-      appended_file = json.load(f)
-      for feature in appended_file['features']:
-        try:
-          feature_tags = feature['properties']['tags']
-        except:
-          feature_tags = ''
-        feature_tag_list = feature_tags.split(';')
+  with open(out_file_name) as f:
+    appended_file = json.load(f)
+    for feature in appended_file['features']:
+      try:
+        feature_tags = feature['properties']['tags']
+      except:
+        feature_tags = ''
+      feature_tag_list = feature_tags.split(';')
+      if args.remove:
+        if args.tag in feature_tag_list:
+          feature_tag_list.remove(args.tag)
+          if(len(feature_tag_list) == 0):
+            feature['properties']['tags'] = ''
+          else:
+            feature_tags = feature_tag_list[0]
+            for tag in feature_tag_list[1:len(feature_tag_list)]:
+              feature_tags = '%s;%s'%(feature_tags,tag)
+            feature['properties']['tags'] = feature_tags
+      else:
         if args.tag not in feature_tag_list:
           if(feature_tags == ''):
             feature['properties']['tags'] = args.tag
           else:
             feature['properties']['tags'] = '%s;%s'%(feature_tags,args.tag)
-    
-        all_features['features'].append(feature)
-      del appended_file
-  except:
-    new_file = True
+  
+      all_features['features'].append(feature)
+    del appended_file
 
 out_file = open(out_file_name, 'w')
 

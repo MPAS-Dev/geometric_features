@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Gulf of Aqaba",
 			"component": "ocean",
-			"tags": "Gulf_of_Aqaba;Indian_Basin",
+			"tags": "Gulf_of_Aqaba",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },
