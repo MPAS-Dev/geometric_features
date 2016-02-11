@@ -132,3 +132,4 @@ out_file.write('\n')
 out_file.write('\t]\n')
 out_file.write('}\n')
 
+# vim: foldmethod=marker ai ts=4 sts=4 et sw=4 ft=python

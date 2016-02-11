@@ -47,4 +47,4 @@ for feature in features_file['features']:
 	out_file.write('}\n')
 	out_file.close()
 
-
+# vim: foldmethod=marker ai ts=4 sts=4 et sw=4 ft=python
