@@ -3,7 +3,7 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Irish Sea and St. George's Channel",
+			"name": "Irish Sea and St Georges Channel",
 			"component": "ocean",
 			"tags": "",
 			"author": "http://www.marineregions.org/downloads.php#iho",
