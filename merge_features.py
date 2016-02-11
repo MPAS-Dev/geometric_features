@@ -19,7 +19,7 @@ input line.
 
 """
 
-import sys, os, glob, shutil, numpy
+import sys, os, glob, shutil, numpy, fnmatch
 import json
 import argparse
 from collections import defaultdict
@@ -85,7 +85,8 @@ if args.features_dir:
 	paths = []
 	for (dirpath, dirnames, filenames) in os.walk(args.features_dir):
 		for filename in filenames:
-			paths.append('%s/%s'%(dirpath, filename))
+			if fnmatch.fnmatch(filename, '*.geojson'):
+				paths.append('%s/%s'%(dirpath, filename))
 
 	for path in sorted(paths):
 		try:
