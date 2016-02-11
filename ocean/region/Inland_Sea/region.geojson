@@ -6,7 +6,7 @@
 		 "properties": {
 			"name": "Inland Sea",
 			"component": "ocean",
-			"tags": "Inland_Sea",
+			"tags": "Inland_Sea;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

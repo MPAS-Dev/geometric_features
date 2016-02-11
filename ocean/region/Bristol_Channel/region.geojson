@@ -6,7 +6,7 @@
 		 "properties": {
 			"name": "Bristol Channel",
 			"component": "ocean",
-			"tags": "Bristol_Channel",
+			"tags": "Bristol_Channel;Atlantic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

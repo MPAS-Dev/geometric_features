@@ -6,7 +6,7 @@
 		 "properties": {
 			"name": "Lincoln Sea",
 			"component": "ocean",
-			"tags": "Lincoln_Sea",
+			"tags": "Lincoln_Sea;Arctic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },
