@@ -34,20 +34,20 @@ parser.add_argument("-t", "--tags", dest="tags", help="Semicolon separated list 
 args = parser.parse_args()
 
 if not args.feature_file and not args.features_dir:
-	parser.error('Either a feature file (-f) or a feature directory (-d) is required.')
+    parser.error('Either a feature file (-f) or a feature directory (-d) is required.')
 
 if args.features_dir:
-	if not os.path.exists(args.features_dir):
-		parser.error('The path %s does not exist.'%(args.features_dir))
+    if not os.path.exists(args.features_dir):
+        parser.error('The path %s does not exist.'%(args.features_dir))
 
 if args.feature_file:
-	if not os.path.exists(args.feature_file):
-		parser.error('The file %s does not exist.'%(args.feature_file))
+    if not os.path.exists(args.feature_file):
+        parser.error('The file %s does not exist.'%(args.feature_file))
 
 master_tag_list = []
 if args.tags:
-	for tag in args.tags.split(';'):
-		master_tag_list.append(tag)
+    for tag in args.tags.split(';'):
+        master_tag_list.append(tag)
 
 file_to_append = "features.geojson"
 all_features = defaultdict(list)
@@ -55,51 +55,51 @@ all_features = defaultdict(list)
 new_file = True
 first_feature = True
 if os.path.exists(file_to_append):
-	new_file = False
-	try:
-		with open(file_to_append) as f:
-			appended_file = json.load(f)
-			for feature in appended_file['features']:
-				all_features['features'].append(feature)
-			del appended_file
-	except:
-		new_file = True
+    new_file = False
+    try:
+        with open(file_to_append) as f:
+            appended_file = json.load(f)
+            for feature in appended_file['features']:
+                all_features['features'].append(feature)
+            del appended_file
+    except:
+        new_file = True
 
 out_file = open(file_to_append, 'w')
 
 if args.feature_file:
-	try:
-		with open(args.feature_file) as f:
-			feature_file = json.load(f)
+    try:
+        with open(args.feature_file) as f:
+            feature_file = json.load(f)
 
-			for feature in feature_file['features']:
-				if match_tag_list(feature, master_tag_list):
-					if not feature_already_exists(all_features, feature):
-						all_features['features'].append(feature)
+            for feature in feature_file['features']:
+                if match_tag_list(feature, master_tag_list):
+                    if not feature_already_exists(all_features, feature):
+                        all_features['features'].append(feature)
 
-			del feature_file
-	except:
-		print "Error parsing geojson file: %s"%(args.feature_file)
+            del feature_file
+    except:
+        print "Error parsing geojson file: %s"%(args.feature_file)
 
 if args.features_dir:
-	paths = []
-	for (dirpath, dirnames, filenames) in os.walk(args.features_dir):
-		for filename in filenames:
-			if fnmatch.fnmatch(filename, '*.geojson'):
-				paths.append('%s/%s'%(dirpath, filename))
+    paths = []
+    for (dirpath, dirnames, filenames) in os.walk(args.features_dir):
+        for filename in filenames:
+            if fnmatch.fnmatch(filename, '*.geojson'):
+                paths.append('%s/%s'%(dirpath, filename))
 
-	for path in sorted(paths):
-		try:
-			with open('%s'%(path), 'r') as f:
-				feature_file = json.load(f)
-				for feature in feature_file['features']:
-					if match_tag_list(feature, master_tag_list):
-						if not feature_already_exists(all_features, feature):
-							all_features['features'].append(feature)
-				del feature_file
-		except:
-			print "Error parsing geojson file: %s"%(path)
-	del paths
+    for path in sorted(paths):
+        try:
+            with open('%s'%(path), 'r') as f:
+                feature_file = json.load(f)
+                for feature in feature_file['features']:
+                    if match_tag_list(feature, master_tag_list):
+                        if not feature_already_exists(all_features, feature):
+                            all_features['features'].append(feature)
+                del feature_file
+        except:
+            print "Error parsing geojson file: %s"%(path)
+    del paths
 
 out_file.write('{"type": "FeatureCollection",\n')
 out_file.write(' "groupName": "enterNameHere",\n')

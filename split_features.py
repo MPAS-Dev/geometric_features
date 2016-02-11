@@ -19,32 +19,32 @@ parser.add_argument("-f", "--features_file", dest="features_file", help="File co
 args = parser.parse_args()
 
 if args.features_file:
-	if not os.path.exists(args.features_file):
-		parser.error('The file %s does not exist.'%(args.features_file))
+    if not os.path.exists(args.features_file):
+        parser.error('The file %s does not exist.'%(args.features_file))
 
 with open(args.features_file) as f:
-	features_file = json.load(f)
+    features_file = json.load(f)
 
 
 for feature in features_file['features']:
-	feature_name = feature['properties']['name']
-	component = feature['properties']['component']
-	object_type = feature['properties']['object']
+    feature_name = feature['properties']['name']
+    component = feature['properties']['component']
+    object_type = feature['properties']['object']
 
-	dir_name = feature_name.strip().replace(' ','_').strip('\'').strip('.',)
+    dir_name = feature_name.strip().replace(' ','_').strip('\'').strip('.',)
 
-	if not os.path.exists('%s/%s/%s'%(component, object_type, dir_name)):
-		os.makedirs('%s/%s/%s'%(component, object_type, dir_name))
+    if not os.path.exists('%s/%s/%s'%(component, object_type, dir_name)):
+        os.makedirs('%s/%s/%s'%(component, object_type, dir_name))
 
-	out_file = open('%s/%s/%s/%s.geojson'%(component, object_type, dir_name, object_type), 'w')
+    out_file = open('%s/%s/%s/%s.geojson'%(component, object_type, dir_name, object_type), 'w')
 
-	out_file.write('{"type": "FeatureCollection",\n')
-	out_file.write(' "features":\n')
-	out_file.write('\t[\n')
-	write_single_feature(feature, out_file, '\t\t')
-	out_file.write('\n')
-	out_file.write('\t]\n')
-	out_file.write('}\n')
-	out_file.close()
+    out_file.write('{"type": "FeatureCollection",\n')
+    out_file.write(' "features":\n')
+    out_file.write('\t[\n')
+    write_single_feature(feature, out_file, '\t\t')
+    out_file.write('\n')
+    out_file.write('\t]\n')
+    out_file.write('}\n')
+    out_file.close()
 
 # vim: foldmethod=marker ai ts=4 sts=4 et sw=4 ft=python

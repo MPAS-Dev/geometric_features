@@ -36,14 +36,14 @@ out_file_name = "features.geojson"
 features = defaultdict(list)
 
 if os.path.exists(out_file_name):
-	try:
-		with open(out_file_name) as f:
-			appended_file = json.load(f)
-			for feature in appended_file['features']:
-				features['features'].append(feature)
-			del appended_file
-	except:
-		pass
+    try:
+        with open(out_file_name) as f:
+            appended_file = json.load(f)
+            for feature in appended_file['features']:
+                features['features'].append(feature)
+            del appended_file
+    except:
+        pass
 
 try:
   with open(args.feature_file) as f:
