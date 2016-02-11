@@ -1,11 +1,12 @@
 {"type": "FeatureCollection",
+ "groupName": "enterNameHere",
  "features":
 	[
 		{"type": "Feature",
 		 "properties": {
 			"name": "Strait of Gibraltar",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Strait_of_Gibraltar",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

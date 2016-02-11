@@ -1,11 +1,12 @@
 {"type": "FeatureCollection",
+ "groupName": "enterNameHere",
  "features":
 	[
 		{"type": "Feature",
 		 "properties": {
 			"name": "Gulf of Tomini",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Gulf_of_Tomini",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

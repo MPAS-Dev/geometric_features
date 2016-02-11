@@ -1,11 +1,12 @@
 {"type": "FeatureCollection",
+ "groupName": "enterNameHere",
  "features":
 	[
 		{"type": "Feature",
 		 "properties": {
 			"name": "Singapore Strait",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Singapore_Strait",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

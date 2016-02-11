@@ -1,11 +1,12 @@
 {"type": "FeatureCollection",
+ "groupName": "enterNameHere",
  "features":
 	[
 		{"type": "Feature",
 		 "properties": {
 			"name": "Indian Ocean",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Indian_Ocean",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

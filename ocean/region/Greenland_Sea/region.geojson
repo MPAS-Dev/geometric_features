@@ -1,11 +1,12 @@
 {"type": "FeatureCollection",
+ "groupName": "enterNameHere",
  "features":
 	[
 		{"type": "Feature",
 		 "properties": {
 			"name": "Greenland Sea",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Greenland_Sea",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

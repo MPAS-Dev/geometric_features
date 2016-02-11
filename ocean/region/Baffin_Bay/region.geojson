@@ -1,11 +1,12 @@
 {"type": "FeatureCollection",
+ "groupName": "enterNameHere",
  "features":
 	[
 		{"type": "Feature",
 		 "properties": {
 			"name": "Baffin Bay",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Baffin_Bay",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

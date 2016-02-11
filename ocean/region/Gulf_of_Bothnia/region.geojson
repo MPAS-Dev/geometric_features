@@ -1,11 +1,12 @@
 {"type": "FeatureCollection",
+ "groupName": "enterNameHere",
  "features":
 	[
 		{"type": "Feature",
 		 "properties": {
 			"name": "Gulf of Bothnia",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Gulf_of_Bothnia",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

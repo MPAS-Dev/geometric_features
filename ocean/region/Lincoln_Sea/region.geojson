@@ -1,11 +1,12 @@
 {"type": "FeatureCollection",
+ "groupName": "enterNameHere",
  "features":
 	[
 		{"type": "Feature",
 		 "properties": {
 			"name": "Lincoln Sea",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Lincoln_Sea",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

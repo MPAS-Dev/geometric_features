@@ -1,11 +1,12 @@
 {"type": "FeatureCollection",
+ "groupName": "enterNameHere",
  "features":
 	[
 		{"type": "Feature",
 		 "properties": {
 			"name": "Timor Sea",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Timor_Sea",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

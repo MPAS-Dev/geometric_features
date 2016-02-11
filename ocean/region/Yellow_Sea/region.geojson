@@ -1,11 +1,12 @@
 {"type": "FeatureCollection",
+ "groupName": "enterNameHere",
  "features":
 	[
 		{"type": "Feature",
 		 "properties": {
 			"name": "Yellow Sea",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Yellow_Sea",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

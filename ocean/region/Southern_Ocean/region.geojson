@@ -1,11 +1,12 @@
 {"type": "FeatureCollection",
+ "groupName": "enterNameHere",
  "features":
 	[
 		{"type": "Feature",
 		 "properties": {
 			"name": "Southern Ocean",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Southern_Ocean",
 			"author": "Xylar Asay-Davis",
 			"object": "region"
 		 },

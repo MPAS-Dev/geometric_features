@@ -1,11 +1,12 @@
 {"type": "FeatureCollection",
+ "groupName": "enterNameHere",
  "features":
 	[
 		{"type": "Feature",
 		 "properties": {
 			"name": "Gulf of Guinea",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Gulf_of_Guinea",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

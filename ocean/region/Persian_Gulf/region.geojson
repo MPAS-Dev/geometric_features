@@ -1,11 +1,12 @@
 {"type": "FeatureCollection",
+ "groupName": "enterNameHere",
  "features":
 	[
 		{"type": "Feature",
 		 "properties": {
 			"name": "Persian Gulf",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Persian_Gulf",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

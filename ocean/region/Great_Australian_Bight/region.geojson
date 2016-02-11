@@ -1,11 +1,12 @@
 {"type": "FeatureCollection",
+ "groupName": "enterNameHere",
  "features":
 	[
 		{"type": "Feature",
 		 "properties": {
 			"name": "Great Australian Bight",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Great_Australian_Bight",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

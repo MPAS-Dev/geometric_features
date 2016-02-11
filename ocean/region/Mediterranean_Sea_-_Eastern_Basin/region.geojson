@@ -1,11 +1,12 @@
 {"type": "FeatureCollection",
+ "groupName": "enterNameHere",
  "features":
 	[
 		{"type": "Feature",
 		 "properties": {
 			"name": "Mediterranean Sea - Eastern Basin",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Mediterranean_Sea_-_Eastern_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

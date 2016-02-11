@@ -1,11 +1,12 @@
 {"type": "FeatureCollection",
+ "groupName": "enterNameHere",
  "features":
 	[
 		{"type": "Feature",
 		 "properties": {
 			"name": "Bay of Bengal",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Bay_of_Bengal",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

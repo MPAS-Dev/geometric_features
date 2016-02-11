@@ -1,11 +1,12 @@
 {"type": "FeatureCollection",
+ "groupName": "enterNameHere",
  "features":
 	[
 		{"type": "Feature",
 		 "properties": {
 			"name": "Rio de La Plata",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Rio_de_La_Plata",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

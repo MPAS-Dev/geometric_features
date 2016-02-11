@@ -1,11 +1,12 @@
 {"type": "FeatureCollection",
+ "groupName": "enterNameHere",
  "features":
 	[
 		{"type": "Feature",
 		 "properties": {
 			"name": "Gulf of California",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Gulf_of_California",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

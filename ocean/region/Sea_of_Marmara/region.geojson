@@ -1,11 +1,12 @@
 {"type": "FeatureCollection",
+ "groupName": "enterNameHere",
  "features":
 	[
 		{"type": "Feature",
 		 "properties": {
 			"name": "Sea of Marmara",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Sea_of_Marmara",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

@@ -1,11 +1,12 @@
 {"type": "FeatureCollection",
+ "groupName": "enterNameHere",
  "features":
 	[
 		{"type": "Feature",
 		 "properties": {
 			"name": "Hudson Bay",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Hudson_Bay",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

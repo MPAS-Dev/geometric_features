@@ -1,11 +1,12 @@
 {"type": "FeatureCollection",
+ "groupName": "enterNameHere",
  "features":
 	[
 		{"type": "Feature",
 		 "properties": {
 			"name": "Bass Strait",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Bass_Strait",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

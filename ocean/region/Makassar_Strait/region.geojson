@@ -1,11 +1,12 @@
 {"type": "FeatureCollection",
+ "groupName": "enterNameHere",
  "features":
 	[
 		{"type": "Feature",
 		 "properties": {
 			"name": "Makassar Strait",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Makassar_Strait",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

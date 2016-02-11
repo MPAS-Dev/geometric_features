@@ -1,11 +1,12 @@
 {"type": "FeatureCollection",
+ "groupName": "enterNameHere",
  "features":
 	[
 		{"type": "Feature",
 		 "properties": {
 			"name": "South Pacific Ocean",
 			"component": "ocean",
-			"tags": "",
+			"tags": "South_Pacific_Ocean",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },
