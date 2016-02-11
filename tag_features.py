@@ -22,7 +22,7 @@ parser.add_argument("-f", "--feature_file", dest="feature_file",
 parser.add_argument("-t", "--tag", dest="tag", help="Tag to add to all features", 
                     metavar="TAG", required=True)
 parser.add_argument("-r", "--remove", dest="remove", action='store_true',
-                    help="Use this tag to signal removing a tag instead of adding")
+                    help="Use this flag to signal removing a tag instead of adding")
 
 args = parser.parse_args()
 
