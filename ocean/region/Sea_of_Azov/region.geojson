@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Sea of Azov",
 			"component": "ocean",
-			"tags": "Sea_of_Azov;Mediterranean_Basin",
+			"tags": "Sea_of_Azov",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

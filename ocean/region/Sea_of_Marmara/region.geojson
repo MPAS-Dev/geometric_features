@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Sea of Marmara",
 			"component": "ocean",
-			"tags": "Sea_of_Marmara;Mediterranean_Basin",
+			"tags": "Sea_of_Marmara",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },
