@@ -1,12 +1,11 @@
 {"type": "FeatureCollection",
- "groupName": "enterNameHere",
  "features":
 	[
 		{"type": "Feature",
 		 "properties": {
 			"name": "Gulf of Alaska",
 			"component": "ocean",
-			"tags": "Gulf_of_Alaska",
+			"tags": "Gulf_of_Alaska;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

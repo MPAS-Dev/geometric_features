@@ -1,12 +1,11 @@
 {"type": "FeatureCollection",
- "groupName": "enterNameHere",
  "features":
 	[
 		{"type": "Feature",
 		 "properties": {
 			"name": "Ionian Sea",
 			"component": "ocean",
-			"tags": "Ionian_Sea",
+			"tags": "Ionian_Sea;Mediterranean_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

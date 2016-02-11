@@ -1,12 +1,11 @@
 {"type": "FeatureCollection",
- "groupName": "enterNameHere",
  "features":
 	[
 		{"type": "Feature",
 		 "properties": {
 			"name": "Gulf of St-Lawrence",
 			"component": "ocean",
-			"tags": "Gulf_of_St-Lawrence",
+			"tags": "Gulf_of_St-Lawrence;Atlantic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

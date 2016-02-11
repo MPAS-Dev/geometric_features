@@ -1,12 +1,11 @@
 {"type": "FeatureCollection",
- "groupName": "enterNameHere",
  "features":
 	[
 		{"type": "Feature",
 		 "properties": {
 			"name": "Arafura Sea",
 			"component": "ocean",
-			"tags": "Arafura_Sea",
+			"tags": "Arafura_Sea;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

@@ -1,12 +1,11 @@
 {"type": "FeatureCollection",
- "groupName": "enterNameHere",
  "features":
 	[
 		{"type": "Feature",
 		 "properties": {
 			"name": "South Atlantic Ocean",
 			"component": "ocean",
-			"tags": "South_Atlantic_Ocean",
+			"tags": "South_Atlantic_Ocean;Atlantic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

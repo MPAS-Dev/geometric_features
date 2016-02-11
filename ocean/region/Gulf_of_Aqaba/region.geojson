@@ -1,12 +1,11 @@
 {"type": "FeatureCollection",
- "groupName": "enterNameHere",
  "features":
 	[
 		{"type": "Feature",
 		 "properties": {
 			"name": "Gulf of Aqaba",
 			"component": "ocean",
-			"tags": "Gulf_of_Aqaba",
+			"tags": "Gulf_of_Aqaba;Indian_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

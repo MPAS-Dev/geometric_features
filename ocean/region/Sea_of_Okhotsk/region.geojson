@@ -1,12 +1,11 @@
 {"type": "FeatureCollection",
- "groupName": "enterNameHere",
  "features":
 	[
 		{"type": "Feature",
 		 "properties": {
 			"name": "Sea of Okhotsk",
 			"component": "ocean",
-			"tags": "Sea_of_Okhotsk",
+			"tags": "Sea_of_Okhotsk;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

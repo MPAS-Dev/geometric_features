@@ -1,12 +1,11 @@
 {"type": "FeatureCollection",
- "groupName": "enterNameHere",
  "features":
 	[
 		{"type": "Feature",
 		 "properties": {
 			"name": "Mozambique Channel",
 			"component": "ocean",
-			"tags": "Mozambique_Channel",
+			"tags": "Mozambique_Channel;Indian_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

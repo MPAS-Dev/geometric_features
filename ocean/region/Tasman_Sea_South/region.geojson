@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Tasman Sea South",
 			"component": "ocean",
-			"tags": "Tasman_Sea",
+			"tags": "Tasman_Sea;Southern_Ocean_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

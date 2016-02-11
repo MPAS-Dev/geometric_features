@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Southern Ocean",
 			"component": "ocean",
-			"tags": "Southern_Ocean",
+			"tags": "Southern_Ocean;Southern_Ocean_Basin",
 			"author": "Xylar Asay-Davis",
 			"object": "region"
 		 },
