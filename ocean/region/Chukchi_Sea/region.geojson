@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Chukchi Sea",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Chukchi_Sea;Arctic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

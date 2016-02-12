@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Ionian Sea",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Ionian_Sea;Mediterranean_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Gulf of Finland",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Gulf_of_Finland;Atlantic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

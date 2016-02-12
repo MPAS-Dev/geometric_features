@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Black Sea",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Black_Sea",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

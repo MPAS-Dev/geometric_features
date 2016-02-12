@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Davis Strait",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Davis_Strait;Atlantic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

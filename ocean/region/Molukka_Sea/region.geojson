@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Molukka Sea",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Molukka_Sea;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

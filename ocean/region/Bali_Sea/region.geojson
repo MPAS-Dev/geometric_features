@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Bali Sea",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Bali_Sea;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

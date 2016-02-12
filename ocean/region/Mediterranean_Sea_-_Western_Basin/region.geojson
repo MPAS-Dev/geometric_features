@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Mediterranean Sea - Western Basin",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Mediterranean_Sea_-_Western_Basin;Mediterranean_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

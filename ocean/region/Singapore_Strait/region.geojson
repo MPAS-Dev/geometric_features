@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Singapore Strait",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Singapore_Strait;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

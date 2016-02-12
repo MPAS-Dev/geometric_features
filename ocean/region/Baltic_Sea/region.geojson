@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Baltic Sea",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Baltic_Sea;Atlantic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Ligurian Sea",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Ligurian_Sea;Mediterranean_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

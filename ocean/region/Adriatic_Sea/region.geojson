@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Adriatic Sea",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Adriatic_Sea;Mediterranean_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

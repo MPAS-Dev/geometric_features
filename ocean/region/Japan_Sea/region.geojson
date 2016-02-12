@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Japan Sea",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Japan_Sea;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

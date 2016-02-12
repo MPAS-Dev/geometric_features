@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Gulf of Suez",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Gulf_of_Suez",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

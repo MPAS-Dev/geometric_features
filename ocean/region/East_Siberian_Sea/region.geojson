@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "East Siberian Sea",
 			"component": "ocean",
-			"tags": "",
+			"tags": "East_Siberian_Sea;Arctic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

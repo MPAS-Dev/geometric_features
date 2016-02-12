@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Alboran Sea",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Alboran_Sea;Mediterranean_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

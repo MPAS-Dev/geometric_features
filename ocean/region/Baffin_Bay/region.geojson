@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Baffin Bay",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Baffin_Bay;Atlantic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

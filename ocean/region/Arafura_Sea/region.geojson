@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Arafura Sea",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Arafura_Sea;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

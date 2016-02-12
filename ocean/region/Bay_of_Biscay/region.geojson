@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Bay of Biscay",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Bay_of_Biscay;Atlantic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

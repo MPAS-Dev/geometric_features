@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Celebes Sea",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Celebes_Sea;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

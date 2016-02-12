@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Aegean Sea",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Aegean_Sea;Mediterranean_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

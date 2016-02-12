@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Rio de La Plata",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Rio_de_La_Plata;Atlantic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

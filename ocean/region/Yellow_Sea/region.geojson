@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Yellow Sea",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Yellow_Sea;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

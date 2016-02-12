@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Balearic Sea",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Balearic_Sea;Mediterranean_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

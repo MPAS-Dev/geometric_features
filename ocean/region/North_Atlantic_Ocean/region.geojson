@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "North Atlantic Ocean",
 			"component": "ocean",
-			"tags": "",
+			"tags": "North_Atlantic_Ocean;Atlantic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

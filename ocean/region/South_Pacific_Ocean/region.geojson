@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "South Pacific Ocean",
 			"component": "ocean",
-			"tags": "",
+			"tags": "South_Pacific_Ocean;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

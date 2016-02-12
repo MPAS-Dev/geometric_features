@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Coral Sea",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Coral_Sea;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

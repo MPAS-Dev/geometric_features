@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Barentsz Sea",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Barentsz_Sea;Arctic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

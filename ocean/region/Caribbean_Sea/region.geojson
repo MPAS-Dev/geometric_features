@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Caribbean Sea",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Caribbean_Sea;Atlantic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

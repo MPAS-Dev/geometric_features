@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Arabian Sea",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Arabian_Sea;Indian_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

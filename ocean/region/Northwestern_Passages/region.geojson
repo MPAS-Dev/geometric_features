@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Northwestern Passages",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Northwestern_Passages;Arctic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

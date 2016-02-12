@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Strait of Gibraltar",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Strait_of_Gibraltar;Mediterranean_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

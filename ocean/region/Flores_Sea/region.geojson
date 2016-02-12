@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Flores Sea",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Flores_Sea;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },

@@ -5,7 +5,7 @@
 		 "properties": {
 			"name": "Gulf of Mexico",
 			"component": "ocean",
-			"tags": "",
+			"tags": "Gulf_of_Mexico;Atlantic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
 			"object": "region"
 		 },
