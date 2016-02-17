@@ -45,13 +45,14 @@ if os.path.exists(out_file_name):
     except:
         pass
 
+featuresToMask = defaultdict(list)
+
 try:
     with open(args.feature_file) as f:
         feature_file = json.load(f)
 
     for feature in feature_file['features']:
-        if not feature_already_exists(features, feature):
-            features['features'].append(feature)
+        featuresToMask['features'].append(feature)
 
     del feature_file
 except:
@@ -73,13 +74,30 @@ except:
     raise
 
 
-for featureIndex in range(len(features['features'])):
-    feature = features['features'][featureIndex]
+for feature in featuresToMask['features']:
+    name = feature['properties']['name']
+    if feature_already_exists(features, feature):
+        print "Warning: feature %s already in features.geojson.  Skipping..."%name
+        continue
     featureShape = shapely.geometry.shape(feature['geometry'])
+    add = True
+    masked = False
     for maskFeature in mask['features']:
         maskShape = shapely.geometry.shape(maskFeature['geometry'])
-        featureShape = featureShape.difference(maskShape)
-    features['features'][featureIndex]['geometry'] = shapely.geometry.mapping(featureShape)
+        if featureShape.intersects(maskShape):
+            masked = True
+            featureShape = featureShape.difference(maskShape)
+            if featureShape.is_empty :
+                add = False
+                break
+
+    if(add):
+        if(masked):
+            print "%s has been masked."%name
+            feature['geometry'] = shapely.geometry.mapping(featureShape)
+        features['features'].append(feature)
+    else:
+        print "%s has been removed."%name
 
 out_file = open(out_file_name, 'w')
 out_file.write('{"type": "FeatureCollection",\n')

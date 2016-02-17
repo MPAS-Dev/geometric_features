@@ -1,5 +1,6 @@
 #!/use/bin/env python
 import json
+import sys
 
 def write_all_features(features, out_file, base_indent):#{{{
 	first_feature = True
