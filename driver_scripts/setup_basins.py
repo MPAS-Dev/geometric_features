@@ -30,5 +30,6 @@ for oceanName in 'Atlantic', 'Pacific', 'Indian', 'Arctic', 'Southern_Ocean', 'M
 
     shutil.move(defaultFileName,basinName)
     
-d        args = ['./plot_features.py', '-f', basinName, '-o', imageName, '-m', 'cyl']
+    if(options.plot):
+        args = ['./plot_features.py', '-f', basinName, '-o', imageName, '-m', 'cyl']
         subprocess.check_call(args, env=os.environ.copy())
