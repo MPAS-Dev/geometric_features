@@ -1,0 +1,29 @@
+{"type": "FeatureCollection",
+ "features":
+	[
+		{"type": "Feature",
+		 "properties": {
+			"name": "MOC mask 6S",
+			"component": "ocean",
+			"tags": "MOC_mask_6S",
+			"author": "Xylar Asay-Davis",
+			"object": "region"
+		 },
+		 "geometry":
+			{"type": "Polygon",
+			 "coordinates":
+				[
+					[
+						[ 180.000000, -6.000000],
+						[ 180.000000, -90.000000],
+						[ 0.000000, -90.000000],
+						[ -180.000000, -90.000000],
+						[ -180.000000, -6.000000],
+						[ 0.000000, -6.000000],
+						[ 180.000000, -6.000000]
+					]
+				]
+			}
+		}
+	]
+}
