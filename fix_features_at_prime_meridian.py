@@ -21,7 +21,7 @@ import argparse
 from utils.feature_write_utils import write_all_features
 
 import shapely.geometry
-import shapely.ops
+import shapely.affinity
 
 
 def splitGeometryCrossingPrimeMeridian(geometry):
@@ -48,6 +48,7 @@ def splitGeometryCrossingPrimeMeridian(geometry):
     print "  bounds before split:", featureShape.bounds
 
     westShape = featureShape.difference(eastMask)
+    westShape = shapely.affinity.translate(westShape, 360., 0.)
     print "  bounds of western half:", westShape.bounds
     eastShape = featureShape.difference(westMask)
     print "  bounds of eastern half:", eastShape.bounds
