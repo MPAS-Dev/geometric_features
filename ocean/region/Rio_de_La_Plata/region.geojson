@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Rio de La Plata",
-			"component": "ocean",
-			"tags": "Rio_de_La_Plata;Atlantic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Rio de La Plata",
+			"object": "region",
+			"tags": "Rio_de_La_Plata;Atlantic_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

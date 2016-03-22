@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Hamilton",
-			"component": "iceshelves",
-			"tags": "Hamilton;Antarctica_IMBIE20;GetzIceShelfDrainage;WestAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Hamilton",
+			"object": "region",
+			"tags": "Hamilton;Antarctica_IMBIE20;GetzIceShelfDrainage;WestAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "MultiPolygon",

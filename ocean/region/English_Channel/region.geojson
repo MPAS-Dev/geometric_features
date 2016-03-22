@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "English Channel",
-			"component": "ocean",
-			"tags": "English_Channel;Atlantic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "English Channel",
+			"object": "region",
+			"tags": "English_Channel;Atlantic_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

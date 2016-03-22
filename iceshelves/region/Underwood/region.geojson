@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Underwood",
-			"component": "iceshelves",
-			"tags": "Underwood;Antarctica_IMBIE13;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Underwood",
+			"object": "region",
+			"tags": "Underwood;Antarctica_IMBIE13;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "MultiPolygon",

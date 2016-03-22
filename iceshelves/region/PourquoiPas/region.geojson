@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "PourquoiPas",
-			"component": "iceshelves",
-			"tags": "PourquoiPas;Antarctica_IMBIE14;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "PourquoiPas",
+			"object": "region",
+			"tags": "PourquoiPas;Antarctica_IMBIE14;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

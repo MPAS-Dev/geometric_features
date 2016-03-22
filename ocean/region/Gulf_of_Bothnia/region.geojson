@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Gulf of Bothnia",
-			"component": "ocean",
-			"tags": "Gulf_of_Bothnia;Atlantic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Gulf of Bothnia",
+			"object": "region",
+			"tags": "Gulf_of_Bothnia;Atlantic_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

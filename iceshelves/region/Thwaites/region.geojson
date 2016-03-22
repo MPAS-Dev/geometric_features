@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Thwaites",
-			"component": "iceshelves",
-			"tags": "Thwaites;Antarctica_IMBIE21;ThwaitesDrainage;PineIslandThwaitesDrainage;WestAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Thwaites",
+			"object": "region",
+			"tags": "Thwaites;Antarctica_IMBIE21;ThwaitesDrainage;PineIslandThwaitesDrainage;WestAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

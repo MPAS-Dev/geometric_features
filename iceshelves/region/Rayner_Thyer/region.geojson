@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Rayner_Thyer",
-			"component": "iceshelves",
-			"tags": "Rayner_Thyer;Antarctica_IMBIE7;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Rayner_Thyer",
+			"object": "region",
+			"tags": "Rayner_Thyer;Antarctica_IMBIE7;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

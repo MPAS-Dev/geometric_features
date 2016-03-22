@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Hannan",
-			"component": "iceshelves",
-			"tags": "Hannan;Antarctica_IMBIE7;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Hannan",
+			"object": "region",
+			"tags": "Hannan;Antarctica_IMBIE7;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Bass Strait South",
-			"component": "ocean",
-			"tags": "Bass_Strait;Southern_Ocean_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Bass Strait South",
+			"object": "region",
+			"tags": "Bass_Strait;Southern_Ocean_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

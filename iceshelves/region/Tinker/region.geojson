@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Tinker",
-			"component": "iceshelves",
-			"tags": "Tinker;Antarctica_IMBIE16;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Tinker",
+			"object": "region",
+			"tags": "Tinker;Antarctica_IMBIE16;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "MultiPolygon",

@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Bay of Fundy",
-			"component": "ocean",
-			"tags": "Bay_of_Fundy;Atlantic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Bay of Fundy",
+			"object": "region",
+			"tags": "Bay_of_Fundy;Atlantic_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

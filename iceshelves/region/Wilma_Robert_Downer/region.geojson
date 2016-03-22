@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Wilma_Robert_Downer",
-			"component": "iceshelves",
-			"tags": "Wilma_Robert_Downer;Antarctica_IMBIE8;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Wilma_Robert_Downer",
+			"object": "region",
+			"tags": "Wilma_Robert_Downer;Antarctica_IMBIE8;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "MultiPolygon",

@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Totten",
-			"component": "iceshelves",
-			"tags": "Totten;Antarctica_IMBIE13;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Totten",
+			"object": "region",
+			"tags": "Totten;Antarctica_IMBIE13;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

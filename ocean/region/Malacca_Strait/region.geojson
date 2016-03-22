@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Malacca Strait",
-			"component": "ocean",
-			"tags": "Malacca_Strait;Indian_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Malacca Strait",
+			"object": "region",
+			"tags": "Malacca_Strait;Indian_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

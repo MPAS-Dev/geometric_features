@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Bass Strait North",
-			"component": "ocean",
-			"tags": "Bass_Strait;Indian_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Bass Strait North",
+			"object": "region",
+			"tags": "Bass_Strait;Indian_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

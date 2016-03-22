@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Brahms",
-			"component": "iceshelves",
-			"tags": "Brahms;Antarctica_IMBIE24;AntarcticPenninsulaIMBIE;WilkinsGeorgeVIceShelfDrainage",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Brahms",
+			"object": "region",
+			"tags": "Brahms;Antarctica_IMBIE24;AntarcticPenninsulaIMBIE;WilkinsGeorgeVIceShelfDrainage"
 		 },
 		 "geometry":
 			{"type": "Polygon",

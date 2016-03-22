@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Baudouin",
-			"component": "iceshelves",
-			"tags": "Baudouin;Antarctica_IMBIE6;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Baudouin",
+			"object": "region",
+			"tags": "Baudouin;Antarctica_IMBIE6;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

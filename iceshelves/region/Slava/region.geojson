@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Slava",
-			"component": "iceshelves",
-			"tags": "Slava;Antarctica_IMBIE14;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Slava",
+			"object": "region",
+			"tags": "Slava;Antarctica_IMBIE14;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

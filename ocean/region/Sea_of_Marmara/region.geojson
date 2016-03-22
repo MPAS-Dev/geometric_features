@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Sea of Marmara",
-			"component": "ocean",
-			"tags": "Sea_of_Marmara",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Sea of Marmara",
+			"object": "region",
+			"tags": "Sea_of_Marmara"
 		 },
 		 "geometry":
 			{"type": "Polygon",

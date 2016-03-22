@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Pine_Island",
-			"component": "iceshelves",
-			"tags": "Pine_Island;Antarctica_IMBIE22;PineIslandDrainage;PineIslandThwaitesDrainage;WestAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Pine_Island",
+			"object": "region",
+			"tags": "Pine_Island;Antarctica_IMBIE22;PineIslandDrainage;PineIslandThwaitesDrainage;WestAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "MultiPolygon",

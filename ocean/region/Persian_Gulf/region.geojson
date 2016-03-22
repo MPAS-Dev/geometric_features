@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Persian Gulf",
-			"component": "ocean",
-			"tags": "Persian_Gulf",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Persian Gulf",
+			"object": "region",
+			"tags": "Persian_Gulf"
 		 },
 		 "geometry":
 			{"type": "Polygon",

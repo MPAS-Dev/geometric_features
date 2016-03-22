@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Makassar Strait",
-			"component": "ocean",
-			"tags": "Makassar_Strait;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Makassar Strait",
+			"object": "region",
+			"tags": "Makassar_Strait;Pacific_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

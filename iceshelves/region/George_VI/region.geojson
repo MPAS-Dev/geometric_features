@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "George_VI",
-			"component": "iceshelves",
-			"tags": "George_VI;Antarctica_IMBIE24;AntarcticPenninsulaIMBIE;WilkinsGeorgeVIceShelfDrainage",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "George_VI",
+			"object": "region",
+			"tags": "George_VI;Antarctica_IMBIE24;AntarcticPenninsulaIMBIE;WilkinsGeorgeVIceShelfDrainage"
 		 },
 		 "geometry":
 			{"type": "MultiPolygon",

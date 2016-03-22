@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Gulf of Guinea",
-			"component": "ocean",
-			"tags": "Gulf_of_Guinea;Atlantic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Gulf of Guinea",
+			"object": "region",
+			"tags": "Gulf_of_Guinea;Atlantic_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Gulf of Suez",
-			"component": "ocean",
-			"tags": "Gulf_of_Suez",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Gulf of Suez",
+			"object": "region",
+			"tags": "Gulf_of_Suez"
 		 },
 		 "geometry":
 			{"type": "Polygon",

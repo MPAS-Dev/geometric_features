@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Zubchatyy",
-			"component": "iceshelves",
-			"tags": "Zubchatyy;Antarctica_IMBIE7;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Zubchatyy",
+			"object": "region",
+			"tags": "Zubchatyy;Antarctica_IMBIE7;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

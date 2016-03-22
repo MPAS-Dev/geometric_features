@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Chukchi Sea",
-			"component": "ocean",
-			"tags": "Chukchi_Sea;Arctic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Chukchi Sea",
+			"object": "region",
+			"tags": "Chukchi_Sea;Arctic_Basin"
 		 },
 		 "geometry":
 			{"type": "MultiPolygon",

@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Molukka Sea",
-			"component": "ocean",
-			"tags": "Molukka_Sea;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Molukka Sea",
+			"object": "region",
+			"tags": "Molukka_Sea;Pacific_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

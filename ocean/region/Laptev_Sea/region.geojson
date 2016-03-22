@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Laptev Sea",
-			"component": "ocean",
-			"tags": "Laptev_Sea;Arctic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Laptev Sea",
+			"object": "region",
+			"tags": "Laptev_Sea;Arctic_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

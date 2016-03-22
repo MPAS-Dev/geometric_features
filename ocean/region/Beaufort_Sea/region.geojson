@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Beaufort Sea",
-			"component": "ocean",
-			"tags": "Beaufort_Sea;Arctic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Beaufort Sea",
+			"object": "region",
+			"tags": "Beaufort_Sea;Arctic_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

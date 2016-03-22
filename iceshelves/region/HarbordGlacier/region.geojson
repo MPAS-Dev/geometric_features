@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "HarbordGlacier",
-			"component": "iceshelves",
-			"tags": "HarbordGlacier;Antarctica_IMBIE16;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "HarbordGlacier",
+			"object": "region",
+			"tags": "HarbordGlacier;Antarctica_IMBIE16;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

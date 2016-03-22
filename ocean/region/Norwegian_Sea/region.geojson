@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Norwegian Sea",
-			"component": "ocean",
-			"tags": "Norwegian_Sea;Atlantic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Norwegian Sea",
+			"object": "region",
+			"tags": "Norwegian_Sea;Atlantic_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

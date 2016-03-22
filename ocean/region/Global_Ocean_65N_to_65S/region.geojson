@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Global Ocean 65N to 65S",
-			"component": "ocean",
-			"tags": "",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "ocean",
+			"name": "Global Ocean 65N to 65S",
+			"object": "region",
+			"tags": ""
 		 },
 		 "geometry":
 			{"type": "Polygon",

@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Arafura Sea",
-			"component": "ocean",
-			"tags": "Arafura_Sea;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Arafura Sea",
+			"object": "region",
+			"tags": "Arafura_Sea;Pacific_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

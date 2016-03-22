@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Greenland Sea",
-			"component": "ocean",
-			"tags": "Greenland_Sea;Atlantic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Greenland Sea",
+			"object": "region",
+			"tags": "Greenland_Sea;Atlantic_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

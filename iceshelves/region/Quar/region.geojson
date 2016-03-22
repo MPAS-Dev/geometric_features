@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Quar",
-			"component": "iceshelves",
-			"tags": "Quar;Antarctica_IMBIE4;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Quar",
+			"object": "region",
+			"tags": "Quar;Antarctica_IMBIE4;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

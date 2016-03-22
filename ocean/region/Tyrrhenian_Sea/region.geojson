@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Tyrrhenian Sea",
-			"component": "ocean",
-			"tags": "Tyrrhenian_Sea;Mediterranean_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Tyrrhenian Sea",
+			"object": "region",
+			"tags": "Tyrrhenian_Sea;Mediterranean_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

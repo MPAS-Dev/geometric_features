@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Atka",
-			"component": "iceshelves",
-			"tags": "Atka;Antarctica_IMBIE5;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Atka",
+			"object": "region",
+			"tags": "Atka;Antarctica_IMBIE5;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

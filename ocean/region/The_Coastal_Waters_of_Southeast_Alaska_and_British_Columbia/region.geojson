@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "The Coastal Waters of Southeast Alaska and British Columbia",
-			"component": "ocean",
-			"tags": "The_Coastal_Waters_of_Southeast_Alaska_and_British_Columbia;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "The Coastal Waters of Southeast Alaska and British Columbia",
+			"object": "region",
+			"tags": "The_Coastal_Waters_of_Southeast_Alaska_and_British_Columbia;Pacific_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

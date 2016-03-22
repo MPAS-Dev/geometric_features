@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Bismarck Sea",
-			"component": "ocean",
-			"tags": "Bismarck_Sea;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Bismarck Sea",
+			"object": "region",
+			"tags": "Bismarck_Sea;Pacific_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Kattegat",
-			"component": "ocean",
-			"tags": "Kattegat;Atlantic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Kattegat",
+			"object": "region",
+			"tags": "Kattegat;Atlantic_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

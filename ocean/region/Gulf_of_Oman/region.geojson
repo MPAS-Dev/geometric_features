@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Gulf of Oman",
-			"component": "ocean",
-			"tags": "Gulf_of_Oman;Indian_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Gulf of Oman",
+			"object": "region",
+			"tags": "Gulf_of_Oman;Indian_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

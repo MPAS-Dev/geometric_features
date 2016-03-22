@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Philippine Sea",
-			"component": "ocean",
-			"tags": "Philippine_Sea;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Philippine Sea",
+			"object": "region",
+			"tags": "Philippine_Sea;Pacific_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

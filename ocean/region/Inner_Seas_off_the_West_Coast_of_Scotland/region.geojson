@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Inner Seas off the West Coast of Scotland",
-			"component": "ocean",
-			"tags": "Inner_Seas_off_the_West_Coast_of_Scotland;Atlantic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Inner Seas off the West Coast of Scotland",
+			"object": "region",
+			"tags": "Inner_Seas_off_the_West_Coast_of_Scotland;Atlantic_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

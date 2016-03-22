@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Java Sea",
-			"component": "ocean",
-			"tags": "Java_Sea;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Java Sea",
+			"object": "region",
+			"tags": "Java_Sea;Pacific_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

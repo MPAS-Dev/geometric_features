@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Venable",
-			"component": "iceshelves",
-			"tags": "Venable;Antarctica_IMBIE23;WestAntarcticaIMBIE;AbbotIceShelfDrainage",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Venable",
+			"object": "region",
+			"tags": "Venable;Antarctica_IMBIE23;WestAntarcticaIMBIE;AbbotIceShelfDrainage"
 		 },
 		 "geometry":
 			{"type": "Polygon",

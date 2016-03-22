@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Dotson",
-			"component": "iceshelves",
-			"tags": "Dotson;Antarctica_IMBIE21;ThwaitesDrainage;PineIslandThwaitesDrainage;WestAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Dotson",
+			"object": "region",
+			"tags": "Dotson;Antarctica_IMBIE21;ThwaitesDrainage;PineIslandThwaitesDrainage;WestAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

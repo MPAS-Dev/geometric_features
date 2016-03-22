@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Brunt_Stancomb",
-			"component": "iceshelves",
-			"tags": "Brunt_Stancomb;Antarctica_IMBIE4;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Brunt_Stancomb",
+			"object": "region",
+			"tags": "Brunt_Stancomb;Antarctica_IMBIE4;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

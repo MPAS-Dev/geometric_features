@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "MOC mask 6S",
-			"component": "ocean",
-			"tags": "MOC_mask_6S",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "ocean",
+			"name": "MOC mask 6S",
+			"object": "region",
+			"tags": "MOC_mask_6S"
 		 },
 		 "geometry":
 			{"type": "Polygon",

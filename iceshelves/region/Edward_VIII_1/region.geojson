@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Edward_VIII_1",
-			"component": "iceshelves",
-			"tags": "Edward_VIII;Antarctica_IMBIE7;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Edward_VIII_1",
+			"object": "region",
+			"tags": "Edward_VIII;Antarctica_IMBIE7;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

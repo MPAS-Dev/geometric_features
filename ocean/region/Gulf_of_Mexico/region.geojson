@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Gulf of Mexico",
-			"component": "ocean",
-			"tags": "Gulf_of_Mexico;Atlantic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Gulf of Mexico",
+			"object": "region",
+			"tags": "Gulf_of_Mexico;Atlantic_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Celebes Sea",
-			"component": "ocean",
-			"tags": "Celebes_Sea;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Celebes Sea",
+			"object": "region",
+			"tags": "Celebes_Sea;Pacific_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

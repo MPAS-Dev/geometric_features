@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Ceram Sea",
-			"component": "ocean",
-			"tags": "Ceram_Sea;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Ceram Sea",
+			"object": "region",
+			"tags": "Ceram_Sea;Pacific_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Irish Sea and St Georges Channel",
-			"component": "ocean",
-			"tags": "Irish_Sea_and_St_Georges_Channel;Atlantic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Irish Sea and St Georges Channel",
+			"object": "region",
+			"tags": "Irish_Sea_and_St_Georges_Channel;Atlantic_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

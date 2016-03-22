@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "East Siberian Sea",
-			"component": "ocean",
-			"tags": "East_Siberian_Sea;Arctic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "East Siberian Sea",
+			"object": "region",
+			"tags": "East_Siberian_Sea;Arctic_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

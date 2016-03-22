@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Moscow_University",
-			"component": "iceshelves",
-			"tags": "Moscow_University;Antarctica_IMBIE13;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Moscow_University",
+			"object": "region",
+			"tags": "Moscow_University;Antarctica_IMBIE13;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "MultiPolygon",

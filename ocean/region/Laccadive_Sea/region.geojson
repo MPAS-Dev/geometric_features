@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Laccadive Sea",
-			"component": "ocean",
-			"tags": "Laccadive_Sea;Indian_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Laccadive Sea",
+			"object": "region",
+			"tags": "Laccadive_Sea;Indian_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

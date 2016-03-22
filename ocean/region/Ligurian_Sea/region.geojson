@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Ligurian Sea",
-			"component": "ocean",
-			"tags": "Ligurian_Sea;Mediterranean_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Ligurian Sea",
+			"object": "region",
+			"tags": "Ligurian_Sea;Mediterranean_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

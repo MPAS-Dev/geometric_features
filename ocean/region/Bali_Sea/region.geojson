@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Bali Sea",
-			"component": "ocean",
-			"tags": "Bali_Sea;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Bali Sea",
+			"object": "region",
+			"tags": "Bali_Sea;Pacific_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

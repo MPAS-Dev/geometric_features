@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Great Australian Bight South",
-			"component": "ocean",
-			"tags": "Great_Australian_Bight;Southern_Ocean_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Great Australian Bight South",
+			"object": "region",
+			"tags": "Great_Australian_Bight;Southern_Ocean_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

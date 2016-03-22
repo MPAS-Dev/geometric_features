@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Ekstrom",
-			"component": "iceshelves",
-			"tags": "Ekstrom;Antarctica_IMBIE5;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Ekstrom",
+			"object": "region",
+			"tags": "Ekstrom;Antarctica_IMBIE5;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

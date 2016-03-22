@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Timor Sea",
-			"component": "ocean",
-			"tags": "Timor_Sea;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Timor Sea",
+			"object": "region",
+			"tags": "Timor_Sea;Pacific_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

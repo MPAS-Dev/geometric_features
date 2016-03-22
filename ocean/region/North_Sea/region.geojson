@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "North Sea",
-			"component": "ocean",
-			"tags": "North_Sea;Atlantic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "North Sea",
+			"object": "region",
+			"tags": "North_Sea;Atlantic_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

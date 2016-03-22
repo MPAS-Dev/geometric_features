@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Utsikkar",
-			"component": "iceshelves",
-			"tags": "Utsikkar;Antarctica_IMBIE8;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Utsikkar",
+			"object": "region",
+			"tags": "Utsikkar;Antarctica_IMBIE8;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Ionian Sea",
-			"component": "ocean",
-			"tags": "Ionian_Sea;Mediterranean_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Ionian Sea",
+			"object": "region",
+			"tags": "Ionian_Sea;Mediterranean_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",
