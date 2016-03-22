@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Drygalski",
-			"component": "iceshelves",
-			"tags": "Drygalski;Antarctica_IMBIE16;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Drygalski",
+			"object": "region",
+			"tags": "Drygalski;Antarctica_IMBIE16;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "MultiPolygon",

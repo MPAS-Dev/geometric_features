@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Fimbul_2",
-			"component": "iceshelves",
-			"tags": "Fimbul;Antarctica_IMBIE6;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Fimbul_2",
+			"object": "region",
+			"tags": "Fimbul;Antarctica_IMBIE6;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

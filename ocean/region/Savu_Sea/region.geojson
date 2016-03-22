@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Savu Sea",
-			"component": "ocean",
-			"tags": "Savu_Sea;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Savu Sea",
+			"object": "region",
+			"tags": "Savu_Sea;Pacific_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Baffin Bay",
-			"component": "ocean",
-			"tags": "Baffin_Bay;Atlantic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Baffin Bay",
+			"object": "region",
+			"tags": "Baffin_Bay;Atlantic_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

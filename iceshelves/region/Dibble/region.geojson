@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Dibble",
-			"component": "iceshelves",
-			"tags": "Dibble;Antarctica_IMBIE14;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Dibble",
+			"object": "region",
+			"tags": "Dibble;Antarctica_IMBIE14;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "MultiPolygon",

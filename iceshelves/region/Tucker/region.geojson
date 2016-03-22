@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Tucker",
-			"component": "iceshelves",
-			"tags": "Tucker;Antarctica_IMBIE15;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Tucker",
+			"object": "region",
+			"tags": "Tucker;Antarctica_IMBIE15;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "MultiPolygon",

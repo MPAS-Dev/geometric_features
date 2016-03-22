@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Tasman Sea North",
-			"component": "ocean",
-			"tags": "Tasman_Sea;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Tasman Sea North",
+			"object": "region",
+			"tags": "Tasman_Sea;Pacific_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

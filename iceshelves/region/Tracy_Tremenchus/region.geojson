@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Tracy_Tremenchus",
-			"component": "iceshelves",
-			"tags": "Tracy_Tremenchus;Antarctica_IMBIE12;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Tracy_Tremenchus",
+			"object": "region",
+			"tags": "Tracy_Tremenchus;Antarctica_IMBIE12;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

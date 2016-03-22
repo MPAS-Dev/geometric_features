@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Balearic Sea",
-			"component": "ocean",
-			"tags": "Balearic_Sea;Mediterranean_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Balearic Sea",
+			"object": "region",
+			"tags": "Balearic_Sea;Mediterranean_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

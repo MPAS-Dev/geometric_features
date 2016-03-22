@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Red Sea",
-			"component": "ocean",
-			"tags": "Red_Sea",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Red Sea",
+			"object": "region",
+			"tags": "Red_Sea"
 		 },
 		 "geometry":
 			{"type": "Polygon",

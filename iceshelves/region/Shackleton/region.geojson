@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Shackleton",
-			"component": "iceshelves",
-			"tags": "Shackleton;Antarctica_IMBIE12;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Shackleton",
+			"object": "region",
+			"tags": "Shackleton;Antarctica_IMBIE12;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Northwestern Passages",
-			"component": "ocean",
-			"tags": "Northwestern_Passages;Arctic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Northwestern Passages",
+			"object": "region",
+			"tags": "Northwestern_Passages;Arctic_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Lazarev",
-			"component": "iceshelves",
-			"tags": "Lazarev;Antarctica_IMBIE6;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Lazarev",
+			"object": "region",
+			"tags": "Lazarev;Antarctica_IMBIE6;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Gulf of Alaska",
-			"component": "ocean",
-			"tags": "Gulf_of_Alaska;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Gulf of Alaska",
+			"object": "region",
+			"tags": "Gulf_of_Alaska;Pacific_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

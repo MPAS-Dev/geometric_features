@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Nordenskjold",
-			"component": "iceshelves",
-			"tags": "Nordenskjold;Antarctica_IMBIE16;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Nordenskjold",
+			"object": "region",
+			"tags": "Nordenskjold;Antarctica_IMBIE16;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

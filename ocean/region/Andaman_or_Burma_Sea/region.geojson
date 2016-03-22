@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Andaman or Burma Sea",
-			"component": "ocean",
-			"tags": "Andaman_or_Burma_Sea;Indian_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Andaman or Burma Sea",
+			"object": "region",
+			"tags": "Andaman_or_Burma_Sea;Indian_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

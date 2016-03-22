@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Riiser-Larsen",
-			"component": "iceshelves",
-			"tags": "Riiser-Larsen;Antarctica_IMBIE4;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Riiser-Larsen",
+			"object": "region",
+			"tags": "Riiser-Larsen;Antarctica_IMBIE4;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

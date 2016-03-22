@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Gulf of Boni",
-			"component": "ocean",
-			"tags": "Gulf_of_Boni;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Gulf of Boni",
+			"object": "region",
+			"tags": "Gulf_of_Boni;Pacific_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

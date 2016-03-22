@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "South Pacific Ocean",
-			"component": "ocean",
-			"tags": "South_Pacific_Ocean;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "South Pacific Ocean",
+			"object": "region",
+			"tags": "South_Pacific_Ocean;Pacific_Basin"
 		 },
 		 "geometry":
 			{"type": "MultiPolygon",

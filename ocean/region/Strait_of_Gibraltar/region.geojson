@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Strait of Gibraltar",
-			"component": "ocean",
-			"tags": "Strait_of_Gibraltar;Mediterranean_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Strait of Gibraltar",
+			"object": "region",
+			"tags": "Strait_of_Gibraltar;Mediterranean_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

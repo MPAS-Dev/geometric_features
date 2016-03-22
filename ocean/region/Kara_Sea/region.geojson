@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Kara Sea",
-			"component": "ocean",
-			"tags": "Kara_Sea;Arctic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Kara Sea",
+			"object": "region",
+			"tags": "Kara_Sea;Arctic_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

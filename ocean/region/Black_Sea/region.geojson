@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Black Sea",
-			"component": "ocean",
-			"tags": "Black_Sea",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Black Sea",
+			"object": "region",
+			"tags": "Black_Sea"
 		 },
 		 "geometry":
 			{"type": "Polygon",

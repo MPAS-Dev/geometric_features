@@ -1,14 +1,13 @@
 {"type": "FeatureCollection",
- "groupName": "enterNameHere",
  "features":
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Lincoln Sea",
-			"component": "ocean",
-			"tags": "Lincoln_Sea;Arctic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Lincoln Sea",
+			"object": "region",
+			"tags": "Lincoln_Sea;Arctic_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

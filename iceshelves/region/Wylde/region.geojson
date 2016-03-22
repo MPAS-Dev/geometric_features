@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Wylde",
-			"component": "iceshelves",
-			"tags": "Wylde;Antarctica_IMBIE15;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Wylde",
+			"object": "region",
+			"tags": "Wylde;Antarctica_IMBIE15;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

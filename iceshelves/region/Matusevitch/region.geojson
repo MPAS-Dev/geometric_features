@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Matusevitch",
-			"component": "iceshelves",
-			"tags": "Matusevitch;Antarctica_IMBIE14;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Matusevitch",
+			"object": "region",
+			"tags": "Matusevitch;Antarctica_IMBIE14;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

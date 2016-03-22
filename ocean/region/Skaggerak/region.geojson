@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Skaggerak",
-			"component": "ocean",
-			"tags": "Skaggerak;Atlantic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Skaggerak",
+			"object": "region",
+			"tags": "Skaggerak;Atlantic_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

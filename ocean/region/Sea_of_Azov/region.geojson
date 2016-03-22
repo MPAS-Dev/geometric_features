@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Sea of Azov",
-			"component": "ocean",
-			"tags": "Sea_of_Azov",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Sea of Azov",
+			"object": "region",
+			"tags": "Sea_of_Azov"
 		 },
 		 "geometry":
 			{"type": "Polygon",

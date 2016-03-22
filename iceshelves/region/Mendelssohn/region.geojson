@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Mendelssohn",
-			"component": "iceshelves",
-			"tags": "Mendelssohn;Antarctica_IMBIE24;AntarcticPenninsulaIMBIE;WilkinsGeorgeVIceShelfDrainage",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Mendelssohn",
+			"object": "region",
+			"tags": "Mendelssohn;Antarctica_IMBIE24;AntarcticPenninsulaIMBIE;WilkinsGeorgeVIceShelfDrainage"
 		 },
 		 "geometry":
 			{"type": "Polygon",

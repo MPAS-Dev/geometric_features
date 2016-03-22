@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Getz",
-			"component": "iceshelves",
-			"tags": "Getz;Antarctica_IMBIE20;GetzIceShelfDrainage;WestAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Getz",
+			"object": "region",
+			"tags": "Getz;Antarctica_IMBIE20;GetzIceShelfDrainage;WestAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

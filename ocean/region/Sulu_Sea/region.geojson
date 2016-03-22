@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Sulu Sea",
-			"component": "ocean",
-			"tags": "Sulu_Sea;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Sulu Sea",
+			"object": "region",
+			"tags": "Sulu_Sea;Pacific_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

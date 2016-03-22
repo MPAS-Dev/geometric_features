@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Arctic Ocean",
-			"component": "ocean",
-			"tags": "Arctic_Ocean;Arctic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Arctic Ocean",
+			"object": "region",
+			"tags": "Arctic_Ocean;Arctic_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

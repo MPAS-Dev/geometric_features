@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Larsen_C_2",
-			"component": "iceshelves",
-			"tags": "Larsen_C;Antarctica_IMBIE26;AntarcticPenninsulaIMBIE;LarsenCIceShelfDrainage",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Larsen_C_2",
+			"object": "region",
+			"tags": "Larsen_C;Antarctica_IMBIE26;AntarcticPenninsulaIMBIE;LarsenCIceShelfDrainage"
 		 },
 		 "geometry":
 			{"type": "Polygon",

@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Adriatic Sea",
-			"component": "ocean",
-			"tags": "Adriatic_Sea;Mediterranean_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Adriatic Sea",
+			"object": "region",
+			"tags": "Adriatic_Sea;Mediterranean_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

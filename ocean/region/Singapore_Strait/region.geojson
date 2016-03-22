@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Singapore Strait",
-			"component": "ocean",
-			"tags": "Singapore_Strait;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Singapore Strait",
+			"object": "region",
+			"tags": "Singapore_Strait;Pacific_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

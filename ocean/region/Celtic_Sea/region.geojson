@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Celtic Sea",
-			"component": "ocean",
-			"tags": "Celtic_Sea;Atlantic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Celtic Sea",
+			"object": "region",
+			"tags": "Celtic_Sea;Atlantic_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

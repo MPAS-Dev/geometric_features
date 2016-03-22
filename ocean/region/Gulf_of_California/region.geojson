@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Gulf of California",
-			"component": "ocean",
-			"tags": "Gulf_of_California;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Gulf of California",
+			"object": "region",
+			"tags": "Gulf_of_California;Pacific_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

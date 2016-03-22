@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Banda Sea",
-			"component": "ocean",
-			"tags": "Banda_Sea;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Banda Sea",
+			"object": "region",
+			"tags": "Banda_Sea;Pacific_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

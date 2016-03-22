@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Filchner_2",
-			"component": "iceshelves",
-			"tags": "Filchner;Antarctica_IMBIE3;FilchnerRonneIceShelfDrainage;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Filchner_2",
+			"object": "region",
+			"tags": "Filchner;Antarctica_IMBIE3;FilchnerRonneIceShelfDrainage;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

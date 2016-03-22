@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Mariner",
-			"component": "iceshelves",
-			"tags": "Mariner;Antarctica_IMBIE15;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Mariner",
+			"object": "region",
+			"tags": "Mariner;Antarctica_IMBIE15;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "MultiPolygon",

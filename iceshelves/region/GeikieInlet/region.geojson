@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "GeikieInlet",
-			"component": "iceshelves",
-			"tags": "GeikieInlet;Antarctica_IMBIE16;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "GeikieInlet",
+			"object": "region",
+			"tags": "GeikieInlet;Antarctica_IMBIE16;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

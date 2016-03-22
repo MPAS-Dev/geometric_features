@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Ross_West_3",
-			"component": "iceshelves",
-			"tags": "Ross_West;Antarctica_IMBIE19;RossIceShelfDrainage;WestAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Ross_West_3",
+			"object": "region",
+			"tags": "Ross_West;Antarctica_IMBIE19;RossIceShelfDrainage;WestAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

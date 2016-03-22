@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Davis Strait",
-			"component": "ocean",
-			"tags": "Davis_Strait;Atlantic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Davis Strait",
+			"object": "region",
+			"tags": "Davis_Strait;Atlantic_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Gulf of Aqaba",
-			"component": "ocean",
-			"tags": "Gulf_of_Aqaba",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Gulf of Aqaba",
+			"object": "region",
+			"tags": "Gulf_of_Aqaba"
 		 },
 		 "geometry":
 			{"type": "Polygon",

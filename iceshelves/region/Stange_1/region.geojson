@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Stange_1",
-			"component": "iceshelves",
-			"tags": "Stange;Antarctica_IMBIE23;WestAntarcticaIMBIE;AbbotIceShelfDrainage",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Stange_1",
+			"object": "region",
+			"tags": "Stange;Antarctica_IMBIE23;WestAntarcticaIMBIE;AbbotIceShelfDrainage"
 		 },
 		 "geometry":
 			{"type": "Polygon",

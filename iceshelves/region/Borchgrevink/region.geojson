@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Borchgrevink",
-			"component": "iceshelves",
-			"tags": "Borchgrevink;Antarctica_IMBIE6;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Borchgrevink",
+			"object": "region",
+			"tags": "Borchgrevink;Antarctica_IMBIE6;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Wordie",
-			"component": "iceshelves",
-			"tags": "Wordie;Antarctica_IMBIE25;AntarcticPenninsulaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Wordie",
+			"object": "region",
+			"tags": "Wordie;Antarctica_IMBIE25;AntarcticPenninsulaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Bering Sea",
-			"component": "ocean",
-			"tags": "Bering_Sea;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Bering Sea",
+			"object": "region",
+			"tags": "Bering_Sea;Pacific_Basin"
 		 },
 		 "geometry":
 			{"type": "MultiPolygon",

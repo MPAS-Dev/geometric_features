@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Lillie",
-			"component": "iceshelves",
-			"tags": "Lillie;Antarctica_IMBIE15;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Lillie",
+			"object": "region",
+			"tags": "Lillie;Antarctica_IMBIE15;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

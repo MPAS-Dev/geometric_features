@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Swinburne",
-			"component": "iceshelves",
-			"tags": "Swinburne;Antarctica_IMBIE20;GetzIceShelfDrainage;WestAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Swinburne",
+			"object": "region",
+			"tags": "Swinburne;Antarctica_IMBIE20;GetzIceShelfDrainage;WestAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

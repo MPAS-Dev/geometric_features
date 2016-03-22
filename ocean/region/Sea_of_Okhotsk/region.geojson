@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Sea of Okhotsk",
-			"component": "ocean",
-			"tags": "Sea_of_Okhotsk;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Sea of Okhotsk",
+			"object": "region",
+			"tags": "Sea_of_Okhotsk;Pacific_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

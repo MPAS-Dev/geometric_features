@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Alboran Sea",
-			"component": "ocean",
-			"tags": "Alboran_Sea;Mediterranean_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Alboran Sea",
+			"object": "region",
+			"tags": "Alboran_Sea;Mediterranean_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

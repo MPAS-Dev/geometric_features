@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "North Pacific Ocean",
-			"component": "ocean",
-			"tags": "North_Pacific_Ocean;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "North Pacific Ocean",
+			"object": "region",
+			"tags": "North_Pacific_Ocean;Pacific_Basin"
 		 },
 		 "geometry":
 			{"type": "MultiPolygon",

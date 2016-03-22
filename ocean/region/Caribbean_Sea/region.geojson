@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Caribbean Sea",
-			"component": "ocean",
-			"tags": "Caribbean_Sea;Atlantic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Caribbean Sea",
+			"object": "region",
+			"tags": "Caribbean_Sea;Atlantic_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

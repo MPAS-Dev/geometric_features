@@ -1,14 +1,13 @@
 {"type": "FeatureCollection",
- "groupName": "enterNameHere",
  "features":
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Inland Sea",
-			"component": "ocean",
-			"tags": "Inland_Sea;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Inland Sea",
+			"object": "region",
+			"tags": "Inland_Sea;Pacific_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

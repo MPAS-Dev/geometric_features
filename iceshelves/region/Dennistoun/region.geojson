@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Dennistoun",
-			"component": "iceshelves",
-			"tags": "Dennistoun;Antarctica_IMBIE15;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Dennistoun",
+			"object": "region",
+			"tags": "Dennistoun;Antarctica_IMBIE15;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

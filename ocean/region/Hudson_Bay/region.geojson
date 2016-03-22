@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Hudson Bay",
-			"component": "ocean",
-			"tags": "Hudson_Bay;Atlantic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Hudson Bay",
+			"object": "region",
+			"tags": "Hudson_Bay;Atlantic_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Labrador Sea",
-			"component": "ocean",
-			"tags": "Labrador_Sea;Atlantic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Labrador Sea",
+			"object": "region",
+			"tags": "Labrador_Sea;Atlantic_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

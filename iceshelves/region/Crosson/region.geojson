@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Crosson",
-			"component": "iceshelves",
-			"tags": "Crosson;Antarctica_IMBIE21;ThwaitesDrainage;PineIslandThwaitesDrainage;WestAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Crosson",
+			"object": "region",
+			"tags": "Crosson;Antarctica_IMBIE21;ThwaitesDrainage;PineIslandThwaitesDrainage;WestAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

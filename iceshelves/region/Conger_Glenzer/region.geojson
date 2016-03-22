@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Conger_Glenzer",
-			"component": "iceshelves",
-			"tags": "Conger_Glenzer;Antarctica_IMBIE12;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Conger_Glenzer",
+			"object": "region",
+			"tags": "Conger_Glenzer;Antarctica_IMBIE12;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Abbot",
-			"component": "iceshelves",
-			"tags": "Abbot;Antarctica_IMBIE23;WestAntarcticaIMBIE;AbbotIceShelfDrainage",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Abbot",
+			"object": "region",
+			"tags": "Abbot;Antarctica_IMBIE23;WestAntarcticaIMBIE;AbbotIceShelfDrainage"
 		 },
 		 "geometry":
 			{"type": "MultiPolygon",

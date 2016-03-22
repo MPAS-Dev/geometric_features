@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "HolmesWest",
-			"component": "iceshelves",
-			"tags": "HolmesWest;Antarctica_IMBIE13;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "HolmesWest",
+			"object": "region",
+			"tags": "HolmesWest;Antarctica_IMBIE13;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

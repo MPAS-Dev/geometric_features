@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Gulf of Finland",
-			"component": "ocean",
-			"tags": "Gulf_of_Finland;Atlantic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Gulf of Finland",
+			"object": "region",
+			"tags": "Gulf_of_Finland;Atlantic_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

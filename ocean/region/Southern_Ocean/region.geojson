@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Southern Ocean",
-			"component": "ocean",
-			"tags": "Southern_Ocean;Southern_Ocean_Basin",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "ocean",
+			"name": "Southern Ocean",
+			"object": "region",
+			"tags": "Southern_Ocean;Southern_Ocean_Basin"
 		 },
 		 "geometry":
 			{"type": "MultiPolygon",

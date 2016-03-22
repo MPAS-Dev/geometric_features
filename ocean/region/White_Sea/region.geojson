@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "White Sea",
-			"component": "ocean",
-			"tags": "White_Sea;Arctic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "White Sea",
+			"object": "region",
+			"tags": "White_Sea;Arctic_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

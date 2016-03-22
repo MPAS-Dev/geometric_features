@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Japan Sea",
-			"component": "ocean",
-			"tags": "Japan_Sea;Pacific_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Japan Sea",
+			"object": "region",
+			"tags": "Japan_Sea;Pacific_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

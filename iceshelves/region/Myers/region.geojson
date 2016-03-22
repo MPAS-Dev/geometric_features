@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Myers",
-			"component": "iceshelves",
-			"tags": "Myers;Antarctica_IMBIE7;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Myers",
+			"object": "region",
+			"tags": "Myers;Antarctica_IMBIE7;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

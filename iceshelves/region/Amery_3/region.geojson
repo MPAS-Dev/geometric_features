@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Amery_3",
-			"component": "iceshelves",
-			"tags": "Amery;Antarctica_IMBIE11;AmeryIceShelfDrainage;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Amery_3",
+			"object": "region",
+			"tags": "Amery;Antarctica_IMBIE11;AmeryIceShelfDrainage;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

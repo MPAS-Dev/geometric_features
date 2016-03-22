@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Jelbart",
-			"component": "iceshelves",
-			"tags": "Jelbart;Antarctica_IMBIE5;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Jelbart",
+			"object": "region",
+			"tags": "Jelbart;Antarctica_IMBIE5;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

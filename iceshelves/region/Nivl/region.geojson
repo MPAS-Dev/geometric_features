@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Nivl",
-			"component": "iceshelves",
-			"tags": "Nivl;Antarctica_IMBIE6;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Nivl",
+			"object": "region",
+			"tags": "Nivl;Antarctica_IMBIE6;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

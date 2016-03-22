@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Gulf of Riga",
-			"component": "ocean",
-			"tags": "Gulf_of_Riga;Atlantic_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Gulf of Riga",
+			"object": "region",
+			"tags": "Gulf_of_Riga;Atlantic_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

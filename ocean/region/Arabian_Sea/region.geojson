@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Arabian Sea",
-			"component": "ocean",
-			"tags": "Arabian_Sea;Indian_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Arabian Sea",
+			"object": "region",
+			"tags": "Arabian_Sea;Indian_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

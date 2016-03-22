@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Mediterranean Sea - Western Basin",
-			"component": "ocean",
-			"tags": "Mediterranean_Sea_-_Western_Basin;Mediterranean_Basin",
 			"author": "http://www.marineregions.org/downloads.php#iho",
-			"object": "region"
+			"component": "ocean",
+			"name": "Mediterranean Sea - Western Basin",
+			"object": "region",
+			"tags": "Mediterranean_Sea_-_Western_Basin;Mediterranean_Basin"
 		 },
 		 "geometry":
 			{"type": "Polygon",

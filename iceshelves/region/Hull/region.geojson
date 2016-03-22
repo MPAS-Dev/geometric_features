@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Hull",
-			"component": "iceshelves",
-			"tags": "Hull;Antarctica_IMBIE20;GetzIceShelfDrainage;WestAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Hull",
+			"object": "region",
+			"tags": "Hull;Antarctica_IMBIE20;GetzIceShelfDrainage;WestAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",

@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Ninnis",
-			"component": "iceshelves",
-			"tags": "Ninnis;Antarctica_IMBIE14;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Ninnis",
+			"object": "region",
+			"tags": "Ninnis;Antarctica_IMBIE14;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "MultiPolygon",

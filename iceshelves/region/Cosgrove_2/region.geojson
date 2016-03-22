@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Cosgrove_2",
-			"component": "iceshelves",
-			"tags": "Cosgrove;Antarctica_IMBIE23;WestAntarcticaIMBIE;AbbotIceShelfDrainage",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Cosgrove_2",
+			"object": "region",
+			"tags": "Cosgrove;Antarctica_IMBIE23;WestAntarcticaIMBIE;AbbotIceShelfDrainage"
 		 },
 		 "geometry":
 			{"type": "MultiPolygon",

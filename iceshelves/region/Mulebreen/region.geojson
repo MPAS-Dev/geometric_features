@@ -3,11 +3,11 @@
 	[
 		{"type": "Feature",
 		 "properties": {
-			"name": "Mulebreen",
-			"component": "iceshelves",
-			"tags": "Mulebreen;Antarctica_IMBIE8;EastAntarcticaIMBIE",
 			"author": "Xylar Asay-Davis",
-			"object": "region"
+			"component": "iceshelves",
+			"name": "Mulebreen",
+			"object": "region",
+			"tags": "Mulebreen;Antarctica_IMBIE8;EastAntarcticaIMBIE"
 		 },
 		 "geometry":
 			{"type": "Polygon",
