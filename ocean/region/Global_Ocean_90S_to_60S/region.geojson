@@ -1,0 +1,29 @@
+{"type": "FeatureCollection",
+ "features":
+	[
+		{"type": "Feature",
+		 "properties": {
+			"author": "Xylar Asay-Davis",
+			"component": "ocean",
+			"name": "Global Ocean 90S to 60S",
+			"object": "region",
+			"tags": ""
+		 },
+		 "geometry":
+			{"type": "Polygon",
+			 "coordinates":
+				[
+					[
+						[ 180.000000, -60.000000],
+						[ 180.000000, -90.000000],
+						[ 0.000000, -90.000000],
+						[ -180.000000, -90.000000],
+						[ -180.000000, -60.000000],
+						[ 0.000000, -60.000000],
+						[ 180.000000, -60.000000]
+					]
+				]
+			}
+		}
+	]
+}
