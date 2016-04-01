@@ -1,0 +1,24 @@
+{"type": "FeatureCollection",
+ "features":
+	[
+		{"type": "Feature",
+		 "properties": {
+			"author": "Xylar Asay-Davis",
+			"component": "ocean",
+			"depth": "400.0",
+			"name": "Strait of Gibralter Deepen 2",
+			"object": "transect",
+			"tags": "Strait_of_Gibralter_Deepen;Mediterranean_Basin;Critical_Passage"
+		 },
+		 "geometry":
+			{"type": "LineString",
+			 "coordinates":
+				[
+					[ -5.482178, 35.986896],
+					[ -1.977539, 36.102376],
+					[ 3.603516, 38.341656]
+				]
+			}
+		}
+	]
+}
