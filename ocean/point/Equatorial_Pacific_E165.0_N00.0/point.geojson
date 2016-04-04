@@ -1,0 +1,19 @@
+{"type": "FeatureCollection",
+ "features":
+	[
+		{"type": "Feature",
+		 "properties": {
+			"name": "Equatorial_Pacific_E165.0_N00.0",
+			"component": "ocean",
+			"tags": "",
+			"author": "Todd Ringler",
+			"object": "point"
+		 },
+		 "geometry":
+			{"type": "Point",
+			 "coordinates":
+			[ 165.000000, 0.000000]
+			}
+		}
+	]
+}
