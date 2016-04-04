@@ -1,0 +1,19 @@
+{"type": "FeatureCollection",
+ "features":
+	[
+		{"type": "Feature",
+		 "properties": {
+			"name": "Southern_Ocean_Drake_Passage_W070.0_S55.0",
+			"component": "ocean",
+			"tags": "",
+			"author": "Todd Ringler",
+			"object": "point"
+		 },
+		 "geometry":
+			{"type": "Point",
+			 "coordinates":
+			[ -70.000000, -55.000000]
+			}
+		}
+	]
+}
