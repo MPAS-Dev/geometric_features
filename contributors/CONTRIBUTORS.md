@@ -1,7 +1,7 @@
 # Data sources
 
 Data sources and authors of the regions may be updated from the repository via
-this [script](list_contributors.sh):
+this [script](list_contributors.py):
 
 List populated on 2016-04-05 13:10:
 
