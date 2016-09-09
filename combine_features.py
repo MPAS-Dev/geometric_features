@@ -4,10 +4,15 @@
 This script takes a file containing one or more feature definitions, pointed 
 to by the -f flag, and a new name for the combined feature, provided through
 the -n flag.  The geometry of the feature definitions are combined into a
-single feature definition, which is placed in (or appended to) features.geojson.
+single feature definition, which is placed in (or appended to)
+the file pointed to with the -o flag (features.geojson by default).
+
+Author: Xylar Asay-Davis
+Last Modified: 09/10/2016
 """
 
 import json
+import shutil
 import argparse
 from collections import defaultdict
 from utils.feature_write_utils import write_all_features
@@ -27,11 +32,14 @@ parser.add_argument("-f", "--feature_file", dest="feature_file",
 parser.add_argument("-n", "--new_feature_name", dest="new_feature_name",
                     help="The new name of the combined feature",
                     metavar="NAME", required=True)
+parser.add_argument("-o", "--output", dest="output_file_name",
+                    help="Output file, e.g., features.geojson.",
+                    metavar="PATH", default="features.geojson")
 
 args = parser.parse_args()
 
 
-out_file_name = "features.geojson"
+out_file_name = args.output_file_name
 
 features = defaultdict(list)
 
@@ -50,7 +58,7 @@ if os.path.exists(out_file_name):
         pass
 
 if featureExists:
-    print "Warning: feature %s already in features.geojson.  Nothing to do."%args.new_feature_name
+    print "Warning: feature %s already in %s.  Nothing to do."%(args.new_feature_name, out_file_name)
     sys.exit(0)
 
 

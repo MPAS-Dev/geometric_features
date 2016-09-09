@@ -1,7 +1,5 @@
 #!/usr/bin/env python
-
 """
-
 This script has two modes of usage:
 1. To create a new file (features.geojson) containing one or more features that
 are pointed to using the -f or -d flags.
@@ -10,13 +8,16 @@ are pointed to using the -f or -d flags.
 again defined by the -f and -d flags.
 
 The usage mode is automatically detected for you, depending on if the
-features.geojson file exists or not before calling this script.
+output file exists or not before calling this script.  The output file
+is pointed to using the -o flag (features.geojson by default).
 
 When using this script, you can optionally give a list of tags in a semicolon
 delimited list (e.g. "tag1;tag2;tag3"). Features are only added to
 features.geojson if their tags property contains all of the tags listed on the
 input line.
 
+Authors: Douglas Jacobsen
+Last Modified: 02/11/2016
 """
 
 import sys, os, glob, shutil, numpy, fnmatch
@@ -30,6 +31,7 @@ parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.R
 parser.add_argument("-f", "--feature_file", dest="feature_file", help="Single feature file to append to features.geojson", metavar="FILE")
 parser.add_argument("-d", "--features_directory", dest="features_dir", help="Directory containing multiple feature files, each will be appended to features.geojson", metavar="PATH")
 parser.add_argument("-t", "--tags", dest="tags", help="Semicolon separated list of tags to match features against.", metavar='"TAG1;TAG2;TAG3"')
+parser.add_argument("-o", "--output", dest="output_file_name", help="Output file, e.g., features.geojson.", metavar="PATH", default="features.geojson")
 
 args = parser.parse_args()
 
@@ -49,7 +51,7 @@ if args.tags:
     for tag in args.tags.split(';'):
         master_tag_list.append(tag)
 
-file_to_append = "features.geojson"
+file_to_append = args.output_file_name
 all_features = defaultdict(list)
 
 new_file = True

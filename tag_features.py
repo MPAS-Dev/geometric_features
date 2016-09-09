@@ -5,6 +5,9 @@ This script takes a file containing a collection of one or more feature
 definitions, that is pointed to by the -f flag and a tag name pointed to by 
 the -t flag.  The tag is added to each feature (if that feature does not 
 already have that tag.  Results are written back to the same feature file.
+
+Author: Xylar Asay-Davis
+Last Modified: 2/11/2016
 """
 
 import os.path
