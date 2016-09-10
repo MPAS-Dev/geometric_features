@@ -78,11 +78,13 @@ except:
 
 featureShapes = []
 authors = []
+featureNames = []
 for feature in featuresToCombine['features']:
     featureShapes.append(shapely.geometry.shape(feature['geometry']))
     #if not featureShapes[-1].is_valid:
     #    print "Warning: Feature %s is 'invalid' as defined by the shapely library."%feature['properties']['name']
     authors.append(feature['properties']['author'])
+    featureNames.append(feature['properties']['name'])
 
 combinedShape = shapely.ops.cascaded_union(featureShapes)
 
@@ -92,8 +94,15 @@ feature['properties']['name'] = args.new_feature_name
 feature['properties']['component'] = featuresToCombine['features'][0]['properties']['component']
 feature['properties']['tags'] = ''
 feature['properties']['author'] = '; '.join(list(set(authors)))
+feature['properties']['constituents'] = '; '.join(list(set(featureNames)))
 feature['geometry'] = shapely.geometry.mapping(combinedShape)
 features['features'].append(feature)
+
+if feature['geometry']['type'] == 'GeometryCollection':
+    print "Error: combined geometry from %s is of type GeometryCollection."%(args.feature_file)
+    print "       Most likely cause is that multiple feature types (regions, "
+    print "       points and transects) are being cobined."
+    sys.exit(1)
 
 out_file = open(out_file_name, 'w')
 out_file.write('{"type": "FeatureCollection",\n')
