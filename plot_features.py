@@ -99,14 +99,13 @@ def divide_poly_segments(points): #{{{
 
     return outPoints #}}}
 
-def plot_poly(mapInfo, points, color): #{{{
+def plot_poly(mapInfo, geom, color, filled=True): #{{{
 
     refProjection = cartopy.crs.PlateCarree()
 
-    if type(points) is dict:
-        simplepoints = shapely.geometry.shape(points)
-    else:
-        points = divide_poly_segments(points)
+    polygon = not (type(geom) == np.ndarray)
+    if not polygon:
+        points = divide_poly_segments(geom)
         x = points[:,0]
         y = points[:,1]
 
@@ -114,10 +113,17 @@ def plot_poly(mapInfo, points, color): #{{{
 
     for mapType in mapInfo:
         (ax, projection, plotFileName, fig) = mapInfo[mapType]
-        if type(points) is dict:
-            ax.add_patch(PolygonPatch(simplepoints, **plotprop))
+        if polygon:
+            if type(geom) == shapely.geometry.multipolygon.MultiPolygon:
+                for apoly in geom:
+                    ax.add_patch(PolygonPatch(apoly, **plotprop))
+            else:
+                ax.add_patch(PolygonPatch(geom, **plotprop))
         else:
-            ax.fill(x, y, **plotprop)
+            if filled:
+                ax.fill(x, y, **plotprop)
+            else:
+                ax.plot(x, y, '-', **plotprop)
 
     return #}}}
 
@@ -148,6 +154,7 @@ def plot_features_file(featurefile, mapInfo): #{{{
     for feature in featuredat['features']:
         polytype = feature['geometry']['type']
         coords = feature['geometry']['coordinates']
+        shape = shapely.geometry.shape(feature['geometry'])
         featurename = feature['properties']['name']
         print '  feature: %s'%featurename
 
@@ -155,19 +162,11 @@ def plot_features_file(featurefile, mapInfo): #{{{
         marker_num = feature_num % len(markers)
 
         try:
-            # basically should be able to use descartes to plot polygon generally
-            if polytype == 'MultiPolygon':
-                # update not implemented
+            if polytype in ['MultiPolygon', 'Polygon']:
+                plot_poly(mapInfo, shape, colors[color_num])
+            elif polytype == 'MultiLineString':
                 for poly in coords:
-                    for shape in poly:
-                        plot_poly(mapInfo,shape,colors[color_num])
-            elif polytype == 'Polygon' or polytype == 'MultiLineString':
-                try:
-                    patch = feature['geometry']
-                    plot_poly(mapInfo, patch, colors[color_num])
-                except:
-                    for poly in coords:
-                        plot_poly(mapInfo, poly, colors[color_num])
+                    plot_poly(mapInfo, poly, colors[color_num], filled=False)
             elif polytype == 'LineString':
                 plot_poly(mapInfo, coords, colors[color_num], filled=False)
             elif polytype == 'Point':
