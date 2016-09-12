@@ -12,6 +12,9 @@ polygons that do not cross the prime meridian.
 
 The script makes use of the shapely library.
 
+Author: Xylar Asay-Davis
+Last Modified: 2/27/2016
+
 """
 
 import os

@@ -1,100 +1,65 @@
 #!/usr/bin/env python
 """
-This script creates basins for computing the meridional overturning 
+This script creates basins for computing the meridional overturning
 circulation (MOC).  No arguments are required.  The optional --plot
 flag can be used to produce plots of each MOC basin.
+
+Authors: Xylar Asay-Davis, Phillip J. Wolfram
+Last Modified: 09/09/2016
 """
 import os
-import os.path
 import subprocess
-import shutil
 from optparse import OptionParser
+
+def spcall(args): #{{{
+    return subprocess.check_call(args, env=os.environ.copy()) #}}}
 
 parser = OptionParser()
 parser.add_option("--plot", action="store_true", dest="plot")
 
 options, args = parser.parse_args()
 
-defaultFileName = 'features.geojson'
 
-if os.path.exists(defaultFileName):
-    os.remove(defaultFileName)
+subBasins = {'Atlantic': ['Atlantic', 'Mediterranean'],
+             'IndoPacific': ['Pacific', 'Indian'],
+             'Pacific': ['Pacific'],
+             'Indian': ['Indian']}
 
-basinName = 'Atlantic'
-print " * merging features to make %s Basin"%basinName
-MOCName =  '%s_MOC.geojson'%basinName
-imageName =  '%s_MOC.png'%basinName
-basinFileName =  '%s_Basin.geojson'%basinName
-for oceanName in ['Atlantic', 'Mediterranean']:
-    tag = '%s_Basin'%oceanName
-    MOCMaskFileName = 'ocean/region/MOC_mask_30S/region.geojson'
+MOCMaskFileNames = {'Atlantic': 'ocean/region/MOC_mask_30S/region.geojson',
+                    'IndoPacific': 'ocean/region/MOC_mask_30S/region.geojson',
+                    'Pacific': 'ocean/region/MOC_mask_6S/region.geojson',
+                    'Indian': 'ocean/region/MOC_mask_6S/region.geojson'}
 
-    args = ['./merge_features.py', '-d', 'ocean', '-t', tag]
-    subprocess.check_call(args, env=os.environ.copy())
+for basinName in subBasins:
 
-shutil.move(defaultFileName,basinFileName)
+    # output file names
+    basinFileName =  '%s_Basin_separate.geojson'%basinName
+    basinCombinedFileName =  '%s_Basin.geojson'%basinName
+    MOCName =  '%s_MOC.geojson'%basinName
+    imageName =  '%s_MOC.png'%basinName
 
-print " * masking out features south of MOC region"
-args = ['./difference_features.py', '-f', basinFileName, '-m', MOCMaskFileName]
-subprocess.check_call(args, env=os.environ.copy())
+    # remove old files (to ensure there isn't double-appending via merge_features
+    for afile in [basinFileName, basinCombinedFileName, MOCName, imageName]:
+        if os.path.exists(afile):
+            os.remove(afile)
 
-shutil.move(defaultFileName,MOCName)
+    print " * merging features to make %s Basin"%basinName
 
-if options.plot:
-    args = ['./plot_features.py', '-f', MOCName, '-o', imageName, '-m', 'cyl']
-    subprocess.check_call(args, env=os.environ.copy())
+    for oceanName in subBasins[basinName]:
+        spcall(['./merge_features.py', '-d', 'ocean/region', '-t', '%s_Basin'%oceanName,
+                '-o', basinFileName])
 
-
-
-if os.path.exists(defaultFileName):
-    os.remove(defaultFileName)
-
-basinName = 'IndoPacific'
-print " * merging features to make %s Basin"%basinName
-MOCName =  '%s_MOC.geojson'%basinName
-imageName =  '%s_MOC.png'%basinName
-basinFileName =  '%s_Basin.geojson'%basinName
-for oceanName in ['Pacific', 'Indian']:
-    tag = '%s_Basin'%oceanName
-    MOCMaskFileName = 'ocean/region/MOC_mask_30S/region.geojson'
-
-    args = ['./merge_features.py', '-d', 'ocean', '-t', tag]
-    subprocess.check_call(args, env=os.environ.copy())
-
-shutil.move(defaultFileName,basinFileName)
-
-print " * masking out features south of MOC region"
-args = ['./difference_features.py', '-f', basinFileName, '-m', MOCMaskFileName]
-subprocess.check_call(args, env=os.environ.copy())
-
-shutil.move(defaultFileName,MOCName)
-
-if options.plot:
-    args = ['./plot_features.py', '-f', MOCName, '-o', imageName, '-m', 'cyl']
-    subprocess.check_call(args, env=os.environ.copy())
-
-
-for oceanName in ['Pacific', 'Indian']:
-    tag = '%s_Basin'%oceanName
-    basinFileName =  '%s_Basin.geojson'%oceanName
-    MOCName =  '%s_MOC.geojson'%oceanName
-    imageName =  '%s_MOC.png'%oceanName
-    MOCMaskFileName = 'ocean/region/MOC_mask_6S/region.geojson'
-    if os.path.exists(defaultFileName):
-        os.remove(defaultFileName)
-
-    print " * merging features to make %s Basin"%oceanName
-    args = ['./merge_features.py', '-d', 'ocean', '-t', tag]
-    subprocess.check_call(args, env=os.environ.copy())
-
-    shutil.move(defaultFileName,basinFileName)
+    #merge the the features into a single file
+    print " * combining features into single feature named %s_MOC"%basinName
+    spcall(['./combine_features.py', '-f', basinFileName, '-n', '%s_MOC'%basinName,
+            '-o', basinCombinedFileName])
 
     print " * masking out features south of MOC region"
-    args = ['./difference_features.py', '-f', basinFileName, '-m', MOCMaskFileName]
-    subprocess.check_call(args, env=os.environ.copy())
-
-    shutil.move(defaultFileName,MOCName)
+    spcall(['./difference_features.py', '-f', basinCombinedFileName,
+            '-m', MOCMaskFileNames[basinName], '-o', MOCName])
 
     if options.plot:
-        args = ['./plot_features.py', '-f', MOCName, '-o', imageName, '-m', 'cyl']
-        subprocess.check_call(args, env=os.environ.copy())
+        spcall(['./plot_features.py', '-f', MOCName, '-o', imageName, '-m', 'cyl'])
+
+
+# vim: foldmethod=marker ai ts=4 sts=4 et sw=4 ft=python

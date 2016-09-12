@@ -6,7 +6,11 @@ pointed to by the -f flag.  Features in the input file are simplified
 using the shapely library with a tolerance (in degrees lon/lat) given
 by -t flag.  If the -t flag is omitted, the default tolerance is zero
 (so that points will not be allowed ot move at all, but may still be
-simplified).  The result are stored in features.geojson.
+simplified).  The result are stored in (or appended to) the output
+file pointed to with the -o flag (features.geojson by default).
+
+Author: Xylar Asay-Davis
+Last Modified: 4/4/2016
 """
 
 import json
@@ -29,10 +33,14 @@ parser.add_argument("-t", "--tolerance", dest="tolerance", type=float, default=0
                     help="A distance in deg lon/lat by which each point in a feature can be moved during simpification",
                     metavar="TOLERANCE")
 
+parser.add_argument("-o", "--output", dest="output_file_name",
+                    help="Output file, e.g., features.geojson.",
+                    metavar="PATH", default="features.geojson")
+
 args = parser.parse_args()
 
 
-out_file_name = "features.geojson"
+out_file_name = args.output_file_name
 
 features = defaultdict(list)
 

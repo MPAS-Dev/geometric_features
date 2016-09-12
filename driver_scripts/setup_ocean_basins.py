@@ -6,8 +6,12 @@ optional --plot flag can be used to produce plots of each basin.
 import os
 import os.path
 import subprocess
-import shutil
 from optparse import OptionParser
+
+def spcall(args): #{{{
+    return subprocess.check_call(args, env=os.environ.copy()) #}}}
+
+
 
 parser = OptionParser()
 parser.add_option("--plot", action="store_true", dest="plot")
@@ -16,20 +20,25 @@ options, args = parser.parse_args()
 
 for oceanName in 'Atlantic', 'Pacific', 'Indian', 'Arctic', 'Southern_Ocean', 'Mediterranean':
 
-    defaultFileName = 'features.geojson'
     tag = '%s_Basin'%oceanName
-    basinName =  '%s_Basin.geojson'%oceanName
+    basinFileNameName =  '%s_Basin_separate.geojson'%oceanName
+    basinCombinedFileName =  '%s_Basin.geojson'%oceanName
     imageName =  '%s_Basin.png'%oceanName
 
-    if os.path.exists(defaultFileName):
-        os.remove(defaultFileName)
+    # remove old files (to ensure there isn't double-appending via merge_features
+    for afile in [basinFileNameName, basinCombinedFileName, imageName]:
+        if os.path.exists(afile):
+            os.remove(afile)
   
     print " * merging features to make %s Basin"%oceanName
-    args = ['./merge_features.py', '-d', 'ocean', '-t', tag]
+    args = ['./merge_features.py', '-d', 'ocean/region', '-t', tag, '-o', basinFileNameName]
     subprocess.check_call(args, env=os.environ.copy())
 
-    shutil.move(defaultFileName,basinName)
+    #merge the the features into a single file
+    print " * combining features into single feature named %s_Basin"%oceanName
+    spcall(['./combine_features.py', '-f', basinFileNameName, '-n', '%s_Basin'%oceanName,
+            '-o', basinCombinedFileName])
     
     if(options.plot):
-        args = ['./plot_features.py', '-f', basinName, '-o', imageName, '-m', 'cyl']
+        args = ['./plot_features.py', '-f', basinCombinedFileName, '-o', imageName, '-m', 'cyl']
         subprocess.check_call(args, env=os.environ.copy())

@@ -1,11 +1,14 @@
 #!/usr/bin/env python
-
 """
 This script takes a file containing one or more feature definitions, that is
 pointed to by the -f flag and a second masking feature definition, pointed
 to with the -m flag.  The masking features are masked out of (i.e. removed
 from) the original feature definitions.  The resulting features are placed
-in (or appended to) features.geojson.
+in (or appended to) the output file pointed to with the -o flag
+(features.geojson by default).
+
+Authors: Xylar Asay-Davis
+Last Modified: 02/12/2016
 """
 
 import json
@@ -27,11 +30,14 @@ parser.add_argument("-f", "--feature_file", dest="feature_file",
 parser.add_argument("-m", "--mask_file", dest="mask_file",
                     help="Single feature whose overlap with the first feature should be removed",
                     metavar="FILE2", required=True)
+parser.add_argument("-o", "--output", dest="output_file_name",
+                    help="Output file, e.g., features.geojson.",
+                    metavar="PATH", default="features.geojson")
 
 args = parser.parse_args()
 
 
-out_file_name = "features.geojson"
+out_file_name = args.output_file_name
 
 features = defaultdict(list)
 
