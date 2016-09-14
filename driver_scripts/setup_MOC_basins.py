@@ -25,8 +25,8 @@ subBasins = {'Atlantic': ['Atlantic', 'Mediterranean'],
              'Pacific': ['Pacific'],
              'Indian': ['Indian']}
 
-MOCMaskFileNames = {'Atlantic': 'ocean/region/MOC_mask_30S/region.geojson',
-                    'IndoPacific': 'ocean/region/MOC_mask_30S/region.geojson',
+MOCMaskFileNames = {'Atlantic': 'ocean/region/MOC_mask_34S/region.geojson',
+                    'IndoPacific': 'ocean/region/MOC_mask_34S/region.geojson',
                     'Pacific': 'ocean/region/MOC_mask_6S/region.geojson',
                     'Indian': 'ocean/region/MOC_mask_6S/region.geojson'}
 
