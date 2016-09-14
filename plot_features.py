@@ -15,7 +15,7 @@ all maps are used.  Possible map types are 'cyl', 'merc', 'mill', 'mill2',
 'southpole', 'atlantic', 'pacific', 'americas', 'asia'
 
 Authors: Xylar Asay-Davis, Doug Jacobsen, Phillip J. Wolfram
-Last Modified: 02/08/2016
+Last Modified: 09/14/2016
 """
 
 import os.path
@@ -24,6 +24,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import cartopy.crs
 import cartopy.feature
+import shapely
 
 def build_projections(): #{{{
     projections = {}
@@ -50,8 +51,10 @@ def plot_base(mapType, projection): #{{{
 
     ax = plt.axes(projection=projection)
     resolution = '50m'
+
     ax.add_feature(cartopy.feature.NaturalEarthFeature('physical', 'land', resolution,
                    edgecolor='face', facecolor=cartopy.feature.COLORS['land']), zorder=1)
+
     ax.add_feature(cartopy.feature.NaturalEarthFeature('physical', 'coastline', resolution,
                    edgecolor='black', facecolor='none'), zorder=2)
 
@@ -65,63 +68,6 @@ def plot_base(mapType, projection): #{{{
 
     return (ax,projection) #}}}
 
-def divide_poly_segments(points): #{{{
-
-    inPoints = np.asarray(points)
-    minDist = 4.0 # 4-degree segments
-    dLon = inPoints[1:,0] - inPoints[0:-1,0]
-    dLat = inPoints[1:,1] - inPoints[0:-1,1]
-    dist = np.sqrt(dLon**2 + dLat**2)
-
-    longSegmentIndices = np.nonzero(dist > minDist)[0]
-    if(len(longSegmentIndices) == 0):
-        return inPoints
-
-    # start with all points up to the first long segiment
-    outPoints = inPoints[0:longSegmentIndices[0],:]
-    for index in range(len(longSegmentIndices)):
-        segIndex = longSegmentIndices[index]
-        newPointCount = int(dist[segIndex]/minDist)+2
-        newPoints = np.zeros((newPointCount, 2))
-        newPoints[:,0] = np.linspace(inPoints[segIndex,0], inPoints[segIndex+1,0], newPointCount)
-        newPoints[:,1] = np.linspace(inPoints[segIndex,1], inPoints[segIndex+1,1], newPointCount)
-        outPoints = np.append(outPoints, newPoints[0:-1,:], axis=0)
-
-        # now add all the points up to the next long segment, or remaining points
-        # if there are no more long segments
-        if(index+1 < len(longSegmentIndices)):
-            endIndex = longSegmentIndices[index+1]
-        else:
-            endIndex = inPoints.shape[0]
-        outPoints = np.append(outPoints, inPoints[segIndex+1:endIndex,:], axis=0)
-
-    return outPoints #}}}
-
-def plot_poly(mapInfo, points, color, filled=True): #{{{
-
-    points = divide_poly_segments(points)
-
-    refProjection = cartopy.crs.PlateCarree()
-
-    for mapType in mapInfo:
-        (ax, projection, plotFileName, fig) = mapInfo[mapType]
-        x = points[:,0]
-        y = points[:,1]
-        ax.fill(x, y, transform=refProjection, color=color, alpha=0.4, linewidth=2.0, zorder=3)
-
-    return #}}}
-
-def plot_point(mapInfo, points, marker, color): #{{{
-
-    points = np.asarray(points)
-
-    refProjection = cartopy.crs.PlateCarree()
-
-    for mapType in mapInfo:
-        (ax, projection, plotFileName, fig) = mapInfo[mapType]
-        ax.plot(points[:,0], points[:,1], marker = marker, transform=refProjection, color=color, zorder=5)
-
-    return #}}}
 
 def plot_features_file(featurefile, mapInfo): #{{{
 
@@ -135,37 +81,57 @@ def plot_features_file(featurefile, mapInfo): #{{{
 
     feature_num = 0
 
+    bounds = None
+
     for feature in featuredat['features']:
-        polytype = feature['geometry']['type']
-        coords = feature['geometry']['coordinates']
-        feature = feature['properties']['name']
-        print '  feature: %s'%feature
+        geomtype = feature['geometry']['type']
+        shape = shapely.geometry.shape(feature['geometry'])
+        featurename = feature['properties']['name']
+        print '  feature: %s'%featurename
 
-        color_num = feature_num % len(colors)
-        marker_num = feature_num % len(markers)
+        refProjection = cartopy.crs.PlateCarree()
 
-        try:
-            if polytype == 'MultiPolygon':
-                for poly in coords:
-                    for shape in poly:
-                        plot_poly(mapInfo,shape,colors[color_num])
-            elif polytype == 'Polygon' or polytype == 'MultiLineString':
-                for poly in coords:
-                    plot_poly(mapInfo,poly,colors[color_num])
-            elif polytype == 'LineString':
-                plot_poly(mapInfo,coords,colors[color_num],filled=False)
-            elif polytype == 'Point':
-                plot_point(mapInfo,coords,markers[marker_num],colors[color_num])
-            else:
-                assert False, 'Geometry %s not known.'%(polytype)
-        except:
-            print 'Error plotting %s'%(feature)
+        color = colors[feature_num % len(colors)]
+        marker = markers[feature_num % len(markers)]
+
+        props = {'linewidth':2.0, 'edgecolor':color}
+        if geomtype in ['Polygon','MultiPolygon']:
+            props['alpha'] = 0.4
+            props['facecolor'] = color
+        if geomtype in ['LineString','MultiLineString']:
+            props['facecolor'] = 'none'
+        if geomtype in ['Point']:
+            props['marker'] = marker
+
+        if bounds is None:
+            bounds = list(shape.bounds)
+        else:
+            # expand the bounding box
+            bounds[:2] = np.minimum(bounds[:2], shape.bounds[:2])
+            bounds[2:] = np.maximum(bounds[2:], shape.bounds[2:])
+
+        for mapType in mapInfo:
+            (ax, projection, plotFileName, fig) = mapInfo[mapType]
+            ax.add_geometries((shape,), crs=refProjection, **props)
 
         feature_num = feature_num + 1
+
+    box = shapely.geometry.box(*bounds)
 
     for mapType in mapInfo:
         (ax, projection, plotFileName, fig) = mapInfo[mapType]
         print 'saving ' + plotFileName
+
+        boxProjected = projection.project_geometry(box, src_crs=refProjection)
+        try:
+            x1, y1, x2, y2 = boxProjected.bounds
+            ax.set_xlim([x1, x2])
+            ax.set_ylim([y1, y2])
+        except ValueError:
+            print "Warning: bounding box could not be projected into projection", mapType
+            print "Defaulting to global bounds."
+            ax.set_global()
+
         fig.savefig(plotFileName)
 
     return #}}}
