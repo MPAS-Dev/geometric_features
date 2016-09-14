@@ -24,6 +24,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import cartopy.crs
 import cartopy.feature
+import shapely
+from descartes import PolygonPatch
 
 def build_projections(): #{{{
     projections = {}
@@ -50,8 +52,10 @@ def plot_base(mapType, projection): #{{{
 
     ax = plt.axes(projection=projection)
     resolution = '50m'
+
     ax.add_feature(cartopy.feature.NaturalEarthFeature('physical', 'land', resolution,
                    edgecolor='face', facecolor=cartopy.feature.COLORS['land']), zorder=1)
+
     ax.add_feature(cartopy.feature.NaturalEarthFeature('physical', 'coastline', resolution,
                    edgecolor='black', facecolor='none'), zorder=2)
 
@@ -97,29 +101,35 @@ def divide_poly_segments(points): #{{{
 
     return outPoints #}}}
 
-def plot_poly(mapInfo, points, color, filled=True): #{{{
-
-    points = divide_poly_segments(points)
+def plot_feature(mapInfo, geomtype, geom, **kwargs): #{{{
 
     refProjection = cartopy.crs.PlateCarree()
 
-    for mapType in mapInfo:
-        (ax, projection, plotFileName, fig) = mapInfo[mapType]
+    genprop = {'transform':refProjection, 'alpha':0.4, 'linewidth':2.0}
+
+    # merge plot properties
+    if kwargs is not None:
+        plotprop = genprop.copy()
+        plotprop.update(kwargs)
+
+    if geomtype == 'line':
+        points = divide_poly_segments(geom)
         x = points[:,0]
         y = points[:,1]
-        ax.fill(x, y, transform=refProjection, color=color, alpha=0.4, linewidth=2.0, zorder=3)
-
-    return #}}}
-
-def plot_point(mapInfo, points, marker, color): #{{{
-
-    points = np.asarray(points)
-
-    refProjection = cartopy.crs.PlateCarree()
+    elif geomtype == 'point':
+        point = np.asarray(geom)
 
     for mapType in mapInfo:
         (ax, projection, plotFileName, fig) = mapInfo[mapType]
-        ax.plot(points[:,0], points[:,1], marker = marker, transform=refProjection, color=color, zorder=5)
+
+        if geomtype == 'polygon':
+            ax.add_patch(PolygonPatch(geom, zorder=3, **plotprop))
+        elif geomtype == 'line':
+            ax.plot(x, y, '-', zorder=4, **plotprop)
+        elif geomtype == 'point':
+            ax.plot(point[0], point[1], zorder=5, **plotprop)
+        else:
+            assert False, 'Plotting for geometry type %s is not specified'%(geomtype)
 
     return #}}}
 
@@ -132,40 +142,45 @@ def plot_features_file(featurefile, mapInfo): #{{{
     # use colorbrewer qualitative 7 data class colors, "7-class Accent": http://colorbrewer2.org/
     colors = ['#7fc97f' ,'#beaed4', '#fdc086', '#ffff99','#386cb0','#f0027f','#bf5b17']
     markers = ['o', 's', 'v', '^', '>', '<', '*', 'p', 'D', 'h']
+    linestyle = ['-', '--', '-.', ':']
 
     feature_num = 0
 
     for feature in featuredat['features']:
         polytype = feature['geometry']['type']
         coords = feature['geometry']['coordinates']
-        feature = feature['properties']['name']
-        print '  feature: %s'%feature
+        shape = shapely.geometry.shape(feature['geometry'])
+        featurename = feature['properties']['name']
+        print '  feature: %s'%featurename
 
         color_num = feature_num % len(colors)
         marker_num = feature_num % len(markers)
+        linestyle_num = feature_num % len(linestyle)
 
         try:
             if polytype == 'MultiPolygon':
+                for apoly in shape:
+                    plot_feature(mapInfo, 'polygon', apoly, color=colors[color_num])
+            elif polytype == 'Polygon':
+                plot_feature(mapInfo, 'polygon', shape, color=colors[color_num])
+            elif polytype == 'MultiLineString':
                 for poly in coords:
-                    for shape in poly:
-                        plot_poly(mapInfo,shape,colors[color_num])
-            elif polytype == 'Polygon' or polytype == 'MultiLineString':
-                for poly in coords:
-                    plot_poly(mapInfo,poly,colors[color_num])
+                    plot_feature(mapInfo, 'line', poly, color=colors[color_num], linestyle=linestyle[linestyle_num])
             elif polytype == 'LineString':
-                plot_poly(mapInfo,coords,colors[color_num],filled=False)
+                plot_feature(mapInfo, 'line', coords, color=colors[color_num], linestyle=linestyle[linestyle_num])
             elif polytype == 'Point':
-                plot_point(mapInfo,coords,markers[marker_num],colors[color_num])
+                plot_feature(mapInfo, 'point', coords, color=colors[color_num], marker=markers[marker_num])
             else:
                 assert False, 'Geometry %s not known.'%(polytype)
-        except:
-            print 'Error plotting %s'%(feature)
+        except Exception as inst:
+            print 'Error plotting %s with error %s'%(featurename, inst)
 
         feature_num = feature_num + 1
 
     for mapType in mapInfo:
         (ax, projection, plotFileName, fig) = mapInfo[mapType]
         print 'saving ' + plotFileName
+        ax.set_global()
         fig.savefig(plotFileName)
 
     return #}}}
