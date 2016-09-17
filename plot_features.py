@@ -68,8 +68,58 @@ def plot_base(mapType, projection): #{{{
 
     return (ax,projection) #}}}
 
+def subdivide_geom(geometry, geomtype, max_length): #{{{
 
-def plot_features_file(featurefile, mapInfo): #{{{
+    def subdivide_line_string(lineString, periodic=False): #{{{
+        coords = list(lineString.coords)
+        if periodic:
+            # add periodic last entry
+            coords.append(coords[0])
+
+        outCoords = [coords[0]]
+        for iVert in range(len(coords)-1):
+            segment = shapely.geometry.LineString([coords[iVert],coords[iVert+1]])
+            if(segment.length < max_length):
+                outCoords.append(coords[iVert+1])
+            else:
+                # we need to subdivide this segment
+                subsegment_count = int(np.ceil(segment.length/max_length))
+                for index in range(subsegment_count):
+                    point = segment.interpolate(float(index+1)/float(subsegment_count), normalized=True)
+                    outCoords.append(point.coords[0])
+
+        if periodic:
+            # remove the last entry
+            outCoords.pop()
+        return outCoords  #}}}
+
+    if geomtype == 'LineString':
+        newGeometry = shapely.geometry.LineString(subdivide_line_string(geometry))
+    elif geomtype == 'MultiLineString':
+        outStrings = [subdivide_line_string(inLineString) for inLineString in geometry]
+        newGeometry = shapely.geometry.MultiLineString(outStrings)
+    elif geomtype == 'Polygon':
+        exterior = subdivide_line_string(geometry.exterior, periodic=True)
+        interiors = [subdivide_line_string(inLineString, periodic=True) for inLineString in geometry.interiors]
+        newGeometry = shapely.geometry.Polygon(exterior, interiors)
+    elif geomtype == 'MultiPolygon':
+        polygons = []
+        for polygon in geometry:
+            exterior = subdivide_line_string(polygon.exterior, periodic=True)
+            interiors = [subdivide_line_string(inLineString, periodic=True) for inLineString in polygon.interiors]
+            polygons.append((exterior, interiors))
+
+        newGeometry = shapely.geometry.MultiPolygon(polygons)
+    elif geomtype == 'Point':
+        newGeometry = geometry
+    else:
+        print "Warning: subdividing geometry type %s is not supported."%geomtype
+        newGeometry = geometry
+
+
+    return newGeometry #}}}
+
+def plot_features_file(featurefile, mapInfo, max_length): #{{{
 
     # open up the database
     with open(featurefile) as f:
@@ -86,6 +136,9 @@ def plot_features_file(featurefile, mapInfo): #{{{
     for feature in featuredat['features']:
         geomtype = feature['geometry']['type']
         shape = shapely.geometry.shape(feature['geometry'])
+        if(max_length > 0.0):
+            shape = subdivide_geom(shape, geomtype, max_length)
+
         featurename = feature['properties']['name']
         print '  feature: %s'%featurename
 
@@ -117,6 +170,8 @@ def plot_features_file(featurefile, mapInfo): #{{{
         feature_num = feature_num + 1
 
     box = shapely.geometry.box(*bounds)
+    if(max_length > 0.0):
+        box = subdivide_geom(box, 'Polygon', max_length)
 
     for mapType in mapInfo:
         (ax, projection, plotFileName, fig) = mapInfo[mapType]
@@ -143,6 +198,8 @@ if __name__ == "__main__":
     parser.add_argument("-f", "--features_file", dest="features_file", help="Feature file to plot", metavar="FILE", required=True)
     parser.add_argument("-o", "--features_plot", dest="features_plotname", help="Feature plot filename", metavar="FILE")
     parser.add_argument("-m", "--map_type", dest="map_type", help="The map type on which to project", metavar="FILE")
+    parser.add_argument("--max_length", dest="max_length", type=float, default=4.0,
+                        help="Maximum allowed segment length after subdivision (0.0 indicates skip subdivision)")
 
     args = parser.parse_args()
 
@@ -171,6 +228,6 @@ if __name__ == "__main__":
             plotFileName = '%s_%s.png'%(os.path.splitext(args.features_plotname)[0],mapType)
         mapInfo[mapType] = (ax, projection, plotFileName, fig)
 
-    plot_features_file(args.features_file, mapInfo)
+    plot_features_file(args.features_file, mapInfo, max_length=args.max_length)
 
 # vim: foldmethod=marker ai ts=4 sts=4 et sw=4 ft=python
