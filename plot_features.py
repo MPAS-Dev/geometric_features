@@ -15,7 +15,7 @@ all maps are used.  Possible map types are 'cyl', 'merc', 'mill', 'mill2',
 'southpole', 'atlantic', 'pacific', 'americas', 'asia'
 
 Authors: Xylar Asay-Davis, Doug Jacobsen, Phillip J. Wolfram
-Last Modified: 02/08/2016
+Last Modified: 09/14/2016
 """
 
 import os.path
@@ -24,6 +24,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import cartopy.crs
 import cartopy.feature
+import shapely
 
 def build_projections(): #{{{
     projections = {}
@@ -50,8 +51,10 @@ def plot_base(mapType, projection): #{{{
 
     ax = plt.axes(projection=projection)
     resolution = '50m'
+
     ax.add_feature(cartopy.feature.NaturalEarthFeature('physical', 'land', resolution,
                    edgecolor='face', facecolor=cartopy.feature.COLORS['land']), zorder=1)
+
     ax.add_feature(cartopy.feature.NaturalEarthFeature('physical', 'coastline', resolution,
                    edgecolor='black', facecolor='none'), zorder=2)
 
@@ -65,65 +68,58 @@ def plot_base(mapType, projection): #{{{
 
     return (ax,projection) #}}}
 
-def divide_poly_segments(points): #{{{
+def subdivide_geom(geometry, geomtype, max_length): #{{{
 
-    inPoints = np.asarray(points)
-    minDist = 4.0 # 4-degree segments
-    dLon = inPoints[1:,0] - inPoints[0:-1,0]
-    dLat = inPoints[1:,1] - inPoints[0:-1,1]
-    dist = np.sqrt(dLon**2 + dLat**2)
+    def subdivide_line_string(lineString, periodic=False): #{{{
+        coords = list(lineString.coords)
+        if periodic:
+            # add periodic last entry
+            coords.append(coords[0])
 
-    longSegmentIndices = np.nonzero(dist > minDist)[0]
-    if(len(longSegmentIndices) == 0):
-        return inPoints
+        outCoords = [coords[0]]
+        for iVert in range(len(coords)-1):
+            segment = shapely.geometry.LineString([coords[iVert],coords[iVert+1]])
+            if(segment.length < max_length):
+                outCoords.append(coords[iVert+1])
+            else:
+                # we need to subdivide this segment
+                subsegment_count = int(np.ceil(segment.length/max_length))
+                for index in range(subsegment_count):
+                    point = segment.interpolate(float(index+1)/float(subsegment_count), normalized=True)
+                    outCoords.append(point.coords[0])
 
-    # start with all points up to the first long segiment
-    outPoints = inPoints[0:longSegmentIndices[0],:]
-    for index in range(len(longSegmentIndices)):
-        segIndex = longSegmentIndices[index]
-        newPointCount = int(dist[segIndex]/minDist)+2
-        newPoints = np.zeros((newPointCount, 2))
-        newPoints[:,0] = np.linspace(inPoints[segIndex,0], inPoints[segIndex+1,0], newPointCount)
-        newPoints[:,1] = np.linspace(inPoints[segIndex,1], inPoints[segIndex+1,1], newPointCount)
-        outPoints = np.append(outPoints, newPoints[0:-1,:], axis=0)
+        if periodic:
+            # remove the last entry
+            outCoords.pop()
+        return outCoords  #}}}
 
-        # now add all the points up to the next long segment, or remaining points
-        # if there are no more long segments
-        if(index+1 < len(longSegmentIndices)):
-            endIndex = longSegmentIndices[index+1]
-        else:
-            endIndex = inPoints.shape[0]
-        outPoints = np.append(outPoints, inPoints[segIndex+1:endIndex,:], axis=0)
+    if geomtype == 'LineString':
+        newGeometry = shapely.geometry.LineString(subdivide_line_string(geometry))
+    elif geomtype == 'MultiLineString':
+        outStrings = [subdivide_line_string(inLineString) for inLineString in geometry]
+        newGeometry = shapely.geometry.MultiLineString(outStrings)
+    elif geomtype == 'Polygon':
+        exterior = subdivide_line_string(geometry.exterior, periodic=True)
+        interiors = [subdivide_line_string(inLineString, periodic=True) for inLineString in geometry.interiors]
+        newGeometry = shapely.geometry.Polygon(exterior, interiors)
+    elif geomtype == 'MultiPolygon':
+        polygons = []
+        for polygon in geometry:
+            exterior = subdivide_line_string(polygon.exterior, periodic=True)
+            interiors = [subdivide_line_string(inLineString, periodic=True) for inLineString in polygon.interiors]
+            polygons.append((exterior, interiors))
 
-    return outPoints #}}}
+        newGeometry = shapely.geometry.MultiPolygon(polygons)
+    elif geomtype == 'Point':
+        newGeometry = geometry
+    else:
+        print "Warning: subdividing geometry type %s is not supported."%geomtype
+        newGeometry = geometry
 
-def plot_poly(mapInfo, points, color, filled=True): #{{{
 
-    points = divide_poly_segments(points)
+    return newGeometry #}}}
 
-    refProjection = cartopy.crs.PlateCarree()
-
-    for mapType in mapInfo:
-        (ax, projection, plotFileName, fig) = mapInfo[mapType]
-        x = points[:,0]
-        y = points[:,1]
-        ax.fill(x, y, transform=refProjection, color=color, alpha=0.4, linewidth=2.0, zorder=3)
-
-    return #}}}
-
-def plot_point(mapInfo, points, marker, color): #{{{
-
-    points = np.asarray(points)
-
-    refProjection = cartopy.crs.PlateCarree()
-
-    for mapType in mapInfo:
-        (ax, projection, plotFileName, fig) = mapInfo[mapType]
-        ax.plot(points[:,0], points[:,1], marker = marker, transform=refProjection, color=color, zorder=5)
-
-    return #}}}
-
-def plot_features_file(featurefile, mapInfo): #{{{
+def plot_features_file(featurefile, mapInfo, max_length): #{{{
 
     # open up the database
     with open(featurefile) as f:
@@ -135,37 +131,62 @@ def plot_features_file(featurefile, mapInfo): #{{{
 
     feature_num = 0
 
+    bounds = None
+
     for feature in featuredat['features']:
-        polytype = feature['geometry']['type']
-        coords = feature['geometry']['coordinates']
-        feature = feature['properties']['name']
-        print '  feature: %s'%feature
+        geomtype = feature['geometry']['type']
+        shape = shapely.geometry.shape(feature['geometry'])
+        if(max_length > 0.0):
+            shape = subdivide_geom(shape, geomtype, max_length)
 
-        color_num = feature_num % len(colors)
-        marker_num = feature_num % len(markers)
+        featurename = feature['properties']['name']
+        print '  feature: %s'%featurename
 
-        try:
-            if polytype == 'MultiPolygon':
-                for poly in coords:
-                    for shape in poly:
-                        plot_poly(mapInfo,shape,colors[color_num])
-            elif polytype == 'Polygon' or polytype == 'MultiLineString':
-                for poly in coords:
-                    plot_poly(mapInfo,poly,colors[color_num])
-            elif polytype == 'LineString':
-                plot_poly(mapInfo,coords,colors[color_num],filled=False)
-            elif polytype == 'Point':
-                plot_point(mapInfo,coords,markers[marker_num],colors[color_num])
-            else:
-                assert False, 'Geometry %s not known.'%(polytype)
-        except:
-            print 'Error plotting %s'%(feature)
+        refProjection = cartopy.crs.PlateCarree()
+
+        color = colors[feature_num % len(colors)]
+        marker = markers[feature_num % len(markers)]
+
+        props = {'linewidth':2.0, 'edgecolor':color}
+        if geomtype in ['Polygon','MultiPolygon']:
+            props['alpha'] = 0.4
+            props['facecolor'] = color
+        if geomtype in ['LineString','MultiLineString']:
+            props['facecolor'] = 'none'
+        if geomtype in ['Point']:
+            props['marker'] = marker
+
+        if bounds is None:
+            bounds = list(shape.bounds)
+        else:
+            # expand the bounding box
+            bounds[:2] = np.minimum(bounds[:2], shape.bounds[:2])
+            bounds[2:] = np.maximum(bounds[2:], shape.bounds[2:])
+
+        for mapType in mapInfo:
+            (ax, projection, plotFileName, fig) = mapInfo[mapType]
+            ax.add_geometries((shape,), crs=refProjection, **props)
 
         feature_num = feature_num + 1
+
+    box = shapely.geometry.box(*bounds)
+    if(max_length > 0.0):
+        box = subdivide_geom(box, 'Polygon', max_length)
 
     for mapType in mapInfo:
         (ax, projection, plotFileName, fig) = mapInfo[mapType]
         print 'saving ' + plotFileName
+
+        boxProjected = projection.project_geometry(box, src_crs=refProjection)
+        try:
+            x1, y1, x2, y2 = boxProjected.bounds
+            ax.set_xlim([x1, x2])
+            ax.set_ylim([y1, y2])
+        except ValueError:
+            print "Warning: bounding box could not be projected into projection", mapType
+            print "Defaulting to global bounds."
+            ax.set_global()
+
         fig.savefig(plotFileName)
 
     return #}}}
@@ -177,6 +198,8 @@ if __name__ == "__main__":
     parser.add_argument("-f", "--features_file", dest="features_file", help="Feature file to plot", metavar="FILE", required=True)
     parser.add_argument("-o", "--features_plot", dest="features_plotname", help="Feature plot filename", metavar="FILE")
     parser.add_argument("-m", "--map_type", dest="map_type", help="The map type on which to project", metavar="FILE")
+    parser.add_argument("--max_length", dest="max_length", type=float, default=4.0,
+                        help="Maximum allowed segment length after subdivision (0.0 indicates skip subdivision)")
 
     args = parser.parse_args()
 
@@ -205,6 +228,6 @@ if __name__ == "__main__":
             plotFileName = '%s_%s.png'%(os.path.splitext(args.features_plotname)[0],mapType)
         mapInfo[mapType] = (ax, projection, plotFileName, fig)
 
-    plot_features_file(args.features_file, mapInfo)
+    plot_features_file(args.features_file, mapInfo, max_length=args.max_length)
 
 # vim: foldmethod=marker ai ts=4 sts=4 et sw=4 ft=python
