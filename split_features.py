@@ -14,7 +14,7 @@ Last Modified: 08/27/2015
 import os
 import json
 import argparse
-from utils.feature_write_utils import write_single_feature
+from utils.feature_write_utils import write_all_features
 
 parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
 parser.add_argument("-f", "--features_file", dest="features_file", help="File containing features to split up", metavar="FILE", required=True)
@@ -39,15 +39,8 @@ for feature in features_file['features']:
     if not os.path.exists('%s/%s/%s'%(component, object_type, dir_name)):
         os.makedirs('%s/%s/%s'%(component, object_type, dir_name))
 
-    out_file = open('%s/%s/%s/%s.geojson'%(component, object_type, dir_name, object_type), 'w')
+    out_file_name = '%s/%s/%s/%s.geojson'%(component, object_type, dir_name, object_type)
 
-    out_file.write('{"type": "FeatureCollection",\n')
-    out_file.write(' "features":\n')
-    out_file.write('\t[\n')
-    write_single_feature(feature, out_file, '\t\t')
-    out_file.write('\n')
-    out_file.write('\t]\n')
-    out_file.write('}\n')
-    out_file.close()
+    write_all_features({'features':[feature]}, out_file_name, indent=4)
 
 # vim: foldmethod=marker ai ts=4 sts=4 et sw=4 ft=python

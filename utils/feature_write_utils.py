@@ -2,182 +2,84 @@
 import json
 import sys
 
-def write_all_features(features, out_file, base_indent):#{{{
-	first_feature = True
-	for feature in features['features']:
-		if not first_feature:
-			out_file.write(',\n')
-		write_single_feature(feature, out_file, base_indent)
-		first_feature = False
-#}}}
+from collections import OrderedDict
 
-def write_single_feature(feature, out_file, base_indent):#{{{
-	# Write properties first
 
-	out_file.write('%s{"type": "Feature",\n'%(base_indent))
-	out_file.write('%s "properties": {\n'%(base_indent))
+def write_all_features(features, out_file_name, indent=4):  # {{{
+    json.encoder.FLOAT_REPR = lambda o: format(o, 'f')
 
-	# Set property values that need to be set...
-	if not 'name' in feature['properties'].keys():
-		print "There was an error getting the name property from a feature. Exiting...\n"
-		sys.exit(1)
+    for index in range(len(features['features'])):
+        features['features'][index] = \
+            check_feature(features['features'][index])
 
-	if not 'component' in feature['properties'].keys():
-		print "Feature %s has an issue with the component property. Exiting...\n"%(feature['properties']['name'])
-		sys.exit(1)
+    features['type'] = 'FeatureCollection'
 
-	if not 'author' in feature['properties'].keys():
-		feature['properties']['author'] = ""
+    # Make the feature an ordered dictionary so type and groupName come before
+    # features (easier to read)
+    outFeatures = OrderedDict((('type', features['type']),))
+    if 'groupName' in features.keys():
+        outFeatures['groupName'] = features['groupName']
 
-	if not 'tags' in feature['properties'].keys():
-		feature['properties']['tags'] = ""
-	
-	if not 'type' in feature['geometry'].keys():
-		print "Feature %s has an issue with the geometry type. Exiting...\n"%(feature['properties']['name'])
-		sys.exit(1)
-	
-	feature_type = feature['geometry']['type']
+    # Add the rest
+    for key in features:
+        if key not in outFeatures.keys():
+            outFeatures[key] = features[key]
 
-	# Determine object property value based on feature type.
-	if feature_type == "Polygon" or feature_type == "MultiPolygon":
-		object_type = "region"
-	elif feature_type == "LineString" or feature_type == "MultiLineString":
-		object_type = "transect"
-	elif feature_type == "Point":
-		object_type = "point"
+    out_file = open(out_file_name, 'w')
 
-	feature['properties']['object'] = object_type
+    json.dump(outFeatures, out_file, indent=indent)
 
-	write_comma = False
+    return outFeatures
+# }}}
 
-	for key in sorted(feature['properties'].keys()):
-		if write_comma:
-			out_file.write(",\n")
 
-		out_file.write('%s\t"%s": "%s"'%(base_indent, key, feature['properties'][key]))
+def check_feature(feature):  # {{{
 
-		write_comma = True
+    # Set property values that need to be set...
+    if 'name' not in feature['properties'].keys():
+        print "There was an error getting the name property from a feature. " \
+            "Exiting..."
+        sys.exit(1)
 
-	out_file.write("\n")
+    if 'component' not in feature['properties'].keys():
+        print "Feature %s has an issue with the component property. " \
+            "Exiting..." % (feature['properties']['name'])
+        sys.exit(1)
 
-	# Write out properties
-	try:
-		feature_type = feature['geometry']['type']
-	except:
-		print "Feature: %s has an issue with the type of geometry. Exiting...\n"%(feature['properties']['name'])
-		quit(1)
+    if 'author' not in feature['properties'].keys():
+        feature['properties']['author'] = ""
 
-		
-	out_file.write('%s },\n'%(base_indent))
+    if 'tags' not in feature['properties'].keys():
+        feature['properties']['tags'] = ""
 
-	# Write out geometry
-	out_file.write('%s "geometry":\n'%(base_indent))
-	out_file.write('%s\t{"type": "%s",\n'%(base_indent, feature_type))
-	out_file.write('%s\t "coordinates":\n'%(base_indent))
+    if 'type' not in feature['geometry'].keys():
+        print "Feature %s has an issue with the geometry type. Exiting..." \
+            % (feature['properties']['name'])
+        sys.exit(1)
 
-	if feature_type == "MultiPolygon":
-		# An array of polygons
-		# Each polygon is an array of shapes
-		# Each The first shape in a polygon is an array describing the vertices of the exterior of the polygon
-		# Each other shape in a polygon is an array describing the vertices of each hole in the interior of the polygon
-		coords_list = feature['geometry']['coordinates']
+    feature_type = feature['geometry']['type']
 
-		out_file.write('%s\t\t[\n'%(base_indent))
- 		out_file.write('%s\t\t\t[\n'%(base_indent))
- 		write_poly_seps = False
-		for poly in coords_list:
-			write_shape_seps = False
-			if write_poly_seps:
-				out_file.write('%s\t\t\t],\n'%(base_indent))
-				out_file.write('%s\t\t\t[\n'%(base_indent))
-			else:
-				write_poly_seps = True
+    # Determine object property value based on feature type.
+    if feature_type == "Polygon" or feature_type == "MultiPolygon":
+        object_type = "region"
+    elif feature_type == "LineString" or feature_type == "MultiLineString":
+        object_type = "transect"
+    elif feature_type == "Point" or feature_type == "MultiPoint":
+        object_type = "point"
+    else:
+        raise ValueError("Unsupported feature type %s" % feature_type)
 
-			out_file.write('%s\t\t\t\t[\n'%(base_indent))
-			for shape in poly:
-				if write_shape_seps:
-					out_file.write('%s\t\t\t\t],\n'%(base_indent))
-					out_file.write('%s\t\t\t\t[\n'%(base_indent))
-				else:
-					write_shape_seps = True		
-	 
-				write_coordinates(shape, out_file, '%s\t\t\t\t\t'%(base_indent))
+    feature['properties']['object'] = object_type
 
-			out_file.write('%s\t\t\t\t]\n'%(base_indent))
- 		out_file.write('%s\t\t\t]\n'%(base_indent))
-		out_file.write('%s\t\t]\n'%(base_indent))
+    # Make the feature an ordered dictionary so properties come before geometry
+    # (easier to read)
+    outFeature = OrderedDict((('type', 'Feature'),
+                             ('properties', feature['properties'])))
+    # Add the rest
+    for key in feature:
+        if key not in outFeature.keys():
+            outFeature[key] = feature[key]
 
-	elif feature_type == "Polygon":
-		# One large array
-		# Inside, any number of arrays
-		# First array is an array of points representing the exterior of the polygon
-		# Any after the first are arrays of points representing the holes within the polygon
+    return outFeature
 
-		coords_list = feature['geometry']['coordinates']
-
-		out_file.write('%s\t\t[\n'%(base_indent))
- 		out_file.write('%s\t\t\t[\n'%(base_indent))
- 		write_poly_seps = False
- 		for shape in coords_list:
- 			if write_poly_seps:
- 				out_file.write('%s\t\t\t],\n'%(base_indent))
- 				out_file.write('%s\t\t\t[\n'%(base_indent))
- 			else:
- 				write_poly_seps = True		
- 
- 			write_coordinates(shape, out_file, '%s\t\t\t\t'%(base_indent))
- 		out_file.write('%s\t\t\t]\n'%(base_indent))
-		out_file.write('%s\t\t]\n'%(base_indent))
-
-	elif feature_type == "MultiLineString":
-		# An array of lines
-		# Each line is an array of coordinates for each line segment
-		coords_list = feature['geometry']['coordinates']
-
-		out_file.write('%s\t\t[\n'%(base_indent))
- 		out_file.write('%s\t\t\t[\n'%(base_indent))
- 		write_line_seps = False
- 		for line in coords_list:
- 			if write_line_seps:
- 				out_file.write('%s\t\t\t],\n'%(base_indent))
- 				out_file.write('%s\t\t\t[\n'%(base_indent))
- 			else:
- 				write_line_seps = True		
- 
- 			write_coordinates(line, out_file, '%s\t\t\t\t'%(base_indent))
- 		out_file.write('%s\t\t\t]\n'%(base_indent))
-		out_file.write('%s\t\t]\n'%(base_indent))
-
-	elif feature_type == "LineString":
-		# An single line
-		# Made up of an array of points
-		coords_list = feature['geometry']['coordinates']
-
-		out_file.write('%s\t\t[\n'%(base_indent))
- 		write_coordinates(coords_list, out_file, '%s\t\t\t'%(base_indent))
-		out_file.write('%s\t\t]\n'%(base_indent))
-
-	elif feature_type == "Point":
-		coords_list = feature['geometry']['coordinates']
-		out_file.write('%s\t[ %f, %f]\n'%(base_indent, coords_list[0], coords_list[1]))
-	else:
-		print "ERROR: Unsupported feature type: %s"%(feature_type)
-		sys.exit(1)
-
-	out_file.write('%s\t}\n'%(base_indent))
-	out_file.write('%s}'%(base_indent))
-
-#}}}
-
-def write_coordinates(coords, out_file, base_indent):#{{{
-	write_comma = False
-	for coord in coords:
-		if write_comma:
-			out_file.write(',\n')
-		else:
-			write_comma = True
-
-		out_file.write('%s[ %f, %f]'%(base_indent, coord[0], coord[1]))
-
-	out_file.write('\n')
-#}}}
+# }}}

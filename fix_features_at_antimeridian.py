@@ -103,6 +103,8 @@ def splitGeometryCrossingAntimeridian(geometry):
 
 parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
 parser.add_argument("-f", "--features_file", dest="features_file", help="File containing features to split at the antimeridian", metavar="FILE", required=True)
+parser.add_argument("-o", "--output", dest="output_file_name", help="Output file, e.g., features.geojson.", metavar="PATH", default="features.geojson")
+
 
 args = parser.parse_args()
 
@@ -122,17 +124,6 @@ for feature in features_file['features']:
     if(result is not None):
         feature['geometry'] = result
 
-out_file_name = "features.geojson"
-
-out_file = open(out_file_name, 'w')
-
-out_file.write('{"type": "FeatureCollection",\n')
-out_file.write(' "groupName": "enterNameHere",\n')
-out_file.write(' "features":\n')
-out_file.write('\t[\n')
-write_all_features(features_file, out_file, '\t\t')
-out_file.write('\n')
-out_file.write('\t]\n')
-out_file.write('}\n')
+write_all_features(features_file, args.output_file_name, indent=4)
 
 # vim: foldmethod=marker ai ts=4 sts=4 et sw=4 ft=python

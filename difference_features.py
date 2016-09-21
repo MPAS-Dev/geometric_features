@@ -96,6 +96,8 @@ for feature in featuresToMask['features']:
             if featureShape.is_empty :
                 add = False
                 break
+            else:
+                print "Masked feature %s with mask %s"%(name,maskFeature['properties']['name'])
 
     if(add):
         if(masked):
@@ -105,14 +107,6 @@ for feature in featuresToMask['features']:
     else:
         print "%s has been removed."%name
 
-out_file = open(out_file_name, 'w')
-out_file.write('{"type": "FeatureCollection",\n')
-out_file.write(' "groupName": "enterNameHere",\n')
-out_file.write(' "features":\n')
-out_file.write('\t[\n')
-write_all_features(features, out_file, '\t\t')
-out_file.write('\n')
-out_file.write('\t]\n')
-out_file.write('}\n')
+write_all_features(features, out_file_name, indent=4)
 
 # vim: foldmethod=marker ai ts=4 sts=4 et sw=4 ft=python
