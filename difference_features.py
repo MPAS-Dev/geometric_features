@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 """
 This script takes a file containing one or more feature definitions, that is
-pointed to by the -f flag and a second masking feature definition, pointed
-to with the -m flag.  The masking features are masked out of (i.e. removed
-from) the original feature definitions.  The resulting features are placed
-in (or appended to) the output file pointed to with the -o flag
-(features.geojson by default).
+pointed to by the -f flag and a second set of one or more masking feature 
+definition, pointed to with the -m flag.  The masking features are masked out
+of (i.e. removed from) the original feature definitions.  The resulting 
+features are placed in (or appended to) the output file pointed to with the 
+-o flag (features.geojson by default).
 
 Authors: Xylar Asay-Davis
-Last Modified: 02/12/2016
+Last Modified: 09/29/2016
 """
 
 import json
@@ -25,10 +25,11 @@ import shapely.ops
 parser = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawTextHelpFormatter)
 parser.add_argument("-f", "--feature_file", dest="feature_file",
-                    help="Single feature file to be clipped", metavar="FILE1",
+                    help="Feature file to be clipped", metavar="FILE1",
                     required=True)
 parser.add_argument("-m", "--mask_file", dest="mask_file",
-                    help="Single feature whose overlap with the first feature should be removed",
+                    help="Feature file with one or more features whose overlap "
+                         "with features in feature_file should be removed",
                     metavar="FILE2", required=True)
 parser.add_argument("-o", "--output", dest="output_file_name",
                     help="Output file, e.g., features.geojson.",
@@ -96,6 +97,8 @@ for feature in featuresToMask['features']:
             if featureShape.is_empty :
                 add = False
                 break
+            else:
+                print "Masked feature %s with mask %s"%(name,maskFeature['properties']['name'])
 
     if(add):
         if(masked):
@@ -105,14 +108,6 @@ for feature in featuresToMask['features']:
     else:
         print "%s has been removed."%name
 
-out_file = open(out_file_name, 'w')
-out_file.write('{"type": "FeatureCollection",\n')
-out_file.write(' "groupName": "enterNameHere",\n')
-out_file.write(' "features":\n')
-out_file.write('\t[\n')
-write_all_features(features, out_file, '\t\t')
-out_file.write('\n')
-out_file.write('\t]\n')
-out_file.write('}\n')
+write_all_features(features, out_file_name, indent=4)
 
 # vim: foldmethod=marker ai ts=4 sts=4 et sw=4 ft=python

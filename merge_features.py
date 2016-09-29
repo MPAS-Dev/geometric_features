@@ -16,16 +16,16 @@ delimited list (e.g. "tag1;tag2;tag3"). Features are only added to
 features.geojson if their tags property contains all of the tags listed on the
 input line.
 
-Authors: Douglas Jacobsen
-Last Modified: 02/11/2016
+Authors: Douglas Jacobsen, Xylar Asay-Davis
+Last Modified: 9/29/2016
 """
 
 import sys, os, glob, shutil, numpy, fnmatch
 import json
 import argparse
 from collections import defaultdict
-from utils.feature_write_utils import *
-from utils.feature_test_utils import *
+from utils.feature_write_utils import write_all_features
+from utils.feature_test_utils import match_tag_list, feature_already_exists
 
 parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
 parser.add_argument("-f", "--feature_file", dest="feature_file", help="Single feature file to append to features.geojson", metavar="FILE")
@@ -67,8 +67,6 @@ if os.path.exists(file_to_append):
     except:
         new_file = True
 
-out_file = open(file_to_append, 'w')
-
 if args.feature_file:
     try:
         with open(args.feature_file) as f:
@@ -103,13 +101,6 @@ if args.features_dir:
             print "Error parsing geojson file: %s"%(path)
     del paths
 
-out_file.write('{"type": "FeatureCollection",\n')
-out_file.write(' "groupName": "enterNameHere",\n')
-out_file.write(' "features":\n')
-out_file.write('\t[\n')
-write_all_features(all_features, out_file, '\t\t')
-out_file.write('\n')
-out_file.write('\t]\n')
-out_file.write('}\n')
+write_all_features(all_features, file_to_append, indent=4)
 
 # vim: foldmethod=marker ai ts=4 sts=4 et sw=4 ft=python

@@ -8,7 +8,7 @@ single feature definition, which is placed in (or appended to)
 the file pointed to with the -o flag (features.geojson by default).
 
 Author: Xylar Asay-Davis
-Last Modified: 09/10/2016
+Last Modified: 09/29/2016
 """
 
 import json
@@ -104,14 +104,6 @@ if feature['geometry']['type'] == 'GeometryCollection':
     print "       points and transects) are being cobined."
     sys.exit(1)
 
-out_file = open(out_file_name, 'w')
-out_file.write('{"type": "FeatureCollection",\n')
-out_file.write(' "groupName": "enterNameHere",\n')
-out_file.write(' "features":\n')
-out_file.write('\t[\n')
-write_all_features(features, out_file, '\t\t')
-out_file.write('\n')
-out_file.write('\t]\n')
-out_file.write('}\n')
+write_all_features(features, out_file_name, indent=4)
 
 # vim: foldmethod=marker ai ts=4 sts=4 et sw=4 ft=python
