@@ -4,9 +4,9 @@
 
 This script is used to split features that cross the antimeridian (+/-180 lon).
 The script reads from a single files containing the collection of features
-to be split at the antimeridian (the file can be 'features.geojson')
-and produces a file 'features.geojson'where all features are made up of
-polygons that do not cross the antimeridian.
+to be split at the antimeridian (the file can be the same as the output file)
+and produces a file indicated by the -o flag ('features.geojson' by default
+where all features are made up of polygons that do not cross the antimeridian.
 
 The code maps features into polar coordinates centered at the closest pole,
 which implicitly assumes that no segment of a feature will cover more than
