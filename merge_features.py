@@ -16,8 +16,8 @@ delimited list (e.g. "tag1;tag2;tag3"). Features are only added to
 features.geojson if their tags property contains all of the tags listed on the
 input line.
 
-Authors: Douglas Jacobsen
-Last Modified: 02/11/2016
+Authors: Douglas Jacobsen, Xylar Asay-Davis
+Last Modified: 9/29/2016
 """
 
 import sys, os, glob, shutil, numpy, fnmatch

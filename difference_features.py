@@ -8,7 +8,7 @@ in (or appended to) the output file pointed to with the -o flag
 (features.geojson by default).
 
 Authors: Xylar Asay-Davis
-Last Modified: 02/12/2016
+Last Modified: 09/29/2016
 """
 
 import json

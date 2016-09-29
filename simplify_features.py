@@ -10,7 +10,7 @@ simplified).  The result are stored in (or appended to) the output
 file pointed to with the -o flag (features.geojson by default).
 
 Author: Xylar Asay-Davis
-Last Modified: 4/4/2016
+Last Modified: 9/29/2016
 """
 
 import json

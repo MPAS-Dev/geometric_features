@@ -16,7 +16,7 @@ should be divided into sub-segments before calling this script.
 The script makes use of the shapely library.
 
 Author: Xylar Asay-Davis
-Last Modified: 1/31/2016
+Last Modified: 9/29/2016
 
 """
 

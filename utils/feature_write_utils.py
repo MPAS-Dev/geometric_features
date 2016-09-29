@@ -1,4 +1,12 @@
 #!/use/bin/env python
+
+"""
+Utility funcitons for writing geojson files from a dictionary of features.
+
+Authors: Douglas Jacobsen, Xylar Asay-Davis
+Last Modified: 09/29/2016
+"""
+
 import json
 import sys
 

@@ -15,7 +15,7 @@ all maps are used.  Possible map types are 'cyl', 'merc', 'mill', 'mill2',
 'southpole', 'atlantic', 'pacific', 'americas', 'asia'
 
 Authors: Xylar Asay-Davis, Doug Jacobsen, Phillip J. Wolfram
-Last Modified: 09/14/2016
+Last Modified: 09/29/2016
 """
 
 import os.path

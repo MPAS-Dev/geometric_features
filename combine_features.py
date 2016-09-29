@@ -8,7 +8,7 @@ single feature definition, which is placed in (or appended to)
 the file pointed to with the -o flag (features.geojson by default).
 
 Author: Xylar Asay-Davis
-Last Modified: 09/10/2016
+Last Modified: 09/29/2016
 """
 
 import json

@@ -1,5 +1,12 @@
 #!/use/bin/env python
 
+"""
+Utility funcitons for finding features wiht matching tags and checking if
+features already exist
+
+Authors: Douglas Jacobsen, Xylar Asay-Davis
+Last Modified: 09/29/2016
+"""
 
 def match_tag_list(feature, master_tags):  # {{{
     try:
