@@ -58,6 +58,6 @@ for feature in features_file['features']:
                                                  dir_name, object_type)
 
     write_all_features({'features': [feature]}, out_file_name, indent=4,
-                       defaultGroupName=None)
+                       defaultGroupName=None, strip_history=True)
 
 # vim: foldmethod=marker ai ts=4 sts=4 et sw=4 ft=python
