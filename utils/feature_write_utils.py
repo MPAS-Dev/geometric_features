@@ -22,11 +22,9 @@ def write_all_features(features, out_file_name, indent=4):  # {{{
 
     features['type'] = 'FeatureCollection'
 
-    # Make the feature an ordered dictionary so type and groupName come before
+    # Make the feature an ordered dictionary so type comes before
     # features (easier to read)
     outFeatures = OrderedDict((('type', features['type']),))
-    if 'groupName' in features.keys():
-        outFeatures['groupName'] = features['groupName']
 
     # Add the rest
     for key in features:
