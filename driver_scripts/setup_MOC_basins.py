@@ -19,6 +19,8 @@ parser.add_option("--plot", action="store_true", dest="plot")
 
 options, args = parser.parse_args()
 
+groupNameMOC = 'MOCBasinRegionsGroup'
+groupNameBasins = 'OceanBasinRegionsMOCGroup'
 
 subBasins = {'Atlantic': ['Atlantic', 'Mediterranean'],
              'IndoPacific': ['Pacific', 'Indian'],
@@ -52,11 +54,11 @@ for basinName in subBasins:
     #merge the the features into a single file
     print " * combining features into single feature named %s_MOC"%basinName
     spcall(['./combine_features.py', '-f', basinFileName, '-n', '%s_MOC'%basinName,
-            '-o', basinCombinedFileName])
+            '-g', groupNameBasins, '-o', basinCombinedFileName])
 
     print " * masking out features south of MOC region"
     spcall(['./difference_features.py', '-f', basinCombinedFileName,
-            '-m', MOCMaskFileNames[basinName], '-o', MOCName])
+            '-m', MOCMaskFileNames[basinName], '-g', groupNameMOC, '-o', MOCName])
 
     if options.plot:
         spcall(['./plot_features.py', '-f', MOCName, '-o', imageName, '-m', 'cyl'])

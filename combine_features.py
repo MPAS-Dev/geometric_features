@@ -32,6 +32,9 @@ parser.add_argument("-f", "--feature_file", dest="feature_file",
 parser.add_argument("-n", "--new_feature_name", dest="new_feature_name",
                     help="The new name of the combined feature",
                     metavar="NAME", required=True)
+parser.add_argument("-g", "--groupName", dest="groupName",
+                    help="Feature group name.",
+                    metavar="GROUPNAME", default="unspecifiedGroupName")
 parser.add_argument("-o", "--output", dest="output_file_name",
                     help="Output file, e.g., features.geojson.",
                     metavar="PATH", default="features.geojson")
@@ -97,6 +100,7 @@ feature['properties']['author'] = '; '.join(list(set(authors)))
 feature['properties']['constituents'] = '; '.join(list(set(featureNames)))
 feature['geometry'] = shapely.geometry.mapping(combinedShape)
 features['features'].append(feature)
+features['groupName'] = args.groupName
 
 if feature['geometry']['type'] == 'GeometryCollection':
     print "Error: combined geometry from %s is of type GeometryCollection."%(args.feature_file)
