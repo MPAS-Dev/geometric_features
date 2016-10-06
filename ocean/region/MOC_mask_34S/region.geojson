@@ -1,29 +1,50 @@
-{"type": "FeatureCollection",
- "features":
-	[
-		{"type": "Feature",
-		 "properties": {
-			"author": "Xylar Asay-Davis",
-			"component": "ocean",
-			"name": "MOC mask 34S",
-			"object": "region",
-			"tags": "MOC_mask_34S"
-		 },
-		 "geometry":
-			{"type": "Polygon",
-			 "coordinates":
-				[
-					[
-						[ 180.000000, -34.000000],
-						[ 180.000000, -90.000000],
-						[ 0.000000, -90.000000],
-						[ -180.000000, -90.000000],
-						[ -180.000000, -34.000000],
-						[ 0.000000, -34.000000],
-						[ 180.000000, -34.000000]
-					]
-				]
-			}
-		}
-	]
+{
+    "type": "FeatureCollection", 
+    "features": [
+        {
+            "type": "Feature", 
+            "properties": {
+                "name": "MOC mask 34S", 
+                "tags": "MOC_mask_34S", 
+                "object": "region", 
+                "component": "ocean", 
+                "author": "Xylar Asay-Davis"
+            }, 
+            "geometry": {
+                "type": "Polygon", 
+                "coordinates": [
+                    [
+                        [
+                            180.000000, 
+                            -34.000000
+                        ], 
+                        [
+                            180.000000, 
+                            -90.000000
+                        ], 
+                        [
+                            0.000000, 
+                            -90.000000
+                        ], 
+                        [
+                            -180.000000, 
+                            -90.000000
+                        ], 
+                        [
+                            -180.000000, 
+                            -34.000000
+                        ], 
+                        [
+                            0.000000, 
+                            -34.000000
+                        ], 
+                        [
+                            180.000000, 
+                            -34.000000
+                        ]
+                    ]
+                ]
+            }
+        }
+    ]
 }
