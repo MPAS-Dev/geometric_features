@@ -18,6 +18,8 @@ parser.add_option("--plot", action="store_true", dest="plot")
 
 options, args = parser.parse_args()
 
+groupName = 'OceanBasinRegionsGroup'
+
 for oceanName in 'Atlantic', 'Pacific', 'Indian', 'Arctic', 'Southern_Ocean', 'Mediterranean':
 
     tag = '%s_Basin'%oceanName
@@ -37,7 +39,7 @@ for oceanName in 'Atlantic', 'Pacific', 'Indian', 'Arctic', 'Southern_Ocean', 'M
     #merge the the features into a single file
     print " * combining features into single feature named %s_Basin"%oceanName
     spcall(['./combine_features.py', '-f', basinFileNameName, '-n', '%s_Basin'%oceanName,
-            '-o', basinCombinedFileName])
+            '-g', groupName, '-o', basinCombinedFileName])
     
     if(options.plot):
         args = ['./plot_features.py', '-f', basinCombinedFileName, '-o', imageName, '-m', 'cyl']

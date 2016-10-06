@@ -31,6 +31,9 @@ parser.add_argument("-m", "--mask_file", dest="mask_file",
                     help="Feature file with one or more features whose overlap "
                          "with features in feature_file should be removed",
                     metavar="FILE2", required=True)
+parser.add_argument("-g", "--groupName", dest="groupName",
+                    help="Feature group name.",
+                    metavar="GROUPNAME", default="unspecifiedGroupName")
 parser.add_argument("-o", "--output", dest="output_file_name",
                     help="Output file, e.g., features.geojson.",
                     metavar="PATH", default="features.geojson")
@@ -107,6 +110,8 @@ for feature in featuresToMask['features']:
         features['features'].append(feature)
     else:
         print "%s has been removed."%name
+
+features['groupName'] = args.groupName
 
 write_all_features(features, out_file_name, indent=4)
 
