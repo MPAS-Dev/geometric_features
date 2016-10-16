@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 
 """
-This script takes a file containing one or more feature definitions, pointed 
+This script takes a file containing one or more feature definitions, pointed
 to by the -f flag, and a new name for the combined feature, provided through
 the -n flag.  The geometry of the feature definitions are combined into a
 single feature definition, which is placed in (or appended to)
 the file pointed to with the -o flag (features.geojson by default).
 
 Author: Xylar Asay-Davis
-Last Modified: 09/29/2016
+Last Modified: 10/16/2016
 """
 
 import json
@@ -32,9 +32,6 @@ parser.add_argument("-f", "--feature_file", dest="feature_file",
 parser.add_argument("-n", "--new_feature_name", dest="new_feature_name",
                     help="The new name of the combined feature",
                     metavar="NAME", required=True)
-parser.add_argument("-g", "--groupName", dest="groupName",
-                    help="Feature group name.",
-                    metavar="GROUPNAME", default="unspecifiedGroupName")
 parser.add_argument("-o", "--output", dest="output_file_name",
                     help="Output file, e.g., features.geojson.",
                     metavar="PATH", default="features.geojson")
@@ -100,7 +97,6 @@ feature['properties']['author'] = '; '.join(list(set(authors)))
 feature['properties']['constituents'] = '; '.join(list(set(featureNames)))
 feature['geometry'] = shapely.geometry.mapping(combinedShape)
 features['features'].append(feature)
-features['groupName'] = args.groupName
 
 if feature['geometry']['type'] == 'GeometryCollection':
     print "Error: combined geometry from %s is of type GeometryCollection."%(args.feature_file)

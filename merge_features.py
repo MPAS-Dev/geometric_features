@@ -17,12 +17,13 @@ features.geojson if their tags property contains all of the tags listed on the
 input line.
 
 Authors: Douglas Jacobsen, Xylar Asay-Davis
-Last Modified: 9/29/2016
+Last Modified: 10/16/2016
 """
 
-import sys, os, glob, shutil, numpy, fnmatch
+import os
 import json
 import argparse
+import fnmatch
 from collections import defaultdict
 from utils.feature_write_utils import write_all_features
 from utils.feature_test_utils import match_tag_list, feature_already_exists
@@ -30,7 +31,6 @@ from utils.feature_test_utils import match_tag_list, feature_already_exists
 parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
 parser.add_argument("-f", "--feature_file", dest="feature_file", help="Single feature file to append to features.geojson", metavar="FILE")
 parser.add_argument("-d", "--features_directory", dest="features_dir", help="Directory containing multiple feature files, each will be appended to features.geojson", metavar="PATH")
-parser.add_argument("-g", "--group", dest="groupName", help="Feature group name.", metavar="GROUPNAME", default="unspecifiedGroupName")
 parser.add_argument("-t", "--tags", dest="tags", help="Semicolon separated list of tags to match features against.", metavar='"TAG1;TAG2;TAG3"')
 parser.add_argument("-o", "--output", dest="output_file_name", help="Output file, e.g., features.geojson.", metavar="PATH", default="features.geojson")
 
@@ -101,8 +101,6 @@ if args.features_dir:
         except:
             print "Error parsing geojson file: %s"%(path)
     del paths
-
-all_features['groupName'] = args.groupName
 
 write_all_features(all_features, file_to_append, indent=4)
 

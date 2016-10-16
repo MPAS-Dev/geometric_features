@@ -13,7 +13,8 @@ import sys
 from collections import OrderedDict
 
 
-def write_all_features(features, out_file_name, indent=4):  # {{{
+def write_all_features(features, out_file_name, indent=4,
+                       defaultGroupName='enterGroupName'):  # {{{
     json.encoder.FLOAT_REPR = lambda o: format(o, 'f')
 
     for index in range(len(features['features'])):
@@ -27,6 +28,8 @@ def write_all_features(features, out_file_name, indent=4):  # {{{
     outFeatures = OrderedDict((('type', features['type']),))
     if 'groupName' in features.keys():
         outFeatures['groupName'] = features['groupName']
+    elif defaultGroupName is not None:
+        outFeatures['groupName'] = defaultGroupName
 
     # Add the rest
     for key in features:

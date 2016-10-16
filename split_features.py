@@ -10,7 +10,7 @@ directory.  Otherwise, the component property of each feature will be used
 to determine the base directory.
 
 Authors: Douglas Jacobsen, Xylar Asay-Davis
-Last Modified: 9/29/2016
+Last Modified: 10/16/2016
 
 """
 
@@ -57,6 +57,7 @@ for feature in features_file['features']:
     out_file_name = '%s/%s/%s/%s.geojson'%(base_dir, object_type, dir_name,
                                            object_type)
 
-    write_all_features({'features':[feature]}, out_file_name, indent=4)
+    write_all_features({'features':[feature]}, out_file_name, indent=4,
+                       defaultGroupName=None)
 
 # vim: foldmethod=marker ai ts=4 sts=4 et sw=4 ft=python

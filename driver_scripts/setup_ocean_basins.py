@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-This script creates 6 major ocean basins.  No arguments are required. The 
+This script creates 6 major ocean basins.  No arguments are required. The
 optional --plot flag can be used to produce plots of each basin.
 """
 import os
@@ -11,8 +11,6 @@ from optparse import OptionParser
 def spcall(args): #{{{
     return subprocess.check_call(args, env=os.environ.copy()) #}}}
 
-
-
 parser = OptionParser()
 parser.add_option("--plot", action="store_true", dest="plot")
 
@@ -20,7 +18,10 @@ options, args = parser.parse_args()
 
 groupName = 'OceanBasinRegionsGroup'
 
-for oceanName in 'Atlantic', 'Pacific', 'Indian', 'Arctic', 'Southern_Ocean', 'Mediterranean':
+outFileName = 'oceanBasins.geojson'
+
+for oceanName in ['Atlantic', 'Pacific', 'Indian', 'Arctic', 'Southern_Ocean',
+                  'Mediterranean']:
 
     tag = '%s_Basin'%oceanName
     basinFileNameName =  '%s_Basin_separate.geojson'%oceanName
@@ -31,16 +32,31 @@ for oceanName in 'Atlantic', 'Pacific', 'Indian', 'Arctic', 'Southern_Ocean', 'M
     for afile in [basinFileNameName, basinCombinedFileName, imageName]:
         if os.path.exists(afile):
             os.remove(afile)
-  
+
     print " * merging features to make %s Basin"%oceanName
-    args = ['./merge_features.py', '-d', 'ocean/region', '-t', tag, '-o', basinFileNameName]
-    subprocess.check_call(args, env=os.environ.copy())
+    spcall(['./merge_features.py', '-d', 'ocean/region', '-t', tag,
+            '-o', basinFileNameName])
 
     #merge the the features into a single file
     print " * combining features into single feature named %s_Basin"%oceanName
-    spcall(['./combine_features.py', '-f', basinFileNameName, '-n', '%s_Basin'%oceanName,
-            '-g', groupName, '-o', basinCombinedFileName])
-    
+    spcall(['./combine_features.py', '-f', basinFileNameName,
+            '-n', '%s_Basin'%oceanName,
+            '-o', basinCombinedFileName])
+
     if(options.plot):
-        args = ['./plot_features.py', '-f', basinCombinedFileName, '-o', imageName, '-m', 'cyl']
-        subprocess.check_call(args, env=os.environ.copy())
+        spcall(['./plot_features.py', '-f', basinCombinedFileName,
+               '-o', imageName, '-m', 'cyl'])
+
+    spcall(['./merge_features.py', '-f', basinCombinedFileName,
+            '-o', outFileName])
+
+    # remove temp files
+    for fileName in [basinFileNameName, basinCombinedFileName]:
+        os.remove(fileName)
+
+
+spcall(['./set_group_name.py', '-f', outFileName,
+        '-g', groupName])
+
+
+# vim: foldmethod=marker ai ts=4 sts=4 et sw=4 ft=python
