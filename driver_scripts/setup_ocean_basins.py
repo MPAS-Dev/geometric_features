@@ -128,6 +128,9 @@ def build_MOC_basins(): #{{{
                          tempMOCFileName]:
             os.remove(fileName)
 
+    spcall(['./merge_features.py', '-f', 'ocean/region/Global_Ocean_65N_to_65S/region.geojson',
+            '-o', MOCFileName])
+
     spcall(['./set_group_name.py', '-f', MOCFileName,
             '-g', MOCGroupName])
 
