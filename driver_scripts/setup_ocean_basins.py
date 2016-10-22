@@ -67,6 +67,9 @@ def build_MOC_basins(): #{{{
     MOCFileName = 'MOCBasins.geojson'
     MOCGroupName = 'MOCBasinRegionsGroup'
 
+    MOCSouthernBoundaryFileName = 'MOCSounthernBoundaries.geojson'
+    MOCSouthernBoundaryGroupName = 'MOCSouthernBoundaryGroup'
+
     MOCSubBasins = {'Atlantic': ['Atlantic', 'Mediterranean'],
                  'IndoPacific': ['Pacific', 'Indian'],
                  'Pacific': ['Pacific'],
@@ -82,10 +85,17 @@ def build_MOC_basins(): #{{{
     tempSeparateBasinFileName = 'temp_separate_basins.geojson'
     tempCombinedBasinFileName = 'temp_combined_basins.geojson'
     tempMOCFileName = 'temp_MOC.geojson'
+    tempSouthernBoundaryFileName = 'temp_southern_boundary.geojson'
+    tempSouthernBoundaryRenamedFileName = 'temp_southern_boundary_renamed.geojson'
 
     # remove old files so we don't unintentionally append features
-    for fileName in [MOCFileName, tempSeparateBasinFileName,
-                     tempCombinedBasinFileName, tempMOCFileName]:
+    for fileName in [MOCFileName,
+                     MOCSouthernBoundaryFileName,
+                     tempSeparateBasinFileName,
+                     tempCombinedBasinFileName,
+                     tempMOCFileName,
+                     tempSouthernBoundaryFileName,
+                     tempSouthernBoundaryRenamedFileName]:
         if os.path.exists(fileName):
             os.remove(fileName)
 
@@ -96,6 +106,9 @@ def build_MOC_basins(): #{{{
         imageName =  '%s_MOC.png'%basinName
 
         MOCMaskFileName = 'ocean/region/MOC_mask_%s/region.geojson' \
+            %  MOCSouthernBoundary[basinName]
+
+        MOCSouternBoundaryFileName = 'ocean/transect/MOC_%s/transect.geojson' \
             %  MOCSouthernBoundary[basinName]
 
         print " * merging features to make %s Basin"%basinName
@@ -123,9 +136,23 @@ def build_MOC_basins(): #{{{
             spcall(['./plot_features.py', '-f', tempMOCFileName, '-o', imageName,
                     '-m', 'cyl'])
 
+        print " * make feature for southern boundary of MOC region"
+        spcall(['./intersect_features.py', '-f', tempCombinedBasinFileName,
+                '-i', MOCSouternBoundaryFileName,
+                '-o', tempSouthernBoundaryFileName])
+
+        # use combine_features to rename the feature
+        spcall(['./combine_features.py', '-f', tempSouthernBoundaryFileName,
+                '-n', '%s_MOC_southern_boundary'%basinName,
+                '-o', tempSouthernBoundaryRenamedFileName])
+
+        spcall(['./merge_features.py', '-f', tempSouthernBoundaryRenamedFileName,
+                '-o', MOCSouthernBoundaryFileName])
+
         # remove temp files
         for fileName in [tempSeparateBasinFileName, tempCombinedBasinFileName,
-                         tempMOCFileName]:
+                         tempMOCFileName, tempSouthernBoundaryFileName,
+                         tempSouthernBoundaryRenamedFileName]:
             os.remove(fileName)
 
     spcall(['./merge_features.py', '-f', 'ocean/region/Global_Ocean_65N_to_65S/region.geojson',
@@ -133,6 +160,9 @@ def build_MOC_basins(): #{{{
 
     spcall(['./set_group_name.py', '-f', MOCFileName,
             '-g', MOCGroupName])
+
+    spcall(['./set_group_name.py', '-f', MOCSouthernBoundaryFileName,
+            '-g', MOCSouthernBoundaryGroupName])
 
     if options.plot:
         spcall(['./plot_features.py', '-f', MOCFileName,

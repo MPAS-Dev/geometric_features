@@ -1,0 +1,32 @@
+{
+    "type": "FeatureCollection", 
+    "features": [
+        {
+            "type": "Feature", 
+            "properties": {
+                "object": "transect", 
+                "component": "ocean", 
+                "name": "MOC 6S", 
+                "tags": "MOC_6S", 
+                "author": "Xylar Asay-Davis"
+            }, 
+            "geometry": {
+                "type": "LineString", 
+                "coordinates": [
+                    [
+                        -180.000000, 
+                        -6.000000
+                    ], 
+                    [
+                        0.000000, 
+                        -6.000000
+                    ], 
+                    [
+                        180.000000, 
+                        -6.000000
+                    ]
+                ]
+            }
+        }
+    ]
+}
