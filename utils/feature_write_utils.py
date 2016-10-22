@@ -4,7 +4,7 @@
 Utility funcitons for writing geojson files from a dictionary of features.
 
 Authors: Douglas Jacobsen, Xylar Asay-Davis
-Last Modified: 09/29/2016
+Last Modified: 10/22/2016
 """
 
 import json
@@ -19,7 +19,7 @@ def write_all_features(features, out_file_name, indent=4,
 
     for index in range(len(features['features'])):
         features['features'][index] = \
-            check_feature(features['features'][index])
+            _check_feature(features['features'][index])
 
     features['type'] = 'FeatureCollection'
 
@@ -31,10 +31,13 @@ def write_all_features(features, out_file_name, indent=4,
     elif defaultGroupName is not None:
         outFeatures['groupName'] = defaultGroupName
 
-    # Add the rest
-    for key in features:
-        if key not in outFeatures.keys():
+    # Add the rest (except features)
+    for key in sorted(features):
+        if key not in ['type', 'groupName', 'features']:
             outFeatures[key] = features[key]
+
+    # features go last for readability
+    outFeatures['features'] = features['features']
 
     out_file = open(out_file_name, 'w')
 
@@ -44,7 +47,7 @@ def write_all_features(features, out_file_name, indent=4,
 # }}}
 
 
-def check_feature(feature):  # {{{
+def _check_feature(feature):  # {{{
 
     # Set property values that need to be set...
     if 'name' not in feature['properties'].keys():
@@ -82,14 +85,37 @@ def check_feature(feature):  # {{{
 
     feature['properties']['object'] = object_type
 
+    # Make the properties an ordered dictionary so they can be sorted
+    outProperties = OrderedDict(
+            (('name', feature['properties']['name']),
+             ('tags', feature['properties']['tags']),
+             ('object', feature['properties']['object']),
+             ('component', feature['properties']['component']),
+             ('author', feature['properties']['author'])))
+    for key in sorted(feature['properties']):
+        if key not in outProperties.keys():
+            outProperties[key] = feature['properties'][key]
+
+    # Make the geometry an ordered dictionary so they can keep it in the
+    # desired order
+    outGeometry = OrderedDict(
+        (('type', feature['geometry']['type']),
+         ('coordinates', feature['geometry']['coordinates'])))
+    for key in sorted(feature['geometry']):
+        if key not in outGeometry.keys():
+            outGeometry[key] = feature['geometry'][key]
+
     # Make the feature an ordered dictionary so properties come before geometry
     # (easier to read)
     outFeature = OrderedDict((('type', 'Feature'),
-                             ('properties', feature['properties'])))
+                             ('properties', outProperties)))
     # Add the rest
-    for key in feature:
-        if key not in outFeature.keys():
+    for key in sorted(feature):
+        if key not in ['geometry', 'type', 'properties']:
             outFeature[key] = feature[key]
+
+    # geometry goes last for readability
+    outFeature['geometry'] = outGeometry
 
     return outFeature
 
