@@ -24,6 +24,7 @@ import shapely.geometry
 import shapely.ops
 import numpy
 
+
 def subdivide_LineString(inShape):
     inCoords = inShape.coords
     segmentCount = len(inCoords)-1
@@ -35,14 +36,14 @@ def subdivide_LineString(inShape):
         p1 = inCoords[segIndex+1]
         length = numpy.sqrt((p1[0]-p0[0])**2 + (p1[1]-p0[1])**2)
         subCount = int(numpy.ceil(length/args.max_degrees))
-        if subCount== 1:
-          outCoords.append(p1)
+        if subCount == 1:
+            outCoords.append(p1)
         else:
-          subdivided = True
-          x = numpy.linspace(p0[0],p1[0],subCount)
-          y = numpy.linspace(p0[1],p1[1],subCount)
-          for subIndex in range(1,subCount):
-            outCoords.append([x[subIndex],y[subIndex]])
+            subdivided = True
+            x = numpy.linspace(p0[0], p1[0], subCount)
+            y = numpy.linspace(p0[1], p1[1], subCount)
+            for subIndex in range(1, subCount):
+                outCoords.append([x[subIndex], y[subIndex]])
 
     if subdivided:
         return shapely.geometry.LineString(outCoords)
@@ -53,13 +54,17 @@ def subdivide_LineString(inShape):
 parser = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawTextHelpFormatter)
 parser.add_argument("-f", "--feature_file", dest="feature_file",
-                    help="Single feature with transects to be subdivided", metavar="FILE1",
+                    help="Single feature with transects to be subdivided",
+                    metavar="FILE1",
                     required=True)
-parser.add_argument("-m", "--max_degrees", dest="max_degrees", type=float, default=1.0,
-                    help="Maximum degrees between points on a transect after subdivision",
+parser.add_argument("-m", "--max_degrees", dest="max_degrees", type=float,
+                    default=1.0,
+                    help="Maximum degrees between points on a transect after"
+                    " subdivision",
                     metavar="SUBDIV", required=False)
 parser.add_argument("-o", "--output", dest="output_file_name",
-                    help="Output file, e.g., features.geojson.", metavar="PATH",
+                    help="Output file, e.g., features.geojson.",
+                    metavar="PATH",
                     default="features.geojson")
 
 args = parser.parse_args()
@@ -90,7 +95,7 @@ try:
 
     del feature_file
 except:
-    print "Error parsing geojson file: %s"%(args.feature_file)
+    print "Error parsing geojson file: %s" % (args.feature_file)
     raise
 
 
