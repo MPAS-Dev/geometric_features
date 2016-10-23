@@ -1,19 +1,22 @@
-{"type": "FeatureCollection",
- "features":
-	[
-		{"type": "Feature",
-		 "properties": {
-			"name": "Southern_Ocean_Drake_Passage_W070.0_S65.0",
-			"component": "ocean",
-			"tags": "",
-			"author": "Todd Ringler",
-			"object": "point"
-		 },
-		 "geometry":
-			{"type": "Point",
-			 "coordinates":
-			[ -70.000000, -65.000000]
-			}
-		}
-	]
+{
+    "type": "FeatureCollection", 
+    "features": [
+        {
+            "type": "Feature", 
+            "properties": {
+                "name": "Southern_Ocean_Drake_Passage_W070.0_S65.0", 
+                "tags": "", 
+                "object": "point", 
+                "component": "ocean", 
+                "author": "Todd Ringler"
+            }, 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -70.000000, 
+                    -65.000000
+                ]
+            }
+        }
+    ]
 }

@@ -1,19 +1,22 @@
-{"type": "FeatureCollection",
- "features":
-	[
-		{"type": "Feature",
-		 "properties": {
-			"name": "Equatorial_Pacific_W155.0_N10.0",
-			"component": "ocean",
-			"tags": "",
-			"author": "Todd Ringler",
-			"object": "point"
-		 },
-		 "geometry":
-			{"type": "Point",
-			 "coordinates":
-			[ -155.000000, 10.000000]
-			}
-		}
-	]
+{
+    "type": "FeatureCollection", 
+    "features": [
+        {
+            "type": "Feature", 
+            "properties": {
+                "name": "Equatorial_Pacific_W155.0_N10.0", 
+                "tags": "", 
+                "object": "point", 
+                "component": "ocean", 
+                "author": "Todd Ringler"
+            }, 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -155.000000, 
+                    10.000000
+                ]
+            }
+        }
+    ]
 }

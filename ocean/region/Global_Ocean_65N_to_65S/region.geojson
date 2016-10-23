@@ -1,29 +1,50 @@
-{"type": "FeatureCollection",
- "features":
-	[
-		{"type": "Feature",
-		 "properties": {
-			"author": "Xylar Asay-Davis",
-			"component": "ocean",
-			"name": "Global Ocean 65N to 65S",
-			"object": "region",
-			"tags": ""
-		 },
-		 "geometry":
-			{"type": "Polygon",
-			 "coordinates":
-				[
-					[
-						[ 180.000000, 65.000000],
-						[ 180.000000, -65.000000],
-						[ 0.000000, -65.000000],
-						[ -180.000000, -65.000000],
-						[ -180.000000, 65.000000],
-						[ 0.000000, 65.000000],
-						[ 180.000000, 65.000000]
-					]
-				]
-			}
-		}
-	]
+{
+    "type": "FeatureCollection", 
+    "features": [
+        {
+            "type": "Feature", 
+            "properties": {
+                "name": "Global Ocean 65N to 65S", 
+                "tags": "", 
+                "object": "region", 
+                "component": "ocean", 
+                "author": "Xylar Asay-Davis"
+            }, 
+            "geometry": {
+                "type": "Polygon", 
+                "coordinates": [
+                    [
+                        [
+                            180.000000, 
+                            65.000000
+                        ], 
+                        [
+                            180.000000, 
+                            -65.000000
+                        ], 
+                        [
+                            0.000000, 
+                            -65.000000
+                        ], 
+                        [
+                            -180.000000, 
+                            -65.000000
+                        ], 
+                        [
+                            -180.000000, 
+                            65.000000
+                        ], 
+                        [
+                            0.000000, 
+                            65.000000
+                        ], 
+                        [
+                            180.000000, 
+                            65.000000
+                        ]
+                    ]
+                ]
+            }
+        }
+    ]
 }
