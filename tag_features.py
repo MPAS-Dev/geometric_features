@@ -21,15 +21,17 @@ from utils.feature_write_utils import write_all_features
 parser = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawTextHelpFormatter)
 parser.add_argument("-f", "--feature_file", dest="feature_file",
-                    help="Features collection file to be tagged", metavar="FILE",
-                    required=True)
-parser.add_argument("-t", "--tag", dest="tag", help="Tag to add to all features",
+                    help="Features collection file to be tagged",
+                    metavar="FILE", required=True)
+parser.add_argument("-t", "--tag", dest="tag",
+                    help="Tag to add to all features",
                     metavar="TAG", required=True)
 parser.add_argument("-r", "--remove", dest="remove", action='store_true',
-                    help="Use this flag to signal removing a tag instead of adding")
+                    help="Use this flag to signal removing a tag instead of "
+                    "adding")
 parser.add_argument("-o", "--output", dest="output_file_name",
-                    help="Output file, e.g., features.geojson.", metavar="PATH",
-                    default="features.geojson")
+                    help="Output file, e.g., features.geojson.",
+                    metavar="PATH", default="features.geojson")
 
 args = parser.parse_args()
 
@@ -51,7 +53,7 @@ if os.path.exists(out_file_name):
 try:
     filePointer = open(args.feature_file, 'r')
 except IOError:
-    print "Error: file %s does not exist"%(args.feature_file)
+    print "Error: file {} does not exist".format(args.feature_file)
     raise
 
 appended_file = json.load(filePointer)
@@ -68,9 +70,10 @@ for feature in appended_file['features']:
     else:
         if args.tag not in feature_tag_list:
             if(feature_tags == ''):
-                 feature['properties']['tags'] = args.tag
+                feature['properties']['tags'] = args.tag
             else:
-                feature['properties']['tags'] = '%s;%s'%(feature_tags,args.tag)
+                feature['properties']['tags'] = '{};{}'.format(feature_tags,
+                                                               args.tag)
 
     all_features['features'].append(feature)
 

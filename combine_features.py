@@ -12,7 +12,6 @@ Last Modified: 10/16/2016
 """
 
 import json
-import shutil
 import argparse
 from collections import defaultdict
 from utils.feature_write_utils import write_all_features
@@ -24,10 +23,12 @@ import shapely.ops
 
 import sys
 
+
 parser = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawTextHelpFormatter)
 parser.add_argument("-f", "--feature_file", dest="feature_file",
-                    help="feature file with features to be combined", metavar="FILE",
+                    help="feature file with features to be combined",
+                    metavar="FILE",
                     required=True)
 parser.add_argument("-n", "--new_feature_name", dest="new_feature_name",
                     help="The new name of the combined feature",
@@ -58,7 +59,8 @@ if os.path.exists(out_file_name):
         pass
 
 if featureExists:
-    print "Warning: feature %s already in %s.  Nothing to do."%(args.new_feature_name, out_file_name)
+    print "Warning: feature {} already in {}.  Nothing to do.".format(
+        args.new_feature_name, out_file_name)
     sys.exit(0)
 
 
@@ -73,7 +75,7 @@ try:
 
     del feature_file
 except:
-    print "Error parsing geojson file: %s"%(args.feature_file)
+    print "Error parsing geojson file: {}".format(args.feature_file)
     raise
 
 featureShapes = []
@@ -81,8 +83,6 @@ authors = []
 featureNames = []
 for feature in featuresToCombine['features']:
     featureShapes.append(shapely.geometry.shape(feature['geometry']))
-    #if not featureShapes[-1].is_valid:
-    #    print "Warning: Feature %s is 'invalid' as defined by the shapely library."%feature['properties']['name']
     authors.append(feature['properties']['author'])
     featureNames.append(feature['properties']['name'])
 
@@ -91,7 +91,8 @@ combinedShape = shapely.ops.cascaded_union(featureShapes)
 feature = {}
 feature['properties'] = {}
 feature['properties']['name'] = args.new_feature_name
-feature['properties']['component'] = featuresToCombine['features'][0]['properties']['component']
+feature['properties']['component'] = \
+    featuresToCombine['features'][0]['properties']['component']
 feature['properties']['tags'] = ''
 feature['properties']['author'] = '; '.join(list(set(authors)))
 feature['properties']['constituents'] = '; '.join(list(set(featureNames)))
@@ -99,10 +100,11 @@ feature['geometry'] = shapely.geometry.mapping(combinedShape)
 features['features'].append(feature)
 
 if feature['geometry']['type'] == 'GeometryCollection':
-    print "Error: combined geometry from %s is of type GeometryCollection."%(args.feature_file)
-    print "       Most likely cause is that multiple feature types (regions, "
-    print "       points and transects) are being cobined."
-    sys.exit(1)
+    raise ValueError(
+        "Error: combined geometry from {} is of type GeometryCollection.\n"
+        "       Most likely cause is that multiple feature types (regions, \n"
+        "       points and transects) are being cobined.".format(
+            args.feature_file))
 
 write_all_features(features, out_file_name, indent=4)
 

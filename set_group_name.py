@@ -27,7 +27,7 @@ parser.add_argument("-g", "--group", dest="groupName",
 args = parser.parse_args()
 
 if not os.path.exists(args.feature_file):
-    parser.error('The file %s does not exist.'%(args.feature_file))
+    parser.error('The file {} does not exist.'.format(args.feature_file))
 
 all_features = defaultdict(list)
 

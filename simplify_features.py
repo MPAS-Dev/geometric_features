@@ -29,8 +29,10 @@ parser = argparse.ArgumentParser(description=__doc__,
 parser.add_argument("-f", "--feature_file", dest="feature_file",
                     help="Feature file to be simplified", metavar="FILE",
                     required=True)
-parser.add_argument("-t", "--tolerance", dest="tolerance", type=float, default=0.0,
-                    help="A distance in deg lon/lat by which each point in a feature can be moved during simpification",
+parser.add_argument("-t", "--tolerance", dest="tolerance", type=float,
+                    default=0.0,
+                    help="A distance in deg lon/lat by which each point in a "
+                    "feature can be moved during simpification",
                     metavar="TOLERANCE")
 
 parser.add_argument("-o", "--output", dest="output_file_name",
@@ -65,13 +67,14 @@ try:
 
     del feature_file
 except:
-    print "Error parsing geojson file: %s"%(args.feature_file)
+    print "Error parsing geojson file: {}".format(args.feature_file)
     raise
 
 for feature in featuresToSimplify['features']:
     name = feature['properties']['name']
     if feature_already_exists(features, feature):
-        print "Warning: feature %s already in features.geojson.  Skipping..."%name
+        print "Warning: feature {} already in features.geojson.  " \
+            "Skipping...".format(name)
         continue
     featureShape = shapely.geometry.shape(feature['geometry'])
     simplifiedFeature = featureShape.simplify(args.tolerance)
