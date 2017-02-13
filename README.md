@@ -22,6 +22,14 @@ A typical workflow will look like:
 * Split features:
  - ./split_features.py
 
+Other available scripts include
+* combine_features.py - Combine features into a single feature.
+* difference_features.py - Mask features using shapes in a second feature file.
+* fix_features_at_antimeridian.py - Split a feature at the antimeridian (+/- 180 longitude).
+  The resulting feature has all points between -180 and 180 lon. 
+* set-group_name.py - Set the "groupName" property of the FeatureCollection
+* tag_features.py - Add one or more tags to the "Tag" property of each feature in a file.
+
 **IMPORTANT:** Always use the split_features.py script when placing features in
 their respective directories. This will help everyone maintain the repository,
 and allow tools to parse them cleanly.
@@ -30,8 +38,8 @@ An example workflow to select and plot region features is
 
 ```
 $ rm features.geojson
-$ ./merge_features.py -d ocean
-$ ./merge_features.py -f iceshelves/region/Ronne_1/region.geojson
-$ ./merge_features.py -d landice
-$ ./plot_features.py -f features.geojson
+$ ./merge_features.py -d ocean -o features.geojson
+$ ./merge_features.py -f iceshelves/region/Ronne_1/region.geojson -o features.geojson
+$ ./merge_features.py -d landice -o features.geojson
+$ ./plot_features.py -f features.geojson -m cyl
 ```
