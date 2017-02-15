@@ -1,0 +1,42 @@
+{
+    "type": "FeatureCollection", 
+    "features": [
+        {
+            "type": "Feature", 
+            "properties": {
+                "name": "Nino 3.4", 
+                "tags": "Nino", 
+                "object": "region", 
+                "component": "ocean", 
+                "author": "Anne Berres, Xylar Asay-Davis"
+            }, 
+            "geometry": {
+                "type": "Polygon", 
+                "coordinates": [
+                    [
+                        [
+                            -170.000000, 
+                            5.000000
+                        ], 
+                        [
+                            -170.000000, 
+                            -5.000000
+                        ], 
+                        [
+                            -120.000000, 
+                            -5.000000
+                        ], 
+                        [
+                            -120.000000, 
+                            5.000000
+                        ], 
+                        [
+                            -170.000000, 
+                            5.000000
+                        ]
+                    ]
+                ]
+            }
+        }
+    ]
+}

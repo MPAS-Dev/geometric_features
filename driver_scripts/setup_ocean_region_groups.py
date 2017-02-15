@@ -1,12 +1,21 @@
 #!/usr/bin/env python
 
 """
-This script creates 6 major ocean basins and 5 regions used for computing the
-meridional overturning circulation (MOC).  No arguments are required. The
-optional --plot flag can be used to produce plots of each basin or region.
+This script creates the following ocean region groups:
+i) OceanBasinRegionsGroup, which includes the Global Ocean as well as
+   Atlantic, Pacific, Indian, Arctic, Southern Ocean, Equatorial
+   (global 15S-15N), and Mediterranean basins;
+ii) MOCBasinRegionGroup, which includes five regions used for computing the
+    meridional overturning circulation (MOC) and meridional heat transport
+    (MHT);
+iii) NinoRegionGroups, which includes the Nino3, Nino4, and Nino3.4
+    regions.
+
+No arguments are required. The optional --plot flag
+can be used to produce plots of each basin or region.
 
 Author: Xylar Asay-Davis
-Last Modified: 10/23/2016
+Last Modified: 02/15/2017
 """
 
 import os
@@ -21,8 +30,6 @@ from utils.feature_test_utils import feature_already_exists
 
 import shapely.geometry
 import shapely.ops
-
-import numpy
 
 
 def spcall(args):  # {{{
@@ -91,7 +98,7 @@ def remove_small_polygons(inFileName, outFileName, minArea):  # {{{
     write_all_features(features, outFileName, indent=4)  # }}}
 
 
-def build_basins():  # {{{
+def build_ocean_basins():  # {{{
     basinGroupName = 'OceanBasinRegionsGroup'
     basinFileName = 'oceanBasins.geojson'
 
@@ -133,6 +140,16 @@ def build_basins():  # {{{
         # remove temp files
         for fileName in [tempSeparateBasinFileName, tempCombinedBasinFileName]:
             os.remove(fileName)
+
+    # add the global ocean
+    spcall(['./merge_features.py',
+            '-f', 'ocean/region/Global_Ocean/region.geojson',
+            '-o', basinFileName])
+
+    # add the equatorial region, which does not correspond to an ocean basin
+    spcall(['./merge_features.py',
+            '-f', 'ocean/region/Global_Ocean_15S_to_15N/region.geojson',
+            '-o', basinFileName])
 
     spcall(['./set_group_name.py', '-f', basinFileName,
             '-g', basinGroupName])
@@ -228,12 +245,32 @@ def build_MOC_basins():  # {{{
                 '-o', 'MOCBasins.png', '-m', 'cyl'])  # }}}
 
 
+def build_Nino_regions():  # {{{
+    NinoFileName = 'NinoRegions.geojson'
+    NinoGroupName = 'NinoRegionsGroup'
+
+    if os.path.exists(NinoFileName):
+        os.remove(NinoFileName)
+
+    # build Nino basins
+    spcall(['./merge_features.py', '-d', 'ocean/region',
+            '-t', 'Nino',
+            '-o', NinoFileName])
+
+    spcall(['./set_group_name.py', '-f', NinoFileName,
+            '-g', NinoGroupName])
+
+    if options.plot:
+        spcall(['./plot_features.py', '-f', NinoFileName,
+                '-o', 'NinoRegions.png', '-m', 'cyl'])  # }}}
+
 parser = OptionParser()
 parser.add_option("--plot", action="store_true", dest="plot")
 
 options, args = parser.parse_args()
 
-build_basins()
+build_ocean_basins()
 build_MOC_basins()
+build_Nino_regions()
 
 # vim: foldmethod=marker ai ts=4 sts=4 et sw=4 ft=python
