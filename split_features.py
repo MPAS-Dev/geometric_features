@@ -34,7 +34,7 @@ args = parser.parse_args()
 
 if args.features_file:
     if not os.path.exists(args.features_file):
-        parser.error('The file %s does not exist.'%(args.features_file))
+        parser.error('The file {} does not exist.'.format(args.features_file))
 
 with open(args.features_file) as f:
     features_file = json.load(f)
@@ -49,15 +49,15 @@ for feature in features_file['features']:
     if args.output_dir_name is not None:
         base_dir = args.output_dir_name
 
-    dir_name = feature_name.strip().replace(' ','_').strip('\'').strip('.',)
+    dir_name = feature_name.strip().replace(' ', '_').strip('\'').strip('.')
 
-    if not os.path.exists('%s/%s/%s'%(base_dir, object_type, dir_name)):
-        os.makedirs('%s/%s/%s'%(base_dir, object_type, dir_name))
+    if not os.path.exists('{}/{}/{}'.format(base_dir, object_type, dir_name)):
+        os.makedirs('{}/{}/{}'.format(base_dir, object_type, dir_name))
 
-    out_file_name = '%s/%s/%s/%s.geojson'%(base_dir, object_type, dir_name,
-                                           object_type)
+    out_file_name = '{}/{}/{}/{}.geojson'.format(base_dir, object_type,
+                                                 dir_name, object_type)
 
-    write_all_features({'features':[feature]}, out_file_name, indent=4,
+    write_all_features({'features': [feature]}, out_file_name, indent=4,
                        defaultGroupName=None)
 
 # vim: foldmethod=marker ai ts=4 sts=4 et sw=4 ft=python

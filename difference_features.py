@@ -28,8 +28,8 @@ parser.add_argument("-f", "--feature_file", dest="feature_file",
                     help="Feature file to be clipped", metavar="FILE1",
                     required=True)
 parser.add_argument("-m", "--mask_file", dest="mask_file",
-                    help="Feature file with one or more features whose overlap "
-                         "with features in feature_file should be removed",
+                    help="Feature file with one or more features whose overlap"
+                         " with features in feature_file should be removed",
                     metavar="FILE2", required=True)
 parser.add_argument("-o", "--output", dest="output_file_name",
                     help="Output file, e.g., features.geojson.",
@@ -63,7 +63,7 @@ try:
 
     del feature_file
 except:
-    print "Error parsing geojson file: %s"%(args.feature_file)
+    print "Error parsing geojson file: {}".format(args.feature_file)
     raise
 
 mask = defaultdict(list)
@@ -77,14 +77,15 @@ try:
 
     del feature_file
 except:
-    print "Error parsing geojson file: %s"%(args.mask_file)
+    print "Error parsing geojson file: {}".format(args.mask_file)
     raise
 
 
 for feature in featuresToMask['features']:
     name = feature['properties']['name']
     if feature_already_exists(features, feature):
-        print "Warning: feature %s already in features.geojson.  Skipping..."%name
+        print "Warning: feature {} already in features.geojson.  " \
+            "Skipping...".format(name)
         continue
     featureShape = shapely.geometry.shape(feature['geometry'])
     add = True
@@ -94,19 +95,20 @@ for feature in featuresToMask['features']:
         if featureShape.intersects(maskShape):
             masked = True
             featureShape = featureShape.difference(maskShape)
-            if featureShape.is_empty :
+            if featureShape.is_empty:
                 add = False
                 break
             else:
-                print "Masked feature %s with mask %s"%(name,maskFeature['properties']['name'])
+                print "Masked feature {} with mask {}".format(
+                    name, maskFeature['properties']['name'])
 
     if(add):
         if(masked):
-            print "%s has been masked."%name
+            print "{} has been masked.".format(name)
             feature['geometry'] = shapely.geometry.mapping(featureShape)
         features['features'].append(feature)
     else:
-        print "%s has been removed."%name
+        print "{} has been removed.".format(name)
 
 write_all_features(features, out_file_name, indent=4)
 

@@ -6,25 +6,14 @@ are required.
 import os
 import os.path
 import subprocess
-import shutil
-from optparse import OptionParser
 
-import glob
-
-
-parser = OptionParser()
-options, args = parser.parse_args()
-
-defaultFileName = 'features.geojson'
+outName = 'criticalPassages.geojson'
 
 try:
-    os.remove(defaultFileName)
+    os.remove(outName)
 except OSError:
     pass
 
-args = ['./merge_features.py', '-d', 'ocean/transect', '-t', 'Critical_Passage']
+args = ['./merge_features.py', '-d', 'ocean/transect',
+        '-t', 'Critical_Passage', '-o', outName]
 subprocess.check_call(args, env=os.environ.copy())
-    
-
-outName = 'criticalPassages.geojson'
-shutil.move(defaultFileName,outName)

@@ -8,6 +8,7 @@ Authors: Douglas Jacobsen, Xylar Asay-Davis
 Last Modified: 09/29/2016
 """
 
+
 def match_tag_list(feature, master_tags):  # {{{
     try:
         feature_tags = feature['properties']['tags']
