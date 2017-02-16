@@ -5,7 +5,7 @@
             "type": "Feature", 
             "properties": {
                 "name": "Southern_Ocean_Drake_Passage_W070.0_S60.0", 
-                "tags": "", 
+                "tags": "seed_point", 
                 "object": "point", 
                 "component": "ocean", 
                 "author": "Todd Ringler"
