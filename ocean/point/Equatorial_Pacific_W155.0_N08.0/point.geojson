@@ -5,7 +5,7 @@
             "type": "Feature", 
             "properties": {
                 "name": "Equatorial_Pacific_W155.0_N08.0", 
-                "tags": "", 
+                "tags": "seed_point", 
                 "object": "point", 
                 "component": "ocean", 
                 "author": "Todd Ringler"
