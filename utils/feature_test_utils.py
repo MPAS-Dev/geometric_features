@@ -1,7 +1,7 @@
 #!/use/bin/env python
 
 """
-Utility funcitons for finding features wiht matching tags and checking if
+Utility funcitons for finding features with matching tags and checking if
 features already exist
 
 Authors: Douglas Jacobsen, Xylar Asay-Davis
