@@ -3,18 +3,20 @@
 """
 Utility funcitons for writing geojson files from a dictionary of features.
 
-Authors: Douglas Jacobsen, Xylar Asay-Davis
-Last Modified: 10/22/2016
+Authors: Douglas Jacobsen, Xylar Asay-Davis, Phillip J. Wolfram
+Last Modified: 03/16/2017
 """
 
 import json
 import sys
+from ioprovenance import provenance_command
 
 from collections import OrderedDict
 
 
 def write_all_features(features, out_file_name, indent=4,
-                       defaultGroupName='enterGroupName'):  # {{{
+                       defaultGroupName='enterGroupName',
+                       strip_history=False):  # {{{
     json.encoder.FLOAT_REPR = lambda o: format(o, 'f')
 
     for index in range(len(features['features'])):
@@ -38,6 +40,21 @@ def write_all_features(features, out_file_name, indent=4,
 
     # features go last for readability
     outFeatures['features'] = features['features']
+
+    if strip_history:
+        # remove provenance from the output
+        for feature in outFeatures['features']:
+            # pop (with default so no exception is raised if no history)
+            feature['properties'].pop('history', None)
+    else:
+        # provenance the output
+        command = provenance_command()
+        for feature in outFeatures['features']:
+            if 'history' in feature['properties']:
+                appendcmd = feature['properties']['history'] + ' ' + command
+                feature['properties']['history'] = appendcmd
+            else:
+                feature['properties']['history'] = command
 
     out_file = open(out_file_name, 'w')
 
