@@ -146,6 +146,11 @@ def build_ocean_basins():  # {{{
             '-f', 'ocean/region/Global_Ocean/region.geojson',
             '-o', basinFileName])
 
+    # add the global ocean between 65S and 65S
+    spcall(['./merge_features.py',
+            '-f', 'ocean/region/Global_Ocean_65N_to_65S/region.geojson',
+            '-o', basinFileName])
+
     # add the equatorial region, which does not correspond to an ocean basin
     spcall(['./merge_features.py',
             '-f', 'ocean/region/Global_Ocean_15S_to_15N/region.geojson',
@@ -232,10 +237,6 @@ def build_MOC_basins():  # {{{
         for fileName in [tempSeparateBasinFileName, tempCombinedBasinFileName,
                          tempMOCFileName, tempMOCLargePolygonsFileName]:
             os.remove(fileName)
-
-    spcall(['./merge_features.py',
-            '-f', 'ocean/region/Global_Ocean_65N_to_65S/region.geojson',
-            '-o', MOCFileName])
 
     spcall(['./set_group_name.py', '-f', MOCFileName,
             '-g', MOCGroupName])
