@@ -1,0 +1,30 @@
+{
+    "type": "FeatureCollection", 
+    "features": [
+        {
+            "type": "Feature", 
+            "properties": {
+                "name": "Africa-Ant", 
+                "tags": "standard_transport_sections", 
+                "object": "transect", 
+                "component": "ocean", 
+                "author": "Mark Petersen, Xylar Asay-Davis", 
+                "depth": "6000.0", 
+                "note": "S Ocean, -31.3to -70 lat, 30E lon, section I6, Sv in Ganachaud99thesis"
+            }, 
+            "geometry": {
+                "type": "LineString", 
+                "coordinates": [
+                    [
+                        30.000000, 
+                        -70.000000
+                    ], 
+                    [
+                        30.000000, 
+                        -31.300000
+                    ]
+                ]
+            }
+        }
+    ]
+}

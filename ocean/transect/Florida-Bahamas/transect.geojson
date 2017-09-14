@@ -1,0 +1,30 @@
+{
+    "type": "FeatureCollection", 
+    "features": [
+        {
+            "type": "Feature", 
+            "properties": {
+                "name": "Florida-Bahamas", 
+                "tags": "standard_transport_sections", 
+                "object": "transect", 
+                "component": "ocean", 
+                "author": "Mark Petersen, Xylar Asay-Davis", 
+                "depth": "6000.0", 
+                "note": "Carib., 27 lat, -80 to -78.8 lon, 31.5+/-1.5 Sv in Johns_ea02dsr, 32.3+/-3.2Sv Larsen92rslpt"
+            }, 
+            "geometry": {
+                "type": "LineString", 
+                "coordinates": [
+                    [
+                        -78.780000, 
+                        26.520000
+                    ], 
+                    [
+                        -80.100000, 
+                        26.700000
+                    ]
+                ]
+            }
+        }
+    ]
+}

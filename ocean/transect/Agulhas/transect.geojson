@@ -1,0 +1,30 @@
+{
+    "type": "FeatureCollection", 
+    "features": [
+        {
+            "type": "Feature", 
+            "properties": {
+                "name": "Agulhas", 
+                "tags": "standard_transport_sections", 
+                "object": "transect", 
+                "component": "ocean", 
+                "author": "Mark Petersen, Xylar Asay-Davis", 
+                "depth": "6000.0", 
+                "note": "-70+/-20 Sv in Bryden_Beal01dsr"
+            }, 
+            "geometry": {
+                "type": "LineString", 
+                "coordinates": [
+                    [
+                        32.000000, 
+                        -32.400000
+                    ], 
+                    [
+                        30.200000, 
+                        -31.000000
+                    ]
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "type": "FeatureCollection", 
+    "features": [
+        {
+            "type": "Feature", 
+            "properties": {
+                "name": "Drake Passage", 
+                "tags": "standard_transport_sections", 
+                "object": "transect", 
+                "component": "ocean", 
+                "author": "Mark Petersen, Xylar Asay-Davis", 
+                "depth": "6000.0", 
+                "note": "S Ocean -56  to -63 lat, 68W lon, section A21, 140+/- 6 Sv in Ganachaud_Wunsch00n and Ganachaud99thesis"
+            }, 
+            "geometry": {
+                "type": "LineString", 
+                "coordinates": [
+                    [
+                        -63.000000, 
+                        -65.500000
+                    ], 
+                    [
+                        -67.000000, 
+                        -54.500000
+                    ]
+                ]
+            }
+        }
+    ]
+}
