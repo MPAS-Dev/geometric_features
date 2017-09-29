@@ -136,6 +136,11 @@ def build_ice_shelves():  # {{{
                           'West Antarctica': ['WestAntarcticaIMBIE'],
                           'East Antarctica': ['EastAntarcticaIMBIE']}
 
+    nIMBIEBasins = 27
+    for basinNumber in range(1, nIMBIEBasins+1):
+        basinName = 'Antarctica_IMBIE{}'.format(basinNumber)
+        combinedIceShelves['IMBIE{}'.format(basinNumber)] = [basinName]
+
     # build analysis regions from combining ice shelves from regions with the
     # appropriate tags
     for shelfName in combinedIceShelves:
