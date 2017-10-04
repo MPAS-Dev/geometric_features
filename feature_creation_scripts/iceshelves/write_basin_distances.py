@@ -8,6 +8,8 @@ import scipy.misc
 import skfmm
 import os
 
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 def readBasinImage(name):

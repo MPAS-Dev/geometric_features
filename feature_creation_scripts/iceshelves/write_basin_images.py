@@ -7,6 +7,8 @@ from netCDF4 import Dataset
 from shapely.geometry import shape
 from descartes import PolygonPatch
 
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 import os.path

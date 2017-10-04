@@ -5,6 +5,8 @@ from netCDF4 import Dataset
 
 import skfmm
 
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 import scipy.ndimage.morphology as morphology

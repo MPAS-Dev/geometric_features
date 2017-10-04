@@ -4,6 +4,8 @@ import numpy
 import csv
 from netCDF4 import Dataset
 
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 import skfmm
