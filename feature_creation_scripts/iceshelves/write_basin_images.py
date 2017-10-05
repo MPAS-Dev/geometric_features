@@ -85,7 +85,10 @@ inFile.close()
 
 dx = 1e3
 
-os.makedirs('basins')
+try:
+    os.makedirs('basins')
+except OSError:
+    pass
 
 for index in range(len(basinShapes)):
     name = basinData['features'][index]['properties']['name']

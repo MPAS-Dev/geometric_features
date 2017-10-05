@@ -62,7 +62,10 @@ outFile.createDimension('y',ny)
 outFile.createDimension('basinCount',basinCount)
 var = outFile.createVariable('distances','f8',('basinCount','y','x'))
 
-os.makedirs('dist')
+try:
+    os.makedirs('dist')
+except OSError:
+    pass
 
 for basinIndex in range(len(names)):
   name = names[basinIndex]
