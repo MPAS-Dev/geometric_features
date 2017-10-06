@@ -1,0 +1,30 @@
+{
+    "type": "FeatureCollection", 
+    "features": [
+        {
+            "type": "Feature", 
+            "properties": {
+                "name": "Lancaster Sound", 
+                "tags": "standard_transport_sections", 
+                "object": "transect", 
+                "component": "ocean", 
+                "author": "Mark Petersen, Xylar Asay-Davis", 
+                "depth": "6000.0", 
+                "note": "Arctic, 0.67+/-0.3Sv in Maltrud_McLean05om"
+            }, 
+            "geometry": {
+                "type": "LineString", 
+                "coordinates": [
+                    [
+                        -80.600000, 
+                        73.700000
+                    ], 
+                    [
+                        -81.000000, 
+                        74.600000
+                    ]
+                ]
+            }
+        }
+    ]
+}

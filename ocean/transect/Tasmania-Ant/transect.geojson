@@ -1,0 +1,30 @@
+{
+    "type": "FeatureCollection", 
+    "features": [
+        {
+            "type": "Feature", 
+            "properties": {
+                "name": "Tasmania-Ant", 
+                "tags": "standard_transport_sections", 
+                "object": "transect", 
+                "component": "ocean", 
+                "author": "Mark Petersen, Xylar Asay-Davis", 
+                "depth": "6000.0", 
+                "note": "S Ocean, -44 to -66 lat, 140E lon, section P12, 157+/-10 Sv in Ganachaud_Wunsch00n and Ganachaud99thesis"
+            }, 
+            "geometry": {
+                "type": "LineString", 
+                "coordinates": [
+                    [
+                        140, 
+                        -67
+                    ], 
+                    [
+                        147, 
+                        -43.500000
+                    ]
+                ]
+            }
+        }
+    ]
+}

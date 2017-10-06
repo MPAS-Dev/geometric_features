@@ -1,0 +1,30 @@
+{
+    "type": "FeatureCollection", 
+    "features": [
+        {
+            "type": "Feature", 
+            "properties": {
+                "name": "Fram Strait", 
+                "tags": "standard_transport_sections", 
+                "object": "transect", 
+                "component": "ocean", 
+                "author": "Mark Petersen, Xylar Asay-Davis", 
+                "depth": "6000.0", 
+                "note": "Arctic, -4.2+/-2.3Sv in Fahrbach_ea01pr"
+            }, 
+            "geometry": {
+                "type": "LineString", 
+                "coordinates": [
+                    [
+                        10.700000, 
+                        79.700000
+                    ], 
+                    [
+                        -17.700000, 
+                        79.700000
+                    ]
+                ]
+            }
+        }
+    ]
+}

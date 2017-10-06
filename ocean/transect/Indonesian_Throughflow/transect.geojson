@@ -1,0 +1,30 @@
+{
+    "type": "FeatureCollection", 
+    "features": [
+        {
+            "type": "Feature", 
+            "properties": {
+                "name": "Indonesian Throughflow", 
+                "tags": "standard_transport_sections", 
+                "object": "transect", 
+                "component": "ocean", 
+                "author": "Mark Petersen, Xylar Asay-Davis", 
+                "depth": "6000.0", 
+                "note": "-9 to -18 lat, 116E lon, section J89, -16+/- 5 Sv in Ganachaud_Wunsch00n and Ganachaud99thesis"
+            }, 
+            "geometry": {
+                "type": "LineString", 
+                "coordinates": [
+                    [
+                        116.000000, 
+                        -21
+                    ], 
+                    [
+                        116.000000, 
+                        -8.800000
+                    ]
+                ]
+            }
+        }
+    ]
+}

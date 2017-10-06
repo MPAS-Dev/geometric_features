@@ -1,0 +1,30 @@
+{
+    "type": "FeatureCollection", 
+    "features": [
+        {
+            "type": "Feature", 
+            "properties": {
+                "name": "Florida-Cuba", 
+                "tags": "standard_transport_sections", 
+                "object": "transect", 
+                "component": "ocean", 
+                "author": "Mark Petersen, Xylar Asay-Davis", 
+                "depth": "6000.0", 
+                "note": "Caribbian, 31.5+/-1.5Sv in Johns_ea02dsr, 32.3+/-3.2Sv Larsen92rslpt"
+            }, 
+            "geometry": {
+                "type": "LineString", 
+                "coordinates": [
+                    [
+                        -81.000000, 
+                        23.100000
+                    ], 
+                    [
+                        -81.000000, 
+                        25.150000
+                    ]
+                ]
+            }
+        }
+    ]
+}

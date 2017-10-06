@@ -1,0 +1,30 @@
+{
+    "type": "FeatureCollection", 
+    "features": [
+        {
+            "type": "Feature", 
+            "properties": {
+                "name": "Robeson Channel", 
+                "tags": "standard_transport_sections", 
+                "object": "transect", 
+                "component": "ocean", 
+                "author": "Mark Petersen, Xylar Asay-Davis", 
+                "depth": "6000.0", 
+                "note": "Arctic, -0.75+/-0.2Sv in Maltrud_McLean05om"
+            }, 
+            "geometry": {
+                "type": "LineString", 
+                "coordinates": [
+                    [
+                        -63.500000, 
+                        81.000000
+                    ], 
+                    [
+                        -63.500000, 
+                        82.000000
+                    ]
+                ]
+            }
+        }
+    ]
+}

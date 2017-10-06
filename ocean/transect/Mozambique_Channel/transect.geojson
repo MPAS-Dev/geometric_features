@@ -1,0 +1,30 @@
+{
+    "type": "FeatureCollection", 
+    "features": [
+        {
+            "type": "Feature", 
+            "properties": {
+                "name": "Mozambique Channel", 
+                "tags": "standard_transport_sections", 
+                "object": "transect", 
+                "component": "ocean", 
+                "author": "Mark Petersen, Xylar Asay-Davis", 
+                "depth": "6000.0", 
+                "note": "-25 lat, 35 to 44E lon, section I4 , -14+/- 6 Sv in Ganachaud_Wunsch00n and Ganachaud99thesis"
+            }, 
+            "geometry": {
+                "type": "LineString", 
+                "coordinates": [
+                    [
+                        44.000000, 
+                        -25.000000
+                    ], 
+                    [
+                        34.000000, 
+                        -25.000000
+                    ]
+                ]
+            }
+        }
+    ]
+}
