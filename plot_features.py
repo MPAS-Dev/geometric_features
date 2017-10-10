@@ -57,7 +57,6 @@ def build_projections():  # {{{
 
     return projections  # }}}
 
-
 def plot_base(mapType, projection):  # {{{
 
     ax = plt.axes(projection=projection)
@@ -151,7 +150,7 @@ def plot_features_file(featurefile, mapInfo, max_length):  # {{{
     # http://colorbrewer2.org/
     colors = ['#7fc97f', '#beaed4', '#fdc086', '#ffff99', '#386cb0', '#f0027f',
               '#bf5b17']
-    markers = ['o', 's', 'v', '^', '>', '<', '*', 'p', 'D', 'h']
+    # markers = ['o', 's', 'v', '^', '>', '<', '*', 'p', 'D', 'h']
 
     feature_num = 0
 
@@ -169,16 +168,14 @@ def plot_features_file(featurefile, mapInfo, max_length):  # {{{
         refProjection = cartopy.crs.PlateCarree()
 
         color = colors[feature_num % len(colors)]
-        marker = markers[feature_num % len(markers)]
+        # marker = markers[feature_num % len(markers)]
 
-        props = {'linewidth': 2.0, 'edgecolor': color}
         if geomtype in ['Polygon', 'MultiPolygon']:
-            props['alpha'] = 0.4
-            props['facecolor'] = color
-        if geomtype in ['LineString', 'MultiLineString']:
-            props['facecolor'] = 'none'
-        if geomtype in ['Point']:
-            props['marker'] = marker
+            props = {'linewidth': 2.0, 'edgecolor': color, 'alpha': 0.4,
+                     'facecolor': color}
+        elif geomtype in ['LineString', 'MultiLineString']:
+            props = {'linewidth': 4.0, 'edgecolor': color, 'alpha': 1.,
+                     'facecolor': 'none'}
 
         if bounds is None:
             bounds = list(shape.bounds)
@@ -189,7 +186,12 @@ def plot_features_file(featurefile, mapInfo, max_length):  # {{{
 
         for mapType in mapInfo:
             (ax, projection, plotFileName, fig) = mapInfo[mapType]
-            ax.add_geometries((shape,), crs=refProjection, **props)
+            if geomtype == 'Point':
+                ax.scatter(shape.coords[0][0], shape.coords[0][1], s=9,
+                           transform=cartopy.crs.PlateCarree(), marker='o',
+                           color='blue', edgecolor='blue')
+            else:
+                ax.add_geometries((shape,), crs=refProjection, **props)
 
         feature_num = feature_num + 1
 
@@ -252,7 +254,12 @@ if __name__ == "__main__":
     mapInfo = {}
     for mapType in mapTypes:
         print 'plot type: {}'.format(mapType)
-        fig = plt.figure(figsize=(16, 12), dpi=100)
+        if mapType in ['cyl', 'merc', 'mill', 'mill2', 'moll', 'moll2',
+                       'robin', 'robin2']:
+            figsize = (12, 6)
+        else:
+            figsize = (12, 9)
+        fig = plt.figure(figsize=figsize, dpi=200)
         (ax, projection) = plot_base(mapType, projections[mapType])
 
         if(len(mapTypes) == 1):
