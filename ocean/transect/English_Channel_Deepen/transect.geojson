@@ -1,27 +1,23 @@
 {
-    "type": "FeatureCollection", 
+    "type": "FeatureCollection",
     "features": [
         {
-            "type": "Feature", 
+            "type": "Feature",
             "properties": {
-                "name": "Red Sea Deepen", 
-                "tags": "Red_Sea_Deepen;Critical_Passage", 
-                "object": "transect", 
-                "component": "ocean", 
-                "author": "Xylar Asay-Davis", 
-                "depth": "200.0"
-            }, 
+                "name": "English Channel Deepen",
+                "tags": "English_Channel_Deepen;Critical_Passage",
+                "object": "transect",
+                "component": "ocean",
+                "author": "Mark Petersen",
+                "depth": "15.0"
+            },
             "geometry": {
-                "type": "LineString", 
+                "type": "LineString",
                 "coordinates": [
-                    [
-                        42.484131, 
-                        14.157882
-                    ], 
-                    [
-                        44.132080, 
-                        11.480025
-                    ]
+                    [ -5.0, 49.4],
+                    [ -2.0, 50.0],
+                    [  0.0, 50.2],
+                    [  2.2, 51.5]
                 ]
             }
         }
