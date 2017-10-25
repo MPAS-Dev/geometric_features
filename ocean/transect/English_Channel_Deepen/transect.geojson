@@ -9,7 +9,7 @@
                 "object": "transect",
                 "component": "ocean",
                 "author": "Mark Petersen",
-                "depth": "15.0"
+                "depth": "120.0"
             },
             "geometry": {
                 "type": "LineString",
