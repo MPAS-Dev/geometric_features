@@ -18,15 +18,15 @@ parser.add_option("--with_cavities", action="store_true", dest="with_cavities")
 
 options, args = parser.parse_args()
 
-defaultFileName = 'features.geojson'
-outName = 'landCoverage.geojson'
+outFileName = 'landCoverage.geojson'
 
-if os.path.exists(defaultFileName):
-    os.remove(defaultFileName)
+if os.path.exists(outFileName):
+    os.remove(outFileName)
 
 args = ['./difference_features.py',
         '-f', 'natural_earth/region/Land_Coverage/region.geojson',
-        '-m', 'ocean/region/Global_Ocean_90S_to_60S/region.geojson']
+        '-m', 'ocean/region/Global_Ocean_90S_to_60S/region.geojson',
+        '-o', outFileName]
 subprocess.check_call(args, env=os.environ.copy())
 
 if options.with_cavities:
@@ -39,9 +39,10 @@ else:
     imageName = 'landCoverageWithoutCavities.png'
 
 args = ['./merge_features.py', '-f', antarcticLandCoverage,
-        '-o', outName]
+        '-o', outFileName]
 subprocess.check_call(args, env=os.environ.copy())
 
 if(options.plot):
-    args = ['./plot_features.py', '-f', outName, '-o', imageName, '-m', 'cyl']
+    args = ['./plot_features.py', '-f', outFileName, '-o', imageName,
+            '-m', 'cyl']
     subprocess.check_call(args, env=os.environ.copy())
