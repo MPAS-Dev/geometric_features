@@ -1,0 +1,1398 @@
+{
+  "bedmap2": {
+    "region": {
+      "AntarcticGroundedIceCoverage": [
+        ""
+      ],
+      "AntarcticIceCoverage": [
+        ""
+      ]
+    }
+  },
+  "iceshelves": {
+    "region": {
+      "Abbot": [
+        "Abbot",
+        "Antarctica_IMBIE23",
+        "WestAntarcticaIMBIE",
+        "AbbotIceShelfDrainage"
+      ],
+      "Amery_1": [
+        "Amery",
+        "Antarctica_IMBIE9",
+        "AmeryIceShelfDrainage",
+        "EastAntarcticaIMBIE"
+      ],
+      "Amery_2": [
+        "Amery",
+        "Antarctica_IMBIE10",
+        "AmeryIceShelfDrainage",
+        "EastAntarcticaIMBIE"
+      ],
+      "Amery_3": [
+        "Amery",
+        "Antarctica_IMBIE11",
+        "AmeryIceShelfDrainage",
+        "EastAntarcticaIMBIE"
+      ],
+      "Atka": [
+        "Atka",
+        "Antarctica_IMBIE5",
+        "EastAntarcticaIMBIE"
+      ],
+      "Aviator": [
+        "Aviator",
+        "Antarctica_IMBIE15",
+        "EastAntarcticaIMBIE"
+      ],
+      "Bach": [
+        "Bach",
+        "Antarctica_IMBIE24",
+        "AntarcticPenninsulaIMBIE",
+        "WilkinsGeorgeVIceShelfDrainage"
+      ],
+      "Baudouin": [
+        "Baudouin",
+        "Antarctica_IMBIE6",
+        "EastAntarcticaIMBIE"
+      ],
+      "Borchgrevink": [
+        "Borchgrevink",
+        "Antarctica_IMBIE6",
+        "EastAntarcticaIMBIE"
+      ],
+      "Brahms": [
+        "Brahms",
+        "Antarctica_IMBIE24",
+        "AntarcticPenninsulaIMBIE",
+        "WilkinsGeorgeVIceShelfDrainage"
+      ],
+      "Brunt_Stancomb": [
+        "Brunt_Stancomb",
+        "Antarctica_IMBIE4",
+        "EastAntarcticaIMBIE"
+      ],
+      "Campbell": [
+        "Campbell",
+        "Antarctica_IMBIE16",
+        "EastAntarcticaIMBIE"
+      ],
+      "Cheetham": [
+        "Cheetham",
+        "Antarctica_IMBIE16",
+        "EastAntarcticaIMBIE"
+      ],
+      "Conger_Glenzer": [
+        "Conger_Glenzer",
+        "Antarctica_IMBIE12",
+        "EastAntarcticaIMBIE"
+      ],
+      "Cook": [
+        "Cook",
+        "Antarctica_IMBIE14",
+        "EastAntarcticaIMBIE"
+      ],
+      "Cosgrove_1": [
+        "Cosgrove",
+        "Antarctica_IMBIE22",
+        "PineIslandDrainage",
+        "PineIslandThwaitesDrainage",
+        "WestAntarcticaIMBIE"
+      ],
+      "Cosgrove_2": [
+        "Cosgrove",
+        "Antarctica_IMBIE23",
+        "WestAntarcticaIMBIE",
+        "AbbotIceShelfDrainage"
+      ],
+      "Crosson": [
+        "Crosson",
+        "Antarctica_IMBIE21",
+        "ThwaitesDrainage",
+        "PineIslandThwaitesDrainage",
+        "WestAntarcticaIMBIE"
+      ],
+      "Dennistoun": [
+        "Dennistoun",
+        "Antarctica_IMBIE15",
+        "EastAntarcticaIMBIE"
+      ],
+      "Dibble": [
+        "Dibble",
+        "Antarctica_IMBIE14",
+        "EastAntarcticaIMBIE"
+      ],
+      "Dotson": [
+        "Dotson",
+        "Antarctica_IMBIE21",
+        "ThwaitesDrainage",
+        "PineIslandThwaitesDrainage",
+        "WestAntarcticaIMBIE"
+      ],
+      "Drygalski": [
+        "Drygalski",
+        "Antarctica_IMBIE16",
+        "EastAntarcticaIMBIE"
+      ],
+      "Edward_VIII_1": [
+        "Edward_VIII",
+        "Antarctica_IMBIE7",
+        "EastAntarcticaIMBIE"
+      ],
+      "Edward_VIII_2": [
+        "Edward_VIII",
+        "Antarctica_IMBIE8",
+        "EastAntarcticaIMBIE"
+      ],
+      "Ekstrom": [
+        "Ekstrom",
+        "Antarctica_IMBIE5",
+        "EastAntarcticaIMBIE"
+      ],
+      "Ferrigno": [
+        "Ferrigno",
+        "Antarctica_IMBIE23",
+        "WestAntarcticaIMBIE",
+        "AbbotIceShelfDrainage"
+      ],
+      "Filchner_1": [
+        "Filchner",
+        "Antarctica_IMBIE2",
+        "FilchnerRonneIceShelfDrainage",
+        "EastAntarcticaIMBIE"
+      ],
+      "Filchner_2": [
+        "Filchner",
+        "Antarctica_IMBIE3",
+        "FilchnerRonneIceShelfDrainage",
+        "EastAntarcticaIMBIE"
+      ],
+      "Filchner_3": [
+        "Filchner",
+        "Antarctica_IMBIE4",
+        "EastAntarcticaIMBIE"
+      ],
+      "Fimbul_1": [
+        "Fimbul",
+        "Antarctica_IMBIE5",
+        "EastAntarcticaIMBIE"
+      ],
+      "Fimbul_2": [
+        "Fimbul",
+        "Antarctica_IMBIE6",
+        "EastAntarcticaIMBIE"
+      ],
+      "Fitzgerald": [
+        "Fitzgerald",
+        "Antarctica_IMBIE15",
+        "EastAntarcticaIMBIE"
+      ],
+      "Frost_1": [
+        "Frost",
+        "Antarctica_IMBIE13",
+        "EastAntarcticaIMBIE"
+      ],
+      "Frost_2": [
+        "Frost",
+        "Antarctica_IMBIE14",
+        "EastAntarcticaIMBIE"
+      ],
+      "GeikieInlet": [
+        "GeikieInlet",
+        "Antarctica_IMBIE16",
+        "EastAntarcticaIMBIE"
+      ],
+      "George_VI": [
+        "George_VI",
+        "Antarctica_IMBIE24",
+        "AntarcticPenninsulaIMBIE",
+        "WilkinsGeorgeVIceShelfDrainage"
+      ],
+      "Getz": [
+        "Getz",
+        "Antarctica_IMBIE20",
+        "GetzIceShelfDrainage",
+        "WestAntarcticaIMBIE"
+      ],
+      "Gillet": [
+        "Gillet",
+        "Antarctica_IMBIE15",
+        "EastAntarcticaIMBIE"
+      ],
+      "Hamilton": [
+        "Hamilton",
+        "Antarctica_IMBIE20",
+        "GetzIceShelfDrainage",
+        "WestAntarcticaIMBIE"
+      ],
+      "Hannan": [
+        "Hannan",
+        "Antarctica_IMBIE7",
+        "EastAntarcticaIMBIE"
+      ],
+      "HarbordGlacier": [
+        "HarbordGlacier",
+        "Antarctica_IMBIE16",
+        "EastAntarcticaIMBIE"
+      ],
+      "Helen": [
+        "Helen",
+        "Antarctica_IMBIE12",
+        "EastAntarcticaIMBIE"
+      ],
+      "Holmes": [
+        "Holmes",
+        "Antarctica_IMBIE13",
+        "EastAntarcticaIMBIE"
+      ],
+      "HolmesWest": [
+        "HolmesWest",
+        "Antarctica_IMBIE13",
+        "EastAntarcticaIMBIE"
+      ],
+      "Hull": [
+        "Hull",
+        "Antarctica_IMBIE20",
+        "GetzIceShelfDrainage",
+        "WestAntarcticaIMBIE"
+      ],
+      "Jelbart": [
+        "Jelbart",
+        "Antarctica_IMBIE5",
+        "EastAntarcticaIMBIE"
+      ],
+      "Land": [
+        "Land",
+        "Antarctica_IMBIE20",
+        "GetzIceShelfDrainage",
+        "WestAntarcticaIMBIE"
+      ],
+      "Larsen_B": [
+        "Larsen_B",
+        "Antarctica_IMBIE26",
+        "AntarcticPenninsulaIMBIE",
+        "LarsenCIceShelfDrainage"
+      ],
+      "Larsen_C_1": [
+        "Larsen_C",
+        "Antarctica_IMBIE25",
+        "AntarcticPenninsulaIMBIE"
+      ],
+      "Larsen_C_2": [
+        "Larsen_C",
+        "Antarctica_IMBIE26",
+        "AntarcticPenninsulaIMBIE",
+        "LarsenCIceShelfDrainage"
+      ],
+      "Larsen_C_3": [
+        "Larsen_C",
+        "Antarctica_IMBIE27",
+        "AntarcticPenninsulaIMBIE"
+      ],
+      "Larsen_D": [
+        "Larsen_D",
+        "Antarctica_IMBIE27",
+        "AntarcticPenninsulaIMBIE"
+      ],
+      "Larsen_E": [
+        "Larsen_E",
+        "Antarctica_IMBIE27",
+        "AntarcticPenninsulaIMBIE"
+      ],
+      "Larsen_F": [
+        "Larsen_F",
+        "Antarctica_IMBIE27",
+        "AntarcticPenninsulaIMBIE"
+      ],
+      "Larsen_G": [
+        "Larsen_G",
+        "Antarctica_IMBIE1",
+        "FilchnerRonneIceShelfDrainage",
+        "WestAntarcticaIMBIE"
+      ],
+      "Lazarev": [
+        "Lazarev",
+        "Antarctica_IMBIE6",
+        "EastAntarcticaIMBIE"
+      ],
+      "Lillie": [
+        "Lillie",
+        "Antarctica_IMBIE15",
+        "EastAntarcticaIMBIE"
+      ],
+      "Mariner": [
+        "Mariner",
+        "Antarctica_IMBIE15",
+        "EastAntarcticaIMBIE"
+      ],
+      "Matusevitch": [
+        "Matusevitch",
+        "Antarctica_IMBIE14",
+        "EastAntarcticaIMBIE"
+      ],
+      "Mendelssohn": [
+        "Mendelssohn",
+        "Antarctica_IMBIE24",
+        "AntarcticPenninsulaIMBIE",
+        "WilkinsGeorgeVIceShelfDrainage"
+      ],
+      "Mertz": [
+        "Mertz",
+        "Antarctica_IMBIE14",
+        "EastAntarcticaIMBIE"
+      ],
+      "Moscow_University": [
+        "Moscow_University",
+        "Antarctica_IMBIE13",
+        "EastAntarcticaIMBIE"
+      ],
+      "Moubray": [
+        "Moubray",
+        "Antarctica_IMBIE15",
+        "EastAntarcticaIMBIE"
+      ],
+      "Mulebreen": [
+        "Mulebreen",
+        "Antarctica_IMBIE8",
+        "EastAntarcticaIMBIE"
+      ],
+      "Myers": [
+        "Myers",
+        "Antarctica_IMBIE7",
+        "EastAntarcticaIMBIE"
+      ],
+      "Nansen": [
+        "Nansen",
+        "Antarctica_IMBIE16",
+        "EastAntarcticaIMBIE"
+      ],
+      "Nickerson": [
+        "Nickerson",
+        "Antarctica_IMBIE20",
+        "GetzIceShelfDrainage",
+        "WestAntarcticaIMBIE"
+      ],
+      "Ninnis": [
+        "Ninnis",
+        "Antarctica_IMBIE14",
+        "EastAntarcticaIMBIE"
+      ],
+      "Nivl": [
+        "Nivl",
+        "Antarctica_IMBIE6",
+        "EastAntarcticaIMBIE"
+      ],
+      "Noll": [
+        "Noll",
+        "Antarctica_IMBIE15",
+        "EastAntarcticaIMBIE"
+      ],
+      "Nordenskjold": [
+        "Nordenskjold",
+        "Antarctica_IMBIE16",
+        "EastAntarcticaIMBIE"
+      ],
+      "Pine_Island": [
+        "Pine_Island",
+        "Antarctica_IMBIE22",
+        "PineIslandDrainage",
+        "PineIslandThwaitesDrainage",
+        "WestAntarcticaIMBIE"
+      ],
+      "PourquoiPas": [
+        "PourquoiPas",
+        "Antarctica_IMBIE14",
+        "EastAntarcticaIMBIE"
+      ],
+      "Prince_Harald": [
+        "Prince_Harald",
+        "Antarctica_IMBIE7",
+        "EastAntarcticaIMBIE"
+      ],
+      "Publications": [
+        "Publications",
+        "Antarctica_IMBIE12",
+        "EastAntarcticaIMBIE"
+      ],
+      "Quar": [
+        "Quar",
+        "Antarctica_IMBIE4",
+        "EastAntarcticaIMBIE"
+      ],
+      "Rayner_Thyer": [
+        "Rayner_Thyer",
+        "Antarctica_IMBIE7",
+        "EastAntarcticaIMBIE"
+      ],
+      "Rennick": [
+        "Rennick",
+        "Antarctica_IMBIE15",
+        "EastAntarcticaIMBIE"
+      ],
+      "Richter": [
+        "Richter",
+        "Antarctica_IMBIE20",
+        "GetzIceShelfDrainage",
+        "WestAntarcticaIMBIE"
+      ],
+      "Riiser-Larsen": [
+        "Riiser-Larsen",
+        "Antarctica_IMBIE4",
+        "EastAntarcticaIMBIE"
+      ],
+      "Ronne_1": [
+        "Ronne",
+        "Antarctica_IMBIE1",
+        "FilchnerRonneIceShelfDrainage",
+        "WestAntarcticaIMBIE"
+      ],
+      "Ronne_2": [
+        "Ronne",
+        "Antarctica_IMBIE2",
+        "FilchnerRonneIceShelfDrainage",
+        "EastAntarcticaIMBIE"
+      ],
+      "Ross_East_1": [
+        "Ross_East",
+        "Antarctica_IMBIE16",
+        "EastAntarcticaIMBIE"
+      ],
+      "Ross_East_2": [
+        "Ross_East",
+        "Antarctica_IMBIE17",
+        "RossIceShelfDrainage",
+        "EastAntarcticaIMBIE"
+      ],
+      "Ross_West_1": [
+        "Ross_West",
+        "Antarctica_IMBIE17",
+        "RossIceShelfDrainage",
+        "EastAntarcticaIMBIE"
+      ],
+      "Ross_West_2": [
+        "Ross_West",
+        "Antarctica_IMBIE18",
+        "RossIceShelfDrainage",
+        "WestAntarcticaIMBIE"
+      ],
+      "Ross_West_3": [
+        "Ross_West",
+        "Antarctica_IMBIE19",
+        "RossIceShelfDrainage",
+        "WestAntarcticaIMBIE"
+      ],
+      "Shackleton": [
+        "Shackleton",
+        "Antarctica_IMBIE12",
+        "EastAntarcticaIMBIE"
+      ],
+      "Shirase": [
+        "Shirase",
+        "Antarctica_IMBIE7",
+        "EastAntarcticaIMBIE"
+      ],
+      "Slava": [
+        "Slava",
+        "Antarctica_IMBIE14",
+        "EastAntarcticaIMBIE"
+      ],
+      "SmithInlet": [
+        "SmithInlet",
+        "Antarctica_IMBIE15",
+        "EastAntarcticaIMBIE"
+      ],
+      "Stange_1": [
+        "Stange",
+        "Antarctica_IMBIE23",
+        "WestAntarcticaIMBIE",
+        "AbbotIceShelfDrainage"
+      ],
+      "Stange_2": [
+        "Stange",
+        "Antarctica_IMBIE24",
+        "AntarcticPenninsulaIMBIE",
+        "WilkinsGeorgeVIceShelfDrainage"
+      ],
+      "Sulzberger": [
+        "Sulzberger",
+        "Antarctica_IMBIE20",
+        "GetzIceShelfDrainage",
+        "WestAntarcticaIMBIE"
+      ],
+      "Suvorov": [
+        "Suvorov",
+        "Antarctica_IMBIE15",
+        "EastAntarcticaIMBIE"
+      ],
+      "Swinburne": [
+        "Swinburne",
+        "Antarctica_IMBIE20",
+        "GetzIceShelfDrainage",
+        "WestAntarcticaIMBIE"
+      ],
+      "Thwaites": [
+        "Thwaites",
+        "Antarctica_IMBIE21",
+        "ThwaitesDrainage",
+        "PineIslandThwaitesDrainage",
+        "WestAntarcticaIMBIE"
+      ],
+      "Tinker": [
+        "Tinker",
+        "Antarctica_IMBIE16",
+        "EastAntarcticaIMBIE"
+      ],
+      "Totten": [
+        "Totten",
+        "Antarctica_IMBIE13",
+        "EastAntarcticaIMBIE"
+      ],
+      "Tracy_Tremenchus": [
+        "Tracy_Tremenchus",
+        "Antarctica_IMBIE12",
+        "EastAntarcticaIMBIE"
+      ],
+      "Tucker": [
+        "Tucker",
+        "Antarctica_IMBIE15",
+        "EastAntarcticaIMBIE"
+      ],
+      "Underwood": [
+        "Underwood",
+        "Antarctica_IMBIE13",
+        "EastAntarcticaIMBIE"
+      ],
+      "Utsikkar": [
+        "Utsikkar",
+        "Antarctica_IMBIE8",
+        "EastAntarcticaIMBIE"
+      ],
+      "Venable": [
+        "Venable",
+        "Antarctica_IMBIE23",
+        "WestAntarcticaIMBIE",
+        "AbbotIceShelfDrainage"
+      ],
+      "Verdi": [
+        "Verdi",
+        "Antarctica_IMBIE24",
+        "AntarcticPenninsulaIMBIE",
+        "WilkinsGeorgeVIceShelfDrainage"
+      ],
+      "Vigrid": [
+        "Vigrid",
+        "Antarctica_IMBIE6",
+        "EastAntarcticaIMBIE"
+      ],
+      "Vincennes": [
+        "Vincennes",
+        "Antarctica_IMBIE13",
+        "EastAntarcticaIMBIE"
+      ],
+      "Voyeykov": [
+        "Voyeykov",
+        "Antarctica_IMBIE13",
+        "EastAntarcticaIMBIE"
+      ],
+      "West": [
+        "West",
+        "Antarctica_IMBIE12",
+        "EastAntarcticaIMBIE"
+      ],
+      "Wilkins": [
+        "Wilkins",
+        "Antarctica_IMBIE24",
+        "AntarcticPenninsulaIMBIE",
+        "WilkinsGeorgeVIceShelfDrainage"
+      ],
+      "Wilma_Robert_Downer": [
+        "Wilma_Robert_Downer",
+        "Antarctica_IMBIE8",
+        "EastAntarcticaIMBIE"
+      ],
+      "Withrow": [
+        "Withrow",
+        "Antarctica_IMBIE20",
+        "GetzIceShelfDrainage",
+        "WestAntarcticaIMBIE"
+      ],
+      "Wordie": [
+        "Wordie",
+        "Antarctica_IMBIE25",
+        "AntarcticPenninsulaIMBIE"
+      ],
+      "Wylde": [
+        "Wylde",
+        "Antarctica_IMBIE15",
+        "EastAntarcticaIMBIE"
+      ],
+      "Zubchatyy": [
+        "Zubchatyy",
+        "Antarctica_IMBIE7",
+        "EastAntarcticaIMBIE"
+      ]
+    }
+  },
+  "landice": {
+    "region": {
+      "Antarctica_IMBIE1": [
+        "FilchnerRonneIceShelfDrainage",
+        "WestAntarcticaIMBIE"
+      ],
+      "Antarctica_IMBIE10": [
+        "AmeryIceShelfDrainage",
+        "EastAntarcticaIMBIE"
+      ],
+      "Antarctica_IMBIE11": [
+        "AmeryIceShelfDrainage",
+        "EastAntarcticaIMBIE"
+      ],
+      "Antarctica_IMBIE12": [
+        "EastAntarcticaIMBIE"
+      ],
+      "Antarctica_IMBIE13": [
+        "EastAntarcticaIMBIE"
+      ],
+      "Antarctica_IMBIE14": [
+        "EastAntarcticaIMBIE"
+      ],
+      "Antarctica_IMBIE15": [
+        "EastAntarcticaIMBIE"
+      ],
+      "Antarctica_IMBIE16": [
+        "EastAntarcticaIMBIE"
+      ],
+      "Antarctica_IMBIE17": [
+        "RossIceShelfDrainage",
+        "EastAntarcticaIMBIE"
+      ],
+      "Antarctica_IMBIE18": [
+        "RossIceShelfDrainage",
+        "WestAntarcticaIMBIE"
+      ],
+      "Antarctica_IMBIE19": [
+        "RossIceShelfDrainage",
+        "WestAntarcticaIMBIE"
+      ],
+      "Antarctica_IMBIE2": [
+        "FilchnerRonneIceShelfDrainage",
+        "EastAntarcticaIMBIE"
+      ],
+      "Antarctica_IMBIE20": [
+        "GetzIceShelfDrainage",
+        "WestAntarcticaIMBIE"
+      ],
+      "Antarctica_IMBIE21": [
+        "ThwaitesDrainage",
+        "PineIslandThwaitesDrainage",
+        "WestAntarcticaIMBIE"
+      ],
+      "Antarctica_IMBIE22": [
+        "PineIslandDrainage",
+        "PineIslandThwaitesDrainage",
+        "WestAntarcticaIMBIE"
+      ],
+      "Antarctica_IMBIE23": [
+        "WestAntarcticaIMBIE",
+        "AbbotIceShelfDrainage"
+      ],
+      "Antarctica_IMBIE24": [
+        "WilkinsGeorgeVIceShelfDrainage",
+        "AntarcticPeninsulaIMBIE"
+      ],
+      "Antarctica_IMBIE25": [
+        "AntarcticPeninsulaIMBIE"
+      ],
+      "Antarctica_IMBIE26": [
+        "LarsenCIceShelfDrainage",
+        "AntarcticPeninsulaIMBIE"
+      ],
+      "Antarctica_IMBIE27": [
+        "AntarcticPeninsulaIMBIE"
+      ],
+      "Antarctica_IMBIE3": [
+        "FilchnerRonneIceShelfDrainage",
+        "EastAntarcticaIMBIE"
+      ],
+      "Antarctica_IMBIE4": [
+        "EastAntarcticaIMBIE"
+      ],
+      "Antarctica_IMBIE5": [
+        "EastAntarcticaIMBIE"
+      ],
+      "Antarctica_IMBIE6": [
+        "EastAntarcticaIMBIE"
+      ],
+      "Antarctica_IMBIE7": [
+        "EastAntarcticaIMBIE"
+      ],
+      "Antarctica_IMBIE8": [
+        "EastAntarcticaIMBIE"
+      ],
+      "Antarctica_IMBIE9": [
+        "AmeryIceShelfDrainage",
+        "EastAntarcticaIMBIE"
+      ],
+      "eastCentralGreenland1": [
+        "eastCentralGreenland"
+      ],
+      "eastCentralGreenland2": [
+        "eastCentralGreenland"
+      ],
+      "eastCentralGreenland3": [
+        "eastCentralGreenland"
+      ],
+      "northEastGreenland1": [
+        "northEastGreenland"
+      ],
+      "northEastGreenland2": [
+        "northEastGreenland"
+      ],
+      "northGreenland1": [
+        "northGreenland"
+      ],
+      "northGreenland2": [
+        "northGreenland"
+      ],
+      "northGreenland3": [
+        "northGreenland"
+      ],
+      "northGreenland4": [
+        "northGreenland"
+      ],
+      "northWestGreenland1": [
+        "northWestGreenland"
+      ],
+      "northWestGreenland2": [
+        "northWestGreenland"
+      ],
+      "southEastGreenland1": [
+        "southEastGreenland"
+      ],
+      "southEastGreenland2": [
+        "southEastGreenland"
+      ],
+      "southEastGreenland3": [
+        "southEastGreenland"
+      ],
+      "southGreenland1": [
+        "southGreenland"
+      ],
+      "southWestGreenland1": [
+        "southWestGreenland"
+      ],
+      "southWestGreenland2": [
+        "southWestGreenland"
+      ],
+      "westCentralGreenland1": [
+        "westCentralGreenland"
+      ],
+      "westCentralGreenland2": [
+        "westCentralGreenland"
+      ]
+    }
+  },
+  "natural_earth": {
+    "region": {
+      "Land Coverage": [
+        ""
+      ]
+    }
+  },
+  "ocean": {
+    "point": {
+      "Equatorial_Pacific_E145.0_N00.0": [
+        "seed_point"
+      ],
+      "Equatorial_Pacific_E155.0_N00.0": [
+        "seed_point"
+      ],
+      "Equatorial_Pacific_E165.0_N00.0": [
+        "seed_point"
+      ],
+      "Equatorial_Pacific_E175.0_N00.0": [
+        "seed_point"
+      ],
+      "Equatorial_Pacific_W090.0_N00.0": [
+        "seed_point"
+      ],
+      "Equatorial_Pacific_W095.0_N00.0": [
+        "seed_point"
+      ],
+      "Equatorial_Pacific_W105.0_N00.0": [
+        "seed_point"
+      ],
+      "Equatorial_Pacific_W115.0_N00.0": [
+        "seed_point"
+      ],
+      "Equatorial_Pacific_W125.0_N00.0": [
+        "seed_point"
+      ],
+      "Equatorial_Pacific_W135.0_N00.0": [
+        "seed_point"
+      ],
+      "Equatorial_Pacific_W145.0_N00.0": [
+        "seed_point"
+      ],
+      "Equatorial_Pacific_W155.0_N00.0": [
+        "seed_point"
+      ],
+      "Equatorial_Pacific_W155.0_N02.0": [
+        "seed_point"
+      ],
+      "Equatorial_Pacific_W155.0_N04.0": [
+        "seed_point"
+      ],
+      "Equatorial_Pacific_W155.0_N06.0": [
+        "seed_point"
+      ],
+      "Equatorial_Pacific_W155.0_N08.0": [
+        "seed_point"
+      ],
+      "Equatorial_Pacific_W155.0_N10.0": [
+        "seed_point"
+      ],
+      "Equatorial_Pacific_W155.0_S02.0": [
+        "seed_point"
+      ],
+      "Equatorial_Pacific_W155.0_S04.0": [
+        "seed_point"
+      ],
+      "Equatorial_Pacific_W155.0_S06.0": [
+        "seed_point"
+      ],
+      "Equatorial_Pacific_W155.0_S08.0": [
+        "seed_point"
+      ],
+      "Equatorial_Pacific_W155.0_S10.0": [
+        "seed_point"
+      ],
+      "Equatorial_Pacific_W165.0_N00.0": [
+        "seed_point"
+      ],
+      "Equatorial_Pacific_W175.0_N00.0": [
+        "seed_point"
+      ],
+      "Southern_Ocean_Drake_Passage_W070.0_S55.0": [
+        "seed_point"
+      ],
+      "Southern_Ocean_Drake_Passage_W070.0_S60.0": [
+        "seed_point"
+      ],
+      "Southern_Ocean_Drake_Passage_W070.0_S65.0": [
+        "seed_point"
+      ]
+    },
+    "region": {
+      "Adriatic Sea": [
+        "Adriatic_Sea",
+        "Mediterranean_Basin"
+      ],
+      "Aegean Sea": [
+        "Aegean_Sea",
+        "Mediterranean_Basin"
+      ],
+      "Alboran Sea": [
+        "Alboran_Sea",
+        "Mediterranean_Basin"
+      ],
+      "Andaman or Burma Sea": [
+        "Andaman_or_Burma_Sea",
+        "Indian_Basin"
+      ],
+      "Arabian Sea": [
+        "Arabian_Sea",
+        "Indian_Basin"
+      ],
+      "Arafura Sea": [
+        "Arafura_Sea",
+        "Pacific_Basin"
+      ],
+      "Arctic Ocean": [
+        "Arctic_Ocean",
+        "Arctic_Basin"
+      ],
+      "Baffin Bay": [
+        "Baffin_Bay",
+        "Atlantic_Basin"
+      ],
+      "Balearic Sea": [
+        "Balearic_Sea",
+        "Mediterranean_Basin"
+      ],
+      "Bali Sea": [
+        "Bali_Sea",
+        "Pacific_Basin"
+      ],
+      "Baltic Sea": [
+        "Baltic_Sea",
+        "Atlantic_Basin"
+      ],
+      "Banda Sea": [
+        "Banda_Sea",
+        "Pacific_Basin"
+      ],
+      "Barentsz Sea": [
+        "Barentsz_Sea",
+        "Arctic_Basin"
+      ],
+      "Bass Strait North": [
+        "Bass_Strait",
+        "Indian_Basin"
+      ],
+      "Bass Strait South": [
+        "Bass_Strait",
+        "Southern_Ocean_Basin"
+      ],
+      "Bay of Bengal": [
+        "Bay_of_Bengal",
+        "Indian_Basin"
+      ],
+      "Bay of Biscay": [
+        "Bay_of_Biscay",
+        "Atlantic_Basin"
+      ],
+      "Bay of Fundy": [
+        "Bay_of_Fundy",
+        "Atlantic_Basin"
+      ],
+      "Beaufort Sea": [
+        "Beaufort_Sea",
+        "Arctic_Basin"
+      ],
+      "Bering Sea": [
+        "Bering_Sea",
+        "Pacific_Basin"
+      ],
+      "Bismarck Sea": [
+        "Bismarck_Sea",
+        "Pacific_Basin"
+      ],
+      "Black Sea": [
+        "Black_Sea"
+      ],
+      "Bristol Channel": [
+        "Bristol_Channel",
+        "Atlantic_Basin"
+      ],
+      "Caribbean Sea": [
+        "Caribbean_Sea",
+        "Atlantic_Basin"
+      ],
+      "Celebes Sea": [
+        "Celebes_Sea",
+        "Pacific_Basin"
+      ],
+      "Celtic Sea": [
+        "Celtic_Sea",
+        "Atlantic_Basin"
+      ],
+      "Ceram Sea": [
+        "Ceram_Sea",
+        "Pacific_Basin"
+      ],
+      "Chukchi Sea": [
+        "Chukchi_Sea",
+        "Arctic_Basin"
+      ],
+      "Coral Sea": [
+        "Coral_Sea",
+        "Pacific_Basin"
+      ],
+      "Davis Strait": [
+        "Davis_Strait",
+        "Atlantic_Basin"
+      ],
+      "East Siberian Sea": [
+        "East_Siberian_Sea",
+        "Arctic_Basin"
+      ],
+      "Eastern China Sea": [
+        "Eastern_China_Sea",
+        "Pacific_Basin"
+      ],
+      "English Channel": [
+        "English_Channel",
+        "Atlantic_Basin"
+      ],
+      "Flores Sea": [
+        "Flores_Sea",
+        "Pacific_Basin"
+      ],
+      "Global Ocean": [
+        ""
+      ],
+      "Global Ocean 15S to 15N": [
+        "Equatorial_Basin"
+      ],
+      "Global Ocean 65N to 65S": [
+        ""
+      ],
+      "Global Ocean 90S to 60S": [
+        ""
+      ],
+      "Great Australian Bight North": [
+        "Great_Australian_Bight",
+        "Indian_Basin"
+      ],
+      "Great Australian Bight South": [
+        "Great_Australian_Bight",
+        "Southern_Ocean_Basin"
+      ],
+      "Greenland Sea": [
+        "Greenland_Sea",
+        "Atlantic_Basin"
+      ],
+      "Gulf of Aden": [
+        "Gulf_of_Aden",
+        "Indian_Basin"
+      ],
+      "Gulf of Alaska": [
+        "Gulf_of_Alaska",
+        "Pacific_Basin"
+      ],
+      "Gulf of Aqaba": [
+        "Gulf_of_Aqaba"
+      ],
+      "Gulf of Boni": [
+        "Gulf_of_Boni",
+        "Pacific_Basin"
+      ],
+      "Gulf of Bothnia": [
+        "Gulf_of_Bothnia",
+        "Atlantic_Basin"
+      ],
+      "Gulf of California": [
+        "Gulf_of_California",
+        "Pacific_Basin"
+      ],
+      "Gulf of Finland": [
+        "Gulf_of_Finland",
+        "Atlantic_Basin"
+      ],
+      "Gulf of Guinea": [
+        "Gulf_of_Guinea",
+        "Atlantic_Basin"
+      ],
+      "Gulf of Mexico": [
+        "Gulf_of_Mexico",
+        "Atlantic_Basin"
+      ],
+      "Gulf of Oman": [
+        "Gulf_of_Oman",
+        "Indian_Basin"
+      ],
+      "Gulf of Riga": [
+        "Gulf_of_Riga",
+        "Atlantic_Basin"
+      ],
+      "Gulf of St-Lawrence": [
+        "Gulf_of_St-Lawrence",
+        "Atlantic_Basin"
+      ],
+      "Gulf of Suez": [
+        "Gulf_of_Suez"
+      ],
+      "Gulf of Thailand": [
+        "Gulf_of_Thailand",
+        "Pacific_Basin"
+      ],
+      "Gulf of Tomini": [
+        "Gulf_of_Tomini",
+        "Pacific_Basin"
+      ],
+      "Halamahera Sea": [
+        "Halamahera_Sea",
+        "Pacific_Basin"
+      ],
+      "Hudson Bay": [
+        "Hudson_Bay",
+        "Atlantic_Basin"
+      ],
+      "Hudson Strait": [
+        "Hudson_Strait",
+        "Atlantic_Basin"
+      ],
+      "Indian Ocean": [
+        "Indian_Ocean",
+        "Indian_Basin"
+      ],
+      "Inland Sea": [
+        "Inland_Sea",
+        "Pacific_Basin"
+      ],
+      "Inner Seas off the West Coast of Scotland": [
+        "Inner_Seas_off_the_West_Coast_of_Scotland",
+        "Atlantic_Basin"
+      ],
+      "Ionian Sea": [
+        "Ionian_Sea",
+        "Mediterranean_Basin"
+      ],
+      "Irish Sea and St Georges Channel": [
+        "Irish_Sea_and_St_Georges_Channel",
+        "Atlantic_Basin"
+      ],
+      "Japan Sea": [
+        "Japan_Sea",
+        "Pacific_Basin"
+      ],
+      "Java Sea": [
+        "Java_Sea",
+        "Pacific_Basin"
+      ],
+      "Kara Sea": [
+        "Kara_Sea",
+        "Arctic_Basin"
+      ],
+      "Kattegat": [
+        "Kattegat",
+        "Atlantic_Basin"
+      ],
+      "Labrador Sea": [
+        "Labrador_Sea",
+        "Atlantic_Basin"
+      ],
+      "Laccadive Sea": [
+        "Laccadive_Sea",
+        "Indian_Basin"
+      ],
+      "Laptev Sea": [
+        "Laptev_Sea",
+        "Arctic_Basin"
+      ],
+      "Ligurian Sea": [
+        "Ligurian_Sea",
+        "Mediterranean_Basin"
+      ],
+      "Lincoln Sea": [
+        "Lincoln_Sea",
+        "Arctic_Basin"
+      ],
+      "MOC mask 34S": [
+        "MOC_mask_34S"
+      ],
+      "MOC mask 6S": [
+        "MOC_mask_6S"
+      ],
+      "Makassar Strait": [
+        "Makassar_Strait",
+        "Pacific_Basin"
+      ],
+      "Malacca Strait": [
+        "Malacca_Strait",
+        "Indian_Basin"
+      ],
+      "Mediterranean Sea - Eastern Basin": [
+        "Mediterranean_Sea_-_Eastern_Basin",
+        "Mediterranean_Basin"
+      ],
+      "Mediterranean Sea - Western Basin": [
+        "Mediterranean_Sea_-_Western_Basin",
+        "Mediterranean_Basin"
+      ],
+      "Molukka Sea": [
+        "Molukka_Sea",
+        "Pacific_Basin"
+      ],
+      "Mozambique Channel": [
+        "Mozambique_Channel",
+        "Indian_Basin"
+      ],
+      "Nino 3.4": [
+        "Nino"
+      ],
+      "Nino 3": [
+        "Nino"
+      ],
+      "Nino 4": [
+        "Nino"
+      ],
+      "North Atlantic Ocean": [
+        "North_Atlantic_Ocean",
+        "Atlantic_Basin"
+      ],
+      "North Pacific Ocean": [
+        "North_Pacific_Ocean",
+        "Pacific_Basin"
+      ],
+      "North Sea": [
+        "North_Sea",
+        "Atlantic_Basin"
+      ],
+      "Northwestern Passages": [
+        "Northwestern_Passages",
+        "Arctic_Basin"
+      ],
+      "Norwegian Sea": [
+        "Norwegian_Sea",
+        "Atlantic_Basin"
+      ],
+      "Persian Gulf": [
+        "Persian_Gulf"
+      ],
+      "Philippine Sea": [
+        "Philippine_Sea",
+        "Pacific_Basin"
+      ],
+      "Red Sea": [
+        "Red_Sea"
+      ],
+      "Rio de La Plata": [
+        "Rio_de_La_Plata",
+        "Atlantic_Basin"
+      ],
+      "Savu Sea": [
+        "Savu_Sea",
+        "Pacific_Basin"
+      ],
+      "Sea of Azov": [
+        "Sea_of_Azov"
+      ],
+      "Sea of Marmara": [
+        "Sea_of_Marmara"
+      ],
+      "Sea of Okhotsk": [
+        "Sea_of_Okhotsk",
+        "Pacific_Basin"
+      ],
+      "Singapore Strait": [
+        "Singapore_Strait",
+        "Pacific_Basin"
+      ],
+      "Skaggerak": [
+        "Skaggerak",
+        "Atlantic_Basin"
+      ],
+      "Solomon Sea": [
+        "Solomon_Sea",
+        "Pacific_Basin"
+      ],
+      "South Atlantic Ocean": [
+        "South_Atlantic_Ocean",
+        "Atlantic_Basin"
+      ],
+      "South China Sea": [
+        "South_China_Sea",
+        "Pacific_Basin"
+      ],
+      "South Pacific Ocean": [
+        "South_Pacific_Ocean",
+        "Pacific_Basin"
+      ],
+      "Southern Ocean": [
+        "Southern_Ocean",
+        "Southern_Ocean_Basin"
+      ],
+      "Strait of Gibraltar": [
+        "Strait_of_Gibraltar",
+        "Mediterranean_Basin"
+      ],
+      "Sulu Sea": [
+        "Sulu_Sea",
+        "Pacific_Basin"
+      ],
+      "Tasman Sea North": [
+        "Tasman_Sea",
+        "Pacific_Basin"
+      ],
+      "Tasman Sea South": [
+        "Tasman_Sea",
+        "Southern_Ocean_Basin"
+      ],
+      "The Coastal Waters of Southeast Alaska and British Columbia": [
+        "The_Coastal_Waters_of_Southeast_Alaska_and_British_Columbia",
+        "Pacific_Basin"
+      ],
+      "Timor Sea": [
+        "Timor_Sea",
+        "Pacific_Basin"
+      ],
+      "Tyrrhenian Sea": [
+        "Tyrrhenian_Sea",
+        "Mediterranean_Basin"
+      ],
+      "White Sea": [
+        "White_Sea",
+        "Arctic_Basin"
+      ],
+      "Yellow Sea": [
+        "Yellow_Sea",
+        "Pacific_Basin"
+      ]
+    },
+    "transect": {
+      "Africa-Ant": [
+        "standard_transport_sections"
+      ],
+      "Agulhas": [
+        "standard_transport_sections"
+      ],
+      "Antilles Inflow": [
+        "standard_transport_sections"
+      ],
+      "Baltic Sea Deepen": [
+        "Baltic_Sea_Deepen",
+        "Critical_Passage"
+      ],
+      "Bering Strait": [
+        "standard_transport_sections"
+      ],
+      "Drake Passage": [
+        "standard_transport_sections"
+      ],
+      "English Channel Deepen": [
+        "English_Channel_Deepen",
+        "Critical_Passage"
+      ],
+      "Florida-Bahamas": [
+        "standard_transport_sections"
+      ],
+      "Florida-Cuba": [
+        "standard_transport_sections"
+      ],
+      "Fram Strait": [
+        "standard_transport_sections"
+      ],
+      "Indonesian Throughflow": [
+        "standard_transport_sections"
+      ],
+      "Lancaster Sound": [
+        "standard_transport_sections"
+      ],
+      "Mona Passage": [
+        "standard_transport_sections"
+      ],
+      "Mozambique Channel": [
+        "standard_transport_sections"
+      ],
+      "Persian Gulf Deepen": [
+        "Persian_Gulf_Deepen",
+        "Critical_Passage"
+      ],
+      "Red Sea Deepen": [
+        "Red_Sea_Deepen",
+        "Critical_Passage"
+      ],
+      "Robeson Channel": [
+        "standard_transport_sections"
+      ],
+      "Strait of Gibralter Deepen 1": [
+        "Strait_of_Gibralter_Deepen",
+        "Mediterranean_Basin",
+        "Critical_Passage"
+      ],
+      "Strait of Gibralter Deepen 2": [
+        "Strait_of_Gibralter_Deepen",
+        "Mediterranean_Basin",
+        "Critical_Passage"
+      ],
+      "Tasmania-Ant": [
+        "standard_transport_sections"
+      ],
+      "Windward Passage": [
+        "standard_transport_sections"
+      ]
+    }
+  }
+}
