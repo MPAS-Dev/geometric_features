@@ -1,9 +1,10 @@
 #!/usr/bin/env python
+
 """
 Determines contributors for geojson files and makes CONTRIBUTORS.md file
 
-Phillip J. Wolfram
-04/05/2016
+Phillip J. Wolfram, Xylar-Asay-Davis
+02/23/2019
 """
 
 import os
@@ -20,10 +21,12 @@ def append_to_file(aline, afile):
         if aline[-1] != '\n':
             fid.write('\n')
 
+
 def build_contrib_file():
     """ builds the contributor file CONTRIBUTORS.md """
     # get file directories
-    gitroot = subprocess.check_output(['git', 'rev-parse', '--show-toplevel']).replace('\n', '')
+    args = ['git', 'rev-parse', '--show-toplevel']
+    gitroot = subprocess.check_output(args).decode('utf-8').replace('\n', '')
     contribdir = gitroot + '/contributors'
     contribfile = contribdir + '/CONTRIBUTORS.md'
 
@@ -33,14 +36,23 @@ def build_contrib_file():
     # build up contrib file
     shutil.copyfile(contribdir + '/CONTRIBUTORS_HEADER', contribfile)
 
-    append_to_file('List populated on %s:'%
-                   (datetime.datetime.now().strftime("%Y-%m-%d %H:%M")), contribfile)
+    append_to_file(
+        'List populated on {}:'.format(
+            datetime.datetime.now().strftime("%Y-%m-%d %H:%M")),
+        contribfile)
     append_to_file('\n', contribfile)
 
-    gitgrep = subprocess.check_output(['git', 'grep', 'author', '--', '*.geojson'])
-    authors = set(re.findall(r'"author": "(.*?)"', gitgrep))
-    for author in sorted(authors):
+    gitgrep = subprocess.check_output(
+        ['git', 'grep', 'author', '--', '*.geojson']).decode('utf-8')
+    authors = re.findall(r'"author": "(.*?)"', gitgrep)
+    splitauthors = []
+    for author in authors:
+        split = author.replace('; ', ', ').split(', ')
+        splitauthors.extend(split)
+    authors = sorted(list(set(splitauthors)))
+    for author in authors:
         append_to_file(' * ' + author, contribfile)
+
 
 if __name__ == "__main__":
     build_contrib_file()
