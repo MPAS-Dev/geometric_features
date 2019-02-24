@@ -1,39 +1,33 @@
 #!/usr/bin/env python
 """
-This script combines Antarctic basins into a single feature file.  No arguments
-are required. The optional --plot flag can be used to produce plots of the
-result.
+This script combines Antarctic basins into a single feature file.
 """
-import os
-import os.path
-import subprocess
-from optparse import OptionParser
 
-import glob
+# stuff to make scipts work for python 2 and python 3
+from __future__ import absolute_import, division, print_function, \
+    unicode_literals
 
-parser = OptionParser()
-parser.add_option("--plot", action="store_true", dest="plot")
+from geometric_features import GeometricFeatures
 
-options, args = parser.parse_args()
+import matplotlib.pyplot as plt
 
-files = glob.glob('landice/region/Antarctica_IMBIE*/*.geojson')
-files.sort()
+plot = True
 
-outName = 'Antarctic_Basins.geojson'
+# create a GeometricFeatures object that points to a local cache of geometric
+# data and knows which branch of geometric_feature to use to download
+# missing data
+gf = GeometricFeatures('./geometric_data', 'master')
 
-if os.path.exists(outName):
-    os.remove(outName)
+# create a FeatureCollection containing all land-ice regions wtih one of three
+# IMBIE tags
+tags = ['WestAntarcticaIMBIE', 'AntarcticPeninsulaIMBIE',
+        'EastAntarcticaIMBIE']
+fc = gf.read(componentName='landice', objectType='region', tags=tags,
+             allTags=False)
 
-print "Adding feature from files:"
-for fileName in files:
-    print fileName
-    args = ['./merge_features.py', '-f', fileName, '-o', outName]
-    subprocess.check_call(args, env=os.environ.copy())
+# save the feature collection to a geojson file
+fc.to_geojson('Antarctic_Basins.geojson')
 
-
-imageName = 'Antarctic_Basins.png'
-
-if(options.plot):
-    args = ['./plot_features.py', '-f', outName, '-o', imageName,
-            '-m', 'southpole']
-    subprocess.check_call(args, env=os.environ.copy())
+if plot:
+    fc.plot(projection='southpole')
+    plt.show()

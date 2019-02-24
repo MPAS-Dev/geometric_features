@@ -1,31 +1,28 @@
 #!/usr/bin/env python
-
 """
 This script creates region groups for the standard set of transport sections,
 all of which have the "standard_transport_sections" tag.
-
-Author: Xylar Asay-Davis
 """
 
-import os
-import os.path
-import subprocess
+# stuff to make scipts work for python 2 and python 3
+from __future__ import absolute_import, division, print_function, \
+    unicode_literals
 
-tag = 'standard_transport_sections'
-fileName = 'standard_transport_sections.geojson'
-groupName = 'StandardTransportSectionsRegionsGroup'
-    
-if os.path.exists(fileName):
-    os.remove(fileName)
+from geometric_features import GeometricFeatures
 
 
-subprocess.check_call(['./merge_features.py',
-                       '-d', 'ocean/transect',
-                       '-t', tag,
-                       '-o', fileName])
+# create a GeometricFeatures object that points to a local cache of geometric
+# data and knows which branch of geometric_feature to use to download
+# missing data
+gf = GeometricFeatures('./geometric_data', 'master')
 
-subprocess.check_call(['./set_group_name.py',
-                       '-f', fileName,
-                       '-g', groupName])
+# create a FeatureCollection containing all ocean transects wtih the
+# "Critical_Passage" tag
+fc = gf.read(componentName='ocean', objectType='transect',
+             tags=['standard_transport_sections'])
 
-# vim: foldmethod=marker ai ts=4 sts=4 et sw=4 ft=python
+# set the group name describing the full feature collection
+fc.set_group_name(groupName='StandardTransportSectionsRegionsGroup')
+
+# save the feature collection to a geojson file
+fc.to_geojson('standard_transport_sections.geojson')

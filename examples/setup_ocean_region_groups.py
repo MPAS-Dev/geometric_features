@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 """
 This script creates the following ocean region groups:
 i) OceanBasinRegionsGroup, which includes the Global Ocean as well as
@@ -10,163 +9,91 @@ ii) MOCBasinRegionGroup, which includes five regions used for computing the
     (MHT);
 iii) NinoRegionGroups, which includes the Nino3, Nino4, and Nino3.4
     regions.
-
-No arguments are required. The optional --plot flag
-can be used to produce plots of each basin or region.
-
-Author: Xylar Asay-Davis
-Last Modified: 02/15/2017
 """
 
-import os
-import os.path
-import subprocess
-from optparse import OptionParser
-import json
-from collections import defaultdict
+# stuff to make scipts work for python 2 and python 3
+from __future__ import absolute_import, division, print_function, \
+    unicode_literals
 
-from utils.feature_write_utils import write_all_features
-from utils.feature_test_utils import feature_already_exists
+import matplotlib.pyplot as plt
+import copy
+import shapely
 
-import shapely.geometry
-import shapely.ops
+from geometric_features import GeometricFeatures, FeatureCollection
 
 
-def spcall(args):  # {{{
-    return subprocess.check_call(args, env=os.environ.copy())  # }}}
+def build_ocean_basins(gf, plot):
+    '''
+    Builds features defining the major ocean basins
 
+    Parameters
+    ----------
+    gf : ``GeometricFeatures``
+        An object that knows how to download and read geometric featuers
 
-def remove_small_polygons(inFileName, outFileName, minArea):  # {{{
+    plot : bool
+        Whether to plot each basin
 
-    features = defaultdict(list)
+    Returns
+    -------
+    fc : ``FeatureCollection``
+        The new feature collection
+    '''
+    # Authors
+    # -------
+    # Xylar Asay-Davis
 
-    if os.path.exists(outFileName):
-        try:
-            with open(outFileName) as f:
-                appended_file = json.load(f)
-                for feature in appended_file['features']:
-                    features['features'].append(feature)
-                del appended_file
-        except:
-            pass
-
-    inFeatures = defaultdict(list)
-
-    try:
-        with open(inFileName) as f:
-            feature_file = json.load(f)
-
-        for feature in feature_file['features']:
-            inFeatures['features'].append(feature)
-
-        del feature_file
-    except:
-        print "Error parsing geojson file: %s" % (inFileName)
-        raise
-
-    for feature in inFeatures['features']:
-        name = feature['properties']['name']
-        if feature_already_exists(features, feature):
-            print "Warning: feature %s already in features.geojson.  " \
-                  "Skipping..." % name
-            continue
-        geom = feature['geometry']
-        if geom['type'] not in ['Polygon', 'MultiPolygon']:
-            # no area to check, so just add it
-            features['features'].append(feature)
-        else:
-            add = False
-            featureShape = shapely.geometry.shape(geom)
-            if featureShape.type == 'Polygon':
-                if featureShape.area > minArea:
-                    add = True
-            else:
-                # a MultiPolygon
-                outPolygons = []
-                for polygon in featureShape:
-                    if polygon.area > minArea:
-                        outPolygons.append(polygon)
-                if len(outPolygons) > 0:
-                    outShape = shapely.ops.cascaded_union(outPolygons)
-                    feature['geometry'] = shapely.geometry.mapping(outShape)
-                    add = True
-        if add:
-            features['features'].append(feature)
-        else:
-            print "%s has been removed." % name
-
-    write_all_features(features, outFileName, indent=4)  # }}}
-
-
-def build_ocean_basins():  # {{{
-    basinGroupName = 'OceanBasinRegionsGroup'
-    basinFileName = 'oceanBasins.geojson'
-
-    # temp file names that we delete later
-    tempSeparateBasinFileName = 'temp_separate_basins.geojson'
-    tempCombinedBasinFileName = 'temp_combined_basins.geojson'
-
-    # remove old files so we don't unintentionally append features
-    for fileName in [basinFileName,
-                     tempSeparateBasinFileName,
-                     tempCombinedBasinFileName]:
-        if os.path.exists(fileName):
-            os.remove(fileName)
+    fc = FeatureCollection()
+    fc.set_group_name(groupName='OceanBasinRegionsGroup')
 
     # build ocean basins from regions with the appropriate tags
     for oceanName in ['Atlantic', 'Pacific', 'Indian', 'Arctic',
                       'Southern_Ocean', 'Mediterranean']:
 
-        tag = '%s_Basin' % oceanName
+        basinName = '{}_Basin'.format(oceanName)
+        print(oceanName)
 
-        print " * merging features to make %s Basin" % oceanName
-        spcall(['./merge_features.py', '-d', 'ocean/region', '-t', tag,
-                '-o', tempSeparateBasinFileName])
+        print(' * merging features')
+        fcBasin = gf.read(componentName='ocean', objectType='region',
+                          tags=[basinName])
 
-        # merge the the features into a single file
-        print " * combining features into single feature named %s_Basin" \
-            % oceanName
-        spcall(['./combine_features.py', '-f', tempSeparateBasinFileName,
-                '-n', '%s_Basin' % oceanName,
-                '-o', tempCombinedBasinFileName])
+        print(' * combining features')
+        fcBasin = fcBasin.combine(featureName=basinName)
 
-        if(options.plot):
-            spcall(['./plot_features.py', '-f', tempCombinedBasinFileName,
-                   '-o', '%s_Basin.png' % oceanName, '-m', 'cyl'])
+        fc.merge(fcBasin)
 
-        spcall(['./merge_features.py', '-f', tempCombinedBasinFileName,
-                '-o', basinFileName])
+        if plot:
+            fcBasin.plot(projection='cyl')
+            plt.title(oceanName)
 
-        # remove temp files
-        for fileName in [tempSeparateBasinFileName, tempCombinedBasinFileName]:
-            os.remove(fileName)
+    # add the global ocean, global ocean between 65S and 65S, and
+    # equatorial region
+    fc.merge(gf.read(componentName='ocean', objectType='region',
+                     featureNames=['Global Ocean',
+                                   'Global Ocean 65N to 65S',
+                                   'Global Ocean 15S to 15N']))
 
-    # add the global ocean
-    spcall(['./merge_features.py',
-            '-f', 'ocean/region/Global_Ocean/region.geojson',
-            '-o', basinFileName])
-
-    # add the global ocean between 65S and 65S
-    spcall(['./merge_features.py',
-            '-f', 'ocean/region/Global_Ocean_65N_to_65S/region.geojson',
-            '-o', basinFileName])
-
-    # add the equatorial region, which does not correspond to an ocean basin
-    spcall(['./merge_features.py',
-            '-f', 'ocean/region/Global_Ocean_15S_to_15N/region.geojson',
-            '-o', basinFileName])
-
-    spcall(['./set_group_name.py', '-f', basinFileName,
-            '-g', basinGroupName])
-
-    if(options.plot):
-        spcall(['./plot_features.py', '-f', basinFileName,
-               '-o', 'oceanBasins.png', '-m', 'cyl'])  # }}}
+    return fc
 
 
-def build_MOC_basins():  # {{{
-    MOCFileName = 'MOCBasins.geojson'
-    MOCGroupName = 'MOCBasinRegionsGroup'
+def build_MOC_basins(gf):
+    '''
+    Builds features defining the ocean basins used in computing the meridional
+    overturning circulation (MOC)
+
+    Parameters
+    ----------
+    gf : ``GeometricFeatures``
+        An object that knows how to download and read geometric featuers
+
+    Returns
+    -------
+    fc : ``FeatureCollection``
+        The new feature collection
+    '''
+    # Authors
+    # -------
+    # Xylar Asay-Davis
 
     MOCSubBasins = {'Atlantic': ['Atlantic', 'Mediterranean'],
                     'IndoPacific': ['Pacific', 'Indian'],
@@ -178,100 +105,146 @@ def build_MOC_basins():  # {{{
                            'Pacific': '6S',
                            'Indian': '6S'}
 
-    # temp file names that we delete later
-    tempSeparateBasinFileName = 'temp_separate_basins.geojson'
-    tempCombinedBasinFileName = 'temp_combined_basins.geojson'
-    tempMOCFileName = 'temp_MOC.geojson'
-    tempMOCLargePolygonsFileName = 'temp_MOC_large_polys.geojson'
+    fc = FeatureCollection()
+    fc.set_group_name(groupName='MOCBasinRegionsGroup')
 
-    # remove old files so we don't unintentionally append features
-    for fileName in [MOCFileName,
-                     tempSeparateBasinFileName,
-                     tempCombinedBasinFileName,
-                     tempMOCFileName,
-                     tempMOCLargePolygonsFileName]:
-        if os.path.exists(fileName):
-            os.remove(fileName)
-
-    # build MOC basins
+    # build MOC basins from regions with the appropriate tags
     for basinName in MOCSubBasins:
 
-        imageName = '%s_MOC.png' % basinName
+        print('{} MOC'.format(basinName))
 
-        MOCMaskFileName = 'ocean/region/MOC_mask_%s/region.geojson' \
-            % MOCSouthernBoundary[basinName]
+        print(' * merging features')
+        tags = ['{}_Basin'.format(basin) for basin in MOCSubBasins[basinName]]
 
-        print " * merging features to make %s Basin" % basinName
+        fcBasin = gf.read(componentName='ocean', objectType='region',
+                          tags=tags, allTags=False)
 
-        for oceanName in MOCSubBasins[basinName]:
-            spcall(['./merge_features.py', '-d', 'ocean/region',
-                    '-t', '%s_Basin' % oceanName,
-                    '-o', tempSeparateBasinFileName])
+        print(' * combining features')
+        fcBasin = fcBasin.combine(featureName='{}_MOC'.format(basinName))
 
-        # merge the the features into a single file
-        print " * combining features into single feature named %s_MOC" \
-            % basinName
-        spcall(['./combine_features.py', '-f', tempSeparateBasinFileName,
-                '-n', '%s_MOC' % basinName,
-                '-o', tempCombinedBasinFileName])
-
-        print " * masking out features south of MOC region"
-        spcall(['./difference_features.py', '-f', tempCombinedBasinFileName,
-                '-m', MOCMaskFileName,
-                '-o', tempMOCFileName])
+        print(' * masking out features south of MOC region')
+        maskName = 'MOC mask {}'.format(MOCSouthernBoundary[basinName])
+        fcMask = gf.read(componentName='ocean', objectType='region',
+                         featureNames=[maskName])
+        # mask out the region covered by the mask
+        fcBasin = fcBasin.difference(fcMask)
 
         # remove various small polygons that are not part of the main MOC
         # basin shapes.  Most are tiny but one below Australia is about 20
         # deg^2, so make the threshold 100 deg^2 to be on the safe side.
-        remove_small_polygons(tempMOCFileName, tempMOCLargePolygonsFileName,
-                              minArea=100.)
+        fcBasin = remove_small_polygons(fcBasin, minArea=100.)
 
-        spcall(['./merge_features.py', '-f', tempMOCLargePolygonsFileName,
-                '-o', MOCFileName])
+        # add this basin to the full feature collection
+        fc.merge(fcBasin)
 
-        if options.plot:
-            spcall(['./plot_features.py', '-f', tempMOCLargePolygonsFileName,
-                    '-o', imageName, '-m', 'cyl'])
-
-        # remove temp files
-        for fileName in [tempSeparateBasinFileName, tempCombinedBasinFileName,
-                         tempMOCFileName, tempMOCLargePolygonsFileName]:
-            os.remove(fileName)
-
-    spcall(['./set_group_name.py', '-f', MOCFileName,
-            '-g', MOCGroupName])
-
-    if options.plot:
-        spcall(['./plot_features.py', '-f', MOCFileName,
-                '-o', 'MOCBasins.png', '-m', 'cyl'])  # }}}
+    return fc
 
 
-def build_Nino_regions():  # {{{
-    NinoFileName = 'NinoRegions.geojson'
-    NinoGroupName = 'NinoRegionsGroup'
+def build_Nino_regions(gf):
+    '''
+    Builds features defining the ocean basins used in computing the El Nino-
+    Southern Oscillation climate indices.
 
-    if os.path.exists(NinoFileName):
-        os.remove(NinoFileName)
+    Parameters
+    ----------
+    gf : ``GeometricFeatures``
+        An object that knows how to download and read geometric featuers
 
-    # build Nino basins
-    spcall(['./merge_features.py', '-d', 'ocean/region',
-            '-t', 'Nino',
-            '-o', NinoFileName])
+    Returns
+    -------
+    fc : ``FeatureCollection``
+        The new feature collection
+    '''
+    # Authors
+    # -------
+    # Xylar Asay-Davis
 
-    spcall(['./set_group_name.py', '-f', NinoFileName,
-            '-g', NinoGroupName])
+    fc = gf.read(componentName='ocean', objectType='region',
+                 tags=['Nino'])
+    fc.set_group_name(groupName='NinoRegionsGroup')
 
-    if options.plot:
-        spcall(['./plot_features.py', '-f', NinoFileName,
-                '-o', 'NinoRegions.png', '-m', 'cyl'])  # }}}
+    return fc
 
-parser = OptionParser()
-parser.add_option("--plot", action="store_true", dest="plot")
 
-options, args = parser.parse_args()
+def remove_small_polygons(fc, minArea):
+    '''
+    A helper function to remove small polygons from a feature collection
 
-build_ocean_basins()
-build_MOC_basins()
-build_Nino_regions()
+    Parameters
+    ----------
+    fc : ``FeatureCollection``
+        The feature collection to remove polygons from
 
-# vim: foldmethod=marker ai ts=4 sts=4 et sw=4 ft=python
+    minArea : float
+        The minimum area (in square degrees) below which polygons should be
+        removed
+
+    Returns
+    -------
+    fcOut : ``FeatureCollection``
+        The new feature collection with small polygons removed
+    '''
+    # Authors
+    # -------
+    # Xylar Asay-Davis
+
+    fcOut = FeatureCollection()
+
+    removedCount = 0
+    for feature in fc.features:
+        geom = feature['geometry']
+        if geom['type'] not in ['Polygon', 'MultiPolygon']:
+            # no area to check, so just add it
+            fcOut.add_feature(copy.deepcopy(feature))
+        else:
+            add = False
+            featureShape = shapely.geometry.shape(geom)
+            if featureShape.type == 'Polygon':
+                if featureShape.area > minArea:
+                    add = True
+                else:
+                    removedCount += 1
+            else:
+                # a MultiPolygon
+                outPolygons = []
+                for polygon in featureShape:
+                    if polygon.area > minArea:
+                        outPolygons.append(polygon)
+                    else:
+                        removedCount += 1
+                if len(outPolygons) > 0:
+                    outShape = shapely.ops.cascaded_union(outPolygons)
+                    feature['geometry'] = shapely.geometry.mapping(outShape)
+                    add = True
+        if add:
+            fcOut.add_feature(copy.deepcopy(feature))
+        else:
+            print("{} has been removed.".format(
+                    feature['pproperties']['name']))
+
+    print(' * Removed {} small polygons'.format(removedCount))
+
+    return fcOut
+
+
+plot = True
+
+# create a GeometricFeatures object that points to a local cache of geometric
+# data and knows which branch of geometric_feature to use to download
+# missing data
+gf = GeometricFeatures('./geometric_data', 'master')
+
+fcOceanBasins = build_ocean_basins(gf, plot)
+fcOceanBasins.to_geojson('oceanBasins.geojson')
+
+fcMOC = build_MOC_basins(gf)
+fcMOC.to_geojson('MOCBasins.geojson')
+
+fcNino = build_Nino_regions(gf)
+fcNino.to_geojson('NinoRegions.geojson')
+
+if plot:
+    fcOceanBasins.plot(projection='cyl')
+    fcMOC.plot(projection='cyl')
+    fcNino.plot(projection='cyl')
+    plt.show()

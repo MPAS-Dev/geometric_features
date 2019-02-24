@@ -1,48 +1,53 @@
 #!/usr/bin/env python
 """
 This script combines Natural Earth land coverage north of 60S with Antarctic
-ice coverage or grounded ice coverage from Bedmap2.  No arguments
-are required. The optional --with_cavities flag uses grounded ice rather than
+ice coverage or grounded ice coverage from Bedmap2.  If the ``withCavities``
+variable is set to ``True``, the land over uses grounded ice rather than
 both grounded and floating ice to determine land coverage (thus opening
-up sub-ice-shelf cavities in the ocean.  The --plot flag can be used to
-produce plots of the result.
+up sub-ice-shelf cavities in the ocean around Antarctica.
 """
-import os
-import os.path
-import subprocess
-from optparse import OptionParser
 
-parser = OptionParser()
-parser.add_option("--plot", action="store_true", dest="plot")
-parser.add_option("--with_cavities", action="store_true", dest="with_cavities")
+# stuff to make scipts work for python 2 and python 3
+from __future__ import absolute_import, division, print_function, \
+    unicode_literals
 
-options, args = parser.parse_args()
+from geometric_features import GeometricFeatures
 
-outFileName = 'landCoverage.geojson'
+import matplotlib.pyplot as plt
 
-if os.path.exists(outFileName):
-    os.remove(outFileName)
+plot = True
+withCavities = False
 
-args = ['./difference_features.py',
-        '-f', 'natural_earth/region/Land_Coverage/region.geojson',
-        '-m', 'ocean/region/Global_Ocean_90S_to_60S/region.geojson',
-        '-o', outFileName]
-subprocess.check_call(args, env=os.environ.copy())
+# create a GeometricFeatures object that points to a local cache of geometric
+# data and knows which branch of geometric_feature to use to download
+# missing data
+gf = GeometricFeatures('./geometric_data', 'master')
 
-if options.with_cavities:
-    antarcticLandCoverage = \
-        'bedmap2/region/AntarcticGroundedIceCoverage/region.geojson'
-    imageName = 'landCoverageWithCavities.png'
+# start with the land coverage from Natural Earth
+fcLandCoverage = gf.read(componentName='natural_earth', objectType='region',
+                         featureNames=['Land Coverage'])
+
+# remove the region south of 60S so we can replace it based on ice-sheet
+# topography
+fcSouthMask = gf.read(componentName='ocean', objectType='region',
+                      featureNames=['Global Ocean 90S to 60S'])
+
+fcLandCoverage = fcLandCoverage.difference(fcSouthMask)
+
+# Add "land" coverage from either the full ice sheet or just the grounded
+# part
+if withCavities:
+    fcAntarcticLand = gf.read(componentName='bedmap2', objectType='region',
+                              featureNames=['AntarcticGroundedIceCoverage'])
 else:
-    antarcticLandCoverage = \
-        'bedmap2/region/AntarcticIceCoverage/region.geojson'
-    imageName = 'landCoverageWithoutCavities.png'
+    fcAntarcticLand = gf.read(componentName='bedmap2', objectType='region',
+                              featureNames=['AntarcticIceCoverage'])
 
-args = ['./merge_features.py', '-f', antarcticLandCoverage,
-        '-o', outFileName]
-subprocess.check_call(args, env=os.environ.copy())
+fcLandCoverage.merge(fcAntarcticLand)
 
-if(options.plot):
-    args = ['./plot_features.py', '-f', outFileName, '-o', imageName,
-            '-m', 'cyl']
-    subprocess.check_call(args, env=os.environ.copy())
+# save the feature collection to a geojson file
+fcLandCoverage.to_geojson('landCoverage.geojson')
+
+if plot:
+    fcLandCoverage.plot(projection='cyl')
+    plt.show()

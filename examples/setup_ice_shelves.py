@@ -1,203 +1,175 @@
 #!/usr/bin/env python
-
 """
 This script creates region groups for ice shelves
-
-Author: Xylar Asay-Davis
 """
 
-import os
-import os.path
-import subprocess
+# stuff to make scipts work for python 2 and python 3
+from __future__ import absolute_import, division, print_function, \
+    unicode_literals
 
+from geometric_features import GeometricFeatures, FeatureCollection
 
-def build_ice_shelves():  # {{{
-    groupName = 'IceShelvesRegionsGroup'
-    iceShelvesFileName = 'iceShelves.geojson'
+import matplotlib.pyplot as plt
 
-    # temp file names that we delete later
-    tempSeparateFileName = 'temp_separate_shelves.geojson'
-    tempCombinedFileName = 'temp_combined_shelves.geojson'
+plot = True
 
-    # remove old files so we don't unintentionally append features
-    for fileName in [iceShelvesFileName,
-                     tempSeparateFileName,
-                     tempCombinedFileName]:
-        if os.path.exists(fileName):
-            os.remove(fileName)
+iceShelfNames = ['Abbot',
+                 'Amery',
+                 'Atka',
+                 'Aviator',
+                 'Bach',
+                 'Baudouin',
+                 'Borchgrevink',
+                 'Brahms',
+                 'Brunt_Stancomb',
+                 'Campbell',
+                 'Cheetham',
+                 'Conger_Glenzer',
+                 'Cook',
+                 'Cosgrove',
+                 'Crosson',
+                 'Dennistoun',
+                 'Dibble',
+                 'Dotson',
+                 'Drygalski',
+                 'Edward_VIII',
+                 'Ekstrom',
+                 'Ferrigno',
+                 'Filchner',
+                 'Fimbul',
+                 'Fitzgerald',
+                 'Frost',
+                 'GeikieInlet',
+                 'George_VI',
+                 'Getz',
+                 'Gillet',
+                 'Hamilton',
+                 'Hannan',
+                 'HarbordGlacier',
+                 'Helen',
+                 'Holmes',
+                 'HolmesWest',
+                 'Hull',
+                 'Jelbart',
+                 'Land',
+                 'Larsen_B',
+                 'Larsen_C',
+                 'Larsen_D',
+                 'Larsen_E',
+                 'Larsen_F',
+                 'Larsen_G',
+                 'Lazarev',
+                 'Lillie',
+                 'Mariner',
+                 'Matusevitch',
+                 'Mendelssohn',
+                 'Mertz',
+                 'Moscow_University',
+                 'Moubray',
+                 'Mulebreen',
+                 'Myers',
+                 'Nansen',
+                 'Nickerson',
+                 'Ninnis',
+                 'Nivl',
+                 'Noll',
+                 'Nordenskjold',
+                 'Pine_Island',
+                 'PourquoiPas',
+                 'Prince_Harald',
+                 'Publications',
+                 'Quar',
+                 'Rayner_Thyer',
+                 'Rennick',
+                 'Richter',
+                 'Riiser-Larsen',
+                 'Ronne',
+                 'Ross_East',
+                 'Ross_West',
+                 'Shackleton',
+                 'Shirase',
+                 'Slava',
+                 'SmithInlet',
+                 'Stange',
+                 'Sulzberger',
+                 'Suvorov',
+                 'Swinburne',
+                 'Thwaites',
+                 'Tinker',
+                 'Totten',
+                 'Tracy_Tremenchus',
+                 'Tucker',
+                 'Underwood',
+                 'Utsikkar',
+                 'Venable',
+                 'Verdi',
+                 'Vigrid',
+                 'Vincennes',
+                 'Voyeykov',
+                 'West',
+                 'Wilkins',
+                 'Wilma_Robert_Downer',
+                 'Withrow',
+                 'Wordie',
+                 'Wylde',
+                 'Zubchatyy']
 
-    iceShelfNames = ['Abbot',
-                     'Amery',
-                     'Atka',
-                     'Aviator',
-                     'Bach',
-                     'Baudouin',
-                     'Borchgrevink',
-                     'Brahms',
-                     'Brunt_Stancomb',
-                     'Campbell',
-                     'Cheetham',
-                     'Conger_Glenzer',
-                     'Cook',
-                     'Cosgrove',
-                     'Crosson',
-                     'Dennistoun',
-                     'Dibble',
-                     'Dotson',
-                     'Drygalski',
-                     'Edward_VIII',
-                     'Ekstrom',
-                     'Ferrigno',
-                     'Filchner',
-                     'Fimbul',
-                     'Fitzgerald',
-                     'Frost',
-                     'GeikieInlet',
-                     'George_VI',
-                     'Getz',
-                     'Gillet',
-                     'Hamilton',
-                     'Hannan',
-                     'HarbordGlacier',
-                     'Helen',
-                     'Holmes',
-                     'HolmesWest',
-                     'Hull',
-                     'Jelbart',
-                     'Land',
-                     'Larsen_B',
-                     'Larsen_C',
-                     'Larsen_D',
-                     'Larsen_E',
-                     'Larsen_F',
-                     'Larsen_G',
-                     'Lazarev',
-                     'Lillie',
-                     'Mariner',
-                     'Matusevitch',
-                     'Mendelssohn',
-                     'Mertz',
-                     'Moscow_University',
-                     'Moubray',
-                     'Mulebreen',
-                     'Myers',
-                     'Nansen',
-                     'Nickerson',
-                     'Ninnis',
-                     'Nivl',
-                     'Noll',
-                     'Nordenskjold',
-                     'Pine_Island',
-                     'PourquoiPas',
-                     'Prince_Harald',
-                     'Publications',
-                     'Quar',
-                     'Rayner_Thyer',
-                     'Rennick',
-                     'Richter',
-                     'Riiser-Larsen',
-                     'Ronne',
-                     'Ross_East',
-                     'Ross_West',
-                     'Shackleton',
-                     'Shirase',
-                     'Slava',
-                     'SmithInlet',
-                     'Stange',
-                     'Sulzberger',
-                     'Suvorov',
-                     'Swinburne',
-                     'Thwaites',
-                     'Tinker',
-                     'Totten',
-                     'Tracy_Tremenchus',
-                     'Tucker',
-                     'Underwood',
-                     'Utsikkar',
-                     'Venable',
-                     'Verdi',
-                     'Vigrid',
-                     'Vincennes',
-                     'Voyeykov',
-                     'West',
-                     'Wilkins',
-                     'Wilma_Robert_Downer',
-                     'Withrow',
-                     'Wordie',
-                     'Wylde',
-                     'Zubchatyy']
+combinedIceShelves = {'Filchner-Ronne': ['Filchner', 'Ronne'],
+                      'Ross': ['Ross_East', 'Ross_West'],
+                      'Antarctica': ['AntarcticPenninsulaIMBIE',
+                                     'WestAntarcticaIMBIE',
+                                     'EastAntarcticaIMBIE'],
+                      'Peninsula': ['AntarcticPenninsulaIMBIE'],
+                      'West Antarctica': ['WestAntarcticaIMBIE'],
+                      'East Antarctica': ['EastAntarcticaIMBIE']}
 
-    combinedIceShelves = {'Filchner-Ronne': ['Filchner', 'Ronne'],
-                          'Ross': ['Ross_East', 'Ross_West'],
-                          'Antarctica': ['AntarcticPenninsulaIMBIE',
-                                         'WestAntarcticaIMBIE',
-                                         'EastAntarcticaIMBIE'],
-                          'Peninsula': ['AntarcticPenninsulaIMBIE'],
-                          'West Antarctica': ['WestAntarcticaIMBIE'],
-                          'East Antarctica': ['EastAntarcticaIMBIE']}
+nIMBIEBasins = 27
+for basinNumber in range(1, nIMBIEBasins+1):
+    basinName = 'Antarctica_IMBIE{}'.format(basinNumber)
+    combinedIceShelves['IMBIE{}'.format(basinNumber)] = [basinName]
 
-    nIMBIEBasins = 27
-    for basinNumber in range(1, nIMBIEBasins+1):
-        basinName = 'Antarctica_IMBIE{}'.format(basinNumber)
-        combinedIceShelves['IMBIE{}'.format(basinNumber)] = [basinName]
+# create a GeometricFeatures object that points to a local cache of geometric
+# data and knows which branch of geometric_feature to use to download
+# missing data
+gf = GeometricFeatures('./geometric_data', 'master')
 
-    # build analysis regions from combining ice shelves from regions with the
-    # appropriate tags
-    for shelfName in combinedIceShelves:
-        subNames = combinedIceShelves[shelfName]
+# create a FeatureCollection containing all ice shelves and combined ice-shelf
+# regions
+fc = FeatureCollection()
 
-        print " * merging features to make {}".format(shelfName)
-        for subName in subNames:
-            subprocess.check_call(['./merge_features.py',
-                                   '-d', 'iceshelves/region', '-t', subName,
-                                   '-o', tempSeparateFileName])
+# build analysis regions from combining ice shelves from regions with the
+# appropriate tags
+for shelfName in combinedIceShelves:
+    subNames = combinedIceShelves[shelfName]
+    print(shelfName)
 
-        # merge the the features into a single file
-        print " * combining features into single feature named " \
-            "{}".format(shelfName)
-        subprocess.check_call(['./combine_features.py',
-                               '-f', tempSeparateFileName,
-                               '-n', shelfName,
-                               '-o', tempCombinedFileName])
+    print(' * merging features')
+    fcShelf = gf.read(componentName='iceshelves', objectType='region',
+                      tags=subNames, allTags=False)
 
-        subprocess.check_call(['./merge_features.py',
-                               '-f', tempCombinedFileName,
-                               '-o', iceShelvesFileName])
+    print(' * combining features')
+    fcShelf = fcShelf.combine(featureName=shelfName)
 
-        # remove temp files
-        for fileName in [tempSeparateFileName, tempCombinedFileName]:
-            os.remove(fileName)
+    # merge the feature for the basin into the collection of all basins
+    fc.merge(fcShelf)
 
-    # build ice shelves from regions with the appropriate tags
-    for shelfName in iceShelfNames:
+# build ice shelves from regions with the appropriate tags
+for shelfName in iceShelfNames:
+    print(shelfName)
 
-        print " * merging features to make {}".format(shelfName)
-        subprocess.check_call(['./merge_features.py',
-                               '-d', 'iceshelves/region', '-t', shelfName,
-                               '-o', tempSeparateFileName])
+    print(' * merging features')
+    fcShelf = gf.read(componentName='iceshelves', objectType='region',
+                      tags=[shelfName])
 
-        # merge the the features into a single file
-        print " * combining features into single feature named " \
-            "{}".format(shelfName)
-        subprocess.check_call(['./combine_features.py',
-                               '-f', tempSeparateFileName,
-                               '-n', shelfName,
-                               '-o', tempCombinedFileName])
+    print(' * combining features')
+    fcShelf = fcShelf.combine(featureName=shelfName)
 
-        subprocess.check_call(['./merge_features.py',
-                               '-f', tempCombinedFileName,
-                               '-o', iceShelvesFileName])
+    # merge the feature for the basin into the collection of all basins
+    fc.merge(fcShelf)
 
-        # remove temp files
-        for fileName in [tempSeparateFileName, tempCombinedFileName]:
-            os.remove(fileName)
+# save the feature collection to a geojson file
+fc.to_geojson('iceShelves.geojson')
 
-    subprocess.check_call(['./set_group_name.py',
-                           '-f', iceShelvesFileName,
-                           '-g', groupName])
-    # }}}
-
-
-build_ice_shelves()
-
-# vim: foldmethod=marker ai ts=4 sts=4 et sw=4 ft=python
+if plot:
+    fc.plot(projection='southpole')
+    plt.show()

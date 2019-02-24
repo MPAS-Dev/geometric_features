@@ -1,57 +1,44 @@
 #!/usr/bin/env python
 """
-This script combines Antarctic basins into a single feature file.  No arguments
-are required. The optional --plot flag can be used to produce plots of the
-result.
+This script combines Antarctic basins extended to the continental-shelf break
+into a single feature file.
 """
-import os
-import os.path
-import subprocess
-from optparse import OptionParser
 
+# stuff to make scipts work for python 2 and python 3
+from __future__ import absolute_import, division, print_function, \
+    unicode_literals
 
-parser = OptionParser()
-parser.add_option("--plot", action="store_true", dest="plot")
+from geometric_features import GeometricFeatures, FeatureCollection
 
-options, args = parser.parse_args()
+import matplotlib.pyplot as plt
 
-outFinalFileName = 'Extended_Antarctic_Basins.geojson'
+plot = True
 
-if os.path.exists(outFinalFileName):
-    os.remove(outFinalFileName)
+# create a GeometricFeatures object that points to a local cache of geometric
+# data and knows which branch of geometric_feature to use to download
+# missing data
+gf = GeometricFeatures('./geometric_data', 'master')
 
-tempFileName = 'merged_basin.geojson'
-if os.path.exists(tempFileName):
-    os.remove(tempFileName)
-
+# create a FeatureCollection containing all iceshelf regions wtih one of the
+# 27 IMBIE basin tags tags
+fc = FeatureCollection()
 for basin in range(1, 28):
-    print "Adding feature from IMBIE basin {:d}".format(basin)
-    outFileName = 'AntarcticIMBIE{:d}.geojson'.format(basin)
+    print('Adding feature from IMBIE basin {:d}'.format(basin))
     basinName = 'Antarctica_IMBIE{:d}'.format(basin)
-    tags = basinName
+    tags = [basinName]
+    # load the iceshelf regions for one IMBIE basin
+    fcBasin = gf.read(componentName='iceshelves', objectType='region',
+                      tags=tags)
 
-    if os.path.exists(outFileName):
-        os.remove(outFileName)
+    # combine all regions in the basin into a single feature
+    fcBasin = fcBasin.combine(featureName=basinName)
 
-    # add all the features in the basin
-    args = ['./merge_features.py', '-d', 'iceshelves/region',
-            '-o', tempFileName, '-t', tags]
-    subprocess.check_call(args, env=os.environ.copy())
+    # merge the feature for the basin into the collection of all basins
+    fc.merge(fcBasin)
 
-    # combine (i.e. fuse) them into a single feature
-    args = ['./combine_features.py', '-f', tempFileName, '-n', basinName,
-            '-o', outFileName]
-    subprocess.check_call(args, env=os.environ.copy())
+# save the feature collection to a geojson file
+fc.to_geojson('Extended_Antarctic_Basins.geojson')
 
-    os.remove(tempFileName)
-
-    # add the new feature to the final file
-    args = ['./merge_features.py', '-f', outFileName, '-o', outFinalFileName]
-    subprocess.check_call(args, env=os.environ.copy())
-
-if(options.plot):
-    imageName = 'Extended_Antarctic_Basins.png'
-
-    args = ['./plot_features.py', '-f', outFinalFileName, '-o', imageName,
-            '-m', 'southpole']
-    subprocess.check_call(args, env=os.environ.copy())
+if plot:
+    fc.plot(projection='southpole')
+    plt.show()
