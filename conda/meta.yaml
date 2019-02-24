@@ -1,0 +1,52 @@
+{% set name = "geometric_features" %}
+{% set version = "0.1" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+    path: ..
+
+build:
+    number: 0
+    script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+    noarch: python
+
+requirements:
+  host:
+    - python
+    - pip
+  run:
+    - python
+    - numpy
+    - matplotlib
+    - cartopy
+    - shapely
+    - requests
+    - progressbar2
+
+test:
+  requires:
+    - pytest
+  imports:
+    - geometric_features
+    - pytest
+  commands:
+    - pytest --pyargs geometric_features
+
+about:
+  home: https://github.com/MPAS-Dev/geometric_features
+  license: BSD 3-Clause
+  license_family: BSD
+  license_file: LICENSE
+  summary: 'Tools for manipulating collections of geojson geometric features'
+  description: |
+    Tools for manipulating regions, transects, and points in geojson format
+    associated with climate modeling
+  doc_url: https://github.com/MPAS-Dev/geometric_features/README.md
+  dev_url: https://github.com/MPAS-Dev/geometric_features
+
+extra:
+  recipe-maintainers:
+    - xylar
