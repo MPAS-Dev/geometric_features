@@ -1,0 +1,49 @@
+{
+    "type": "FeatureCollection", 
+    "features": [
+        {
+            "type": "Feature", 
+            "properties": {
+                "name": "White Sea", 
+                "tags": "White_Sea;Critical_Passage", 
+                "object": "transect", 
+                "component": "ocean", 
+                "author": "Xylar Asay-Davis", 
+                "depth": "50.0"
+            }, 
+            "geometry": {
+                "type": "LineString", 
+                "coordinates": [
+                    [
+                        36.892090, 
+                        64.139369
+                    ], 
+                    [
+                        35.156250, 
+                        65.173806
+                    ], 
+                    [
+                        36.826172, 
+                        65.612952
+                    ], 
+                    [
+                        38.430176, 
+                        65.476508
+                    ], 
+                    [
+                        41.660156, 
+                        66.600676
+                    ], 
+                    [
+                        42.714844, 
+                        67.701110
+                    ], 
+                    [
+                        40.627441, 
+                        69.364831
+                    ]
+                ]
+            }
+        }
+    ]
+}
