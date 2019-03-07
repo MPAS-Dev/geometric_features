@@ -202,7 +202,8 @@ class GeometricFeatures(object):
 
         if len(filesToDownload) > 0:
             baseURL = 'https://raw.githubusercontent.com/MPAS-Dev/' \
-                'geometric_features/{}'.format(self.remoteBranch)
+                'geometric_features/{}/geometric_data'.format(
+                    self.remoteBranch)
             download_files(filesToDownload, baseURL, self.cacheLocation)
 
         return fileList
