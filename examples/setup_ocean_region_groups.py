@@ -232,7 +232,7 @@ plot = True
 # create a GeometricFeatures object that points to a local cache of geometric
 # data and knows which branch of geometric_feature to use to download
 # missing data
-gf = GeometricFeatures('./geometric_data', 'master')
+gf = GeometricFeatures('./geometric_data')
 
 fcOceanBasins = build_ocean_basins(gf, plot)
 fcOceanBasins.to_geojson('oceanBasins.geojson')

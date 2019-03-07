@@ -16,7 +16,7 @@ plot = True
 # create a GeometricFeatures object that points to a local cache of geometric
 # data and knows which branch of geometric_feature to use to download
 # missing data
-gf = GeometricFeatures('./geometric_data', 'master')
+gf = GeometricFeatures('./geometric_data')
 
 # create a FeatureCollection containing all land-ice regions wtih one of three
 # IMBIE tags
