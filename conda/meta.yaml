@@ -9,9 +9,19 @@ source:
     path: ..
 
 build:
-    number: 0
-    script: "{{ PYTHON }} -m pip install . --no-deps -vv"
-    noarch: python
+  number: 0
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  noarch: python
+  entry_points:
+    - combine_features = geometric_features.__main__:combine_features
+    - difference_features = geometric_features.__main__:difference_features
+    - fix_features_at_antimeridian = geometric_features.__main__:fix_features_at_antimeridian
+    - merge_features = geometric_features.__main__:merge_features
+    - plot_features = geometric_features.__main__:plot_features
+    - set_group_name = geometric_features.__main__:set_group_name
+    - simplify_features = geometric_features.__main__:simplify_features
+    - split_features = geometric_features.__main__:split_features
+    - tag_features = geometric_features.__main__:tag_features
 
 requirements:
   host:
@@ -34,6 +44,15 @@ test:
     - pytest
   commands:
     - pytest --pyargs geometric_features
+    - combine_features -v
+    - difference_features -v
+    - fix_features_at_antimeridian -v
+    - merge_features -v
+    - plot_features -v
+    - set_group_name -v
+    - simplify_features -v
+    - split_features -v
+    - tag_features -v
 
 about:
   home: https://github.com/MPAS-Dev/geometric_features

@@ -29,4 +29,22 @@ setup(name='geometric_features',
       package_data={'geometric_features': ['features_and_tags.json']},
       install_requires=['numpy', 'matplotlib', 'cartopy', 'shapely',
                         'requests', 'progressbar2'],
-      entry_points={})
+      entry_points={'console_scripts':
+                    ['combine_features = '
+                     'geometric_features.__main__:combine_features',
+                     'difference_features = '
+                     'geometric_features.__main__:difference_features',
+                     'fix_features_at_antimeridian = '
+                     'geometric_features.__main__:fix_features_at_antimeridian',
+                     'merge_features = '
+                     'geometric_features.__main__:merge_features',
+                     'plot_features = '
+                     'geometric_features.__main__:plot_features',
+                     'set_group_name = '
+                     'geometric_features.__main__:set_group_name',
+                     'simplify_features = '
+                     'geometric_features.__main__:simplify_features',
+                     'split_features = '
+                     'geometric_features.__main__:split_features',
+                     'tag_features = '
+                     'geometric_features.__main__:tag_features']})

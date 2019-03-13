@@ -134,7 +134,7 @@ class FeatureCollection(object):
                     self.otherProperties:
                 self.otherProperties[key] = other.otherProperties[key]
 
-    def tag(self, tags):
+    def tag(self, tags, remove=False):
         '''
         Add tags to all features in the collection
 
@@ -150,7 +150,9 @@ class FeatureCollection(object):
         for feature in self.features:
             featureTags = feature['properties']['tags'].split(';')
             for tag in tags:
-                if tag not in featureTags:
+                if remove and tag in featureTags:
+                    featureTags.pop(tag)
+                elif not remove and tag not in featureTags:
                     featureTags.append(tag)
             feature['properties']['tags'] = ';'.join(featureTags)
 
