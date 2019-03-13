@@ -57,10 +57,10 @@ the `geometric_data` directory. This will help everyone maintain the
 repository, and allow tools to parse them cleanly.
 
 Many of this functionality can also be accessed with a command-line interface:
-```
+```bash
 merge_features
 combine_features
-difference_featues
+difference_features
 set_group_name
 split_features
 simplify_features
