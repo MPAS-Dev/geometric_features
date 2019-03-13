@@ -56,6 +56,19 @@ Available functionality includes:
 the `geometric_data` directory. This will help everyone maintain the
 repository, and allow tools to parse them cleanly.
 
+Many of this functionality can also be accessed with a command-line interface:
+```
+merge_features
+combine_features
+difference_featues
+set_group_name
+split_features
+simplify_features
+tag_features
+plot_features
+```
+Use the `-h` flag to find out more.
+
 An example workflow to read in, plot and write out a set of features is
 ```python
 #!/usr/bin/env python
