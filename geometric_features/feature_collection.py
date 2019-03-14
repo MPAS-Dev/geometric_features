@@ -99,11 +99,6 @@ class FeatureCollection(object):
         ----------
         feature : dict
             The feature to add
-
-        Raises
-        ------
-        KeyError
-            If the feature is invalid (missing required keys)
         '''
         # Authors
         # -------
@@ -185,6 +180,12 @@ class FeatureCollection(object):
         fc : ``FeatureCollection``
             A new feature collection with a single feature with the combined
             geometry
+
+        Raises
+        ------
+        ValueError
+           If the combined geometry is of an unsupported type (typically
+           ``GeometryCollection``)
         '''
         # Authors
         # -------
@@ -230,9 +231,10 @@ class FeatureCollection(object):
         '''
         Use features from a masking collection to mask out (remove part of
         the geometry from) this collection.
+
         Parameters
         ----------
-        maskingFC : FeatureCollection
+        maskingFC : ``FeatureCollection```
             Another collection of one or more features to use as masks
 
         Returns

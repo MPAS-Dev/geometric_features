@@ -285,7 +285,7 @@ def split_features():
 
 def tag_features():
     '''
-    Features in the collection are simplified using ``shapely``
+    Features in the collection are tagged with the given tag(s)
     '''
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
