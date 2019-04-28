@@ -1328,6 +1328,10 @@
       "Agulhas": [
         "standard_transport_sections"
       ],
+      "Antarctic Peninsula": [
+        "Antarctic_Peninsula",
+        "Critical_Land_Blockage"
+      ],
       "Antilles Inflow": [
         "standard_transport_sections"
       ],
@@ -1366,6 +1370,10 @@
       "Mozambique Channel": [
         "standard_transport_sections"
       ],
+      "Nares Strait": [
+        "Nares_Strait",
+        "Critical_Passage"
+      ],
       "Persian Gulf Deepen": [
         "Persian_Gulf_Deepen",
         "Critical_Passage"
@@ -1389,6 +1397,10 @@
       ],
       "Tasmania-Ant": [
         "standard_transport_sections"
+      ],
+      "White Sea": [
+        "White_Sea",
+        "Critical_Passage"
       ],
       "Windward Passage": [
         "standard_transport_sections"
