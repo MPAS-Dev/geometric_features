@@ -50,9 +50,7 @@ class GeometricFeatures(object):
 
         self.cacheLocation = cacheLocation
         if remoteBranchOrTag is None:
-            self.remoteBranch = 'master'
-            # switch this just before making releases
-            #self.remoteBranch = geometric_features.__version__
+            self.remoteBranch = geometric_features.__version__
         else:
             self.remoteBranch = remoteBranchOrTag
 
