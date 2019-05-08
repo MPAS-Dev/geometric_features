@@ -278,11 +278,12 @@ class FeatureCollection(object):
                         break
 
             if(add):
+                newFeature = copy.deepcopy(feature)
                 if(masked):
                     maskedCount += 1
-                    feature['geometry'] = \
+                    newFeature['geometry'] = \
                         shapely.geometry.mapping(featureShape)
-                maskedFeatures.append(feature)
+                maskedFeatures.append(newFeature)
             else:
                 droppedCount += 1
 
