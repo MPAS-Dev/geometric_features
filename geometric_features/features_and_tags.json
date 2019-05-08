@@ -896,6 +896,20 @@
         "Alboran_Sea",
         "Mediterranean_Basin"
       ],
+      "Amundsen Sea": [
+        "Antarctic",
+        "Timmermann"
+      ],
+      "Amundsen Sea Deep": [
+        "Antarctic",
+        "Timmermann",
+        "Deep"
+      ],
+      "Amundsen Sea Shelf": [
+        "Antarctic",
+        "Timmermann",
+        "Shelf"
+      ],
       "Andaman or Burma Sea": [
         "Andaman_or_Burma_Sea",
         "Indian_Basin"
@@ -960,6 +974,20 @@
         "Beaufort_Sea",
         "Arctic_Basin"
       ],
+      "Bellingshausen Sea": [
+        "Antarctic",
+        "Timmermann"
+      ],
+      "Bellingshausen Sea Deep": [
+        "Antarctic",
+        "Timmermann",
+        "Deep"
+      ],
+      "Bellingshausen Sea Shelf": [
+        "Antarctic",
+        "Timmermann",
+        "Shelf"
+      ],
       "Bering Sea": [
         "Bering_Sea",
         "Pacific_Basin"
@@ -1010,6 +1038,20 @@
       "Eastern China Sea": [
         "Eastern_China_Sea",
         "Pacific_Basin"
+      ],
+      "Eastern Ross Sea": [
+        "Antarctic",
+        "Timmermann"
+      ],
+      "Eastern Ross Sea Deep": [
+        "Antarctic",
+        "Timmermann",
+        "Deep"
+      ],
+      "Eastern Ross Sea Shelf": [
+        "Antarctic",
+        "Timmermann",
+        "Shelf"
       ],
       "English Channel": [
         "English_Channel",
@@ -1284,6 +1326,10 @@
         "Southern_Ocean",
         "Southern_Ocean_Basin"
       ],
+      "Southern Ocean 60S": [
+        "Antarctic",
+        "Timmermann"
+      ],
       "Strait of Gibraltar": [
         "Strait_of_Gibraltar",
         "Mediterranean_Basin"
@@ -1311,6 +1357,34 @@
       "Tyrrhenian Sea": [
         "Tyrrhenian_Sea",
         "Mediterranean_Basin"
+      ],
+      "Weddell Sea": [
+        "Antarctic",
+        "Timmermann"
+      ],
+      "Weddell Sea Deep": [
+        "Antarctic",
+        "Timmermann",
+        "Deep"
+      ],
+      "Weddell Sea Shelf": [
+        "Antarctic",
+        "Timmermann",
+        "Shelf"
+      ],
+      "Western Ross Sea": [
+        "Antarctic",
+        "Timmermann"
+      ],
+      "Western Ross Sea Deep": [
+        "Antarctic",
+        "Timmermann",
+        "Deep"
+      ],
+      "Western Ross Sea Shelf": [
+        "Antarctic",
+        "Timmermann",
+        "Shelf"
       ],
       "White Sea": [
         "White_Sea",

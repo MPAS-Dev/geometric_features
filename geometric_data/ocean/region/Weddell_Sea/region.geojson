@@ -1,0 +1,42 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Weddell Sea",
+                "tags": "Antarctic;Timmermann",
+                "object": "region",
+                "component": "ocean",
+                "author": "Xylar Asay-Davis"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -63.0,
+                            -80.0
+                        ],
+                        [
+                            0.0,
+                            -80.0
+                        ],
+                        [
+                            0.0,
+                            -65.0
+                        ],
+                        [
+                            -63.0,
+                            -65.0
+                        ],
+                        [
+                            -63.0,
+                            -80.0
+                        ]
+                    ]
+                ]
+            }
+        }
+    ]
+}

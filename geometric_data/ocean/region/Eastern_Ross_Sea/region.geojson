@@ -1,0 +1,42 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Eastern Ross Sea",
+                "tags": "Antarctic;Timmermann",
+                "object": "region",
+                "component": "ocean",
+                "author": "Xylar Asay-Davis"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -180.0,
+                            -80.0
+                        ],
+                        [
+                            -140.0,
+                            -80.0
+                        ],
+                        [
+                            -140.0,
+                            -67.0
+                        ],
+                        [
+                            -180.0,
+                            -67.0
+                        ],
+                        [
+                            -180.0,
+                            -80.0
+                        ]
+                    ]
+                ]
+            }
+        }
+    ]
+}

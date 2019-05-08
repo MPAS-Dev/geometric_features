@@ -1,0 +1,42 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Bellingshausen Sea",
+                "tags": "Antarctic;Timmermann",
+                "object": "region",
+                "component": "ocean",
+                "author": "Xylar Asay-Davis"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -100.0,
+                            -80.0
+                        ],
+                        [
+                            -63.0,
+                            -80.0
+                        ],
+                        [
+                            -63.0,
+                            -67.0
+                        ],
+                        [
+                            -100.0,
+                            -67.0
+                        ],
+                        [
+                            -100.0,
+                            -80.0
+                        ]
+                    ]
+                ]
+            }
+        }
+    ]
+}
