@@ -1031,6 +1031,20 @@
         "Davis_Strait",
         "Atlantic_Basin"
       ],
+      "East Antarctic Seas": [
+        "Antarctic",
+        "Kusahara"
+      ],
+      "East Antarctic Seas Deep": [
+        "Antarctic",
+        "Kusahara",
+        "Deep"
+      ],
+      "East Antarctic Seas Shelf": [
+        "Antarctic",
+        "Kusahara",
+        "Shelf"
+      ],
       "East Siberian Sea": [
         "East_Siberian_Sea",
         "Arctic_Basin"
@@ -1051,6 +1065,20 @@
       "Eastern Ross Sea Shelf": [
         "Antarctic",
         "Timmermann",
+        "Shelf"
+      ],
+      "Eastern Weddell Sea": [
+        "Antarctic",
+        "Kusahara"
+      ],
+      "Eastern Weddell Sea Deep": [
+        "Antarctic",
+        "Kusahara",
+        "Deep"
+      ],
+      "Eastern Weddell Sea Shelf": [
+        "Antarctic",
+        "Kusahara",
         "Shelf"
       ],
       "English Channel": [
@@ -1384,6 +1412,20 @@
       "Western Ross Sea Shelf": [
         "Antarctic",
         "Timmermann",
+        "Shelf"
+      ],
+      "Western Weddell Sea": [
+        "Antarctic",
+        "Kusahara"
+      ],
+      "Western Weddell Sea Deep": [
+        "Antarctic",
+        "Kusahara",
+        "Deep"
+      ],
+      "Western Weddell Sea Shelf": [
+        "Antarctic",
+        "Kusahara",
         "Shelf"
       ],
       "White Sea": [

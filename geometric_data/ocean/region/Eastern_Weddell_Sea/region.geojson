@@ -1,0 +1,42 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Eastern Weddell Sea",
+                "tags": "Antarctic;Kusahara",
+                "object": "region",
+                "component": "ocean",
+                "author": "Xylar Asay-Davis"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -30.0,
+                            -80.0
+                        ],
+                        [
+                            45.0,
+                            -80.0
+                        ],
+                        [
+                            45.0,
+                            -65.0
+                        ],
+                        [
+                            -30.0,
+                            -65.0
+                        ],
+                        [
+                            -30.0,
+                            -80.0
+                        ]
+                    ]
+                ]
+            }
+        }
+    ]
+}

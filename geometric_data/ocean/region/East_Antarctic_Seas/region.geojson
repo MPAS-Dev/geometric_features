@@ -1,0 +1,42 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "East Antarctic Seas",
+                "tags": "Antarctic;Kusahara",
+                "object": "region",
+                "component": "ocean",
+                "author": "Xylar Asay-Davis"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            45.0,
+                            -80.0
+                        ],
+                        [
+                            160.0,
+                            -80.0
+                        ],
+                        [
+                            160.0,
+                            -62.0
+                        ],
+                        [
+                            45.0,
+                            -62.0
+                        ],
+                        [
+                            45.0,
+                            -80.0
+                        ]
+                    ]
+                ]
+            }
+        }
+    ]
+}
