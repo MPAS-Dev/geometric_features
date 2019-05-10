@@ -8,7 +8,9 @@
                 "tags": "Antarctic;Kusahara",
                 "object": "region",
                 "component": "ocean",
-                "author": "Xylar Asay-Davis"
+                "author": "Xylar Asay-Davis",
+                "zmax": -400.0,
+                "zmin": -1000.0
             },
             "geometry": {
                 "type": "Polygon",

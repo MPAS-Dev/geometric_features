@@ -173,7 +173,9 @@ def make_rectangle(lon0, lon1, lat0, lat1, name, author, tags):
                         "author": author,
                         "object": 'region',
                         "component": 'ocean',
-                        "tags": tags},
+                        "tags": tags,
+                        "zmin": -1000.,
+                        "zmax": -400.},
          "geometry": {
              "type": "Polygon",
              "coordinates": [[[lon0, lat0],
@@ -192,12 +194,16 @@ def split_rectangle(lon0, lon1, lat0, lat1, name, author, tags, fcContour):
     props = fcDeep.features[0]['properties']
     props['name'] = props['name'] + ' Deep'
     props['tags'] = props['tags'] + ';Deep'
+    props['zmin'] = -1000.
+    props['zmax'] = -400.
 
     fcShelf = fc.difference(fcDeep)
 
     props = fcShelf.features[0]['properties']
     props['name'] = props['name'] + ' Shelf'
     props['tags'] = props['tags'] + ';Shelf'
+    props['zmin'] = -1000.
+    props['zmax'] = -200.
 
     fc.merge(fcDeep)
     fc.merge(fcShelf)
