@@ -896,6 +896,20 @@
         "Alboran_Sea",
         "Mediterranean_Basin"
       ],
+      "Amundsen Sea": [
+        "Antarctic",
+        "Timmermann"
+      ],
+      "Amundsen Sea Deep": [
+        "Antarctic",
+        "Timmermann",
+        "Deep"
+      ],
+      "Amundsen Sea Shelf": [
+        "Antarctic",
+        "Timmermann",
+        "Shelf"
+      ],
       "Andaman or Burma Sea": [
         "Andaman_or_Burma_Sea",
         "Indian_Basin"
@@ -960,6 +974,20 @@
         "Beaufort_Sea",
         "Arctic_Basin"
       ],
+      "Bellingshausen Sea": [
+        "Antarctic",
+        "Timmermann"
+      ],
+      "Bellingshausen Sea Deep": [
+        "Antarctic",
+        "Timmermann",
+        "Deep"
+      ],
+      "Bellingshausen Sea Shelf": [
+        "Antarctic",
+        "Timmermann",
+        "Shelf"
+      ],
       "Bering Sea": [
         "Bering_Sea",
         "Pacific_Basin"
@@ -1003,6 +1031,20 @@
         "Davis_Strait",
         "Atlantic_Basin"
       ],
+      "East Antarctic Seas": [
+        "Antarctic",
+        "Orsi"
+      ],
+      "East Antarctic Seas Deep": [
+        "Antarctic",
+        "Orsi",
+        "Deep"
+      ],
+      "East Antarctic Seas Shelf": [
+        "Antarctic",
+        "Orsi",
+        "Shelf"
+      ],
       "East Siberian Sea": [
         "East_Siberian_Sea",
         "Arctic_Basin"
@@ -1010,6 +1052,34 @@
       "Eastern China Sea": [
         "Eastern_China_Sea",
         "Pacific_Basin"
+      ],
+      "Eastern Ross Sea": [
+        "Antarctic",
+        "Timmermann"
+      ],
+      "Eastern Ross Sea Deep": [
+        "Antarctic",
+        "Timmermann",
+        "Deep"
+      ],
+      "Eastern Ross Sea Shelf": [
+        "Antarctic",
+        "Timmermann",
+        "Shelf"
+      ],
+      "Eastern Weddell Sea": [
+        "Antarctic",
+        "Orsi"
+      ],
+      "Eastern Weddell Sea Deep": [
+        "Antarctic",
+        "Orsi",
+        "Deep"
+      ],
+      "Eastern Weddell Sea Shelf": [
+        "Antarctic",
+        "Orsi",
+        "Shelf"
       ],
       "English Channel": [
         "English_Channel",
@@ -1284,6 +1354,10 @@
         "Southern_Ocean",
         "Southern_Ocean_Basin"
       ],
+      "Southern Ocean 60S": [
+        "Antarctic",
+        "Timmermann"
+      ],
       "Strait of Gibraltar": [
         "Strait_of_Gibraltar",
         "Mediterranean_Basin"
@@ -1311,6 +1385,48 @@
       "Tyrrhenian Sea": [
         "Tyrrhenian_Sea",
         "Mediterranean_Basin"
+      ],
+      "Weddell Sea": [
+        "Antarctic",
+        "Orsi"
+      ],
+      "Weddell Sea Deep": [
+        "Antarctic",
+        "Timmermann",
+        "Deep"
+      ],
+      "Weddell Sea Shelf": [
+        "Antarctic",
+        "Timmermann",
+        "Shelf"
+      ],
+      "Western Ross Sea": [
+        "Antarctic",
+        "Timmermann"
+      ],
+      "Western Ross Sea Deep": [
+        "Antarctic",
+        "Timmermann",
+        "Deep"
+      ],
+      "Western Ross Sea Shelf": [
+        "Antarctic",
+        "Timmermann",
+        "Shelf"
+      ],
+      "Western Weddell Sea": [
+        "Antarctic",
+        "Orsi"
+      ],
+      "Western Weddell Sea Deep": [
+        "Antarctic",
+        "Orsi",
+        "Deep"
+      ],
+      "Western Weddell Sea Shelf": [
+        "Antarctic",
+        "Orsi",
+        "Shelf"
       ],
       "White Sea": [
         "White_Sea",

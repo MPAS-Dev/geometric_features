@@ -1,0 +1,44 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "East Antarctic Seas",
+                "tags": "Antarctic;Orsi",
+                "object": "region",
+                "component": "ocean",
+                "author": "Xylar Asay-Davis",
+                "zmax": -400.0,
+                "zmin": -1000.0
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            25.0,
+                            -80.0
+                        ],
+                        [
+                            160.0,
+                            -80.0
+                        ],
+                        [
+                            160.0,
+                            -62.0
+                        ],
+                        [
+                            25.0,
+                            -62.0
+                        ],
+                        [
+                            25.0,
+                            -80.0
+                        ]
+                    ]
+                ]
+            }
+        }
+    ]
+}

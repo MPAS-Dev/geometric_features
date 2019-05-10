@@ -1,0 +1,57 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Weddell Sea",
+                "tags": "Antarctic;Orsi",
+                "object": "region",
+                "component": "ocean",
+                "author": "Xylar Asay-Davis",
+                "constituents": "Western Weddell Sea; Eastern Weddell Sea",
+                "zmax": -400.0,
+                "zmin": -1000.0
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -20.0,
+                            -80.0
+                        ],
+                        [
+                            -63.0,
+                            -80.0
+                        ],
+                        [
+                            -63.0,
+                            -60.0
+                        ],
+                        [
+                            -20.0,
+                            -60.0
+                        ],
+                        [
+                            -20.0,
+                            -55.0
+                        ],
+                        [
+                            25.0,
+                            -55.0
+                        ],
+                        [
+                            25.0,
+                            -80.0
+                        ],
+                        [
+                            -20.0,
+                            -80.0
+                        ]
+                    ]
+                ]
+            }
+        }
+    ]
+}
