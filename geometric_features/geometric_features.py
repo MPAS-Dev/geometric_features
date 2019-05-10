@@ -5,6 +5,8 @@ import json
 import pkg_resources
 import os
 
+import geometric_features
+
 from geometric_features.feature_collection import FeatureCollection, \
     read_feature_collection
 
