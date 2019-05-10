@@ -231,13 +231,22 @@ def main():
         lon0=-63., lon1=0., lat0=-80., lat1=-65., name='Weddell Sea',
         author=author, tags=timTags, fcContour=fcContour800))
 
+    # get rid of the Weddell Sea because we're not that happy with this
+    # definition
+    fc.features = fc.features[1:]
+
     fc.merge(split_rectangle(
-        lon0=-30., lon1=45., lat0=-80., lat1=-65., name='Eastern Weddell Sea',
+        lon0=-30., lon1=45., lat0=-80., lat1=-58., name='Eastern Weddell Sea',
         author=author, tags=kusTags, fcContour=fcContour800))
 
     fc.merge(split_rectangle(
-        lon0=-63., lon1=-30., lat0=-80., lat1=-65., name='Western Weddell Sea',
+        lon0=-63., lon1=-30., lat0=-80., lat1=-58., name='Western Weddell Sea',
         author=author, tags=kusTags, fcContour=fcContour800))
+
+    # add the Weddell Sea back as the sum of Eastern and Western
+    fc.merge(make_rectangle(
+        lon0=-63., lon1=45., lat0=-80., lat1=-58., name='Weddell Sea',
+        author=author, tags=kusTags))
 
     fc.merge(split_rectangle(
         lon0=-100., lon1=-63., lat0=-80., lat1=-67., name='Bellingshausen Sea',
@@ -262,6 +271,13 @@ def main():
     fc.merge(make_rectangle(
         lon0=-180., lon1=180., lat0=-80., lat1=-60., name='Southern Ocean 60S',
         author=author, tags=timTags))
+
+    fcSO = gf.read('ocean', 'region', ['Southern Ocean'])
+    props = fcSO.features[0]['properties']
+    props['zmin'] = -1000.
+    props['zmax'] = -400.
+
+    fc.merge(fcSO)
 
     fc.plot(projection='southpole')
     fc.to_geojson('antarctic_ocean_regions.geojson')
