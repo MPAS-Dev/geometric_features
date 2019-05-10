@@ -214,7 +214,7 @@ def split_rectangle(lon0, lon1, lat0, lat1, name, author, tags, fcContour):
 def main():
     author = 'Xylar Asay-Davis'
     timTags = 'Antarctic;Timmermann'
-    kusTags = 'Antarctic;Kusahara'
+    orsiTags = 'Antarctic;Orsi'
 
     # make a geometric fieatures object that knows about the geometric data
     # cache up a couple of directories
@@ -227,26 +227,47 @@ def main():
 
     fc = FeatureCollection()
 
-    fc.merge(split_rectangle(
+    fcWeddell = split_rectangle(
         lon0=-63., lon1=0., lat0=-80., lat1=-65., name='Weddell Sea',
-        author=author, tags=timTags, fcContour=fcContour800))
+        author=author, tags=timTags, fcContour=fcContour800)
 
     # get rid of the Weddell Sea because we're not that happy with this
-    # definition
-    fc.features = fc.features[1:]
+    # definition, but keep the deep/shelf ones
+    fcWeddell.features = fcWeddell.features[1:]
+    fc.merge(fcWeddell)
 
-    fc.merge(split_rectangle(
-        lon0=-30., lon1=45., lat0=-80., lat1=-58., name='Eastern Weddell Sea',
-        author=author, tags=kusTags, fcContour=fcContour800))
+    fcEW = split_rectangle(
+        lon0=-20., lon1=25., lat0=-80., lat1=-55., name='Eastern Weddell Sea',
+        author=author, tags=orsiTags, fcContour=fcContour800)
 
-    fc.merge(split_rectangle(
-        lon0=-63., lon1=-30., lat0=-80., lat1=-58., name='Western Weddell Sea',
-        author=author, tags=kusTags, fcContour=fcContour800))
+    fc.merge(fcEW)
+
+    fcWW = split_rectangle(
+        lon0=-63., lon1=-20., lat0=-80., lat1=-60., name='Western Weddell Sea',
+        author=author, tags=orsiTags, fcContour=fcContour800)
+
+    fc.merge(fcWW)
+
+    # The Weddell feature is the sum of the Eastern and Western features before
+    # splitting into shelf/deep
+
+    fcWeddell = FeatureCollection()
+    fcWeddell.features.append(fcEW.features[0])
+    fcWeddell.features.append(fcWW.features[0])
+
+    # now combine these into a single feature
+    fcWeddell = fcWeddell.combine('Weddell Sea')
+    props = fcWeddell.features[0]['properties']
+    props['tags'] = orsiTags
+    props['zmin'] = -1000.
+    props['zmax'] = -400.
+
+    fc.merge(fcWeddell)
 
     # add the Weddell Sea back as the sum of Eastern and Western
     fc.merge(make_rectangle(
         lon0=-63., lon1=45., lat0=-80., lat1=-58., name='Weddell Sea',
-        author=author, tags=kusTags))
+        author=author, tags=orsiTags))
 
     fc.merge(split_rectangle(
         lon0=-100., lon1=-63., lat0=-80., lat1=-67., name='Bellingshausen Sea',
@@ -265,8 +286,8 @@ def main():
         author=author, tags=timTags, fcContour=fcContour700))
 
     fc.merge(split_rectangle(
-        lon0=45., lon1=160., lat0=-80., lat1=-62., name='East Antarctic Seas',
-        author=author, tags=kusTags, fcContour=fcContour800))
+        lon0=25., lon1=160., lat0=-80., lat1=-62., name='East Antarctic Seas',
+        author=author, tags=orsiTags, fcContour=fcContour800))
 
     fc.merge(make_rectangle(
         lon0=-180., lon1=180., lat0=-80., lat1=-60., name='Southern Ocean 60S',

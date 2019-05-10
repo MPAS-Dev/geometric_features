@@ -5,7 +5,7 @@
             "type": "Feature",
             "properties": {
                 "name": "East Antarctic Seas",
-                "tags": "Antarctic;Kusahara",
+                "tags": "Antarctic;Orsi",
                 "object": "region",
                 "component": "ocean",
                 "author": "Xylar Asay-Davis",
@@ -17,7 +17,7 @@
                 "coordinates": [
                     [
                         [
-                            45.0,
+                            25.0,
                             -80.0
                         ],
                         [
@@ -29,11 +29,11 @@
                             -62.0
                         ],
                         [
-                            45.0,
+                            25.0,
                             -62.0
                         ],
                         [
-                            45.0,
+                            25.0,
                             -80.0
                         ]
                     ]
