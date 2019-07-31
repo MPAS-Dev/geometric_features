@@ -8,7 +8,7 @@
                 "tags": "standard_transport_sections", 
                 "object": "transect", 
                 "component": "ocean", 
-                "author": "Mark Petersen, Xylar Asay-Davis", 
+                "author": "Mark Petersen, Xylar Asay-Davis, Milena Veneziani", 
                 "depth": "6000.0", 
                 "note": "Carib,-7.0 Sv in Nelepo_ea76sr, Roemmich81jgr"
             }, 
@@ -16,12 +16,16 @@
                 "type": "LineString", 
                 "coordinates": [
                     [
-                        -73.400000, 
-                        19.800000
+                        -73.30, 
+                         19.82
                     ], 
                     [
-                        -74.300000, 
-                        20.100000
+                        -73.82, 
+                         19.99
+                    ], 
+                    [
+                        -74.30, 
+                         20.14
                     ]
                 ]
             }

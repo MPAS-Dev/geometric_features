@@ -8,7 +8,7 @@
                 "tags": "standard_transport_sections", 
                 "object": "transect", 
                 "component": "ocean", 
-                "author": "Mark Petersen, Xylar Asay-Davis", 
+                "author": "Mark Petersen, Xylar Asay-Davis, Milena Veneziani", 
                 "depth": "6000.0", 
                 "note": "S Ocean, -31.3to -70 lat, 30E lon, section I6, Sv in Ganachaud99thesis"
             }, 
@@ -16,12 +16,48 @@
                 "type": "LineString", 
                 "coordinates": [
                     [
-                        30.000000, 
-                        -70.000000
+                        30.00, 
+                       -70.00
                     ], 
                     [
-                        30.000000, 
-                        -31.300000
+                        30.00,
+                       -67.00
+                    ],
+                    [
+                        30.00,
+                       -63.50
+                    ],
+                    [
+                        30.00,
+                       -59.00
+                    ],
+                    [
+                        30.00,
+                       -55.00
+                    ],
+                    [
+                        30.00,
+                       -50.50
+                    ],
+                    [
+                        30.00,
+                       -47.00
+                    ],
+                    [
+                        30.00,
+                       -43.50
+                    ],
+                    [
+                        30.00,
+                       -40.00
+                    ],
+                    [
+                        30.00,
+                       -35.50
+                    ],
+                    [
+                        30.00, 
+                       -30.50
                     ]
                 ]
             }
