@@ -17,7 +17,7 @@ import sys
 import m2r
 from glob import glob
 import geometric_features
-from docs.parse_quick_start import build_quick_start
+from geometric_features.docs.parse_quick_start import build_quick_start
 
 # -- General configuration ------------------------------------------------
 
