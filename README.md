@@ -1,12 +1,23 @@
-This repository houses definitions of geometric features. These features
-can include regions, transects, and points. Currently they are described in
-geojson format.  For example, here are some regions for Antarctica.
+# Geometric Features
 
+[![Documentation Status](http://readthedocs.org/projects/geometric-features/badge/?version=develop)](http://geometric-features.readthedocs.io/en/develop/?badge=develop)
+
+This repository houses definitions of geometric features. These features
+can include regions, transects, and points, described in geojson format.
+For example, here are some regions for Antarctica.
 ![alt text](https://cloud.githubusercontent.com/assets/4179064/12921663/93282b64-cf4e-11e5-9260-a78dfadc4459.png "Antarctica regions")
+
+## Documentation
+
+[http://geometric-features.readthedocs.io](http://geometric-features.readthedocs.io)
+
+## Contributors
 
 Data for regions has been derived from sources listed in the
 [contributors file](contributors/CONTRIBUTORS.md) as specified
 via the `author` field in each `geojson` file.
+
+## Quick Start
 
 The python `geometric_features` package can be used to help maintain and use
 this repository. Several example scripts that make use of the package can be
