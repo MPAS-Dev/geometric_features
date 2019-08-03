@@ -42,8 +42,8 @@ pull request to have them added to the repository.
 
 It is not recommended that you modified features directly in
 ``geometric_data``, but if you have already done so, you can update the
-manifst of all features and tags based on your changes first, then merge your
-features into a feature colleciton and then split it back out into individual
+manifest of all features and tags based on your changes first, then merge your
+features into a feature collection and then split it back out into individual
 features to ensure consistent formatting.
 
 .. code-block:: python
