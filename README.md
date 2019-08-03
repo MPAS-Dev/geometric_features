@@ -37,31 +37,27 @@ conda activate geometric_features
 A typical workflow will look like:
 * Create a `GeometricFeatures` object and point it to a location where you have
   stored (or would like to store) geometry data.
- - `gf = GeometricFeatures(localCache='./geometric_data')`
+  - `gf = GeometricFeatures(localCache='./geometric_data')`
 * Read in one or more `FeatureCollection`s from the `geojson` files in the
   `geometric_data` directory.
- - `fcArctic = gf.read('ocean', 'region', featureNames=['Arctic Ocean'])`
- - `fcAtlantic = gf.read('ocean', 'region', tags=['Atlantic_Basin'])`
+  - `fcArctic = gf.read('ocean', 'region', featureNames=['Arctic Ocean'])`
+  - `fcAtlantic = gf.read('ocean', 'region', tags=['Atlantic_Basin'])`
 * Edit features:
- - Merge, combine, tag, mask out or simplify the features, see below.
- - Use the `shapely` package to edit the geometry in more sophisticated ways
+  - Merge, combine, tag, mask out or simplify the features, see below.
+  - Use the `shapely` package to edit the geometry in more sophisticated ways
 * Visualize features:
- - `fc.plot(projection='cyl')`
+  - `fc.plot(projection='cyl')`
 * Split feature collection back into individual features for inclusion in the
   repo:
- - `gf.split(fc)`
+  - `gf.split(fc)`
 
 Available functionality includes:
 * `fc.merge(other)` - Merge two feature collection together.
 * `fc.combine()` - Combine features into a single feature.
 * `fc.difference()` - Mask features using shapes in a second feature file.
-* `fc.fix_antimeridian()` - Split a feature at the antimeridian (+/- 180
-   longitude). The resulting feature has all points between -180 and 180 lon.
-* `fc.set_group_name()` - Set the "groupName" property of the
-  `FeatureCollection`
-* `fc.tag()` - Add one or more tags to the "tag" property of each feature in a
-   collection.  This can be useful for reading back a collection of features
-   with that tag.
+* `fc.fix_antimeridian()` - Split a feature at the antimeridian (+/- 180 longitude). The resulting feature has all points between -180 and 180 lon.
+* `fc.set_group_name()` - Set the "groupName" property of the `FeatureCollection`
+* `fc.tag()` - Add one or more tags to the "tag" property of each feature in a collection.  This can be useful for reading back a collection of features with that tag.
 
 **IMPORTANT:** Always use the `gf.split(fc)` script when placing features into
 the `geometric_data` directory. This will help everyone maintain the
