@@ -1,31 +1,31 @@
 {
-    "type": "FeatureCollection", 
+    "type": "FeatureCollection",
     "features": [
         {
-            "type": "Feature", 
+            "type": "Feature",
             "properties": {
-                "name": "Windward Passage", 
-                "tags": "standard_transport_sections", 
-                "object": "transect", 
-                "component": "ocean", 
-                "author": "Mark Petersen, Xylar Asay-Davis, Milena Veneziani", 
-                "depth": "6000.0", 
+                "name": "Windward Passage",
+                "tags": "standard_transport_sections",
+                "object": "transect",
+                "component": "ocean",
+                "author": "Mark Petersen, Xylar Asay-Davis, Milena Veneziani",
+                "depth": "6000.0",
                 "note": "Carib,-7.0 Sv in Nelepo_ea76sr, Roemmich81jgr"
-            }, 
+            },
             "geometry": {
-                "type": "LineString", 
+                "type": "LineString",
                 "coordinates": [
                     [
-                        -73.30, 
-                         19.82
-                    ], 
+                        -73.3,
+                        19.82
+                    ],
                     [
-                        -73.82, 
-                         19.99
-                    ], 
+                        -73.82,
+                        19.99
+                    ],
                     [
-                        -74.30, 
-                         20.14
+                        -74.3,
+                        20.14
                     ]
                 ]
             }

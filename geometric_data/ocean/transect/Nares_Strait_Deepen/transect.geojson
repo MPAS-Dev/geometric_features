@@ -4,8 +4,8 @@
         {
             "type": "Feature", 
             "properties": {
-                "name": "Nares Strait", 
-                "tags": "Nares_Strait;Critical_Passage", 
+                "name": "Nares Strait Deepen", 
+                "tags": "Nares_Strait_Deepen;Critical_Passage", 
                 "object": "transect", 
                 "component": "ocean", 
                 "author": "Xylar Asay-Davis", 

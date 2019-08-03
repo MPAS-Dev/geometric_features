@@ -1,27 +1,27 @@
 {
-    "type": "FeatureCollection", 
+    "type": "FeatureCollection",
     "features": [
         {
-            "type": "Feature", 
+            "type": "Feature",
             "properties": {
-                "name": "Antilles Inflow", 
-                "tags": "standard_transport_sections", 
-                "object": "transect", 
-                "component": "ocean", 
-                "author": "Mark Petersen, Xylar Asay-Davis", 
-                "depth": "6000.0", 
+                "name": "Antilles Inflow",
+                "tags": "standard_transport_sections",
+                "object": "transect",
+                "component": "ocean",
+                "author": "Mark Petersen, Xylar Asay-Davis",
+                "depth": "6000.0",
                 "note": "Carib., -18.4+/-4.7Sv in Johns_ea02dsr"
-            }, 
+            },
             "geometry": {
-                "type": "LineString", 
+                "type": "LineString",
                 "coordinates": [
                     [
-                        -63.200000, 
-                        10.700000
-                    ], 
+                        -63.2,
+                        10.7
+                    ],
                     [
-                        -65.900000, 
-                        18.000000
+                        -65.9,
+                        18.0
                     ]
                 ]
             }

@@ -1455,7 +1455,13 @@
         "Baltic_Sea_Deepen",
         "Critical_Passage"
       ],
+      "Barents Sea Opening": [
+        "standard_transport_sections"
+      ],
       "Bering Strait": [
+        "standard_transport_sections"
+      ],
+      "Davis Strait": [
         "standard_transport_sections"
       ],
       "Drake Passage": [
@@ -1487,7 +1493,10 @@
         "standard_transport_sections"
       ],
       "Nares Strait": [
-        "Nares_Strait",
+        "standard_transport_sections"
+      ],
+      "Nares Strait Deepen": [
+        "Nares_Strait_Deepen",
         "Critical_Passage"
       ],
       "Persian Gulf Deepen": [
@@ -1497,9 +1506,6 @@
       "Red Sea Deepen": [
         "Red_Sea_Deepen",
         "Critical_Passage"
-      ],
-      "Robeson Channel": [
-        "standard_transport_sections"
       ],
       "Strait of Gibralter Deepen 1": [
         "Strait_of_Gibralter_Deepen",

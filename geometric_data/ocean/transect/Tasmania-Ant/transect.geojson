@@ -1,51 +1,51 @@
 {
-    "type": "FeatureCollection", 
+    "type": "FeatureCollection",
     "features": [
         {
-            "type": "Feature", 
+            "type": "Feature",
             "properties": {
-                "name": "Tasmania-Ant", 
-                "tags": "standard_transport_sections", 
-                "object": "transect", 
-                "component": "ocean", 
-                "author": "Mark Petersen, Xylar Asay-Davis, Milena Veneziani", 
-                "depth": "6000.0", 
+                "name": "Tasmania-Ant",
+                "tags": "standard_transport_sections",
+                "object": "transect",
+                "component": "ocean",
+                "author": "Mark Petersen, Xylar Asay-Davis, Milena Veneziani",
+                "depth": "6000.0",
                 "note": "S Ocean, -44 to -66 lat, 140E lon, section P12, 157+/-10 Sv in Ganachaud_Wunsch00n and Ganachaud99thesis"
-            }, 
+            },
             "geometry": {
-                "type": "LineString", 
+                "type": "LineString",
                 "coordinates": [
                     [
-                        140.00, 
-                        -67.50
+                        140.0,
+                        -67.5
                     ],
                     [
-                        141.00,
-                        -64.70
+                        141.0,
+                        -64.7
                     ],
                     [
-                        141.80,
+                        141.8,
                         -62.07
                     ],
                     [
-                        142.80,
+                        142.8,
                         -59.11
                     ],
                     [
-                        143.60,
-                        -56.00
+                        143.6,
+                        -56.0
                     ],
                     [
                         144.67,
                         -52.02
                     ],
                     [
-                        145.50,
+                        145.5,
                         -48.08
                     ],
                     [
                         146.5,
-                        -43.00
+                        -43.0
                     ]
                 ]
             }

@@ -1,27 +1,27 @@
 {
-    "type": "FeatureCollection", 
+    "type": "FeatureCollection",
     "features": [
         {
-            "type": "Feature", 
+            "type": "Feature",
             "properties": {
-                "name": "Lancaster Sound", 
-                "tags": "standard_transport_sections", 
-                "object": "transect", 
-                "component": "ocean", 
-                "author": "Milena Veneziani", 
-                "depth": "500.0", 
+                "name": "Lancaster Sound",
+                "tags": "standard_transport_sections",
+                "object": "transect",
+                "component": "ocean",
+                "author": "Milena Veneziani",
+                "depth": "500.0",
                 "note": "Arctic, -0.75 Sv +/- 0.25Sv in Beszczynska-Moeller2011 and Prinsenberg_Hamilton2005"
-            }, 
+            },
             "geometry": {
-                "type": "LineString", 
+                "type": "LineString",
                 "coordinates": [
                     [
-                        -90.12, 
-                         74.67
-                    ], 
+                        -90.12,
+                        74.67
+                    ],
                     [
-                        -90.83, 
-                         73.84
+                        -90.83,
+                        73.84
                     ]
                 ]
             }
