@@ -112,7 +112,7 @@ def merge_features():
     parser.add_argument("-b", "--object_type", dest="object_type",
                         help="The type of geometry to load, a point (0D), "
                              "transect (1D) or region (2D)",
-                        metavar="COMP")
+                        metavar="TYPE")
     parser.add_argument("-n", "--feature_names", dest="feature_names",
                         help="Semicolon separated list of features",
                         metavar='"FE1;FE2;FE3"')
