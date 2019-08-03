@@ -1,6 +1,6 @@
 # Geometric Features
 
-[![Documentation Status](http://readthedocs.org/projects/geometric-features/badge/?version=develop)](http://geometric-features.readthedocs.io/en/develop/?badge=develop)
+[![Documentation Status](http://readthedocs.org/projects/geometric-features/badge/?version=latest)](http://geometric-features.readthedocs.io/en/latest/?badge=latest)
 
 This repository houses definitions of geometric features. These features
 can include regions, transects, and points, described in geojson format.
