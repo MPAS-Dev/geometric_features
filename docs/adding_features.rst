@@ -20,9 +20,9 @@ to be included in :ref:`GeometricData`, you should:
    # naming convetions of geometric_features
    fc = read_feature_collection('my_new_features.geojson')
 
-   # get geometric data from geometric_features v0.1 and store it in
-   # the local directory ./geometric_data
-   gf = GeometricFeatures(localCache='./geometric_data')
+   # make a geometric features object that points to geometry in the local
+   # cache in ./geometric_data
+   gf = GeometricFeatures(cacheLocation='./geometric_data')
 
    # split the feature collection into individual features within
    # ./geometric_data
@@ -38,5 +38,42 @@ to be included in :ref:`GeometricData`, you should:
 
 After this, you can ``git add`` and ``git commit`` the changes, and make a
 pull request to have them added to the repository.
+
+
+It is not recommended that you modified features directly in
+``geometric_data``, but if you have already done so, you can update the
+manifst of all features and tags based on your changes first, then merge your
+features into a feature colleciton and then split it back out into individual
+features to ensure consistent formatting.
+
+.. code-block:: python
+
+    import os
+    from geometric_features import GeometricFeatures
+    from geometric_features.utils import write_feature_names_and_tags
+
+
+    # Write a file features_and_tags.json with features and tags from the cache.
+    # This updates the file names, feature names and tags that geometric_features
+    # knows about.
+    write_feature_names_and_tags('./geometric_data')
+
+    # move features_and_tags.json into geometric_features to replace the old
+    # manifest
+    os.rename('features_and_tags.json',
+              'geometric_features/features_and_tags.json')
+
+    # Make a geometric features object that gets data from a local cache in
+    # ./geometric_data.  (The remote branch won't matter.)
+    gf = GeometricFeatures(cacheLocation='./geometric_data')
+
+    # Make a feature colleciton with the standrd transport sections
+    fc = gf.read(componentName='ocean', objectType='transect',
+                 tags=['standard_transport_sections'])
+
+    # split the feature collection back into individual features within
+    # ./geometric_data to clean things up
+    gf.split(fc)
+
 
 .. _`GitHub repository`: https://github.com/MPAS-Dev/geometric_features
