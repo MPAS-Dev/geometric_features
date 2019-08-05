@@ -1,27 +1,39 @@
 {
-    "type": "FeatureCollection", 
+    "type": "FeatureCollection",
     "features": [
         {
-            "type": "Feature", 
+            "type": "Feature",
             "properties": {
-                "name": "Bering Strait", 
-                "tags": "standard_transport_sections", 
-                "object": "transect", 
-                "component": "ocean", 
-                "author": "Mark Petersen, Xylar Asay-Davis", 
-                "depth": "6000.0", 
+                "name": "Bering Strait",
+                "tags": "standard_transport_sections",
+                "object": "transect",
+                "component": "ocean",
+                "author": "Mark Petersen, Xylar Asay-Davis, Milena Veneziani",
+                "depth": "6000.0",
                 "note": "Arctic, 0.83+/-0.66Sv in Roach_ea95jgr"
-            }, 
+            },
             "geometry": {
-                "type": "LineString", 
+                "type": "LineString",
                 "coordinates": [
                     [
-                        -167.700000, 
-                        65.800000
-                    ], 
+                        -167.15,
+                        65.74
+                    ],
                     [
-                        -169.700000, 
-                        66.100000
+                        -168.01,
+                        65.84
+                    ],
+                    [
+                        -168.62,
+                        65.91
+                    ],
+                    [
+                        -169.43,
+                        66.01
+                    ],
+                    [
+                        -170.24,
+                        66.1
                     ]
                 ]
             }

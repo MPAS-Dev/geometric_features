@@ -1,27 +1,63 @@
 {
-    "type": "FeatureCollection", 
+    "type": "FeatureCollection",
     "features": [
         {
-            "type": "Feature", 
+            "type": "Feature",
             "properties": {
-                "name": "Africa-Ant", 
-                "tags": "standard_transport_sections", 
-                "object": "transect", 
-                "component": "ocean", 
-                "author": "Mark Petersen, Xylar Asay-Davis", 
-                "depth": "6000.0", 
+                "name": "Africa-Ant",
+                "tags": "standard_transport_sections",
+                "object": "transect",
+                "component": "ocean",
+                "author": "Mark Petersen, Xylar Asay-Davis, Milena Veneziani",
+                "depth": "6000.0",
                 "note": "S Ocean, -31.3to -70 lat, 30E lon, section I6, Sv in Ganachaud99thesis"
-            }, 
+            },
             "geometry": {
-                "type": "LineString", 
+                "type": "LineString",
                 "coordinates": [
                     [
-                        30.000000, 
-                        -70.000000
-                    ], 
+                        30.0,
+                        -70.0
+                    ],
                     [
-                        30.000000, 
-                        -31.300000
+                        30.0,
+                        -67.0
+                    ],
+                    [
+                        30.0,
+                        -63.5
+                    ],
+                    [
+                        30.0,
+                        -59.0
+                    ],
+                    [
+                        30.0,
+                        -55.0
+                    ],
+                    [
+                        30.0,
+                        -50.5
+                    ],
+                    [
+                        30.0,
+                        -47.0
+                    ],
+                    [
+                        30.0,
+                        -43.5
+                    ],
+                    [
+                        30.0,
+                        -40.0
+                    ],
+                    [
+                        30.0,
+                        -35.5
+                    ],
+                    [
+                        30.0,
+                        -30.5
                     ]
                 ]
             }

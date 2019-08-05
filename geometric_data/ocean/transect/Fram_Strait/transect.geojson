@@ -1,27 +1,67 @@
 {
-    "type": "FeatureCollection", 
+    "type": "FeatureCollection",
     "features": [
         {
-            "type": "Feature", 
+            "type": "Feature",
             "properties": {
-                "name": "Fram Strait", 
-                "tags": "standard_transport_sections", 
-                "object": "transect", 
-                "component": "ocean", 
-                "author": "Mark Petersen, Xylar Asay-Davis", 
-                "depth": "6000.0", 
+                "name": "Fram Strait",
+                "tags": "standard_transport_sections",
+                "object": "transect",
+                "component": "ocean",
+                "author": "Mark Petersen, Xylar Asay-Davis, Milena Veneziani",
+                "depth": "6000.0",
                 "note": "Arctic, -4.2+/-2.3Sv in Fahrbach_ea01pr"
-            }, 
+            },
             "geometry": {
-                "type": "LineString", 
+                "type": "LineString",
                 "coordinates": [
                     [
-                        10.700000, 
-                        79.700000
-                    ], 
+                        15.3,
+                        79.0
+                    ],
                     [
-                        -17.700000, 
-                        79.700000
+                        9.0,
+                        79.0
+                    ],
+                    [
+                        6.0,
+                        79.0
+                    ],
+                    [
+                        3.0,
+                        79.0
+                    ],
+                    [
+                        0.0,
+                        79.0
+                    ],
+                    [
+                        -3.0,
+                        79.0
+                    ],
+                    [
+                        -6.0,
+                        79.0
+                    ],
+                    [
+                        -9.0,
+                        79.0
+                    ],
+                    [
+                        -12.0,
+                        79.0
+                    ],
+                    [
+                        -15.0,
+                        79.0
+                    ],
+                    [
+                        -18.0,
+                        79.0
+                    ],
+                    [
+                        -25.1,
+                        79.0
                     ]
                 ]
             }

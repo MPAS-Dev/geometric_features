@@ -1,42 +1,27 @@
 {
-    "type": "FeatureCollection", 
+    "type": "FeatureCollection",
     "features": [
         {
-            "type": "Feature", 
+            "type": "Feature",
             "properties": {
-                "name": "Nares Strait", 
-                "tags": "Nares_Strait;Critical_Passage", 
-                "object": "transect", 
-                "component": "ocean", 
-                "author": "Xylar Asay-Davis", 
-                "depth": "250.0"
-            }, 
+                "name": "Nares Strait",
+                "tags": "standard_transport_sections",
+                "object": "transect",
+                "component": "ocean",
+                "author": "Milena Veneziani",
+                "depth": "250.0",
+                "note": "Arctic, -0.8 Sv +/- 1.0Sv in Beszczynska-Moeller2011"
+            },
             "geometry": {
-                "type": "LineString", 
+                "type": "LineString",
                 "coordinates": [
                     [
-                        -58.183594, 
-                        82.563390
-                    ], 
+                        -66.3,
+                        80.3
+                    ],
                     [
-                        -63.237305, 
-                        81.659685
-                    ], 
-                    [
-                        -67.697754, 
-                        80.622005
-                    ], 
-                    [
-                        -70.466309, 
-                        79.327084
-                    ], 
-                    [
-                        -74.025879, 
-                        78.371576
-                    ], 
-                    [
-                        -74.707031, 
-                        76.679785
+                        -70.0,
+                        80.5
                     ]
                 ]
             }

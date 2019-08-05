@@ -1,0 +1,45 @@
+{
+    "type": "FeatureCollection", 
+    "features": [
+        {
+            "type": "Feature", 
+            "properties": {
+                "name": "Nares Strait Deepen", 
+                "tags": "Nares_Strait_Deepen;Critical_Passage", 
+                "object": "transect", 
+                "component": "ocean", 
+                "author": "Xylar Asay-Davis", 
+                "depth": "250.0"
+            }, 
+            "geometry": {
+                "type": "LineString", 
+                "coordinates": [
+                    [
+                        -58.183594, 
+                        82.563390
+                    ], 
+                    [
+                        -63.237305, 
+                        81.659685
+                    ], 
+                    [
+                        -67.697754, 
+                        80.622005
+                    ], 
+                    [
+                        -70.466309, 
+                        79.327084
+                    ], 
+                    [
+                        -74.025879, 
+                        78.371576
+                    ], 
+                    [
+                        -74.707031, 
+                        76.679785
+                    ]
+                ]
+            }
+        }
+    ]
+}

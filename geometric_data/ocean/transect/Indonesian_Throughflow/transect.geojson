@@ -1,27 +1,47 @@
 {
-    "type": "FeatureCollection", 
+    "type": "FeatureCollection",
     "features": [
         {
-            "type": "Feature", 
+            "type": "Feature",
             "properties": {
-                "name": "Indonesian Throughflow", 
-                "tags": "standard_transport_sections", 
-                "object": "transect", 
-                "component": "ocean", 
-                "author": "Mark Petersen, Xylar Asay-Davis", 
-                "depth": "6000.0", 
+                "name": "Indonesian Throughflow",
+                "tags": "standard_transport_sections",
+                "object": "transect",
+                "component": "ocean",
+                "author": "Mark Petersen, Xylar Asay-Davis, Milena Veneziani",
+                "depth": "6000.0",
                 "note": "-9 to -18 lat, 116E lon, section J89, -16+/- 5 Sv in Ganachaud_Wunsch00n and Ganachaud99thesis"
-            }, 
+            },
             "geometry": {
-                "type": "LineString", 
+                "type": "LineString",
                 "coordinates": [
                     [
-                        116.000000, 
-                        -21
-                    ], 
+                        116.0,
+                        -22.0
+                    ],
                     [
-                        116.000000, 
-                        -8.800000
+                        116.0,
+                        -19.0
+                    ],
+                    [
+                        116.0,
+                        -17.0
+                    ],
+                    [
+                        116.0,
+                        -15.0
+                    ],
+                    [
+                        116.0,
+                        -13.0
+                    ],
+                    [
+                        116.0,
+                        -11.0
+                    ],
+                    [
+                        116.0,
+                        -8.5
                     ]
                 ]
             }
