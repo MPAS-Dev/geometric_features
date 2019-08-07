@@ -4,8 +4,8 @@
         {
             "type": "Feature", 
             "properties": {
-                "name": "Baja California", 
-                "tags": "Baja_California;Critical_Land_Blockage", 
+                "name": "Baja CA blockage", 
+                "tags": "Baja_CA_blockage;Critical_Land_Blockage", 
                 "object": "transect", 
                 "component": "ocean", 
                 "author": "Mark Petersen", 
