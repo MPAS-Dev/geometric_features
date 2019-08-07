@@ -1487,6 +1487,26 @@
       "Indonesian Throughflow": [
         "standard_transport_sections"
       ],
+      "Ireland North Channel Deepen": [
+        "Ireland_North_Channel_Deepen",
+        "Critical_Passage"
+      ],
+      "Japan Hokkaido blockage": [
+        "Japan_Hokkaido_blockage",
+        "Critical_Land_Blockage"
+      ],
+      "Japan La Perouse Strait Deepen": [
+        "Japan_La_Perouse_Strait_Deepen",
+        "Critical_Passage"
+      ],
+      "Japan Tsugaru Strait Deepen": [
+        "Japan_Tsugaru_Strait_Deepen",
+        "Critical_Passage"
+      ],
+      "Japan blockage": [
+        "Japan_blockage",
+        "Critical_Land_Blockage"
+      ],
       "Lancaster Sound": [
         "standard_transport_sections"
       ],
@@ -1510,6 +1530,10 @@
       "Red Sea Deepen": [
         "Red_Sea_Deepen",
         "Critical_Passage"
+      ],
+      "Sakhalin blockage": [
+        "Sakhalin_blockage",
+        "Critical_Land_Blockage"
       ],
       "Strait of Gibralter Deepen 1": [
         "Strait_of_Gibralter_Deepen",
