@@ -3,12 +3,6 @@ from __future__ import absolute_import, division, print_function, \
 
 import argparse
 import os
-
-# make sure to set the Agg backend that works even without x-forwarding
-# before any other matplotlib imports
-import matplotlib as mpl
-mpl.use('Agg')
-
 import geometric_features
 from geometric_features import GeometricFeatures
 from geometric_features.feature_collection import FeatureCollection, \

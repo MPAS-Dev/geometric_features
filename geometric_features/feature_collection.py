@@ -3,10 +3,17 @@ from __future__ import absolute_import, division, print_function, \
 
 import json
 from collections import OrderedDict
+try:
+    import matplotlib.pyplot as plt
+except ImportError:
+    # maybe no xwindows, so let's use the 'Agg' backend
+    import matplotlib as mpl
+    mpl.use('Agg', warn=False, force=True)
+    import matplotlib.pyplot as plt
+
 import shapely.geometry
 import shapely.ops
 import cartopy
-import matplotlib.pyplot as plt
 import numpy as np
 import progressbar
 import copy
