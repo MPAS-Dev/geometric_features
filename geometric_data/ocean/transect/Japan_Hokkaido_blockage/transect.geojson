@@ -1,0 +1,41 @@
+{
+    "type": "FeatureCollection", 
+    "features": [
+        {
+            "type": "Feature", 
+            "properties": {
+                "name": "Japan Hokkaido blockage", 
+                "tags": "Japan_Hokkaido_blockage;Critical_Land_Blockage", 
+                "object": "transect", 
+                "component": "ocean", 
+                "author": "Mark Petersen", 
+                "height": "100.0"
+            }, 
+            "geometry": {
+                "type": "LineString", 
+                "coordinates": [
+                    [
+                        142.2,
+                         45.0
+                    ], 
+                    [
+                        142.2,
+                         44.0
+                    ], 
+                    [
+                        142.2,
+                         43.0
+                    ], 
+                    [
+                        140.5,
+                         42.8
+                    ], 
+                    [
+                        140.2,
+                         42.0
+                    ]
+                ]
+            }
+        }
+    ]
+}
