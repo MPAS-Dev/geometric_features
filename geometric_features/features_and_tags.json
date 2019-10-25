@@ -1007,6 +1007,11 @@
         "Bristol_Channel",
         "Atlantic_Basin"
       ],
+      "Canadian Archipelago": [
+        "Canadian_Archipelago",
+        "Arctic",
+        "Arctic_Basin"
+      ],
       "Caribbean Sea": [
         "Caribbean_Sea",
         "Atlantic_Basin"
@@ -1183,11 +1188,6 @@
         "Arctic",
         "Atlantic_Basin"
       ],
-      "Hudson Strait": [
-        "Hudson_Strait",
-        "Arctic",
-        "Atlantic_Basin"
-      ],
       "Indian Ocean": [
         "Indian_Ocean",
         "Indian_Basin"
@@ -1303,11 +1303,6 @@
       "North Sea": [
         "North_Sea",
         "Atlantic_Basin"
-      ],
-      "Northwestern Passages": [
-        "Northwestern_Passages",
-        "Arctic",
-        "Arctic_Basin"
       ],
       "Norwegian Sea": [
         "Norwegian_Sea",

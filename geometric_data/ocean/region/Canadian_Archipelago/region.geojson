@@ -4,11 +4,11 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "Northwestern Passages",
-                "tags": "Northwestern_Passages;Arctic;Arctic_Basin",
+                "name": "Canadian Archipelago",
+                "tags": "Canadian_Archipelago;Arctic;Arctic_Basin",
                 "object": "region",
                 "component": "ocean",
-                "author": "http://www.marineregions.org/downloads.php#iho"
+                "author": "http://www.marineregions.org/downloads.php#iho (Northwestern Passages)"
             },
             "geometry": {
                 "type": "Polygon",
