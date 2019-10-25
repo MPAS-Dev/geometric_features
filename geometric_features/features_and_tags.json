@@ -924,10 +924,12 @@
       ],
       "Arctic Ocean": [
         "Arctic_Ocean",
+        "Arctic",
         "Arctic_Basin"
       ],
       "Baffin Bay": [
         "Baffin_Bay",
+        "Arctic",
         "Atlantic_Basin"
       ],
       "Balearic Sea": [
@@ -948,6 +950,7 @@
       ],
       "Barentsz Sea": [
         "Barentsz_Sea",
+        "Arctic",
         "Arctic_Basin"
       ],
       "Bass Strait North": [
@@ -972,6 +975,7 @@
       ],
       "Beaufort Sea": [
         "Beaufort_Sea",
+        "Arctic",
         "Arctic_Basin"
       ],
       "Bellingshausen Sea": [
@@ -1021,6 +1025,7 @@
       ],
       "Chukchi Sea": [
         "Chukchi_Sea",
+        "Arctic",
         "Arctic_Basin"
       ],
       "Coral Sea": [
@@ -1029,6 +1034,7 @@
       ],
       "Davis Strait": [
         "Davis_Strait",
+        "Arctic",
         "Atlantic_Basin"
       ],
       "East Antarctic Seas": [
@@ -1047,6 +1053,7 @@
       ],
       "East Siberian Sea": [
         "East_Siberian_Sea",
+        "Arctic",
         "Arctic_Basin"
       ],
       "Eastern China Sea": [
@@ -1111,6 +1118,7 @@
       ],
       "Greenland Sea": [
         "Greenland_Sea",
+        "Arctic",
         "Atlantic_Basin"
       ],
       "Gulf of Aden": [
@@ -1177,10 +1185,12 @@
       ],
       "Hudson Bay": [
         "Hudson_Bay",
+        "Arctic",
         "Atlantic_Basin"
       ],
       "Hudson Strait": [
         "Hudson_Strait",
+        "Arctic",
         "Atlantic_Basin"
       ],
       "Indian Ocean": [
@@ -1203,6 +1213,11 @@
         "Irish_Sea_and_St_Georges_Channel",
         "Atlantic_Basin"
       ],
+      "Irminger Sea": [
+        "Irminger_Sea",
+        "Arctic",
+        "Atlantic_Basin"
+      ],
       "Japan Sea": [
         "Japan_Sea",
         "Pacific_Basin"
@@ -1213,6 +1228,7 @@
       ],
       "Kara Sea": [
         "Kara_Sea",
+        "Arctic",
         "Arctic_Basin"
       ],
       "Kattegat": [
@@ -1221,6 +1237,7 @@
       ],
       "Labrador Sea": [
         "Labrador_Sea",
+        "Arctic",
         "Atlantic_Basin"
       ],
       "Laccadive Sea": [
@@ -1229,6 +1246,7 @@
       ],
       "Laptev Sea": [
         "Laptev_Sea",
+        "Arctic",
         "Arctic_Basin"
       ],
       "Ligurian Sea": [
@@ -1237,6 +1255,7 @@
       ],
       "Lincoln Sea": [
         "Lincoln_Sea",
+        "Arctic",
         "Arctic_Basin"
       ],
       "MOC mask 34S": [
@@ -1292,10 +1311,12 @@
       ],
       "Northwestern Passages": [
         "Northwestern_Passages",
+        "Arctic",
         "Arctic_Basin"
       ],
       "Norwegian Sea": [
         "Norwegian_Sea",
+        "Arctic",
         "Atlantic_Basin"
       ],
       "Persian Gulf": [
@@ -1430,6 +1451,7 @@
       ],
       "White Sea": [
         "White_Sea",
+        "Arctic",
         "Arctic_Basin"
       ],
       "Yellow Sea": [

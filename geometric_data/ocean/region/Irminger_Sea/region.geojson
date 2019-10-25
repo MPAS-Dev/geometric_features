@@ -4,8 +4,8 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "Greenland Sea",
-                "tags": "Greenland_Sea;Arctic;Atlantic_Basin",
+                "name": "Irminger Sea",
+                "tags": "Irminger_Sea;Arctic;Atlantic_Basin",
                 "object": "region",
                 "component": "ocean",
                 "author": "Milena Veneziani"
@@ -15,40 +15,40 @@
                 "coordinates": [
                     [
                         [
-                            -9.0,
-                            70.85
-                        ],
-                        [
-                            16.65,
-                            76.6
-                        ],
-                        [
-                            17.75,
-                            79.0
-                        ],
-                        [
-                            -31.0,
-                            79.0
-                        ],
-                        [
                             -31.0,
                             69.0
                         ],
                         [
+                            -45.0,
+                            64.0
+                        ],
+                        [
+                            -45.0,
+                            57.0
+                        ],
+                        [
+                            -35.0,
+                            57.0
+                        ],
+                        [
                             -22.5,
-                            66.3
+                            63.9
+                        ],
+                        [
+                            -21.1,
+                            64.27
                         ],
                         [
                             -21.1,
                             65.12
                         ],
                         [
-                            -13.6,
-                            65.12
+                            -22.5,
+                            66.3
                         ],
                         [
-                            -9.0,
-                            70.85
+                            -31.0,
+                            69.0
                         ]
                     ]
                 ]
