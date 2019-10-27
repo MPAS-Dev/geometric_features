@@ -220,6 +220,7 @@ class FeatureCollection(object):
                                  geometry['type']))
 
         feature = {}
+        feature['type'] = 'Feature'
         feature['properties'] = {}
         feature['properties']['name'] = featureName
         feature['properties']['component'] = \
