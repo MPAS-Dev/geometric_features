@@ -39,9 +39,14 @@ def get_longest_contour(contourValue, author):
     ds = xarray.open_dataset(tmp.name)
     os.unlink(tmp.name)
 
+    x = ds.x.values
+    y = ds.y.values
+    z = ds.z.values
+    z[(x==numpy.amin(x)) | (x==numpy.amax(x)) |
+      (y==numpy.amin(y)) | (y==numpy.amax(y))] = 0.0
     # plot contours
     plt.figure()
-    cs = plt.contour(ds.x.values, ds.y.values, ds.z, (contourValue,))
+    cs = plt.contour(x, y, z, (contourValue,))
     paths = cs.collections[0].get_paths()
 
     pathLengths = [len(paths[i]) for i in range(len(paths))]
@@ -59,15 +64,21 @@ def get_longest_contour(contourValue, author):
     lon, lat = pyproj.transform(inProj, outProj, x, y)
 
     poly = shapely.geometry.Polygon([(i[0], i[1]) for i in zip(x, y)])
+    ##
+    #x, y = poly.exterior.xy
+    #plt.figure()
+    #plt.plot(x, y)
+    #plt.show()
+    ##
 
     epsilon = 1e-14
-    minY = numpy.amin(y)
-    wedge = shapely.geometry.Polygon([(epsilon, minY),
-                                      (epsilon**2, -epsilon),
+    maxY = numpy.amax(y)
+    wedge = shapely.geometry.Polygon([(epsilon, maxY),
+                                      (epsilon**2, epsilon),
                                       (0, epsilon),
-                                      (-epsilon**2, -epsilon),
-                                      (-epsilon, minY),
-                                      (epsilon, minY)])
+                                      (-epsilon**2, epsilon),
+                                      (-epsilon, maxY),
+                                      (epsilon, maxY)])
 
     difference = poly.difference(wedge)
 
@@ -107,31 +118,6 @@ def make_rectangle(lon0, lon1, lat0, lat1, name, author, tags):
                               [lon1, lat1],
                               [lon0, lat1],
                               [lon0, lat0]]]}})
-    return fc
-
-
-def split_rectangle(lon0, lon1, lat0, lat1, name, author, tags, fcContour):
-    fc = make_rectangle(lon0, lon1, lat0, lat1, name, author, tags)
-
-    fcDeep = fc.difference(fcContour)
-
-    props = fcDeep.features[0]['properties']
-    props['name'] = props['name'] + ' Deep'
-    props['tags'] = props['tags'] + ';Deep'
-    props['zmin'] = -1000.
-    props['zmax'] = -400.
-
-    fcShelf = fc.difference(fcDeep)
-
-    props = fcShelf.features[0]['properties']
-    props['name'] = props['name'] + ' Shelf'
-    props['tags'] = props['tags'] + ';Shelf'
-    props['zmin'] = -1000.
-    props['zmax'] = -200.
-
-    fc.merge(fcDeep)
-    fc.merge(fcShelf)
-
     return fc
 
 
@@ -183,21 +169,18 @@ def main():
 
     # Define Beaufort Gyre region
     fcContour300 = get_longest_contour(contourValue=-300., author=author)
-    fcBG = make_rectangle(lon0=-170., lon1=-130., lat0=70.5, lat1=80.5,
+    fcBG_firstTry = make_rectangle(lon0=-170., lon1=-130., lat0=70.5, lat1=80.5,
         name='Beaufort Gyre', author=author, tags='Beaufort_Gyre;Arctic;Arctic_Basin')
-    fcBG = fcBG.difference(fcContour300)
+    fcBG = fcBG_firstTry.difference(fcContour300)
+    fcBG = fcBG_firstTry.difference(fcBG)
     fcBG.to_geojson('BeaufortGyre.geojson')
     fc.merge(fcBG)
 
-    #fcWeddell = split_rectangle(
-    #    lon0=-63., lon1=0., lat0=-80., lat1=-65., name='Weddell Sea',
-    #    author=author, tags=timTags, fcContour=fcContour800)
-
-    #fcWeddell = fcWeddell.combine('Weddell Sea')
-    #props = fcWeddell.features[0]['properties']
-    #props['tags'] = orsiTags
-    #props['zmin'] = -1000.
-    #props['zmax'] = -400.
+    # Define Chukchi Sea (MASIE region #2)
+    fcChukchi = make_rectangle(lon0=-156.65, lon1=-180., lat0=65.37, lat1=80.,
+        name='Chukchi Sea', author=author, tags='Chukchi_Sea;Arctic;Arctic_Basin')
+    fcChukchi.to_geojson('ChukchiSea.geojson')
+    fc.merge(fcChukchi)
 
     # "split" these features into individual files in the geometric data cache
     #gf.split(fc)
