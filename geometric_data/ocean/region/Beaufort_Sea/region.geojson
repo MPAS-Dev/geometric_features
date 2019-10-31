@@ -5,7 +5,7 @@
             "type": "Feature",
             "properties": {
                 "name": "Beaufort Sea",
-                "tags": "Beaufort_Sea;Arctic;Arctic_Basin",
+                "tags": "Beaufort_Sea;Arctic_Basin",
                 "object": "region",
                 "component": "ocean",
                 "author": "http://www.marineregions.org/downloads.php#iho"

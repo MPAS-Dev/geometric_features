@@ -68,7 +68,6 @@ def get_longest_contour(contourValue, author):
     #x, y = poly.exterior.xy
     #plt.figure()
     #plt.plot(x, y)
-    #plt.show()
     ##
 
     epsilon = 1e-14
@@ -123,8 +122,6 @@ def make_rectangle(lon0, lon1, lat0, lat1, name, author, tags):
 
 def main():
     author = 'Milena Veneziani'
-    arcticTags = 'Arctic_Ocean;Arctic;Arctic_Basin'
-    proshTags = 'Arctic;Proshutinsky'
 
     # make a geometric features object that knows about the geometric data
     # cache up a couple of directories
@@ -132,31 +129,44 @@ def main():
 
     fc = FeatureCollection()
 
+    # ********* New Barents Sea (modified feature) *********
+    # NOTE: this is dependent on existence of *old* features
+
     # Combine old Barentsz_Sea and White_Sea into new Barents Sea 
     # feature (Barentsz_Sea and White_Sea features will be removed)
     fcBS = gf.read('ocean', 'region', ['Barentsz Sea'])
     fcBS.merge(gf.read('ocean', 'region', ['White Sea']))
     fcBS = fcBS.combine('Barents Sea')
-    fcBS.to_geojson('BarentsSea.geojson')
     fc = fcBS
     props = fc.features[0]['properties']
     props['tags'] = 'Barents_Sea;Arctic;Arctic_Basin'
 
-    # Include Kara Sea
+    # ********* Kara Sea (unchanged feature) *********
+
     fcKara = gf.read('ocean', 'region', ['Kara Sea'])
+    props = fcKara.features[0]['properties']
+    props['tags'] = 'Kara_Sea;Arctic;Arctic_Basin'
     fc.merge(fcKara)
+
+    # ********* New Arctic Ocean (modified feature) *********
+    # NOTE: this is dependent on existence of *old* features
 
     # Define triangle between Greenland Sea and Arctic_Ocean
     # (north of Fram Strait) that is not part of any of the
     # currently defined Arctic features
+    #fc_tmp = gf.read('ocean', 'region', ['Arctic Ocean Old'])
     fc_tmp = gf.read('ocean', 'region', ['Arctic Ocean'])
     fc_tmp.merge(gf.read('ocean', 'region', ['Lincoln Sea']))
     fc_tmp.merge(fcBS)
     fcArctic = make_rectangle(lon0=-36., lon1=20., lat0=86., lat1=79.,
-        name='North of Fram Strait', author=author, tags=arcticTags)
+        name='North of Fram Strait', author=author, tags='Arctic_Basin')
     fcArctic = fcArctic.difference(fc_tmp)
 
     # Define full Arctic *but* Barents and Kara Seas
+    #fcArctic.merge(gf.read('ocean', 'region', ['Arctic Ocean Old']))
+    #fcArctic.merge(gf.read('ocean', 'region', ['Laptev Sea Old']))
+    #fcArctic.merge(gf.read('ocean', 'region', ['East Siberian Sea Old']))
+    #fcArctic.merge(gf.read('ocean', 'region', ['Chukchi Sea Old']))
     fcArctic.merge(gf.read('ocean', 'region', ['Arctic Ocean']))
     fcArctic.merge(gf.read('ocean', 'region', ['Laptev Sea']))
     fcArctic.merge(gf.read('ocean', 'region', ['East Siberian Sea']))
@@ -164,23 +174,108 @@ def main():
     fcArctic.merge(gf.read('ocean', 'region', ['Beaufort Sea']))
     fcArctic.merge(gf.read('ocean', 'region', ['Lincoln Sea']))
     fcArctic = fcArctic.combine('Arctic Ocean')
-    fcArctic.to_geojson('ArcticOcean.geojson')
-    #fc.merge(fcArctic)
+    props = fcArctic.features[0]['properties']
+    props['tags'] = 'Arctic_Ocean;Arctic;Arctic_Basin'
+    fc.merge(fcArctic)
 
-    # Define Beaufort Gyre region
+    # ********* Beaufort Gyre (entirely new feature) *********
+
     fcContour300 = get_longest_contour(contourValue=-300., author=author)
     fcBG_firstTry = make_rectangle(lon0=-170., lon1=-130., lat0=70.5, lat1=80.5,
-        name='Beaufort Gyre', author=author, tags='Beaufort_Gyre;Arctic;Arctic_Basin')
+        name='Beaufort Gyre', author=author, tags='Beaufort_Gyre;Arctic;Arctic_Basin;Proshutinski')
     fcBG = fcBG_firstTry.difference(fcContour300)
     fcBG = fcBG_firstTry.difference(fcBG)
-    fcBG.to_geojson('BeaufortGyre.geojson')
     fc.merge(fcBG)
 
-    # Define Chukchi Sea (MASIE region #2)
-    fcChukchi = make_rectangle(lon0=-156.65, lon1=-180., lat0=65.37, lat1=80.,
-        name='Chukchi Sea', author=author, tags='Chukchi_Sea;Arctic;Arctic_Basin')
-    fcChukchi.to_geojson('ChukchiSea.geojson')
+    # ********* New Chukchi Sea (modified feature) *********
+
+    # Define Chukchi Sea as MASIE region #2 minus intersection with
+    # Beaufort Gyre, and with Bering Strait transect as southern boundary
+    fcChukchi = FeatureCollection()
+    fcChukchi.add_feature(
+        {"type": "Feature",
+         "properties": {"name": 'Chukchi Sea',
+                        "author": author,
+                        "object": 'region',
+                        "component": 'ocean',
+                        "tags": 'Chukchi_Sea;Arctic;Arctic_Basin'},
+         "geometry": {
+             "type": "Polygon",
+             "coordinates": [[[-167.15, 65.74],
+                              [-168.01, 65.84],
+                              [-168.62, 65.91],
+                              [-169.43, 66.01],
+                              [-170.24, 66.1],
+                              [-180., 66.6],
+                              [-180., 80.0],
+                              [-156.48, 80.0],
+                              [-156.65, 65.37],
+                              [-167.15, 65.74]]]}})
+    fcChukchi = fcChukchi.difference(fcBG)
     fc.merge(fcChukchi)
+
+    # ********* Beaufort Gyre shelf (entirely new feature) *********
+
+    # Define Beaufort Gyre shelf region, minus intersection with Chukchi Sea
+    fcBGshelf_firstTry = make_rectangle(lon0=-170., lon1=-130., lat0=68.0, lat1=80.5,
+        name='Beaufort Gyre Shelf Box', author=author, tags='Beaufort_Gyre_Shelf;Arctic;Arctic_Basin')
+    fcBGshelf = fcBGshelf_firstTry.difference(fcContour300)
+    fcBGshelf_secondTry = fcBGshelf_firstTry.difference(fcBG)
+    fcBGshelf_secondTry = fcBGshelf_secondTry.difference(fcBGshelf)
+    props = fcBGshelf.features[0]['properties']
+    props['name'] = 'Beaufort Gyre Shelf'
+    fcBGshelf.merge(fcBGshelf_secondTry)
+    fcBGshelf = fcBGshelf.combine('Beaufort Gyre Shelf')
+    fcBGshelf = fcBGshelf.difference(fcChukchi)
+    fc.merge(fcBGshelf)
+
+    # ********* New East Siberian Sea (modified feature) *********
+
+    # Define East Siberian Sea as MASIE region #3
+    fcESS = FeatureCollection()
+    fcESS = make_rectangle(lon0=180., lon1=145., lat0=67., lat1=80.,
+        name='East Siberian Sea', author=author, tags='East_Siberian_Sea;Arctic;Arctic_Basin')
+    fc.merge(fcESS)
+
+    # ********* New Laptev Sea (modified feature) *********
+
+    # Define Laptev Sea as MASIE region #4, minus intersection with
+    # Kara Sea
+    fcLap = FeatureCollection()
+    fcLap.add_feature(
+        {"type": "Feature",
+         "properties": {"name": 'Laptev Sea',
+                        "author": author,
+                        "object": 'region',
+                        "component": 'ocean',
+                        "tags": 'Laptev_Sea;Arctic;Arctic_Basin'},
+         "geometry": {
+             "type": "Polygon",
+             "coordinates": [[[145.,  68.],
+                              [145.,  80.],
+                              [95.4, 81.29],
+                              [99.89, 78.27],
+                              [102.,  72.],
+                              [145.,  68.]]]}})
+    fcLap = fcLap.difference(fcKara)
+    fc.merge(fcLap)
+
+    # ********* Central Arctic (entirely new feature) *********
+
+    # Define Central Arctic region as New Arctic Ocean minus BG, BGshelf,
+    # New Chukchi, New ESS, and New Laptev
+    fcCentralArctic = fcArctic.difference(fcBG)
+    fcCentralArctic = fcCentralArctic.difference(fcBGshelf)
+    fcCentralArctic = fcCentralArctic.difference(fcChukchi)
+    fcCentralArctic = fcCentralArctic.difference(fcESS)
+    fcCentralArctic = fcCentralArctic.difference(fcLap)
+    props = fcCentralArctic.features[0]['properties']
+    props['name'] = 'Central Arctic'
+    props['tags'] = 'Central_Arctic;Arctic;Arctic_Basin'
+    fc.merge(fcCentralArctic)
+
+    fc.plot(projection='northpole')
+    fc.to_geojson('arctic_ocean_regions.geojson')
 
     # "split" these features into individual files in the geometric data cache
     #gf.split(fc)
@@ -191,6 +286,7 @@ def main():
     #shutil.copyfile('features_and_tags.json',
     #                '../../geometric_features/features_and_tags.json')
 
+    plt.show()
 
 if __name__ == '__main__':
     main()

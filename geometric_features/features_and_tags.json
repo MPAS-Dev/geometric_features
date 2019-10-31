@@ -922,9 +922,8 @@
         "Arafura_Sea",
         "Pacific_Basin"
       ],
-      "Arctic Ocean": [
-        "Arctic_Ocean",
-        "Arctic",
+      "Arctic Ocean Old": [
+        "Arctic_Ocean_Old",
         "Arctic_Basin"
       ],
       "Baffin Bay": [
@@ -950,7 +949,6 @@
       ],
       "Barentsz Sea": [
         "Barentsz_Sea",
-        "Arctic",
         "Arctic_Basin"
       ],
       "Bass Strait North": [
@@ -975,7 +973,6 @@
       ],
       "Beaufort Sea": [
         "Beaufort_Sea",
-        "Arctic",
         "Arctic_Basin"
       ],
       "Bellingshausen Sea": [
@@ -1028,9 +1025,8 @@
         "Ceram_Sea",
         "Pacific_Basin"
       ],
-      "Chukchi Sea": [
-        "Chukchi_Sea",
-        "Arctic",
+      "Chukchi Sea Old": [
+        "Chukchi_Sea_Old",
         "Arctic_Basin"
       ],
       "Coral Sea": [
@@ -1051,9 +1047,8 @@
         "Orsi",
         "Shelf"
       ],
-      "East Siberian Sea": [
-        "East_Siberian_Sea",
-        "Arctic",
+      "East Siberian Sea Old": [
+        "East_Siberian_Sea_Old",
         "Arctic_Basin"
       ],
       "Eastern China Sea": [
@@ -1239,9 +1234,8 @@
         "Laccadive_Sea",
         "Indian_Basin"
       ],
-      "Laptev Sea": [
-        "Laptev_Sea",
-        "Arctic",
+      "Laptev Sea Old": [
+        "Laptev_Sea_Old",
         "Arctic_Basin"
       ],
       "Ligurian Sea": [
@@ -1250,7 +1244,6 @@
       ],
       "Lincoln Sea": [
         "Lincoln_Sea",
-        "Arctic",
         "Arctic_Basin"
       ],
       "MOC mask 34S": [
@@ -1441,7 +1434,6 @@
       ],
       "White Sea": [
         "White_Sea",
-        "Arctic",
         "Arctic_Basin"
       ],
       "Yellow Sea": [
