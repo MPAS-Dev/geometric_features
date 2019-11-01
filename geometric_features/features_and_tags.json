@@ -922,6 +922,10 @@
         "Arafura_Sea",
         "Pacific_Basin"
       ],
+      "Arctic Ocean": [
+        "Arctic_Ocean",
+        "Arctic_Basin"
+      ],
       "Arctic Ocean Old": [
         "Arctic_Ocean_Old",
         "Arctic_Basin"
@@ -941,6 +945,7 @@
       ],
       "Baltic Sea": [
         "Baltic_Sea",
+        "Arctic",
         "Atlantic_Basin"
       ],
       "Banda Sea": [
@@ -1025,6 +1030,10 @@
         "Ceram_Sea",
         "Pacific_Basin"
       ],
+      "Chukchi Sea": [
+        "Chukchi_Sea",
+        "Arctic_Basin"
+      ],
       "Chukchi Sea Old": [
         "Chukchi_Sea_Old",
         "Arctic_Basin"
@@ -1046,6 +1055,10 @@
         "Antarctic",
         "Orsi",
         "Shelf"
+      ],
+      "East Siberian Sea": [
+        "East_Siberian_Sea",
+        "Arctic_Basin"
       ],
       "East Siberian Sea Old": [
         "East_Siberian_Sea_Old",
@@ -1234,6 +1247,10 @@
         "Laccadive_Sea",
         "Indian_Basin"
       ],
+      "Laptev Sea": [
+        "Laptev_Sea",
+        "Arctic_Basin"
+      ],
       "Laptev Sea Old": [
         "Laptev_Sea_Old",
         "Arctic_Basin"
@@ -1295,6 +1312,7 @@
       ],
       "North Sea": [
         "North_Sea",
+        "Arctic",
         "Atlantic_Basin"
       ],
       "Norwegian Sea": [

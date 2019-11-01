@@ -9,8 +9,7 @@
                 "object": "region",
                 "component": "ocean",
                 "author": "http://www.marineregions.org/downloads.php#iho",
-                "constituents": "Hudson Bay; Hudson Strait",
-                "history": "10/25/19 09:45 : cori04 : milena : merge_features -n Hudson Bay;Hudson Strait -c ocean -b region -o HudsonBay.geojson; combine_features -f HudsonBay.geojson -n Hudson Bay -o HudsonBaynew.geojson;"
+                "constituents": "Hudson Bay; Hudson Strait"
             },
             "geometry": {
                 "type": "Polygon",
