@@ -2,11 +2,12 @@
     "type": "FeatureCollection",
     "features": [
         {
+            "type": "Feature",
             "properties": {
                 "name": "Barents Sea",
-                "component": "ocean",
-                "object": "region",
                 "tags": "Barents_Sea;Arctic;Arctic_NSIDC;Arctic_Basin",
+                "object": "region",
+                "component": "ocean",
                 "author": "Milena Veneziani",
                 "constituents": "White Sea; Barentsz Sea"
             },
