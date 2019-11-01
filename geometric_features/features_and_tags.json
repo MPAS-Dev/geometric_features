@@ -924,10 +924,7 @@
       ],
       "Arctic Ocean": [
         "Arctic_Ocean",
-        "Arctic_Basin"
-      ],
-      "Arctic Ocean Old": [
-        "Arctic_Ocean_Old",
+        "Arctic",
         "Arctic_Basin"
       ],
       "Baffin Bay": [
@@ -952,6 +949,12 @@
         "Banda_Sea",
         "Pacific_Basin"
       ],
+      "Barents Sea": [
+        "Barents_Sea",
+        "Arctic",
+        "Arctic_NSIDC",
+        "Arctic_Basin"
+      ],
       "Barentsz Sea": [
         "Barentsz_Sea",
         "Arctic_Basin"
@@ -975,6 +978,15 @@
       "Bay of Fundy": [
         "Bay_of_Fundy",
         "Atlantic_Basin"
+      ],
+      "Beaufort Gyre": [
+        "Beaufort_Gyre",
+        "Arctic",
+        "Arctic_Basin",
+        "Proshutinski"
+      ],
+      "Beaufort Gyre Shelf": [
+        ""
       ],
       "Beaufort Sea": [
         "Beaufort_Sea",
@@ -1026,16 +1038,18 @@
         "Celtic_Sea",
         "Atlantic_Basin"
       ],
+      "Central Arctic": [
+        "Central_Arctic",
+        "Arctic",
+        "Arctic_Basin"
+      ],
       "Ceram Sea": [
         "Ceram_Sea",
         "Pacific_Basin"
       ],
       "Chukchi Sea": [
         "Chukchi_Sea",
-        "Arctic_Basin"
-      ],
-      "Chukchi Sea Old": [
-        "Chukchi_Sea_Old",
+        "Arctic_NSIDC",
         "Arctic_Basin"
       ],
       "Coral Sea": [
@@ -1058,10 +1072,7 @@
       ],
       "East Siberian Sea": [
         "East_Siberian_Sea",
-        "Arctic_Basin"
-      ],
-      "East Siberian Sea Old": [
-        "East_Siberian_Sea_Old",
+        "Arctic_NSIDC",
         "Arctic_Basin"
       ],
       "Eastern China Sea": [
@@ -1232,6 +1243,7 @@
       "Kara Sea": [
         "Kara_Sea",
         "Arctic",
+        "Arctic_NSIDC",
         "Arctic_Basin"
       ],
       "Kattegat": [
@@ -1249,10 +1261,7 @@
       ],
       "Laptev Sea": [
         "Laptev_Sea",
-        "Arctic_Basin"
-      ],
-      "Laptev Sea Old": [
-        "Laptev_Sea_Old",
+        "Arctic_NSIDC",
         "Arctic_Basin"
       ],
       "Ligurian Sea": [

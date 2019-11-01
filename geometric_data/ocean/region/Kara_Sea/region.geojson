@@ -5,7 +5,7 @@
             "type": "Feature",
             "properties": {
                 "name": "Kara Sea",
-                "tags": "Kara_Sea;Arctic;Arctic_Basin",
+                "tags": "Kara_Sea;Arctic;Arctic_NSIDC;Arctic_Basin",
                 "object": "region",
                 "component": "ocean",
                 "author": "http://www.marineregions.org/downloads.php#iho"
