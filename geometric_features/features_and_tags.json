@@ -924,10 +924,12 @@
       ],
       "Arctic Ocean": [
         "Arctic_Ocean",
+        "Arctic",
         "Arctic_Basin"
       ],
       "Baffin Bay": [
         "Baffin_Bay",
+        "Arctic",
         "Atlantic_Basin"
       ],
       "Balearic Sea": [
@@ -940,14 +942,17 @@
       ],
       "Baltic Sea": [
         "Baltic_Sea",
+        "Arctic",
         "Atlantic_Basin"
       ],
       "Banda Sea": [
         "Banda_Sea",
         "Pacific_Basin"
       ],
-      "Barentsz Sea": [
-        "Barentsz_Sea",
+      "Barents Sea": [
+        "Barents_Sea",
+        "Arctic",
+        "Arctic_NSIDC",
         "Arctic_Basin"
       ],
       "Bass Strait North": [
@@ -969,6 +974,17 @@
       "Bay of Fundy": [
         "Bay_of_Fundy",
         "Atlantic_Basin"
+      ],
+      "Beaufort Gyre": [
+        "Beaufort_Gyre",
+        "Arctic",
+        "Arctic_Basin",
+        "Proshutinski"
+      ],
+      "Beaufort Gyre Shelf": [
+        "Beaufort_Gyre_Shelf",
+        "Arctic",
+        "Arctic_Basin"
       ],
       "Beaufort Sea": [
         "Beaufort_Sea",
@@ -1003,6 +1019,12 @@
         "Bristol_Channel",
         "Atlantic_Basin"
       ],
+      "Canadian Archipelago": [
+        "Canadian_Archipelago",
+        "Arctic",
+        "Arctic_NSIDC",
+        "Atlantic_Basin"
+      ],
       "Caribbean Sea": [
         "Caribbean_Sea",
         "Atlantic_Basin"
@@ -1015,6 +1037,11 @@
         "Celtic_Sea",
         "Atlantic_Basin"
       ],
+      "Central Arctic": [
+        "Central_Arctic",
+        "Arctic",
+        "Arctic_Basin"
+      ],
       "Ceram Sea": [
         "Ceram_Sea",
         "Pacific_Basin"
@@ -1023,13 +1050,14 @@
         "Chukchi_Sea",
         "Arctic_Basin"
       ],
+      "Chukchi Sea NSIDC": [
+        "Chukchi_Sea_NSIDC",
+        "Arctic_NSIDC",
+        "Arctic_Basin"
+      ],
       "Coral Sea": [
         "Coral_Sea",
         "Pacific_Basin"
-      ],
-      "Davis Strait": [
-        "Davis_Strait",
-        "Atlantic_Basin"
       ],
       "East Antarctic Seas": [
         "Antarctic",
@@ -1047,6 +1075,11 @@
       ],
       "East Siberian Sea": [
         "East_Siberian_Sea",
+        "Arctic_Basin"
+      ],
+      "East Siberian Sea NSIDC": [
+        "East_Siberian_Sea_NSIDC",
+        "Arctic_NSIDC",
         "Arctic_Basin"
       ],
       "Eastern China Sea": [
@@ -1111,6 +1144,7 @@
       ],
       "Greenland Sea": [
         "Greenland_Sea",
+        "Arctic",
         "Atlantic_Basin"
       ],
       "Gulf of Aden": [
@@ -1177,11 +1211,9 @@
       ],
       "Hudson Bay": [
         "Hudson_Bay",
-        "Atlantic_Basin"
-      ],
-      "Hudson Strait": [
-        "Hudson_Strait",
-        "Atlantic_Basin"
+        "Arctic",
+        "Arctic_NSIDC",
+        "Arctic_Basin"
       ],
       "Indian Ocean": [
         "Indian_Ocean",
@@ -1203,6 +1235,11 @@
         "Irish_Sea_and_St_Georges_Channel",
         "Atlantic_Basin"
       ],
+      "Irminger Sea": [
+        "Irminger_Sea",
+        "Arctic",
+        "Atlantic_Basin"
+      ],
       "Japan Sea": [
         "Japan_Sea",
         "Pacific_Basin"
@@ -1213,6 +1250,8 @@
       ],
       "Kara Sea": [
         "Kara_Sea",
+        "Arctic",
+        "Arctic_NSIDC",
         "Arctic_Basin"
       ],
       "Kattegat": [
@@ -1221,6 +1260,7 @@
       ],
       "Labrador Sea": [
         "Labrador_Sea",
+        "Arctic",
         "Atlantic_Basin"
       ],
       "Laccadive Sea": [
@@ -1229,6 +1269,11 @@
       ],
       "Laptev Sea": [
         "Laptev_Sea",
+        "Arctic_Basin"
+      ],
+      "Laptev Sea NSIDC": [
+        "Laptev_Sea_NSIDC",
+        "Arctic_NSIDC",
         "Arctic_Basin"
       ],
       "Ligurian Sea": [
@@ -1288,14 +1333,12 @@
       ],
       "North Sea": [
         "North_Sea",
+        "Arctic",
         "Atlantic_Basin"
-      ],
-      "Northwestern Passages": [
-        "Northwestern_Passages",
-        "Arctic_Basin"
       ],
       "Norwegian Sea": [
         "Norwegian_Sea",
+        "Arctic",
         "Atlantic_Basin"
       ],
       "Persian Gulf": [

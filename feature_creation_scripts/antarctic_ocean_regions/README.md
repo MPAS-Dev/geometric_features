@@ -1,4 +1,4 @@
-# Antarctic Ocean Regsion
+# Antarctic Ocean Regions
 
 Features used to extract temperature and salinity time series, following
 Figs. 4 and 5 in Timmermann and Hellmer (2013).  Most features are derived from
