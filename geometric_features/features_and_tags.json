@@ -982,7 +982,9 @@
         "Proshutinski"
       ],
       "Beaufort Gyre Shelf": [
-        ""
+        "Beaufort_Gyre_Shelf",
+        "Arctic",
+        "Arctic_Basin"
       ],
       "Beaufort Sea": [
         "Beaufort_Sea",
@@ -1020,7 +1022,8 @@
       "Canadian Archipelago": [
         "Canadian_Archipelago",
         "Arctic",
-        "Arctic_Basin"
+        "Arctic_NSIDC",
+        "Atlantic_Basin"
       ],
       "Caribbean Sea": [
         "Caribbean_Sea",
@@ -1045,6 +1048,10 @@
       ],
       "Chukchi Sea": [
         "Chukchi_Sea",
+        "Arctic_Basin"
+      ],
+      "Chukchi Sea NSIDC": [
+        "Chukchi_Sea_NSIDC",
         "Arctic_NSIDC",
         "Arctic_Basin"
       ],
@@ -1068,6 +1075,10 @@
       ],
       "East Siberian Sea": [
         "East_Siberian_Sea",
+        "Arctic_Basin"
+      ],
+      "East Siberian Sea NSIDC": [
+        "East_Siberian_Sea_NSIDC",
         "Arctic_NSIDC",
         "Arctic_Basin"
       ],
@@ -1201,7 +1212,8 @@
       "Hudson Bay": [
         "Hudson_Bay",
         "Arctic",
-        "Atlantic_Basin"
+        "Arctic_NSIDC",
+        "Arctic_Basin"
       ],
       "Indian Ocean": [
         "Indian_Ocean",
@@ -1257,6 +1269,10 @@
       ],
       "Laptev Sea": [
         "Laptev_Sea",
+        "Arctic_Basin"
+      ],
+      "Laptev Sea NSIDC": [
+        "Laptev_Sea_NSIDC",
         "Arctic_NSIDC",
         "Arctic_Basin"
       ],

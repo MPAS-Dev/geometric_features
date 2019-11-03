@@ -124,6 +124,48 @@ def main():
 
     fc = FeatureCollection()
 
+    # ********* New Hudson Bay (modified feature) *********
+
+    # Extract Foxe Basin from Northwestern Passages, and merge it
+    # to old Hudson Bay feature. Also combine Hudson Strait with
+    # Hudson Bay. Note that the created feature needs to be further
+    # edited by hand to eliminate a seem, due to Foxe Basin not
+    # completely aligning with one side of the old Hudson Bay feature
+    # (and this feature is not fixed by the last step in this script
+    # either).
+    fcCAA = gf.read('ocean', 'region', ['Northwestern Passages'])
+    fcbox1 = make_rectangle(lon0=-84.3, lon1=-71.7, lat0=67.1, lat1=70.75,
+        name='Foxe Basin Box 1', author=author,
+        tags='Hudson_Bay;Arctic;Arctic_NSIDC;Atlantic_Basin')
+    fcbox2 = make_rectangle(lon0=-86., lon1=-71.7, lat0=63.5, lat1=67.1,
+        name='Foxe Basin Box 2', author=author,
+        tags='Hudson_Bay;Arctic;Arctic_NSIDC;Atlantic_Basin')
+    fcFoxe_tmp = fcbox1.difference(fcCAA)
+    fcFoxe_tmp = fcbox1.difference(fcFoxe_tmp)
+    fcFoxe = fcbox2.difference(fcCAA)
+    fcFoxe = fcbox2.difference(fcFoxe)
+    fcFoxe.merge(fcFoxe_tmp)
+    fcFoxe = fcFoxe.combine('Foxe Basin')
+    fcHudson = gf.read('ocean', 'region', ['Hudson Bay'])
+    fcHudson.merge(gf.read('ocean', 'region', ['Hudson Strait']))
+    fcHudson.merge(fcFoxe)
+    fcHudson = fcHudson.combine('Hudson Bay')
+    props = fcHudson.features[0]['properties']
+    props['tags'] = 'Hudson Bay;Arctic;Atlantic_Basin'
+    props['author'] = author
+    fc = fcHudson
+
+    # ********* New Canadian Archipelago (modified feature) *********
+
+    # Remove Foxe Basin from Northwestern Passages and make new
+    # Canadian Archipelago feature
+    fcCAA = fcCAA.difference(fcFoxe)
+    props = fcCAA.features[0]['properties']
+    props['name'] = 'Canadian Archipelago'
+    props['tags'] = 'Canadian_Archipelago;Arctic;Arctic_NSIDC;Atlantic_Basin'
+    props['author'] = author
+    fc.merge(fcCAA)
+
     # ********* New Barents Sea (modified feature) *********
     # NOTE: this is dependent on existence of *old* features;
     #       in particular, the Barentsz_Sea feature will
@@ -133,10 +175,10 @@ def main():
     fcBS = gf.read('ocean', 'region', ['Barentsz Sea'])
     fcBS.merge(gf.read('ocean', 'region', ['White Sea']))
     fcBS = fcBS.combine('Barents Sea')
-    fc = fcBS
-    props = fc.features[0]['properties']
+    props = fcBS.features[0]['properties']
     props['tags'] = 'Barents_Sea;Arctic;Arctic_NSIDC;Arctic_Basin'
     props['author'] = author
+    fc.merge(fcBS)
 
     # ********* Kara Sea (unchanged feature) *********
 
@@ -172,7 +214,6 @@ def main():
     props = fcArctic.features[0]['properties']
     props['tags'] = 'Arctic_Ocean;Arctic;Arctic_Basin'
     props['author'] = author
-    #fcArctic.plot(projection='northpole')
     fc.merge(fcArctic)
 
     # ********* Beaufort Gyre (entirely new feature) *********
@@ -184,18 +225,18 @@ def main():
     fcBG = fcBG_firstTry.difference(fcBG)
     fc.merge(fcBG)
 
-    # ********* New NSIDC Chukchi Sea (modified feature) *********
+    # ********* New NSIDC Chukchi Sea (new feature) *********
 
     # Define Chukchi Sea as MASIE region #2 minus intersection with
     # Beaufort Gyre, and with Bering Strait transect as southern boundary
     fcChukchi = FeatureCollection()
     fcChukchi.add_feature(
         {"type": "Feature",
-         "properties": {"name": 'Chukchi Sea',
+         "properties": {"name": 'Chukchi Sea NSIDC',
                         "author": author,
                         "object": 'region',
                         "component": 'ocean',
-                        "tags": 'Chukchi_Sea;Arctic_NSIDC;Arctic_Basin'},
+                        "tags": 'Chukchi_Sea_NSIDC;Arctic_NSIDC;Arctic_Basin'},
          "geometry": {
              "type": "Polygon",
              "coordinates": [[[-167.15, 65.74],
@@ -216,38 +257,40 @@ def main():
     # Define Beaufort Gyre shelf region, minus intersection with Chukchi Sea
     fcBGshelf_firstTry = make_rectangle(lon0=-170., lon1=-130., lat0=68.0, lat1=80.5,
         name='Beaufort Gyre Shelf Box', author=author,
-        tags='Beaufort_Gyre_Shelf;Arctic;Arctic_NSIDC;Arctic_Basin')
+        tags='Beaufort_Gyre_Shelf;Arctic;Arctic_Basin')
     fcBGshelf = fcBGshelf_firstTry.difference(fcContour300)
     fcBGshelf_secondTry = fcBGshelf_firstTry.difference(fcBG)
     fcBGshelf_secondTry = fcBGshelf_secondTry.difference(fcBGshelf)
-    props = fcBGshelf.features[0]['properties']
-    props['name'] = 'Beaufort Gyre Shelf'
     fcBGshelf.merge(fcBGshelf_secondTry)
     fcBGshelf = fcBGshelf.combine('Beaufort Gyre Shelf')
     fcBGshelf = fcBGshelf.difference(fcChukchi)
+    props = fcBGshelf.features[0]['properties']
+    props['name'] = 'Beaufort Gyre Shelf'
+    props['author'] = author
+    props['tags'] = 'Beaufort_Gyre_Shelf;Arctic;Arctic_Basin'
     fc.merge(fcBGshelf)
 
-    # ********* New NSIDC East Siberian Sea (modified feature) *********
+    # ********* New NSIDC East Siberian Sea (new feature) *********
 
     # Define East Siberian Sea as MASIE region #3
     fcESS = FeatureCollection()
     fcESS = make_rectangle(lon0=180., lon1=145., lat0=67., lat1=80.,
-        name='East Siberian Sea', author=author,
-        tags='East_Siberian_Sea;Arctic_NSIDC;Arctic_Basin')
+        name='East Siberian Sea NSIDC', author=author,
+        tags='East_Siberian_Sea_NSIDC;Arctic_NSIDC;Arctic_Basin')
     fc.merge(fcESS)
 
-    # ********* New NSIDC Laptev Sea (modified feature) *********
+    # ********* New NSIDC Laptev Sea (new feature) *********
 
     # Define Laptev Sea as MASIE region #4, minus intersection with
     # Kara Sea
     fcLap = FeatureCollection()
     fcLap.add_feature(
         {"type": "Feature",
-         "properties": {"name": 'Laptev Sea',
+         "properties": {"name": 'Laptev Sea NSIDC',
                         "author": author,
                         "object": 'region',
                         "component": 'ocean',
-                        "tags": 'Laptev_Sea;Arctic_NSIDC;Arctic_Basin'},
+                        "tags": 'Laptev_Sea_NSIDC;Arctic_NSIDC;Arctic_Basin'},
          "geometry": {
              "type": "Polygon",
              "coordinates": [[[145.,  68.],
@@ -274,9 +317,6 @@ def main():
     props['author'] = author
     fc.merge(fcCentralArctic)
 
-    #fc.plot(projection='northpole')
-    #fc.to_geojson('arctic_ocean_regions.geojson')
-
     # "split" these features into individual files in the geometric data cache
     gf.split(fc)
 
@@ -286,7 +326,43 @@ def main():
     shutil.copyfile('features_and_tags.json',
                     '../../geometric_features/features_and_tags.json')
 
-    #plt.show()
+    # Fix features if necessary
+    fcArcticTags = gf.read(componentName='ocean', objectType='region',
+                           tags=['Arctic'])
+    for feature in fcArcticTags.features:
+        featureName = feature['properties']['name']
+        shape = shapely.geometry.shape(feature['geometry'])
+        print('{} is_valid: {}'.format(featureName, shape.is_valid))
+        if not shape.is_valid:
+            fixed = shape.buffer(0)
+            print('  Fixed? {}'.format(fixed.is_valid))
+            feature['geometry'] = shapely.geometry.mapping(fixed)
+    fcArcticNSIDCTags = gf.read(componentName='ocean', objectType='region',
+                                tags=['Arctic_NSIDC'])
+    for feature in fcArcticNSIDCTags.features:
+        featureName = feature['properties']['name']
+        shape = shapely.geometry.shape(feature['geometry'])
+        print('{} is_valid: {}'.format(featureName, shape.is_valid))
+        if not shape.is_valid:
+            fixed = shape.buffer(0)
+            print('  Fixed? {}'.format(fixed.is_valid))
+            feature['geometry'] = shapely.geometry.mapping(fixed)
+
+    fcArctic = fcArcticTags
+    fcArctic.merge(fcArcticNSIDCTags)
+    fcArctic.to_geojson('arctic_ocean_regions.geojson')
+    fcArctic.plot(projection='northpole')
+
+    # "split" these features into individual files in the geometric data cache
+    gf.split(fcArctic)
+
+    # update the database of feature names and tags
+    write_feature_names_and_tags(gf.cacheLocation)
+    # move the resulting file into place
+    shutil.copyfile('features_and_tags.json',
+                    '../../geometric_features/features_and_tags.json')
+
+    plt.show()
 
 if __name__ == '__main__':
     main()

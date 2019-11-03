@@ -9,7 +9,7 @@
                 "object": "region",
                 "component": "ocean",
                 "author": "Milena Veneziani",
-                "constituents": "White Sea; Barentsz Sea"
+                "constituents": "Barentsz Sea; White Sea"
             },
             "geometry": {
                 "type": "Polygon",
