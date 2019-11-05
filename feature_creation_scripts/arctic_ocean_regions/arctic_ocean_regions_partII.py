@@ -130,6 +130,26 @@ def main():
     # **********  Arctic regions, started in part I, and identified with
     # *********   tag='Arctic'
 
+    # ********* New Baltic Sea (modified feature) *********
+
+    # Combine old Baltic Sea feature with other small features
+    fcBalticSea = gf.read('ocean', 'region', ['Baltic Sea'])
+    fcFinland = gf.read('ocean', 'region', ['Gulf of Finland'])
+    fcBothnia = gf.read('ocean', 'region', ['Gulf of Bothnia'])
+    fcRiga = gf.read('ocean', 'region', ['Gulf of Riga'])
+    fcKattegat = gf.read('ocean', 'region', ['Kattegat'])
+    fcSkaggerak = gf.read('ocean', 'region', ['Skaggerak'])
+    fcBalticSea.merge(fcFinland)
+    fcBalticSea.merge(fcBothnia)
+    fcBalticSea.merge(fcRiga)
+    fcBalticSea.merge(fcKattegat)
+    fcBalticSea.merge(fcSkaggerak)
+    fcBalticSea = fcBalticSea.combine('Baltic Sea')
+    props = fcBalticSea.features[0]['properties']
+    props['tags'] = 'Baltic_Sea;Arctic;Atlantic_Basin'
+    props['author'] = author
+    fc = fcBalticSea
+
     # ********* New Canadian Archipelago (modified feature) *********
 
     # Modify old CAA by 1) including the shelf in the Arctic Ocean, and
@@ -138,15 +158,15 @@ def main():
     fcContour1000 = get_longest_contour(contourValue=-1000., author=author)
     fcCAA1 = make_rectangle(lon0=-130., lon1=-90., lat0=67.0, lat1=86.0,
         name='West Canadian Archipelago', author=author,
-        tags='Canadian_Archipelago;Arctic;Arctic_Basin')
+        tags='Canadian_Archipelago;Arctic;Atlantic_Basin')
     fcCAA1 = fcCAA1.difference(fcContour500)
     fcCAA2 = make_rectangle(lon0=-90., lon1=-70., lat0=67.0, lat1=86.0,
         name='Mid Canadian Archipelago', author=author,
-        tags='Canadian_Archipelago;Arctic;Arctic_Basin')
+        tags='Canadian_Archipelago;Arctic;Atlantic_Basin')
     fcCAA2 = fcCAA2.difference(fcContour1000)
     fcCAA3 = make_rectangle(lon0=-70., lon1=-50.5, lat0=76.0, lat1=86.0,
         name='East Canadian Archipelago', author=author,
-        tags='Canadian_Archipelago;Arctic;Arctic_Basin')
+        tags='Canadian_Archipelago;Arctic;Atlantic_Basin')
     fcCAA3 = fcCAA3.difference(fcContour500)
     fcCAA = fcCAA1
     fcCAA.merge(fcCAA2)
@@ -157,9 +177,9 @@ def main():
     fcBaffin = gf.read('ocean', 'region', ['Baffin Bay'])
     fcCAA = fcCAA.difference(fcBaffin)
     props = fcCAA.features[0]['properties']
-    props['tags'] = 'Canadian_Archipelago;Arctic;Arctic_Basin'
+    props['tags'] = 'Canadian_Archipelago;Arctic;Atlantic_Basin'
     props['author'] = author
-    fc = fcCAA
+    fc.merge(fcCAA)
 
     # ********* Canada Basin (new feature) *********
 
@@ -255,7 +275,7 @@ def main():
                         "author": author,
                         "object": 'region',
                         "component": 'ocean',
-                        "tags": 'Chukchi_Sea_NSIDC;Arctic_NSIDC;Arctic_Basin'},
+                        "tags": 'Chukchi_Sea_NSIDC;Arctic_NSIDC'},
          "geometry": {
              "type": "Polygon",
              "coordinates": [[[-156.65, 65.37],
@@ -274,7 +294,7 @@ def main():
                         "author": author,
                         "object": 'region',
                         "component": 'ocean',
-                        "tags": 'Beaufort_Sea_NSIDC;Arctic_NSIDC;Arctic_Basin'},
+                        "tags": 'Beaufort_Sea_NSIDC;Arctic_NSIDC'},
          "geometry": {
              "type": "Polygon",
              "coordinates": [[[-156.65, 65.37],
@@ -294,7 +314,7 @@ def main():
                         "author": author,
                         "object": 'region',
                         "component": 'ocean',
-                        "tags": 'Canadian_Archipelago_NSIDC;Arctic_NSIDC;Arctic_Basin'},
+                        "tags": 'Canadian_Archipelago_NSIDC;Arctic_NSIDC'},
          "geometry": {
              "type": "Polygon",
              "coordinates": [[[-103.41, 60.69],
@@ -318,7 +338,7 @@ def main():
                         "author": author,
                         "object": 'region',
                         "component": 'ocean',
-                        "tags": 'Hudson_Bay_NSIDC;Arctic_NSIDC;Arctic_Basin'},
+                        "tags": 'Hudson_Bay_NSIDC;Arctic_NSIDC'},
          "geometry": {
              "type": "Polygon",
              "coordinates": [[[-81.24,  49.19],
@@ -342,7 +362,7 @@ def main():
                         "author": author,
                         "object": 'region',
                         "component": 'ocean',
-                        "tags": 'Baffin_Bay_NSIDC;Arctic_NSIDC;Arctic_Basin'},
+                        "tags": 'Baffin_Bay_NSIDC;Arctic_NSIDC'},
          "geometry": {
              "type": "Polygon",
              "coordinates": [[[-53.20,  42.0],
@@ -368,7 +388,7 @@ def main():
                         "author": author,
                         "object": 'region',
                         "component": 'ocean',
-                        "tags": 'Central_Arctic_NSIDC;Arctic_NSIDC;Arctic_Basin'},
+                        "tags": 'Central_Arctic_NSIDC;Arctic_NSIDC'},
          "geometry": {
              "type": "Polygon",
              "coordinates": [[[180.0, 80.0],

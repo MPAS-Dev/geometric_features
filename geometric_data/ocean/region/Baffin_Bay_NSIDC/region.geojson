@@ -5,7 +5,7 @@
             "type": "Feature",
             "properties": {
                 "name": "Baffin Bay NSIDC",
-                "tags": "Baffin_Bay_NSIDC;Arctic_NSIDC;Arctic_Basin",
+                "tags": "Baffin_Bay_NSIDC;Arctic_NSIDC",
                 "object": "region",
                 "component": "ocean",
                 "author": "Milena Veneziani"

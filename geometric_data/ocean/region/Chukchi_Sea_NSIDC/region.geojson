@@ -5,7 +5,7 @@
             "type": "Feature",
             "properties": {
                 "name": "Chukchi Sea NSIDC",
-                "tags": "Chukchi_Sea_NSIDC;Arctic_NSIDC;Arctic_Basin",
+                "tags": "Chukchi_Sea_NSIDC;Arctic_NSIDC",
                 "object": "region",
                 "component": "ocean",
                 "author": "Milena Veneziani"

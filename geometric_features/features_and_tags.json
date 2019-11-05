@@ -922,11 +922,6 @@
         "Arafura_Sea",
         "Pacific_Basin"
       ],
-      "Arctic Ocean": [
-        "Arctic_Ocean",
-        "Arctic",
-        "Arctic_Basin"
-      ],
       "Baffin Bay": [
         "Baffin_Bay",
         "Arctic",
@@ -934,8 +929,7 @@
       ],
       "Baffin Bay NSIDC": [
         "Baffin_Bay_NSIDC",
-        "Arctic_NSIDC",
-        "Arctic_Basin"
+        "Arctic_NSIDC"
       ],
       "Balearic Sea": [
         "Balearic_Sea",
@@ -982,22 +976,18 @@
       ],
       "Beaufort Gyre": [
         "Beaufort_Gyre",
-        "Arctic_Proshutinsky",
-        "Arctic_Basin"
+        "Arctic_Proshutinsky"
       ],
       "Beaufort Gyre Shelf": [
         "Beaufort_Gyre_Shelf",
-        "Arctic_Proshutinsky",
-        "Arctic_Basin"
+        "Arctic_Proshutinsky"
       ],
       "Beaufort Sea": [
-        "Beaufort_Sea",
-        "Arctic_Basin"
+        "Beaufort_Sea"
       ],
       "Beaufort Sea NSIDC": [
         "Beaufort_Sea_NSIDC",
-        "Arctic_NSIDC",
-        "Arctic_Basin"
+        "Arctic_NSIDC"
       ],
       "Bellingshausen Sea": [
         "Antarctic",
@@ -1036,12 +1026,11 @@
       "Canadian Archipelago": [
         "Canadian_Archipelago",
         "Arctic",
-        "Arctic_Basin"
+        "Atlantic_Basin"
       ],
       "Canadian Archipelago NSIDC": [
         "Canadian_Archipelago_NSIDC",
-        "Arctic_NSIDC",
-        "Arctic_Basin"
+        "Arctic_NSIDC"
       ],
       "Caribbean Sea": [
         "Caribbean_Sea",
@@ -1062,8 +1051,7 @@
       ],
       "Central Arctic NSIDC": [
         "Central_Arctic_NSIDC",
-        "Arctic_NSIDC",
-        "Arctic_Basin"
+        "Arctic_NSIDC"
       ],
       "Ceram Sea": [
         "Ceram_Sea",
@@ -1076,8 +1064,7 @@
       ],
       "Chukchi Sea NSIDC": [
         "Chukchi_Sea_NSIDC",
-        "Arctic_NSIDC",
-        "Arctic_Basin"
+        "Arctic_NSIDC"
       ],
       "Coral Sea": [
         "Coral_Sea",
@@ -1104,8 +1091,7 @@
       ],
       "East Siberian Sea NSIDC": [
         "East_Siberian_Sea_NSIDC",
-        "Arctic_NSIDC",
-        "Arctic_Basin"
+        "Arctic_NSIDC"
       ],
       "Eastern China Sea": [
         "Eastern_China_Sea",
@@ -1237,12 +1223,11 @@
       "Hudson Bay": [
         "Hudson_Bay",
         "Arctic",
-        "Arctic_Basin"
+        "Atlantic_Basin"
       ],
       "Hudson Bay NSIDC": [
         "Hudson_Bay_NSIDC",
-        "Arctic_NSIDC",
-        "Arctic_Basin"
+        "Arctic_NSIDC"
       ],
       "Indian Ocean": [
         "Indian_Ocean",
@@ -1303,16 +1288,14 @@
       ],
       "Laptev Sea NSIDC": [
         "Laptev_Sea_NSIDC",
-        "Arctic_NSIDC",
-        "Arctic_Basin"
+        "Arctic_NSIDC"
       ],
       "Ligurian Sea": [
         "Ligurian_Sea",
         "Mediterranean_Basin"
       ],
       "Lincoln Sea": [
-        "Lincoln_Sea",
-        "Arctic_Basin"
+        "Lincoln_Sea"
       ],
       "MOC mask 34S": [
         "MOC_mask_34S"
@@ -1502,8 +1485,7 @@
         "Shelf"
       ],
       "White Sea": [
-        "White_Sea",
-        "Arctic_Basin"
+        "White_Sea"
       ],
       "Yellow Sea": [
         "Yellow_Sea",

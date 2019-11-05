@@ -5,7 +5,7 @@
             "type": "Feature",
             "properties": {
                 "name": "Canadian Archipelago",
-                "tags": "Canadian_Archipelago;Arctic;Arctic_Basin",
+                "tags": "Canadian_Archipelago;Arctic;Atlantic_Basin",
                 "object": "region",
                 "component": "ocean",
                 "author": "Milena Veneziani",

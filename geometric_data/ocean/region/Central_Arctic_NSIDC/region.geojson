@@ -5,7 +5,7 @@
             "type": "Feature",
             "properties": {
                 "name": "Central Arctic NSIDC",
-                "tags": "Central_Arctic_NSIDC;Arctic_NSIDC;Arctic_Basin",
+                "tags": "Central_Arctic_NSIDC;Arctic_NSIDC",
                 "object": "region",
                 "component": "ocean",
                 "author": "Milena Veneziani"

@@ -5,7 +5,7 @@
             "type": "Feature",
             "properties": {
                 "name": "Beaufort Sea NSIDC",
-                "tags": "Beaufort_Sea_NSIDC;Arctic_NSIDC;Arctic_Basin",
+                "tags": "Beaufort_Sea_NSIDC;Arctic_NSIDC",
                 "object": "region",
                 "component": "ocean",
                 "author": "Milena Veneziani"
