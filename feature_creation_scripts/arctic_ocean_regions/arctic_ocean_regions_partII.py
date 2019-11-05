@@ -126,9 +126,9 @@ def main():
 
     fc = FeatureCollection()
 
-    # *********** First, complete definition of oceanography-relevant *********
-    # **********  Arctic regions, started in part I, and identified with
-    # *********   tag='Arctic'
+    # *********** First, fix Atlantic_Basin regions in such a way that ********
+    # **********  they do not overlap each other (so that, we can combine
+    # *********   them together to form a Atlantic Basin region)
 
     # ********* New Baltic Sea (modified feature) *********
 
@@ -149,6 +149,34 @@ def main():
     props['tags'] = 'Baltic_Sea;Arctic;Atlantic_Basin'
     props['author'] = author
     fc = fcBalticSea
+
+    # ********* New North Atlantic Ocean (modified feature) *********
+
+    # Fix North Atlantic so that it does not overlap with new Labdrador
+    # Sea, Irminger Sea, North Sea, Greenland Sea, and Norwegian Sea
+    fcNorthAtlantic = gf.read('ocean', 'region', ['North Atlantic Ocean'])
+    fcLabSea = gf.read('ocean', 'region', ['Labrador Sea'])
+    fcIrmSea = gf.read('ocean', 'region', ['Irminger Sea'])
+    fcGS = gf.read('ocean', 'region', ['Greenland Sea'])
+    fcNS = gf.read('ocean', 'region', ['Norwegian Sea'])
+    fcNorthSea = gf.read('ocean', 'region', ['North Sea'])
+    fc_todiscard = fcLabSea
+    fc_todiscard.merge(fcIrmSea)
+    fc_todiscard.merge(fcGS)
+    fc_todiscard.merge(fcNS)
+    fc_todiscard.merge(fcNorthSea)
+    fc_todiscard = fc_todiscard.combine('Combined region to discard')
+    fcNorthAtlantic.merge(fc_todiscard)
+    fcNorthAtlantic = fcNorthAtlantic.combine('North Atlantic Ocean')
+    fcNorthAtlantic = fcNorthAtlantic.difference(fc_todiscard)
+    props = fcNorthAtlantic.features[0]['properties']
+    props['tags'] = 'North_Atlantic_Ocean;Atlantic_Basin'
+    props['author'] = author
+    fc.merge(fcNorthAtlantic)
+
+    # *********** Second, complete definition of oceanography-relevant *********
+    # **********  Arctic regions, started in part I, and identified with
+    # *********   tag='Arctic'
 
     # ********* New Canadian Archipelago (modified feature) *********
 
@@ -260,7 +288,7 @@ def main():
     props['author'] = author
     fc.merge(fcCentralArctic)
 
-    # *********** Second, complete definition of seaice-relevant ***********
+    # *********** Third, complete definition of seaice-relevant ***********
     # ***** Arctic regions, started in part I, according to NSIDC
     # ***** (regions map: https://nsidc.org/data/masie/browse_regions)
     # ****  and identified with tag='Arctic_NSIDC'
