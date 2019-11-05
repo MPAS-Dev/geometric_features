@@ -135,11 +135,11 @@ def main():
     # either).
     fcCAA = gf.read('ocean', 'region', ['Northwestern Passages'])
     fcbox1 = make_rectangle(lon0=-84.3, lon1=-71.7, lat0=67.1, lat1=70.75,
-        name='Foxe Basin Box 1', author=author,
-        tags='Hudson_Bay;Arctic;Atlantic_Basin')
+                            name='Foxe Basin Box 1', author=author,
+                            tags='Hudson_Bay;Arctic;Atlantic_Basin')
     fcbox2 = make_rectangle(lon0=-86., lon1=-71.7, lat0=63.5, lat1=67.1,
-        name='Foxe Basin Box 2', author=author,
-        tags='Hudson_Bay;Arctic;Atlantic_Basin')
+                            name='Foxe Basin Box 2', author=author,
+                            tags='Hudson_Bay;Arctic;Atlantic_Basin')
     fcFoxe_tmp = fcbox1.difference(fcCAA)
     fcFoxe_tmp = fcbox1.difference(fcFoxe_tmp)
     fcFoxe = fcbox2.difference(fcCAA)
@@ -220,8 +220,8 @@ def main():
 
     fcContour300 = get_longest_contour(contourValue=-300., author=author)
     fcBG_firstTry = make_rectangle(lon0=-170., lon1=-130., lat0=70.5, lat1=80.5,
-        name='Beaufort Gyre', author=author,
-        tags='Beaufort_Gyre;Arctic_Proshutinsky')
+                                   name='Beaufort Gyre', author=author,
+                                   tags='Beaufort_Gyre;Arctic_Proshutinsky')
     fcBG = fcBG_firstTry.difference(fcContour300)
     fcBG = fcBG_firstTry.difference(fcBG)
     fc.merge(fcBG)
@@ -256,9 +256,11 @@ def main():
     # ********* Beaufort Gyre shelf (entirely new feature) *********
 
     # Define Beaufort Gyre shelf region, minus intersection with Chukchi Sea
-    fcBGshelf_firstTry = make_rectangle(lon0=-170., lon1=-130., lat0=68.0, lat1=80.5,
-        name='Beaufort Gyre Shelf Box', author=author,
-        tags='Beaufort_Gyre_Shelf;Arctic_Proshutinsky')
+    fcBGshelf_firstTry = make_rectangle(lon0=-170., lon1=-130.,
+                                        lat0=68.0, lat1=80.5,
+                                        name='Beaufort Gyre Shelf Box',
+                                        author=author,
+                                        tags='Beaufort_Gyre_Shelf;Arctic_Proshutinsky')
     fcBGshelf = fcBGshelf_firstTry.difference(fcContour300)
     fcBGshelf_secondTry = fcBGshelf_firstTry.difference(fcBG)
     fcBGshelf_secondTry = fcBGshelf_secondTry.difference(fcBGshelf)
@@ -276,8 +278,8 @@ def main():
     # Define East Siberian Sea as MASIE region #3
     fcESS = FeatureCollection()
     fcESS = make_rectangle(lon0=180., lon1=145., lat0=67., lat1=80.,
-        name='East Siberian Sea NSIDC', author=author,
-        tags='East_Siberian_Sea_NSIDC;Arctic_NSIDC')
+                           name='East Siberian Sea NSIDC', author=author,
+                           tags='East_Siberian_Sea_NSIDC;Arctic_NSIDC')
     fc.merge(fcESS)
 
     # ********* New NSIDC Laptev Sea (new feature) *********

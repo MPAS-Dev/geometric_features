@@ -26,8 +26,7 @@ def get_longest_contour(contourValue, author):
     if not os.path.exists(bathymetryFileName):
         print('Downloading IBCAO bathymetry data...')
         # download
-        baseURL =
-            'https://www.ngdc.noaa.gov/mgg/bathymetry/arctic/grids/version3_0'
+        baseURL = 'https://www.ngdc.noaa.gov/mgg/bathymetry/arctic/grids/version3_0'
 
         download_files([bathymetryFileName], baseURL, './')
 
@@ -43,8 +42,8 @@ def get_longest_contour(contourValue, author):
     x = ds.x.values
     y = ds.y.values
     z = ds.z.values
-    z[(x==numpy.amin(x)) | (x==numpy.amax(x)) |
-      (y==numpy.amin(y)) | (y==numpy.amax(y))] = 0.0
+    z[(x == numpy.amin(x)) | (x == numpy.amax(x)) |
+      (y == numpy.amin(y)) | (y == numpy.amax(y))] = 0.0
     # plot contours
     plt.figure()
     cs = plt.contour(x, y, z, (contourValue,))
@@ -185,16 +184,16 @@ def main():
     fcContour500 = get_longest_contour(contourValue=-500., author=author)
     fcContour1000 = get_longest_contour(contourValue=-1000., author=author)
     fcCAA1 = make_rectangle(lon0=-130., lon1=-90., lat0=67.0, lat1=86.0,
-        name='West Canadian Archipelago', author=author,
-        tags='Canadian_Archipelago;Arctic;Atlantic_Basin')
+                            name='West Canadian Archipelago', author=author,
+                            tags='Canadian_Archipelago;Arctic;Atlantic_Basin')
     fcCAA1 = fcCAA1.difference(fcContour500)
     fcCAA2 = make_rectangle(lon0=-90., lon1=-70., lat0=67.0, lat1=86.0,
-        name='Mid Canadian Archipelago', author=author,
-        tags='Canadian_Archipelago;Arctic;Atlantic_Basin')
+                            name='Mid Canadian Archipelago', author=author,
+                            tags='Canadian_Archipelago;Arctic;Atlantic_Basin')
     fcCAA2 = fcCAA2.difference(fcContour1000)
     fcCAA3 = make_rectangle(lon0=-70., lon1=-50.5, lat0=76.0, lat1=86.0,
-        name='East Canadian Archipelago', author=author,
-        tags='Canadian_Archipelago;Arctic;Atlantic_Basin')
+                            name='East Canadian Archipelago', author=author,
+                            tags='Canadian_Archipelago;Arctic;Atlantic_Basin')
     fcCAA3 = fcCAA3.difference(fcContour500)
     fcCAA = fcCAA1
     fcCAA.merge(fcCAA2)
@@ -218,11 +217,13 @@ def main():
     # Beuafort Gyre, we have separated the 'Gyre' from the 'Gyre Shelf').
     fcContour300 = get_longest_contour(contourValue=-300., author=author)
     fcCB1 = make_rectangle(lon0=-170., lon1=-156.65, lat0=67.0, lat1=80.0,
-        name='West Canada Basin', author=author, tags='Canada_Basin;Arctic;Arctic_Basin')
+                           name='West Canada Basin', author=author,
+                           tags='Canada_Basin;Arctic;Arctic_Basin')
     fcCB = fcCB1.difference(fcContour300)
     fcCB = fcCB1.difference(fcCB)
     fcCB2 = make_rectangle(lon0=-156.65, lon1=-100.0, lat0=67.0, lat1=80.0,
-        name='East Canada Basin', author=author, tags='Canada_Basin;Arctic;Arctic_Basin')
+                           name='East Canada Basin', author=author,
+                           tags='Canada_Basin;Arctic;Arctic_Basin')
     fcCB2 = fcCB2.difference(fcCAA)
     fcCB.merge(fcCB2)
     fcCB = fcCB.combine('Canada Basin')
@@ -235,8 +236,8 @@ def main():
 
     # This supersedes the old Chukchi Sea feature
     fcChukchi = make_rectangle(lon0=-180., lon1=-156.65, lat0=65.0, lat1=80.0,
-        name='Chukchi Sea', author=author,
-        tags='Chukchi_Sea;Arctic;Arctic_Basin')
+                               name='Chukchi Sea', author=author,
+                               tags='Chukchi_Sea;Arctic;Arctic_Basin')
     fcChukchi = fcChukchi.difference(fcContour300)
     fcChukchi_NSIDC = gf.read('ocean', 'region', ['Chukchi Sea NSIDC'])
     fcChukchi_todiscard = fcChukchi.difference(fcChukchi_NSIDC)
@@ -250,8 +251,8 @@ def main():
 
     # This supersedes the old East Siberian Sea feature
     fcESS = make_rectangle(lon0=142., lon1=180.0, lat0=68.5, lat1=80.0,
-        name='East Siberian Sea', author=author,
-        tags='East_Siberian_Sea;Arctic;Arctic_Basin')
+                           name='East Siberian Sea', author=author,
+                           tags='East_Siberian_Sea;Arctic;Arctic_Basin')
     fcESS = fcESS.difference(fcContour300)
     props = fcESS.features[0]['properties']
     props['tags'] = 'East_Siberian_Sea;Arctic;Arctic_Basin'
@@ -262,8 +263,8 @@ def main():
 
     # This supersedes the old Laptev Sea feature
     fcLap = make_rectangle(lon0=90., lon1=142.0, lat0=70.0, lat1=81.25,
-        name='Laptev Sea', author=author,
-        tags='Laptev_Sea;Arctic;Arctic_Basin')
+                           name='Laptev Sea', author=author,
+                           tags='Laptev_Sea;Arctic;Arctic_Basin')
     fcLap = fcLap.difference(fcContour300)
     fcKara = gf.read('ocean', 'region', ['Kara Sea'])
     fcLap = fcLap.difference(fcKara)
