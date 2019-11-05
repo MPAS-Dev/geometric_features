@@ -1,0 +1,62 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Hudson Bay NSIDC",
+                "tags": "Hudson_Bay_NSIDC;Arctic_NSIDC",
+                "object": "region",
+                "component": "ocean",
+                "author": "Milena Veneziani"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -81.24,
+                            49.19
+                        ],
+                        [
+                            -103.41,
+                            60.69
+                        ],
+                        [
+                            -93.04,
+                            65.7
+                        ],
+                        [
+                            -84.45,
+                            67.27
+                        ],
+                        [
+                            -83.94,
+                            70.43
+                        ],
+                        [
+                            -81.21,
+                            71.79
+                        ],
+                        [
+                            -70.7,
+                            66.95
+                        ],
+                        [
+                            -70.12,
+                            65.99
+                        ],
+                        [
+                            -63.7,
+                            57.35
+                        ],
+                        [
+                            -81.24,
+                            49.19
+                        ]
+                    ]
+                ]
+            }
+        }
+    ]
+}

@@ -5,7 +5,7 @@
             "type": "Feature",
             "properties": {
                 "name": "East Siberian Sea NSIDC",
-                "tags": "East_Siberian_Sea_NSIDC;Arctic_NSIDC;Arctic_Basin",
+                "tags": "East_Siberian_Sea_NSIDC;Arctic_NSIDC",
                 "object": "region",
                 "component": "ocean",
                 "author": "Milena Veneziani"

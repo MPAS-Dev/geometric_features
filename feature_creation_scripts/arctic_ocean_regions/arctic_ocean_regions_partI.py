@@ -120,7 +120,7 @@ def main():
 
     # make a geometric features object that knows about the geometric data
     # cache up a couple of directories
-    gf = GeometricFeatures('../../geometric_data')
+    gf = GeometricFeatures(cacheLocation='../../geometric_data')
 
     fc = FeatureCollection()
 
@@ -135,11 +135,11 @@ def main():
     # either).
     fcCAA = gf.read('ocean', 'region', ['Northwestern Passages'])
     fcbox1 = make_rectangle(lon0=-84.3, lon1=-71.7, lat0=67.1, lat1=70.75,
-        name='Foxe Basin Box 1', author=author,
-        tags='Hudson_Bay;Arctic;Arctic_NSIDC;Atlantic_Basin')
+                            name='Foxe Basin Box 1', author=author,
+                            tags='Hudson_Bay;Arctic;Atlantic_Basin')
     fcbox2 = make_rectangle(lon0=-86., lon1=-71.7, lat0=63.5, lat1=67.1,
-        name='Foxe Basin Box 2', author=author,
-        tags='Hudson_Bay;Arctic;Arctic_NSIDC;Atlantic_Basin')
+                            name='Foxe Basin Box 2', author=author,
+                            tags='Hudson_Bay;Arctic;Atlantic_Basin')
     fcFoxe_tmp = fcbox1.difference(fcCAA)
     fcFoxe_tmp = fcbox1.difference(fcFoxe_tmp)
     fcFoxe = fcbox2.difference(fcCAA)
@@ -162,7 +162,7 @@ def main():
     fcCAA = fcCAA.difference(fcFoxe)
     props = fcCAA.features[0]['properties']
     props['name'] = 'Canadian Archipelago'
-    props['tags'] = 'Canadian_Archipelago;Arctic;Arctic_NSIDC;Atlantic_Basin'
+    props['tags'] = 'Canadian_Archipelago;Arctic;Atlantic_Basin'
     props['author'] = author
     fc.merge(fcCAA)
 
@@ -220,7 +220,8 @@ def main():
 
     fcContour300 = get_longest_contour(contourValue=-300., author=author)
     fcBG_firstTry = make_rectangle(lon0=-170., lon1=-130., lat0=70.5, lat1=80.5,
-        name='Beaufort Gyre', author=author, tags='Beaufort_Gyre;Arctic;Arctic_Basin;Proshutinski')
+                                   name='Beaufort Gyre', author=author,
+                                   tags='Beaufort_Gyre;Arctic_Proshutinsky')
     fcBG = fcBG_firstTry.difference(fcContour300)
     fcBG = fcBG_firstTry.difference(fcBG)
     fc.merge(fcBG)
@@ -236,7 +237,7 @@ def main():
                         "author": author,
                         "object": 'region',
                         "component": 'ocean',
-                        "tags": 'Chukchi_Sea_NSIDC;Arctic_NSIDC;Arctic_Basin'},
+                        "tags": 'Chukchi_Sea_NSIDC;Arctic_NSIDC'},
          "geometry": {
              "type": "Polygon",
              "coordinates": [[[-167.15, 65.74],
@@ -255,9 +256,11 @@ def main():
     # ********* Beaufort Gyre shelf (entirely new feature) *********
 
     # Define Beaufort Gyre shelf region, minus intersection with Chukchi Sea
-    fcBGshelf_firstTry = make_rectangle(lon0=-170., lon1=-130., lat0=68.0, lat1=80.5,
-        name='Beaufort Gyre Shelf Box', author=author,
-        tags='Beaufort_Gyre_Shelf;Arctic;Arctic_Basin')
+    fcBGshelf_firstTry = make_rectangle(lon0=-170., lon1=-130.,
+                                        lat0=68.0, lat1=80.5,
+                                        name='Beaufort Gyre Shelf Box',
+                                        author=author,
+                                        tags='Beaufort_Gyre_Shelf;Arctic_Proshutinsky')
     fcBGshelf = fcBGshelf_firstTry.difference(fcContour300)
     fcBGshelf_secondTry = fcBGshelf_firstTry.difference(fcBG)
     fcBGshelf_secondTry = fcBGshelf_secondTry.difference(fcBGshelf)
@@ -267,7 +270,7 @@ def main():
     props = fcBGshelf.features[0]['properties']
     props['name'] = 'Beaufort Gyre Shelf'
     props['author'] = author
-    props['tags'] = 'Beaufort_Gyre_Shelf;Arctic;Arctic_Basin'
+    props['tags'] = 'Beaufort_Gyre_Shelf;Arctic_Proshutinsky'
     fc.merge(fcBGshelf)
 
     # ********* New NSIDC East Siberian Sea (new feature) *********
@@ -275,8 +278,8 @@ def main():
     # Define East Siberian Sea as MASIE region #3
     fcESS = FeatureCollection()
     fcESS = make_rectangle(lon0=180., lon1=145., lat0=67., lat1=80.,
-        name='East Siberian Sea NSIDC', author=author,
-        tags='East_Siberian_Sea_NSIDC;Arctic_NSIDC;Arctic_Basin')
+                           name='East Siberian Sea NSIDC', author=author,
+                           tags='East_Siberian_Sea_NSIDC;Arctic_NSIDC')
     fc.merge(fcESS)
 
     # ********* New NSIDC Laptev Sea (new feature) *********
@@ -290,7 +293,7 @@ def main():
                         "author": author,
                         "object": 'region',
                         "component": 'ocean',
-                        "tags": 'Laptev_Sea_NSIDC;Arctic_NSIDC;Arctic_Basin'},
+                        "tags": 'Laptev_Sea_NSIDC;Arctic_NSIDC'},
          "geometry": {
              "type": "Polygon",
              "coordinates": [[[145.,  68.],

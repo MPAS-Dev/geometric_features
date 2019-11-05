@@ -5,7 +5,7 @@
             "type": "Feature",
             "properties": {
                 "name": "Laptev Sea NSIDC",
-                "tags": "Laptev_Sea_NSIDC;Arctic_NSIDC;Arctic_Basin",
+                "tags": "Laptev_Sea_NSIDC;Arctic_NSIDC",
                 "object": "region",
                 "component": "ocean",
                 "author": "Milena Veneziani"

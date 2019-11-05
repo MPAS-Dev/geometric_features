@@ -5,7 +5,7 @@
             "type": "Feature",
             "properties": {
                 "name": "Beaufort Gyre Shelf",
-                "tags": "Beaufort_Gyre_Shelf;Arctic;Arctic_Basin",
+                "tags": "Beaufort_Gyre_Shelf;Arctic_Proshutinsky",
                 "object": "region",
                 "component": "ocean",
                 "author": "Milena Veneziani",

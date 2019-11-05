@@ -922,15 +922,14 @@
         "Arafura_Sea",
         "Pacific_Basin"
       ],
-      "Arctic Ocean": [
-        "Arctic_Ocean",
-        "Arctic",
-        "Arctic_Basin"
-      ],
       "Baffin Bay": [
         "Baffin_Bay",
         "Arctic",
         "Atlantic_Basin"
+      ],
+      "Baffin Bay NSIDC": [
+        "Baffin_Bay_NSIDC",
+        "Arctic_NSIDC"
       ],
       "Balearic Sea": [
         "Balearic_Sea",
@@ -977,18 +976,18 @@
       ],
       "Beaufort Gyre": [
         "Beaufort_Gyre",
-        "Arctic",
-        "Arctic_Basin",
-        "Proshutinski"
+        "Arctic_Proshutinsky"
       ],
       "Beaufort Gyre Shelf": [
         "Beaufort_Gyre_Shelf",
-        "Arctic",
-        "Arctic_Basin"
+        "Arctic_Proshutinsky"
       ],
       "Beaufort Sea": [
-        "Beaufort_Sea",
-        "Arctic_Basin"
+        "Beaufort_Sea"
+      ],
+      "Beaufort Sea NSIDC": [
+        "Beaufort_Sea_NSIDC",
+        "Arctic_NSIDC"
       ],
       "Bellingshausen Sea": [
         "Antarctic",
@@ -1019,11 +1018,19 @@
         "Bristol_Channel",
         "Atlantic_Basin"
       ],
+      "Canada Basin": [
+        "Canada_Basin",
+        "Arctic",
+        "Arctic_Basin"
+      ],
       "Canadian Archipelago": [
         "Canadian_Archipelago",
         "Arctic",
-        "Arctic_NSIDC",
         "Atlantic_Basin"
+      ],
+      "Canadian Archipelago NSIDC": [
+        "Canadian_Archipelago_NSIDC",
+        "Arctic_NSIDC"
       ],
       "Caribbean Sea": [
         "Caribbean_Sea",
@@ -1042,18 +1049,22 @@
         "Arctic",
         "Arctic_Basin"
       ],
+      "Central Arctic NSIDC": [
+        "Central_Arctic_NSIDC",
+        "Arctic_NSIDC"
+      ],
       "Ceram Sea": [
         "Ceram_Sea",
         "Pacific_Basin"
       ],
       "Chukchi Sea": [
         "Chukchi_Sea",
+        "Arctic",
         "Arctic_Basin"
       ],
       "Chukchi Sea NSIDC": [
         "Chukchi_Sea_NSIDC",
-        "Arctic_NSIDC",
-        "Arctic_Basin"
+        "Arctic_NSIDC"
       ],
       "Coral Sea": [
         "Coral_Sea",
@@ -1075,12 +1086,12 @@
       ],
       "East Siberian Sea": [
         "East_Siberian_Sea",
+        "Arctic",
         "Arctic_Basin"
       ],
       "East Siberian Sea NSIDC": [
         "East_Siberian_Sea_NSIDC",
-        "Arctic_NSIDC",
-        "Arctic_Basin"
+        "Arctic_NSIDC"
       ],
       "Eastern China Sea": [
         "Eastern_China_Sea",
@@ -1171,8 +1182,7 @@
         "Pacific_Basin"
       ],
       "Gulf of Finland": [
-        "Gulf_of_Finland",
-        "Atlantic_Basin"
+        "Gulf_of_Finland"
       ],
       "Gulf of Guinea": [
         "Gulf_of_Guinea",
@@ -1187,8 +1197,7 @@
         "Indian_Basin"
       ],
       "Gulf of Riga": [
-        "Gulf_of_Riga",
-        "Atlantic_Basin"
+        "Gulf_of_Riga"
       ],
       "Gulf of St-Lawrence": [
         "Gulf_of_St-Lawrence",
@@ -1212,8 +1221,11 @@
       "Hudson Bay": [
         "Hudson_Bay",
         "Arctic",
-        "Arctic_NSIDC",
-        "Arctic_Basin"
+        "Atlantic_Basin"
+      ],
+      "Hudson Bay NSIDC": [
+        "Hudson_Bay_NSIDC",
+        "Arctic_NSIDC"
       ],
       "Indian Ocean": [
         "Indian_Ocean",
@@ -1255,8 +1267,7 @@
         "Arctic_Basin"
       ],
       "Kattegat": [
-        "Kattegat",
-        "Atlantic_Basin"
+        "Kattegat"
       ],
       "Labrador Sea": [
         "Labrador_Sea",
@@ -1269,20 +1280,19 @@
       ],
       "Laptev Sea": [
         "Laptev_Sea",
+        "Arctic",
         "Arctic_Basin"
       ],
       "Laptev Sea NSIDC": [
         "Laptev_Sea_NSIDC",
-        "Arctic_NSIDC",
-        "Arctic_Basin"
+        "Arctic_NSIDC"
       ],
       "Ligurian Sea": [
         "Ligurian_Sea",
         "Mediterranean_Basin"
       ],
       "Lincoln Sea": [
-        "Lincoln_Sea",
-        "Arctic_Basin"
+        "Lincoln_Sea"
       ],
       "MOC mask 34S": [
         "MOC_mask_34S"
@@ -1374,8 +1384,7 @@
         "Pacific_Basin"
       ],
       "Skaggerak": [
-        "Skaggerak",
-        "Atlantic_Basin"
+        "Skaggerak"
       ],
       "Solomon Sea": [
         "Solomon_Sea",
@@ -1472,8 +1481,7 @@
         "Shelf"
       ],
       "White Sea": [
-        "White_Sea",
-        "Arctic_Basin"
+        "White_Sea"
       ],
       "Yellow Sea": [
         "Yellow_Sea",
