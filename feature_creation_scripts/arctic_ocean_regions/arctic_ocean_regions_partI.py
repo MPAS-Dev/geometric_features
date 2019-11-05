@@ -120,7 +120,7 @@ def main():
 
     # make a geometric features object that knows about the geometric data
     # cache up a couple of directories
-    gf = GeometricFeatures('../../geometric_data')
+    gf = GeometricFeatures(cacheLocation='../../geometric_data')
 
     fc = FeatureCollection()
 
@@ -220,7 +220,7 @@ def main():
 
     fcContour300 = get_longest_contour(contourValue=-300., author=author)
     fcBG_firstTry = make_rectangle(lon0=-170., lon1=-130., lat0=70.5, lat1=80.5,
-        name='Beaufort Gyre', author=author, tags='Beaufort_Gyre;Arctic;Arctic_Basin;Proshutinski')
+        name='Beaufort Gyre', author=author, tags='Beaufort_Gyre;Arctic_Proshutinsky;Arctic_Basin')
     fcBG = fcBG_firstTry.difference(fcContour300)
     fcBG = fcBG_firstTry.difference(fcBG)
     fc.merge(fcBG)
@@ -267,7 +267,7 @@ def main():
     props = fcBGshelf.features[0]['properties']
     props['name'] = 'Beaufort Gyre Shelf'
     props['author'] = author
-    props['tags'] = 'Beaufort_Gyre_Shelf;Arctic;Arctic_Basin'
+    props['tags'] = 'Beaufort_Gyre_Shelf;Arctic_Proshutinsky;Arctic_Basin'
     fc.merge(fcBGshelf)
 
     # ********* New NSIDC East Siberian Sea (new feature) *********

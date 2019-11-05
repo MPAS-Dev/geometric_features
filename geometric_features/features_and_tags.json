@@ -932,6 +932,11 @@
         "Arctic",
         "Atlantic_Basin"
       ],
+      "Baffin Bay NSIDC": [
+        "Baffin_Bay_NSIDC",
+        "Arctic_NSIDC",
+        "Arctic_Basin"
+      ],
       "Balearic Sea": [
         "Balearic_Sea",
         "Mediterranean_Basin"
@@ -977,17 +982,21 @@
       ],
       "Beaufort Gyre": [
         "Beaufort_Gyre",
-        "Arctic",
-        "Arctic_Basin",
-        "Proshutinski"
+        "Arctic_Proshutinsky",
+        "Arctic_Basin"
       ],
       "Beaufort Gyre Shelf": [
         "Beaufort_Gyre_Shelf",
-        "Arctic",
+        "Arctic_Proshutinsky",
         "Arctic_Basin"
       ],
       "Beaufort Sea": [
         "Beaufort_Sea",
+        "Arctic_Basin"
+      ],
+      "Beaufort Sea NSIDC": [
+        "Beaufort_Sea_NSIDC",
+        "Arctic_NSIDC",
         "Arctic_Basin"
       ],
       "Bellingshausen Sea": [
@@ -1019,11 +1028,20 @@
         "Bristol_Channel",
         "Atlantic_Basin"
       ],
+      "Canada Basin": [
+        "Canada_Basin",
+        "Arctic",
+        "Arctic_Basin"
+      ],
       "Canadian Archipelago": [
         "Canadian_Archipelago",
         "Arctic",
+        "Arctic_Basin"
+      ],
+      "Canadian Archipelago NSIDC": [
+        "Canadian_Archipelago_NSIDC",
         "Arctic_NSIDC",
-        "Atlantic_Basin"
+        "Arctic_Basin"
       ],
       "Caribbean Sea": [
         "Caribbean_Sea",
@@ -1042,12 +1060,18 @@
         "Arctic",
         "Arctic_Basin"
       ],
+      "Central Arctic NSIDC": [
+        "Central_Arctic_NSIDC",
+        "Arctic_NSIDC",
+        "Arctic_Basin"
+      ],
       "Ceram Sea": [
         "Ceram_Sea",
         "Pacific_Basin"
       ],
       "Chukchi Sea": [
         "Chukchi_Sea",
+        "Arctic",
         "Arctic_Basin"
       ],
       "Chukchi Sea NSIDC": [
@@ -1075,6 +1099,7 @@
       ],
       "East Siberian Sea": [
         "East_Siberian_Sea",
+        "Arctic",
         "Arctic_Basin"
       ],
       "East Siberian Sea NSIDC": [
@@ -1212,6 +1237,10 @@
       "Hudson Bay": [
         "Hudson_Bay",
         "Arctic",
+        "Arctic_Basin"
+      ],
+      "Hudson Bay NSIDC": [
+        "Hudson_Bay_NSIDC",
         "Arctic_NSIDC",
         "Arctic_Basin"
       ],
@@ -1269,6 +1298,7 @@
       ],
       "Laptev Sea": [
         "Laptev_Sea",
+        "Arctic",
         "Arctic_Basin"
       ],
       "Laptev Sea NSIDC": [

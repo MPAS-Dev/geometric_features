@@ -5,7 +5,7 @@
             "type": "Feature",
             "properties": {
                 "name": "Hudson Bay",
-                "tags": "Hudson_Bay;Arctic;Arctic_NSIDC;Arctic_Basin",
+                "tags": "Hudson_Bay;Arctic;Arctic_Basin",
                 "object": "region",
                 "component": "ocean",
                 "author": "Milena Veneziani",
