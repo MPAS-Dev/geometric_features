@@ -5,7 +5,7 @@
             "type": "Feature", 
             "properties": {
                 "name": "Gulf of Riga", 
-                "tags": "Gulf_of_Riga;Atlantic_Basin", 
+                "tags": "Gulf_of_Riga", 
                 "object": "region", 
                 "component": "ocean", 
                 "author": "http://www.marineregions.org/downloads.php#iho"
