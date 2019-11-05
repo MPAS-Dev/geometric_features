@@ -1,8 +1,13 @@
 # Arctic Ocean Regions
 
-Arctic Ocean regions based on NSIDC definitions for the Siberian side
-(see https://nsidc.org/data/masie/browse_regions), and on the Beaufort
-Gyre definition in Proshutinsky et al. (2009).
+Arctic Ocean regions based on three criteria:
+1) oceanography-relevant regions, with tag=Arctic;
+2) seaice-relevant regions, with tag=Arctic_NSIDC (defined according to
+NSIDC standards; see https://nsidc.org/data/masie/browse_regions
+for a map, and https://nsidc.org/data/g02186?qt-data_set_tabs=2
+for more details)
+3) Beaufort Gyre definition as in Proshutinsky et al. (2009),
+with tag=Arctic_Proshutinsky.
 
 
 ## References

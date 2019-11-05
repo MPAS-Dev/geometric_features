@@ -220,7 +220,8 @@ def main():
 
     fcContour300 = get_longest_contour(contourValue=-300., author=author)
     fcBG_firstTry = make_rectangle(lon0=-170., lon1=-130., lat0=70.5, lat1=80.5,
-        name='Beaufort Gyre', author=author, tags='Beaufort_Gyre;Arctic_Proshutinsky;Arctic_Basin')
+        name='Beaufort Gyre', author=author,
+        tags='Beaufort_Gyre;Arctic_Proshutinsky;Arctic_Basin')
     fcBG = fcBG_firstTry.difference(fcContour300)
     fcBG = fcBG_firstTry.difference(fcBG)
     fc.merge(fcBG)

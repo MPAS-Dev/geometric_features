@@ -26,7 +26,8 @@ def get_longest_contour(contourValue, author):
     if not os.path.exists(bathymetryFileName):
         print('Downloading IBCAO bathymetry data...')
         # download
-        baseURL = 'https://www.ngdc.noaa.gov/mgg/bathymetry/arctic/grids/version3_0'
+        baseURL =
+            'https://www.ngdc.noaa.gov/mgg/bathymetry/arctic/grids/version3_0'
 
         download_files([bathymetryFileName], baseURL, './')
 
@@ -125,9 +126,9 @@ def main():
 
     fc = FeatureCollection()
 
-    ## *********** First, complete definition of oceanography-relevant ***********
-    ##             Arctic regions, started in part I, and identified with
-    ##             tag='Arctic'
+    # *********** First, complete definition of oceanography-relevant *********
+    # **********  Arctic regions, started in part I, and identified with
+    # *********   tag='Arctic'
 
     # ********* New Canadian Archipelago (modified feature) *********
 
@@ -136,13 +137,16 @@ def main():
     fcContour500 = get_longest_contour(contourValue=-500., author=author)
     fcContour1000 = get_longest_contour(contourValue=-1000., author=author)
     fcCAA1 = make_rectangle(lon0=-130., lon1=-90., lat0=67.0, lat1=86.0,
-        name='West Canadian Archipelago', author=author, tags='Canadian_Archipelago;Arctic;Arctic_Basin')
+        name='West Canadian Archipelago', author=author,
+        tags='Canadian_Archipelago;Arctic;Arctic_Basin')
     fcCAA1 = fcCAA1.difference(fcContour500)
     fcCAA2 = make_rectangle(lon0=-90., lon1=-70., lat0=67.0, lat1=86.0,
-        name='Mid Canadian Archipelago', author=author, tags='Canadian_Archipelago;Arctic;Arctic_Basin')
+        name='Mid Canadian Archipelago', author=author,
+        tags='Canadian_Archipelago;Arctic;Arctic_Basin')
     fcCAA2 = fcCAA2.difference(fcContour1000)
     fcCAA3 = make_rectangle(lon0=-70., lon1=-50.5, lat0=76.0, lat1=86.0,
-        name='East Canadian Archipelago', author=author, tags='Canadian_Archipelago;Arctic;Arctic_Basin')
+        name='East Canadian Archipelago', author=author,
+        tags='Canadian_Archipelago;Arctic;Arctic_Basin')
     fcCAA3 = fcCAA3.difference(fcContour500)
     fcCAA = fcCAA1
     fcCAA.merge(fcCAA2)
@@ -152,7 +156,6 @@ def main():
     fcCAA = fcCAA.difference(fcHudson)
     fcBaffin = gf.read('ocean', 'region', ['Baffin Bay'])
     fcCAA = fcCAA.difference(fcBaffin)
-    #fcCAA.to_geojson('CanadianArchipelago.geojson')
     props = fcCAA.features[0]['properties']
     props['tags'] = 'Canadian_Archipelago;Arctic;Arctic_Basin'
     props['author'] = author
@@ -178,14 +181,14 @@ def main():
     props = fcCB.features[0]['properties']
     props['tags'] = 'Canada_Basin;Arctic;Arctic_Basin'
     props['author'] = author
-    #fcCB.to_geojson('CanadaBasin.geojson')
     fc.merge(fcCB)
 
     # ********* Chukchi Sea (new feature) *********
 
     # This supersedes the old Chukchi Sea feature
     fcChukchi = make_rectangle(lon0=-180., lon1=-156.65, lat0=65.0, lat1=80.0,
-        name='Chukchi Sea', author=author, tags='Chukchi_Sea;Arctic;Arctic_Basin')
+        name='Chukchi Sea', author=author,
+        tags='Chukchi_Sea;Arctic;Arctic_Basin')
     fcChukchi = fcChukchi.difference(fcContour300)
     fcChukchi_NSIDC = gf.read('ocean', 'region', ['Chukchi Sea NSIDC'])
     fcChukchi_todiscard = fcChukchi.difference(fcChukchi_NSIDC)
@@ -193,33 +196,32 @@ def main():
     props = fcChukchi.features[0]['properties']
     props['tags'] = 'Chukchi_Sea;Arctic;Arctic_Basin'
     props['author'] = author
-    #fcChukchi.to_geojson('ChukchiSea.geojson')
     fc.merge(fcChukchi)
 
     # ********* East Siberian Sea (new feature) *********
 
     # This supersedes the old East Siberian Sea feature
     fcESS = make_rectangle(lon0=142., lon1=180.0, lat0=68.5, lat1=80.0,
-        name='East Siberian Sea', author=author, tags='East_Siberian_Sea;Arctic;Arctic_Basin')
+        name='East Siberian Sea', author=author,
+        tags='East_Siberian_Sea;Arctic;Arctic_Basin')
     fcESS = fcESS.difference(fcContour300)
     props = fcESS.features[0]['properties']
     props['tags'] = 'East_Siberian_Sea;Arctic;Arctic_Basin'
     props['author'] = author
-    #fcESS.to_geojson('ESS.geojson')
     fc.merge(fcESS)
 
     # ********* Laptev Sea (new feature) *********
 
     # This supersedes the old Laptev Sea feature
     fcLap = make_rectangle(lon0=90., lon1=142.0, lat0=70.0, lat1=81.25,
-        name='Laptev Sea', author=author, tags='Laptev_Sea;Arctic;Arctic_Basin')
+        name='Laptev Sea', author=author,
+        tags='Laptev_Sea;Arctic;Arctic_Basin')
     fcLap = fcLap.difference(fcContour300)
     fcKara = gf.read('ocean', 'region', ['Kara Sea'])
     fcLap = fcLap.difference(fcKara)
     props = fcLap.features[0]['properties']
     props['tags'] = 'Laptev_Sea;Arctic;Arctic_Basin'
     props['author'] = author
-    #fcLap.to_geojson('Laptev.geojson')
     fc.merge(fcLap)
 
     # ********* Central Arctic (new feature) *********
@@ -236,14 +238,12 @@ def main():
     props['name'] = 'Central Arctic'
     props['tags'] = 'Central_Arctic;Arctic;Arctic_Basin'
     props['author'] = author
-    #fcCentralArctic.to_geojson('CentralArctic.geojson')
     fc.merge(fcCentralArctic)
 
-    ## *********** Second, complete definition of seaice-relevant ***********
-    ##       Arctic regions, started in part I, according to NSIDC
-    ##       (regions map: https://nsidc.org/data/masie/browse_regions
-    ##        more info: https://nsidc.org/data/g02186?qt-data_set_tabs=2#qt-data_set_tabs)
-    ##       and identified with tag='Arctic_NSIDC'
+    # *********** Second, complete definition of seaice-relevant ***********
+    # ***** Arctic regions, started in part I, according to NSIDC
+    # ***** (regions map: https://nsidc.org/data/masie/browse_regions)
+    # ****  and identified with tag='Arctic_NSIDC'
 
     # ********* New Chukchi Sea NSIDC (modified feature) *********
 
@@ -263,7 +263,6 @@ def main():
                               [-180.0,  80.0],
                               [-156.48, 80.0],
                               [-156.65, 65.37]]]}})
-    #fcChukchi_NSIDC.to_geojson('Chukchi_NSIDC.geojson')
     fc.merge(fcChukchi_NSIDC)
 
     # ********* Beaufort Sea NSIDC (new feature) *********
@@ -284,7 +283,6 @@ def main():
                               [-124.58, 75.67],
                               [-124.0,  65.0],
                               [-156.65, 65.37]]]}})
-    #fcBS_NSIDC.to_geojson('BeaufortSea_NSIDC.geojson')
     fc.merge(fcBS_NSIDC)
 
     # ********* Canadian Archipelago NSIDC (new feature) *********
@@ -309,7 +307,6 @@ def main():
                               [-84.45,  67.27],
                               [-93.04,  65.70],
                               [-103.41, 60.69]]]}})
-    #fcCAA_NSIDC.to_geojson('CAA_NSIDC.geojson')
     fc.merge(fcCAA_NSIDC)
 
     # ********* Hudson Bay NSIDC (new feature) *********
@@ -334,7 +331,6 @@ def main():
                               [-70.12,  65.99],
                               [-63.70,  57.35],
                               [-81.24,  49.19]]]}})
-    #fcHudson_NSIDC.to_geojson('HudsonBay_NSIDC.geojson')
     fc.merge(fcHudson_NSIDC)
 
     # ********* Baffin Bay NSIDC (new feature) *********
@@ -361,7 +357,6 @@ def main():
                               [-45.0,   60.0],
                               [-45.0,   42.0],
                               [-53.20,  42.0]]]}})
-    #fcBaffin_NSIDC.to_geojson('BaffinBay_NSIDC.geojson')
     fc.merge(fcBaffin_NSIDC)
 
     # ********* Central Arctic NSIDC (new feature) *********
@@ -391,7 +386,6 @@ def main():
                               [94.95,   81.08],
                               [145.0, 80.0],
                               [180.0, 80.0]]]}})
-    #fcCentralArctic_NSIDC.to_geojson('CentralArctic_NSIDC.geojson')
     fc.merge(fcCentralArctic_NSIDC)
 
     # "split" these features into individual files in the geometric data cache
@@ -415,7 +409,7 @@ def main():
             print('  Fixed? {}'.format(fixed.is_valid))
             feature['geometry'] = shapely.geometry.mapping(fixed)
     fcArcticTags.plot(projection='northpole')
-    #fcArcticTags.to_geojson('arctic_ocean_regions.geojson')
+    fcArcticTags.to_geojson('arctic_ocean_regions.geojson')
 
     fcArcticNSIDCTags = gf.read(componentName='ocean', objectType='region',
                                 tags=['Arctic_NSIDC'])
@@ -428,7 +422,7 @@ def main():
             print('  Fixed? {}'.format(fixed.is_valid))
             feature['geometry'] = shapely.geometry.mapping(fixed)
     fcArcticNSIDCTags.plot(projection='northpole')
-    #fcArcticNSIDCTags.to_geojson('arcticNSIDC_ocean_regions.geojson')
+    fcArcticNSIDCTags.to_geojson('arcticNSIDC_ocean_regions.geojson')
 
     fcArctic = fcArcticTags
     fcArctic.merge(fcArcticNSIDCTags)
@@ -443,6 +437,7 @@ def main():
                     '../../geometric_features/features_and_tags.json')
 
     plt.show()
+
 
 if __name__ == '__main__':
     main()
