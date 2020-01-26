@@ -5,10 +5,11 @@ Adding New Features
 
 If you have created new feature collection and wish for the individual features
 to be included in :ref:`GeometricData`, you should:
-* clone the full `GitHub repository`_
-* split the feature collection into its individual features
-* update the manifest of all features and tags
-* commit the changes and make a pull request
+
+  * clone the full `GitHub repository`_
+  * split the feature collection into its individual features
+  * update the manifest of all features and tags
+  * commit the changes and make a pull request
 
 .. code-block:: python
 
@@ -34,7 +35,7 @@ to be included in :ref:`GeometricData`, you should:
    # move features_and_tags.json into geometric_features to replace the old
    # manifest
    os.rename('features_and_tags.json',
-             'geometric_features/features_and_tags.json)
+             'geometric_features/features_and_tags.json')
 
 After this, you can ``git add`` and ``git commit`` the changes, and make a
 pull request to have them added to the repository.
