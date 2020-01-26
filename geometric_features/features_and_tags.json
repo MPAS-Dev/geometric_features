@@ -1,4 +1,14 @@
 {
+  "bedmachine": {
+    "region": {
+      "AntarcticGroundedIceCoverage": [
+        ""
+      ],
+      "AntarcticIceCoverage": [
+        ""
+      ]
+    }
+  },
   "bedmap2": {
     "region": {
       "AntarcticGroundedIceCoverage": [
