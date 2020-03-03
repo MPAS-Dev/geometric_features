@@ -235,7 +235,7 @@ class FeatureCollection(object):
         fc = FeatureCollection([feature])
         return fc
 
-    def difference(self, maskingFC):
+    def difference(self, maskingFC, show_progress=False):
         '''
         Use features from a masking collection to mask out (remove part of
         the geometry from) this collection.
@@ -244,6 +244,9 @@ class FeatureCollection(object):
         ----------
         maskingFC : ``FeatureCollection```
             Another collection of one or more features to use as masks
+
+        show_progress : bool
+            Show a progress bar
 
         Returns
         -------
@@ -260,23 +263,29 @@ class FeatureCollection(object):
 
         totalCount = featureCount*maskCount
 
-        print('Masking features...')
-        widgets = ['', progressbar.Percentage(), ' ', progressbar.Bar(),
-                   ' ', progressbar.ETA()]
-        bar = progressbar.ProgressBar(widgets=widgets,
-                                      maxval=totalCount).start()
+        if show_progress:
+            print('Masking features...')
+            widgets = ['', progressbar.Percentage(), ' ', progressbar.Bar(),
+                       ' ', progressbar.ETA()]
+            bar = progressbar.ProgressBar(widgets=widgets,
+                                          maxval=totalCount).start()
+        else:
+            widgets = None
+            bar = None
 
         maskedFeatures = []
         maskedCount = 0
         droppedCount = 0
         for featureIndex, feature in enumerate(self.features):
             name = feature['properties']['name']
-            widgets[0] = '{}: '.format(name)
+            if show_progress:
+                widgets[0] = '{}: '.format(name)
             featureShape = shapely.geometry.shape(feature['geometry'])
             add = True
             masked = False
             for maskIndex, maskFeature in enumerate(maskingFC.features):
-                bar.update(maskIndex + featureIndex*maskCount)
+                if show_progress:
+                    bar.update(maskIndex + featureIndex*maskCount)
                 maskShape = shapely.geometry.shape(maskFeature['geometry'])
                 if featureShape.intersects(maskShape):
                     masked = True
@@ -295,7 +304,8 @@ class FeatureCollection(object):
             else:
                 droppedCount += 1
 
-        bar.finish()
+        if show_progress:
+            bar.finish()
 
         print('  {} features unchanged, {} masked and {} dropped.'.format(
             featureCount - maskedCount - droppedCount, maskedCount,
