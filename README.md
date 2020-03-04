@@ -25,9 +25,29 @@ found in the `examples` directory.  Each of the classes and functions that make
 up the package have extensive documentation.  More user-level documentation
 will be added shortly.
 
-To use `geometric_features`, it is highly recommended that you use an
-`anaconda` python environment.  Here is how to create and activate an
-environment with all of the required dependencies:
+To use geometric features, you can install it in a conda environment:
+```bash
+conda create -n geometric_features -c conda-forge python=3.7 geometric_features
+conda activate geometric_features
+```
+By default, `geometric_features` will download the data it needs on the fly.
+Since some of the features are quite large, this can be convenient if disk
+space is at a premium.
+
+Some systems do not support downloading the data (e.g. because of firewalls or
+compute nodes that don't have internet access.  In such cases, it is convenient
+to install `geometric_features` including all the data:
+```bash
+conda create -n geometric_features -c conda-forge python=3.7 \
+    "geometric_features=*=*with_data*"
+conda activate geometric_features
+```
+This syntax is admittedly a bit clunky but it selects for a special build of
+the conda package with the data included.
+
+To develop `geometric_features` (e.g. to add new features), it is highly
+recommended that you use an `anaconda` python environment.  Here is how to
+create and activate an environment with all of the required dependencies:
 ```bash
 conda create -n geometric_features -c conda-forge python=3.7 numpy matplotlib \
     cartopy shapely requests progressbar2
