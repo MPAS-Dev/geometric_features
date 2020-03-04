@@ -34,15 +34,16 @@ class GeometricFeatures(object):
     # -------
     # Xylar Asay-Davis
 
-    def __init__(self, cacheLocation='./geometric_data',
-                 remoteBranchOrTag=None):
+    def __init__(self, cacheLocation=None, remoteBranchOrTag=None):
         '''
         The constructor for the GeometricFeatures object
 
         Parameters
         ----------
         cacheLocation : str, optional
-            The location of the local geometric features cache
+            The location of the local geometric features cache.  If not
+            specified, the environment variable ``$GEOMETRIC_DATA_DIR`` is
+            used if it is set and ``./geometric_data`` is used otherwise.
 
         remoteBranchOrTag : str, optional
             The branch or tag from the ``geometric_features`` repo to download
@@ -50,7 +51,13 @@ class GeometricFeatures(object):
             a tag the same as this version of ``geometric_features``
         '''
 
-        self.cacheLocation = cacheLocation
+        if cacheLocation is None:
+            if 'GEOMETRIC_DATA_DIR' in os.environ:
+                self.cacheLocation = os.environ['GEOMETRIC_DATA_DIR']
+            else:
+                self.cacheLocation = './geometric_data'
+        else:
+            self.cacheLocation = cacheLocation
         if remoteBranchOrTag is None:
             self.remoteBranch = geometric_features.__version__
         else:
