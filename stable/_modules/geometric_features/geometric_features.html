@@ -188,15 +188,16 @@
     <span class="c1"># -------</span>
     <span class="c1"># Xylar Asay-Davis</span>
 
-<div class="viewcode-block" id="GeometricFeatures.__init__"><a class="viewcode-back" href="../../generated/geometric_features.geometric_features.GeometricFeatures.html#geometric_features.geometric_features.GeometricFeatures.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cacheLocation</span><span class="o">=</span><span class="s1">&#39;./geometric_data&#39;</span><span class="p">,</span>
-                 <span class="n">remoteBranchOrTag</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="GeometricFeatures.__init__"><a class="viewcode-back" href="../../generated/geometric_features.geometric_features.GeometricFeatures.html#geometric_features.geometric_features.GeometricFeatures.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cacheLocation</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">remoteBranchOrTag</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        The constructor for the GeometricFeatures object</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        cacheLocation : str, optional</span>
-<span class="sd">            The location of the local geometric features cache</span>
+<span class="sd">            The location of the local geometric features cache.  If not</span>
+<span class="sd">            specified, the environment variable ``$GEOMETRIC_DATA_DIR`` is</span>
+<span class="sd">            used if it is set and ``./geometric_data`` is used otherwise.</span>
 
 <span class="sd">        remoteBranchOrTag : str, optional</span>
 <span class="sd">            The branch or tag from the ``geometric_features`` repo to download</span>
@@ -204,7 +205,13 @@
 <span class="sd">            a tag the same as this version of ``geometric_features``</span>
 <span class="sd">        &#39;&#39;&#39;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">cacheLocation</span> <span class="o">=</span> <span class="n">cacheLocation</span>
+        <span class="k">if</span> <span class="n">cacheLocation</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;GEOMETRIC_DATA_DIR&#39;</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cacheLocation</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;GEOMETRIC_DATA_DIR&#39;</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cacheLocation</span> <span class="o">=</span> <span class="s1">&#39;./geometric_data&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cacheLocation</span> <span class="o">=</span> <span class="n">cacheLocation</span>
         <span class="k">if</span> <span class="n">remoteBranchOrTag</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">remoteBranch</span> <span class="o">=</span> <span class="n">geometric_features</span><span class="o">.</span><span class="n">__version__</span>
         <span class="k">else</span><span class="p">:</span>

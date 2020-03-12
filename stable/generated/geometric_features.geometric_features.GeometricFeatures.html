@@ -183,7 +183,7 @@
 <h1>geometric_features.geometric_features.GeometricFeatures<a class="headerlink" href="#geometric-features-geometric-features-geometricfeatures" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="geometric_features.geometric_features.GeometricFeatures">
-<em class="property">class </em><code class="sig-prename descclassname">geometric_features.geometric_features.</code><code class="sig-name descname">GeometricFeatures</code><span class="sig-paren">(</span><em class="sig-param">cacheLocation='./geometric_data'</em>, <em class="sig-param">remoteBranchOrTag=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geometric_features/geometric_features.html#GeometricFeatures"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#geometric_features.geometric_features.GeometricFeatures" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">geometric_features.geometric_features.</code><code class="sig-name descname">GeometricFeatures</code><span class="sig-paren">(</span><em class="sig-param">cacheLocation=None</em>, <em class="sig-param">remoteBranchOrTag=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geometric_features/geometric_features.html#GeometricFeatures"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#geometric_features.geometric_features.GeometricFeatures" title="Permalink to this definition">¶</a></dt>
 <dd><p>An object for keeping track of where geometric features are cached and
 downloading missing features as needed.</p>
 <dl class="field-list simple">
@@ -199,12 +199,14 @@ from if files are missing from the local cache</p></li>
 </dl>
 <dl class="method">
 <dt id="geometric_features.geometric_features.GeometricFeatures.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">cacheLocation='./geometric_data'</em>, <em class="sig-param">remoteBranchOrTag=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geometric_features/geometric_features.html#GeometricFeatures.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#geometric_features.geometric_features.GeometricFeatures.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">cacheLocation=None</em>, <em class="sig-param">remoteBranchOrTag=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geometric_features/geometric_features.html#GeometricFeatures.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#geometric_features.geometric_features.GeometricFeatures.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>The constructor for the GeometricFeatures object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>cacheLocation</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>, </em><em>optional</em>) – The location of the local geometric features cache</p></li>
+<li><p><strong>cacheLocation</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>, </em><em>optional</em>) – The location of the local geometric features cache.  If not
+specified, the environment variable <code class="docutils literal notranslate"><span class="pre">$GEOMETRIC_DATA_DIR</span></code> is
+used if it is set and <code class="docutils literal notranslate"><span class="pre">./geometric_data</span></code> is used otherwise.</p></li>
 <li><p><strong>remoteBranchOrTag</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>, </em><em>optional</em>) – The branch or tag from the <code class="docutils literal notranslate"><span class="pre">geometric_features</span></code> repo to download
 from if files are missing from the local cache, with default to
 a tag the same as this version of <code class="docutils literal notranslate"><span class="pre">geometric_features</span></code></p></li>
