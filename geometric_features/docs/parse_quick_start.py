@@ -10,7 +10,6 @@ from m2r import convert
 def build_quick_start():
 
     replace = {'# Geometric Features': '# Quick Start',
-               '[![Documentation Status]': '',
                '## Quick Start': ''}
 
     skip = [('## Documentation', '## Quick Start')]

@@ -1,7 +1,5 @@
 # Geometric Features
 
-[![Documentation Status](http://readthedocs.org/projects/geometric-features/badge/?version=latest)](http://geometric-features.readthedocs.io/en/latest/?badge=latest)
-
 This repository houses definitions of geometric features. These features
 can include regions, transects, and points, described in geojson format.
 For example, here are some regions for Antarctica.
@@ -9,7 +7,7 @@ For example, here are some regions for Antarctica.
 
 ## Documentation
 
-[http://geometric-features.readthedocs.io](http://geometric-features.readthedocs.io)
+[http://mpas-dev.github.io/geometric_features/stable/](http://mpas-dev.github.io/geometric_features/stable/)
 
 ## Contributors
 
