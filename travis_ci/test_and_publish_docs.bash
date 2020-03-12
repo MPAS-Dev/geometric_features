@@ -40,7 +40,7 @@ mkdir "$DOCS_VERSION"
 cp -r "$REPO_PATH"/docs/_build/html/* "$DOCS_VERSION"
 # Commit and push latest version
 git add .
-if [[ `git diff-index --quiet HEAD` ]]; then
+if [[ $(git diff-index --quiet HEAD) ]]; then
   git config user.name  "Travis"
   git config user.email "travis@travis-ci.org"
   git commit -m "Updated $DOCS_VERSION"
