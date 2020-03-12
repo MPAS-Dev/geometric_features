@@ -1,5 +1,7 @@
 # Geometric Features
 
+[![Build Status](https://travis-ci.org/MPAS-Dev/geometric_features.svg?branch=master)](https://travis-ci.org/MPAS-Dev/geometric_features)
+
 This repository houses definitions of geometric features. These features
 can include regions, transects, and points, described in geojson format.
 For example, here are some regions for Antarctica.
