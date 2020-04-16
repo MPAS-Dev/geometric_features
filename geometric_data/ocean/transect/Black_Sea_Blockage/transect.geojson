@@ -1,0 +1,37 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Black Sea Blockage",
+                "tags": "Black_Sea_Blockage;Critical_Land_Blockage",
+                "object": "transect",
+                "component": "ocean",
+                "author": "Xylar",
+                "height": "100.0"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        28.092041,
+                        41.360319
+                    ],
+                    [
+                        28.718262,
+                        41.186922
+                    ],
+                    [
+                        29.479065,
+                        41.037931
+                    ],
+                    [
+                        30.149231,
+                        40.957086
+                    ]
+                ]
+            }
+        }
+    ]
+}
