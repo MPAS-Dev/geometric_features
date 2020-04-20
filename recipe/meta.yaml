@@ -1,6 +1,6 @@
 {% set name = "geometric_features" %}
-{% set version = "0.1.6" %}
-{% set build = 1 %}
+{% set version = "0.1.7" %}
+{% set build = 0 %}
 
 {% if with_data != "True" %}
 # prioritize no data via build number
