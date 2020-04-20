@@ -23,3 +23,9 @@ Indices and tables
 
 * :ref:`genindex`
 
+Versions
+========
+.. toctree::
+   :maxdepth: 1
+
+   versions
