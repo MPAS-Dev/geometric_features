@@ -1,0 +1,6 @@
+geometric\_features.feature\_collection.FeatureCollection.add\_feature
+======================================================================
+
+.. currentmodule:: geometric_features.feature_collection
+
+.. automethod:: FeatureCollection.add_feature
