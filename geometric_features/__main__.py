@@ -123,7 +123,7 @@ def merge_features():
                         metavar="PATH", default="features.geojson")
     parser.add_argument("--cache", dest="cache_location",
                         help="Location of local geometric_data cache.",
-                        metavar="PATH", default="./geometric_data")
+                        metavar="PATH")
     parser.add_argument('-v', '--version',
                         action='version',
                         version='geometric_features {}'.format(
