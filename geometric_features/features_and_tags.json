@@ -144,6 +144,24 @@
         "Antarctica_IMBIE16",
         "EastAntarcticaIMBIE"
       ],
+      "Eastern_Ross_1": [
+        "Eastern_Ross",
+        "Antarctica_IMBIE17",
+        "RossIceShelfDrainage",
+        "EastAntarcticaIMBIE"
+      ],
+      "Eastern_Ross_2": [
+        "Eastern_Ross",
+        "Antarctica_IMBIE18",
+        "RossIceShelfDrainage",
+        "WestAntarcticaIMBIE"
+      ],
+      "Eastern_Ross_3": [
+        "Eastern_Ross",
+        "Antarctica_IMBIE19",
+        "RossIceShelfDrainage",
+        "WestAntarcticaIMBIE"
+      ],
       "Edward_VIII_1": [
         "Edward_VIII",
         "Antarctica_IMBIE7",
@@ -462,35 +480,6 @@
         "FilchnerRonneIceShelfDrainage",
         "EastAntarcticaIMBIE"
       ],
-      "Ross_East_1": [
-        "Ross_East",
-        "Antarctica_IMBIE16",
-        "EastAntarcticaIMBIE"
-      ],
-      "Ross_East_2": [
-        "Ross_East",
-        "Antarctica_IMBIE17",
-        "RossIceShelfDrainage",
-        "EastAntarcticaIMBIE"
-      ],
-      "Ross_West_1": [
-        "Ross_West",
-        "Antarctica_IMBIE17",
-        "RossIceShelfDrainage",
-        "EastAntarcticaIMBIE"
-      ],
-      "Ross_West_2": [
-        "Ross_West",
-        "Antarctica_IMBIE18",
-        "RossIceShelfDrainage",
-        "WestAntarcticaIMBIE"
-      ],
-      "Ross_West_3": [
-        "Ross_West",
-        "Antarctica_IMBIE19",
-        "RossIceShelfDrainage",
-        "WestAntarcticaIMBIE"
-      ],
       "Shackleton": [
         "Shackleton",
         "Antarctica_IMBIE12",
@@ -607,6 +596,17 @@
       "West": [
         "West",
         "Antarctica_IMBIE12",
+        "EastAntarcticaIMBIE"
+      ],
+      "Western_Ross_1": [
+        "Western_Ross",
+        "Antarctica_IMBIE16",
+        "EastAntarcticaIMBIE"
+      ],
+      "Western_Ross_2": [
+        "Western_Ross",
+        "Antarctica_IMBIE17",
+        "RossIceShelfDrainage",
         "EastAntarcticaIMBIE"
       ],
       "Wilkins": [
