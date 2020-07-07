@@ -80,8 +80,8 @@ class GeometricFeatures(object):
 
         Parameters
         ----------
-        componentName : {'bedmap2', 'iceshelves', 'landice', 'natural_earth', 'ocean'}
-            The component from which to retieve the geometric features
+        componentName : {'bedmachine', 'bedmap2', 'iceshelves', 'landice', 'natural_earth', 'ocean'}
+            The component from which to retrieve the geometric features
 
         objectType : {'point', 'transect', 'region'}
             The type of geometry to load, a point (0D), transect (1D) or region
@@ -91,8 +91,9 @@ class GeometricFeatures(object):
             The names of geometric features to read
 
         tags : list of str, optional
-            A list of tags to check for.  A feature is only read in if it has
-            all tags.
+            A list of tags to check for.  When ``allTags=True``, a feature is
+            only read in if it has all tags.  Otherwise, features with any of
+            the tags are read.
 
         allTags : bool, optional
             Whether a feature must have all tags (instead of any of the tags)
@@ -172,8 +173,8 @@ class GeometricFeatures(object):
 
         Parameters
         ----------
-        componentName : {'bedmap2', 'iceshelves', 'landice', 'natural_earth', 'ocean'}
-            The component from which to retieve the geometric features
+        componentName : {'bedmachine', 'bedmap2', 'iceshelves', 'landice', 'natural_earth', 'ocean'}
+            The component from which to retrieve the geometric features
 
         objectType : {'point', 'transect', 'region'}
             The type of geometry to load, a point (0D), transect (1D) or region
@@ -222,8 +223,8 @@ class GeometricFeatures(object):
 
         Parameters
         ----------
-        componentName : {'bedmap2', 'iceshelves', 'landice', 'natural_earth', 'ocean'}
-            The component from which to retieve the geometric features
+        componentName : {'bedmachine', 'bedmap2', 'iceshelves', 'landice', 'natural_earth', 'ocean'}
+            The component from which to retrieve the geometric features
 
         objectType : {'point', 'transect', 'region'}
             The type of geometry to load, a point (0D), transect (1D) or region
@@ -297,8 +298,8 @@ def _get_file_name(componentName, objectType, featureName):
 
     Parameters
     ----------
-    componentName : {'bedmap2', 'iceshelves', 'landice', 'natural_earth', 'ocean'}
-        The component from which to retieve the geometric features
+    componentName : {'bedmachine', 'bedmap2', 'iceshelves', 'landice', 'natural_earth', 'ocean'}
+        The component from which to retrieve the geometric features
 
     objectType : {'point', 'transect', 'region'}
         The type of geometry to load, a point (0D), transect (1D) or region
@@ -316,7 +317,10 @@ def _get_file_name(componentName, objectType, featureName):
     # -------
     # Douglas Jacobsen, Xylar Asay-Davis
 
-    featureDir = featureName.strip().replace(' ', '_').strip('\'').strip('.')
+    badCharacters = '<>:"/\\|?*\',;'
+    featureDir = featureName.strip().replace(' ', '_').strip('.')
+    for char in badCharacters:
+        featureDir = featureDir.replace(char, '')
     fileName = os.path.join(componentName, objectType, featureDir,
                             '{}.geojson'.format(objectType))
 
