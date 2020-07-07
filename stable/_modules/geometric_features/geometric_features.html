@@ -240,8 +240,8 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        componentName : {&#39;bedmap2&#39;, &#39;iceshelves&#39;, &#39;landice&#39;, &#39;natural_earth&#39;, &#39;ocean&#39;}</span>
-<span class="sd">            The component from which to retieve the geometric features</span>
+<span class="sd">        componentName : {&#39;bedmachine&#39;, &#39;bedmap2&#39;, &#39;iceshelves&#39;, &#39;landice&#39;, &#39;natural_earth&#39;, &#39;ocean&#39;}</span>
+<span class="sd">            The component from which to retrieve the geometric features</span>
 
 <span class="sd">        objectType : {&#39;point&#39;, &#39;transect&#39;, &#39;region&#39;}</span>
 <span class="sd">            The type of geometry to load, a point (0D), transect (1D) or region</span>
@@ -251,8 +251,9 @@
 <span class="sd">            The names of geometric features to read</span>
 
 <span class="sd">        tags : list of str, optional</span>
-<span class="sd">            A list of tags to check for.  A feature is only read in if it has</span>
-<span class="sd">            all tags.</span>
+<span class="sd">            A list of tags to check for.  When ``allTags=True``, a feature is</span>
+<span class="sd">            only read in if it has all tags.  Otherwise, features with any of</span>
+<span class="sd">            the tags are read.</span>
 
 <span class="sd">        allTags : bool, optional</span>
 <span class="sd">            Whether a feature must have all tags (instead of any of the tags)</span>
@@ -332,8 +333,8 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        componentName : {&#39;bedmap2&#39;, &#39;iceshelves&#39;, &#39;landice&#39;, &#39;natural_earth&#39;, &#39;ocean&#39;}</span>
-<span class="sd">            The component from which to retieve the geometric features</span>
+<span class="sd">        componentName : {&#39;bedmachine&#39;, &#39;bedmap2&#39;, &#39;iceshelves&#39;, &#39;landice&#39;, &#39;natural_earth&#39;, &#39;ocean&#39;}</span>
+<span class="sd">            The component from which to retrieve the geometric features</span>
 
 <span class="sd">        objectType : {&#39;point&#39;, &#39;transect&#39;, &#39;region&#39;}</span>
 <span class="sd">            The type of geometry to load, a point (0D), transect (1D) or region</span>
@@ -382,8 +383,8 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        componentName : {&#39;bedmap2&#39;, &#39;iceshelves&#39;, &#39;landice&#39;, &#39;natural_earth&#39;, &#39;ocean&#39;}</span>
-<span class="sd">            The component from which to retieve the geometric features</span>
+<span class="sd">        componentName : {&#39;bedmachine&#39;, &#39;bedmap2&#39;, &#39;iceshelves&#39;, &#39;landice&#39;, &#39;natural_earth&#39;, &#39;ocean&#39;}</span>
+<span class="sd">            The component from which to retrieve the geometric features</span>
 
 <span class="sd">        objectType : {&#39;point&#39;, &#39;transect&#39;, &#39;region&#39;}</span>
 <span class="sd">            The type of geometry to load, a point (0D), transect (1D) or region</span>
@@ -457,8 +458,8 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    componentName : {&#39;bedmap2&#39;, &#39;iceshelves&#39;, &#39;landice&#39;, &#39;natural_earth&#39;, &#39;ocean&#39;}</span>
-<span class="sd">        The component from which to retieve the geometric features</span>
+<span class="sd">    componentName : {&#39;bedmachine&#39;, &#39;bedmap2&#39;, &#39;iceshelves&#39;, &#39;landice&#39;, &#39;natural_earth&#39;, &#39;ocean&#39;}</span>
+<span class="sd">        The component from which to retrieve the geometric features</span>
 
 <span class="sd">    objectType : {&#39;point&#39;, &#39;transect&#39;, &#39;region&#39;}</span>
 <span class="sd">        The type of geometry to load, a point (0D), transect (1D) or region</span>
@@ -476,7 +477,10 @@
     <span class="c1"># -------</span>
     <span class="c1"># Douglas Jacobsen, Xylar Asay-Davis</span>
 
-    <span class="n">featureDir</span> <span class="o">=</span> <span class="n">featureName</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\&#39;</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+    <span class="n">badCharacters</span> <span class="o">=</span> <span class="s1">&#39;&lt;&gt;:&quot;/</span><span class="se">\\</span><span class="s1">|?*</span><span class="se">\&#39;</span><span class="s1">,;&#39;</span>
+    <span class="n">featureDir</span> <span class="o">=</span> <span class="n">featureName</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">badCharacters</span><span class="p">:</span>
+        <span class="n">featureDir</span> <span class="o">=</span> <span class="n">featureDir</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
     <span class="n">fileName</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">componentName</span><span class="p">,</span> <span class="n">objectType</span><span class="p">,</span> <span class="n">featureDir</span><span class="p">,</span>
                             <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">.geojson&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">objectType</span><span class="p">))</span>
 

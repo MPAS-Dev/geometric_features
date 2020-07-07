@@ -198,12 +198,13 @@ the component and object type are read in.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>componentName</strong> (<em>{'bedmap2'</em><em>, </em><em>'iceshelves'</em><em>, </em><em>'landice'</em><em>, </em><em>'natural_earth'</em><em>, </em><em>'ocean'}</em>) – The component from which to retieve the geometric features</p></li>
+<li><p><strong>componentName</strong> (<em>{'bedmachine'</em><em>, </em><em>'bedmap2'</em><em>, </em><em>'iceshelves'</em><em>, </em><em>'landice'</em><em>, </em><em>'natural_earth'</em><em>, </em><em>'ocean'}</em>) – The component from which to retrieve the geometric features</p></li>
 <li><p><strong>objectType</strong> (<em>{'point'</em><em>, </em><em>'transect'</em><em>, </em><em>'region'}</em>) – The type of geometry to load, a point (0D), transect (1D) or region
 (2D)</p></li>
 <li><p><strong>featureNames</strong> (<em>list of str</em><em>, </em><em>optional</em>) – The names of geometric features to read</p></li>
-<li><p><strong>tags</strong> (<em>list of str</em><em>, </em><em>optional</em>) – A list of tags to check for.  A feature is only read in if it has
-all tags.</p></li>
+<li><p><strong>tags</strong> (<em>list of str</em><em>, </em><em>optional</em>) – A list of tags to check for.  When <code class="docutils literal notranslate"><span class="pre">allTags=True</span></code>, a feature is
+only read in if it has all tags.  Otherwise, features with any of
+the tags are read.</p></li>
 <li><p><strong>allTags</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a><em>, </em><em>optional</em>) – Whether a feature must have all tags (instead of any of the tags)</p></li>
 </ul>
 </dd>
