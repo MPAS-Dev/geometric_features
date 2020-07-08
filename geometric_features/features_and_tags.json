@@ -1526,6 +1526,9 @@
       "Bering Strait": [
         "standard_transport_sections"
       ],
+      "Bering_Strait_Ship_Track": [
+        "Critical_Passage"
+      ],
       "Black Sea Blockage": [
         "Black_Sea_Blockage",
         "Critical_Land_Blockage"
@@ -1586,6 +1589,30 @@
       ],
       "Nares Strait Deepen": [
         "Nares_Strait_Deepen",
+        "Critical_Passage"
+      ],
+      "Northern_Sea_Route_New_Siberian_Islands": [
+        "Critical_Passage"
+      ],
+      "Northern_Sea_Route_Novaya Zemlya_Passage": [
+        "Critical_Passage"
+      ],
+      "Northern_Sea_Route_Proliv_Longa": [
+        "Critical_Passage"
+      ],
+      "Northern_Sea_Route_Severnaya_Zemlya": [
+        "Critical_Passage"
+      ],
+      "Northwest_Passage_McClintock_Channel_Variant": [
+        "Critical_Passage"
+      ],
+      "Northwest_Passage_McClure_Strait_Variant": [
+        "Critical_Passage"
+      ],
+      "Northwest_Passage_Peel_Sound_Variant": [
+        "Critical_Passage"
+      ],
+      "Northwest_Passage_Prince_of_Wales_Strait_Variant": [
         "Critical_Passage"
       ],
       "Persian Gulf Deepen": [
