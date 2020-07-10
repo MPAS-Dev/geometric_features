@@ -1,0 +1,6 @@
+geometric\_features.geometric\_features.GeometricFeatures.read
+==============================================================
+
+.. currentmodule:: geometric_features.geometric_features
+
+.. automethod:: GeometricFeatures.read
