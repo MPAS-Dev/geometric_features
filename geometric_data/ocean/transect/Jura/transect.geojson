@@ -1,0 +1,33 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Jura",
+                "tags": "Critical_Land_Blockage",
+                "object": "transect",
+                "component": "ocean",
+                "author": "Andrew Roberts",
+                "height": 100.0
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -5.824466,
+                        56.045882
+                    ],
+                    [
+                        -5.88176,
+                        55.969915
+                    ],
+                    [
+                        -5.88176,
+                        55.969915
+                    ]
+                ]
+            }
+        }
+    ]
+}

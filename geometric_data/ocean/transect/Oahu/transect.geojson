@@ -1,0 +1,45 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Oahu",
+                "tags": "Critical_Land_Blockage",
+                "object": "transect",
+                "component": "ocean",
+                "author": "Andrew Roberts",
+                "height": 100.0
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -158.204988,
+                        21.549025
+                    ],
+                    [
+                        -158.10179,
+                        21.514362
+                    ],
+                    [
+                        -157.975301,
+                        21.462952
+                    ],
+                    [
+                        -157.886023,
+                        21.401297
+                    ],
+                    [
+                        -157.814673,
+                        21.360475
+                    ],
+                    [
+                        -157.814673,
+                        21.360475
+                    ]
+                ]
+            }
+        }
+    ]
+}

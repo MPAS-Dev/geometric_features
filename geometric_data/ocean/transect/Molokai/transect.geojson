@@ -1,0 +1,41 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Molokai",
+                "tags": "Critical_Land_Blockage",
+                "object": "transect",
+                "component": "ocean",
+                "author": "Andrew Roberts",
+                "height": 100.0
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -156.800246,
+                        21.11514
+                    ],
+                    [
+                        -156.875751,
+                        21.119046
+                    ],
+                    [
+                        -156.985615,
+                        21.131543
+                    ],
+                    [
+                        -157.101118,
+                        21.139868
+                    ],
+                    [
+                        -157.101118,
+                        21.139868
+                    ]
+                ]
+            }
+        }
+    ]
+}
