@@ -1,0 +1,40 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "FirthOfLorn",
+                "tags": "Critical_Passage",
+                "object": "transect",
+                "component": "ocean",
+                "author": "Andrew Roberts"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -6.426608,
+                        56.120844
+                    ],
+                    [
+                        -6.302349,
+                        56.163912
+                    ],
+                    [
+                        -6.163826,
+                        56.203573
+                    ],
+                    [
+                        -6.044151,
+                        56.230943
+                    ],
+                    [
+                        -6.044151,
+                        56.230943
+                    ]
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Kauai",
+                "tags": "Critical_Land_Blockage",
+                "object": "transect",
+                "component": "ocean",
+                "author": "Andrew Roberts",
+                "height": 100.0
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -159.695919,
+                        22.068459
+                    ],
+                    [
+                        -159.586042,
+                        22.062211
+                    ],
+                    [
+                        -159.466067,
+                        22.054875
+                    ],
+                    [
+                        -159.466067,
+                        22.054875
+                    ]
+                ]
+            }
+        }
+    ]
+}

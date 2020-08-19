@@ -1,0 +1,45 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Maui",
+                "tags": "Critical_Land_Blockage",
+                "object": "transect",
+                "component": "ocean",
+                "author": "Andrew Roberts",
+                "height": 100.0
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -156.08952,
+                        20.723604
+                    ],
+                    [
+                        -156.173442,
+                        20.740965
+                    ],
+                    [
+                        -156.288617,
+                        20.787529
+                    ],
+                    [
+                        -156.409959,
+                        20.816459
+                    ],
+                    [
+                        -156.519703,
+                        20.873085
+                    ],
+                    [
+                        -156.519703,
+                        20.873085
+                    ]
+                ]
+            }
+        }
+    ]
+}

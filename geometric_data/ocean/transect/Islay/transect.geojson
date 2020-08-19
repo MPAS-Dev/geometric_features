@@ -1,0 +1,33 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Islay",
+                "tags": "Critical_Land_Blockage",
+                "object": "transect",
+                "component": "ocean",
+                "author": "Andrew Roberts",
+                "height": 100.0
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -6.229483,
+                        55.845776
+                    ],
+                    [
+                        -6.170161,
+                        55.764915
+                    ],
+                    [
+                        -6.170161,
+                        55.764915
+                    ]
+                ]
+            }
+        }
+    ]
+}

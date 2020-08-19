@@ -1533,14 +1533,19 @@
         "Black_Sea_Blockage",
         "Critical_Land_Blockage"
       ],
+      "Calabria": [
+        "Critical_Land_Blockage"
+      ],
       "Davis Strait": [
         "standard_transport_sections"
       ],
       "Drake Passage": [
         "standard_transport_sections"
       ],
-      "English Channel Deepen": [
-        "English_Channel_Deepen",
+      "English_Channel_Deepen": [
+        "Critical_Passage"
+      ],
+      "FirthOfLorn": [
         "Critical_Passage"
       ],
       "Florida-Bahamas": [
@@ -1555,12 +1560,18 @@
       "Fram Strait": [
         "standard_transport_sections"
       ],
+      "Hawaii": [
+        "Critical_Land_Blockage"
+      ],
       "Indonesian Throughflow": [
         "standard_transport_sections"
       ],
       "Ireland North Channel Deepen": [
         "Ireland_North_Channel_Deepen",
         "Critical_Passage"
+      ],
+      "Islay": [
+        "Critical_Land_Blockage"
       ],
       "Japan Hokkaido blockage": [
         "Japan_Hokkaido_blockage",
@@ -1578,8 +1589,20 @@
         "Japan_blockage",
         "Critical_Land_Blockage"
       ],
+      "Jura": [
+        "Critical_Land_Blockage"
+      ],
+      "Kauai": [
+        "Critical_Land_Blockage"
+      ],
       "Lancaster Sound": [
         "standard_transport_sections"
+      ],
+      "Maui": [
+        "Critical_Land_Blockage"
+      ],
+      "Molokai": [
+        "Critical_Land_Blockage"
       ],
       "Mona Passage": [
         "standard_transport_sections"
@@ -1618,6 +1641,9 @@
       "Northwest_Passage_Prince_of_Wales_Strait_Variant": [
         "Critical_Passage"
       ],
+      "Oahu": [
+        "Critical_Land_Blockage"
+      ],
       "Persian Gulf Deepen": [
         "Persian_Gulf_Deepen",
         "Critical_Passage"
@@ -1628,6 +1654,12 @@
       ],
       "Sakhalin blockage": [
         "Sakhalin_blockage",
+        "Critical_Land_Blockage"
+      ],
+      "Salento": [
+        "Critical_Land_Blockage"
+      ],
+      "Sicily": [
         "Critical_Land_Blockage"
       ],
       "Strait of Gibralter Deepen 1": [

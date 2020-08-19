@@ -1,0 +1,45 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Hawaii",
+                "tags": "Critical_Land_Blockage",
+                "object": "transect",
+                "component": "ocean",
+                "author": "Andrew Roberts",
+                "height": 100.0
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -155.782642,
+                        20.125216
+                    ],
+                    [
+                        -155.621378,
+                        19.913532
+                    ],
+                    [
+                        -155.517914,
+                        19.72789
+                    ],
+                    [
+                        -155.418061,
+                        19.516797
+                    ],
+                    [
+                        -155.387929,
+                        19.391163
+                    ],
+                    [
+                        -155.387929,
+                        19.391163
+                    ]
+                ]
+            }
+        }
+    ]
+}
