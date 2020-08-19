@@ -1,4 +1,4 @@
-geometric\_features.feature\_collection.FeatureCollection.difference
+﻿geometric\_features.feature\_collection.FeatureCollection.difference
 ====================================================================
 
 .. currentmodule:: geometric_features.feature_collection

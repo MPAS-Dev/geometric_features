@@ -1,4 +1,4 @@
-geometric\_features.feature\_collection.FeatureCollection
+﻿geometric\_features.feature\_collection.FeatureCollection
 =========================================================
 
 .. currentmodule:: geometric_features.feature_collection

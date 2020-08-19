@@ -1,4 +1,4 @@
-geometric\_features.geometric\_features.GeometricFeatures.split
+﻿geometric\_features.geometric\_features.GeometricFeatures.split
 ===============================================================
 
 .. currentmodule:: geometric_features.geometric_features

@@ -1,4 +1,4 @@
-geometric\_features.feature\_collection.FeatureCollection.fix\_antimeridian
+﻿geometric\_features.feature\_collection.FeatureCollection.fix\_antimeridian
 ===========================================================================
 
 .. currentmodule:: geometric_features.feature_collection

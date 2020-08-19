@@ -1,4 +1,4 @@
-geometric\_features.\_\_main\_\_.fix\_features\_at\_antimeridian
+﻿geometric\_features.\_\_main\_\_.fix\_features\_at\_antimeridian
 ================================================================
 
 .. currentmodule:: geometric_features.__main__

@@ -1,4 +1,4 @@
-geometric\_features.\_\_main\_\_.difference\_features
+﻿geometric\_features.\_\_main\_\_.difference\_features
 =====================================================
 
 .. currentmodule:: geometric_features.__main__

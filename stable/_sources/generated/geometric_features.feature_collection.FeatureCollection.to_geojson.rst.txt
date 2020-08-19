@@ -1,4 +1,4 @@
-geometric\_features.feature\_collection.FeatureCollection.to\_geojson
+﻿geometric\_features.feature\_collection.FeatureCollection.to\_geojson
 =====================================================================
 
 .. currentmodule:: geometric_features.feature_collection

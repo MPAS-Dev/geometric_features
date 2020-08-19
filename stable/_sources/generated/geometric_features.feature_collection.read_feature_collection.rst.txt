@@ -1,4 +1,4 @@
-geometric\_features.feature\_collection.read\_feature\_collection
+﻿geometric\_features.feature\_collection.read\_feature\_collection
 =================================================================
 
 .. currentmodule:: geometric_features.feature_collection

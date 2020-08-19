@@ -1,4 +1,4 @@
-geometric\_features.\_\_main\_\_.merge\_features
+﻿geometric\_features.\_\_main\_\_.merge\_features
 ================================================
 
 .. currentmodule:: geometric_features.__main__
