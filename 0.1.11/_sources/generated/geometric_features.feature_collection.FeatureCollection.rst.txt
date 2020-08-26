@@ -1,0 +1,33 @@
+﻿geometric\_features.feature\_collection.FeatureCollection
+=========================================================
+
+.. currentmodule:: geometric_features.feature_collection
+
+.. autoclass:: FeatureCollection
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~FeatureCollection.__init__
+      ~FeatureCollection.add_feature
+      ~FeatureCollection.combine
+      ~FeatureCollection.difference
+      ~FeatureCollection.feature_in_collection
+      ~FeatureCollection.fix_antimeridian
+      ~FeatureCollection.merge
+      ~FeatureCollection.plot
+      ~FeatureCollection.set_group_name
+      ~FeatureCollection.simplify
+      ~FeatureCollection.tag
+      ~FeatureCollection.to_geojson
+   
+   
+
+   
+   
+   

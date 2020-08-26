@@ -1,0 +1,962 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>geometric_features.feature_collection &mdash; geometric_features 0.1.11 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> geometric_features
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.11
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../geometric_features.html">GeometricFeatures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../feature_collection.html">FeatureCollection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../geometric_data.html">Geometric Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../adding_features.html">Adding New Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions.html">Versions</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">geometric_features</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>geometric_features.feature_collection</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for geometric_features.feature_collection</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span> \
+    <span class="n">unicode_literals</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="c1"># maybe no xwindows, so let&#39;s use the &#39;Agg&#39; backend</span>
+    <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+    <span class="n">mpl</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;Agg&#39;</span><span class="p">,</span> <span class="n">warn</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">shapely.geometry</span>
+<span class="kn">import</span> <span class="nn">shapely.ops</span>
+<span class="kn">import</span> <span class="nn">cartopy</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">progressbar</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+
+<span class="kn">from</span> <span class="nn">geometric_features.utils</span> <span class="kn">import</span> <span class="n">provenance_command</span>
+
+<span class="kn">from</span> <span class="nn">geometric_features.plot</span> <span class="kn">import</span> <span class="n">build_projections</span><span class="p">,</span> <span class="n">subdivide_geom</span><span class="p">,</span> \
+    <span class="n">plot_base</span>
+
+
+<div class="viewcode-block" id="read_feature_collection"><a class="viewcode-back" href="../../generated/geometric_features.feature_collection.read_feature_collection.html#geometric_features.feature_collection.read_feature_collection">[docs]</a><span class="k">def</span> <span class="nf">read_feature_collection</span><span class="p">(</span><span class="n">fileName</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Read a feature collection from a geojson file.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    fileName : str</span>
+<span class="sd">        The path to the geojson file</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    fc : ``FeatureCollection``</span>
+<span class="sd">        The feature collection read in</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># Authors</span>
+    <span class="c1"># -------</span>
+    <span class="c1"># Xylar Asay-Davis</span>
+    <span class="n">fc</span> <span class="o">=</span> <span class="n">FeatureCollection</span><span class="p">()</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fileName</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">featuresDict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">featuresDict</span><span class="p">[</span><span class="s1">&#39;features&#39;</span><span class="p">]:</span>
+            <span class="n">fc</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">featuresDict</span><span class="o">.</span><span class="n">keys</span><span class="p">())):</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;features&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">]:</span>
+                <span class="n">fc</span><span class="o">.</span><span class="n">otherProperties</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">featuresDict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">fc</span></div>
+
+
+<div class="viewcode-block" id="FeatureCollection"><a class="viewcode-back" href="../../generated/geometric_features.feature_collection.FeatureCollection.html#geometric_features.feature_collection.FeatureCollection">[docs]</a><span class="k">class</span> <span class="nc">FeatureCollection</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    An object for representing and manipulating a collection of geoscientific</span>
+<span class="sd">    geometric features.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    features : list of dict</span>
+<span class="sd">        A list of python dictionaries describing each feature, following the</span>
+<span class="sd">        geojson convention</span>
+
+<span class="sd">    otherProperties : dict</span>
+<span class="sd">        Other properties of the feature collection such as ``type`` and</span>
+<span class="sd">        ``groupName``</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># Authors</span>
+    <span class="c1"># -------</span>
+    <span class="c1"># Xylar Asay-Davis</span>
+
+<div class="viewcode-block" id="FeatureCollection.__init__"><a class="viewcode-back" href="../../generated/geometric_features.feature_collection.FeatureCollection.html#geometric_features.feature_collection.FeatureCollection.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">otherProperties</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Construct a new feature collection</span>
+
+<span class="sd">        Parameteres</span>
+<span class="sd">        -----------</span>
+<span class="sd">        features : list of dict, optional</span>
+<span class="sd">            A list of python dictionaries describing each feature, following</span>
+<span class="sd">            the geojson convention</span>
+
+<span class="sd">        otherProperties : dict</span>
+<span class="sd">            Other properties of the feature collection such as ``type`` and</span>
+<span class="sd">            ``groupName``</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c1"># Authors</span>
+        <span class="c1"># -------</span>
+        <span class="c1"># Xylar Asay-Davis</span>
+        <span class="k">if</span> <span class="n">features</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">features</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">features</span> <span class="o">=</span> <span class="n">features</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">otherProperties</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">otherProperties</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;FeatureCollection&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">otherProperties</span><span class="p">[</span><span class="s1">&#39;groupName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;enterGroupName&#39;</span>
+        <span class="k">if</span> <span class="n">otherProperties</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">otherProperties</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">otherProperties</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="FeatureCollection.add_feature"><a class="viewcode-back" href="../../generated/geometric_features.feature_collection.FeatureCollection.add_feature.html#geometric_features.feature_collection.FeatureCollection.add_feature">[docs]</a>    <span class="k">def</span> <span class="nf">add_feature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">feature</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Add a feature to the feature collection if it isn&#39;t alerady present</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        feature : dict</span>
+<span class="sd">            The feature to add</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c1"># Authors</span>
+        <span class="c1"># -------</span>
+        <span class="c1"># Xylar Asay-Davis</span>
+
+        <span class="n">feature</span> <span class="o">=</span> <span class="n">_validate_feature</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">feature_in_collection</span><span class="p">(</span><span class="n">feature</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="FeatureCollection.merge"><a class="viewcode-back" href="../../generated/geometric_features.feature_collection.FeatureCollection.merge.html#geometric_features.feature_collection.FeatureCollection.merge">[docs]</a>    <span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Merge another feature collection into this one</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : ``FeatureCollection``</span>
+<span class="sd">            The other feature collection</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c1"># Authors</span>
+        <span class="c1"># -------</span>
+        <span class="c1"># Xylar Asay-Davis</span>
+
+        <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">other</span><span class="o">.</span><span class="n">features</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">otherProperties</span><span class="o">.</span><span class="n">keys</span><span class="p">())):</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;features&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> \
+                    <span class="bp">self</span><span class="o">.</span><span class="n">otherProperties</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">otherProperties</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">otherProperties</span><span class="p">[</span><span class="n">key</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="FeatureCollection.tag"><a class="viewcode-back" href="../../generated/geometric_features.feature_collection.FeatureCollection.tag.html#geometric_features.feature_collection.FeatureCollection.tag">[docs]</a>    <span class="k">def</span> <span class="nf">tag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tags</span><span class="p">,</span> <span class="n">remove</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Add tags to all features in the collection</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        tags : list of str</span>
+<span class="sd">            Tags to be added</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c1"># Authors</span>
+        <span class="c1"># -------</span>
+        <span class="c1"># Xylar Asay-Davis</span>
+
+        <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">:</span>
+            <span class="n">featureTags</span> <span class="o">=</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;tags&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">tags</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">remove</span> <span class="ow">and</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">featureTags</span><span class="p">:</span>
+                    <span class="n">featureTags</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="ow">not</span> <span class="n">remove</span> <span class="ow">and</span> <span class="n">tag</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">featureTags</span><span class="p">:</span>
+                    <span class="n">featureTags</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span>
+            <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;tags&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">featureTags</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="FeatureCollection.set_group_name"><a class="viewcode-back" href="../../generated/geometric_features.feature_collection.FeatureCollection.set_group_name.html#geometric_features.feature_collection.FeatureCollection.set_group_name">[docs]</a>    <span class="k">def</span> <span class="nf">set_group_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">groupName</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Set the group name of a feature collection</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        groupName : str</span>
+<span class="sd">            The group name</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c1"># Authors</span>
+        <span class="c1"># -------</span>
+        <span class="c1"># Xylar Asay-Davis</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">otherProperties</span><span class="p">[</span><span class="s1">&#39;groupName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">groupName</span></div>
+
+<div class="viewcode-block" id="FeatureCollection.combine"><a class="viewcode-back" href="../../generated/geometric_features.feature_collection.FeatureCollection.combine.html#geometric_features.feature_collection.FeatureCollection.combine">[docs]</a>    <span class="k">def</span> <span class="nf">combine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">featureName</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Combines the geometry of the feature collection into a single feature</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        featureName : str</span>
+<span class="sd">            The name of the new, combined feature</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        fc : ``FeatureCollection``</span>
+<span class="sd">            A new feature collection with a single feature with the combined</span>
+<span class="sd">            geometry</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">           If the combined geometry is of an unsupported type (typically</span>
+<span class="sd">           ``GeometryCollection``)</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c1"># Authors</span>
+        <span class="c1"># -------</span>
+        <span class="c1"># Xylar Asay-Davis</span>
+
+        <span class="n">featureShapes</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">authors</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">featureNames</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">:</span>
+            <span class="n">featureShapes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]))</span>
+            <span class="n">authors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;author&#39;</span><span class="p">])</span>
+            <span class="n">featureNames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+
+        <span class="n">combinedShape</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">cascaded_union</span><span class="p">(</span><span class="n">featureShapes</span><span class="p">)</span>
+
+        <span class="n">geometry</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">mapping</span><span class="p">(</span><span class="n">combinedShape</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">objectType</span> <span class="o">=</span> <span class="n">_get_geom_object_type</span><span class="p">(</span><span class="n">geometry</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">])</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;combined geometry is of unsupported type &#39;</span>
+                             <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">. Most likely cause is that &#39;</span>
+                             <span class="s1">&#39;multiple feature types (regions, points and &#39;</span>
+                             <span class="s1">&#39;transects) are being cobined.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                                 <span class="n">geometry</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]))</span>
+
+        <span class="n">feature</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Feature&#39;</span>
+        <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">featureName</span>
+        <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;component&#39;</span><span class="p">]</span> <span class="o">=</span> \
+            <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;component&#39;</span><span class="p">]</span>
+        <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;object&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">objectType</span>
+        <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;tags&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;author&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">authors</span><span class="p">)))</span>
+        <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;constituents&#39;</span><span class="p">]</span> <span class="o">=</span> \
+            <span class="s1">&#39;; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">featureNames</span><span class="p">)))</span>
+        <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">geometry</span>
+
+        <span class="n">fc</span> <span class="o">=</span> <span class="n">FeatureCollection</span><span class="p">([</span><span class="n">feature</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">fc</span></div>
+
+<div class="viewcode-block" id="FeatureCollection.difference"><a class="viewcode-back" href="../../generated/geometric_features.feature_collection.FeatureCollection.difference.html#geometric_features.feature_collection.FeatureCollection.difference">[docs]</a>    <span class="k">def</span> <span class="nf">difference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maskingFC</span><span class="p">,</span> <span class="n">show_progress</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Use features from a masking collection to mask out (remove part of</span>
+<span class="sd">        the geometry from) this collection.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        maskingFC : ``FeatureCollection```</span>
+<span class="sd">            Another collection of one or more features to use as masks</span>
+
+<span class="sd">        show_progress : bool</span>
+<span class="sd">            Show a progress bar</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        fc : ``FeatureCollection``</span>
+<span class="sd">            A new feature collection with a single feature with the geometry</span>
+<span class="sd">            masked</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c1"># Authors</span>
+        <span class="c1"># -------</span>
+        <span class="c1"># Xylar Asay-Davis</span>
+
+        <span class="n">featureCount</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">)</span>
+        <span class="n">maskCount</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">maskingFC</span><span class="o">.</span><span class="n">features</span><span class="p">)</span>
+
+        <span class="n">totalCount</span> <span class="o">=</span> <span class="n">featureCount</span><span class="o">*</span><span class="n">maskCount</span>
+
+        <span class="k">if</span> <span class="n">show_progress</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Masking features...&#39;</span><span class="p">)</span>
+            <span class="n">widgets</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">progressbar</span><span class="o">.</span><span class="n">Percentage</span><span class="p">(),</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">progressbar</span><span class="o">.</span><span class="n">Bar</span><span class="p">(),</span>
+                       <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">progressbar</span><span class="o">.</span><span class="n">ETA</span><span class="p">()]</span>
+            <span class="n">bar</span> <span class="o">=</span> <span class="n">progressbar</span><span class="o">.</span><span class="n">ProgressBar</span><span class="p">(</span><span class="n">widgets</span><span class="o">=</span><span class="n">widgets</span><span class="p">,</span>
+                                          <span class="n">maxval</span><span class="o">=</span><span class="n">totalCount</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">widgets</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">bar</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="n">maskedFeatures</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">maskedCount</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">droppedCount</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">featureIndex</span><span class="p">,</span> <span class="n">feature</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">):</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">show_progress</span><span class="p">:</span>
+                <span class="n">widgets</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">: &#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="n">featureShape</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">])</span>
+            <span class="n">add</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">masked</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">for</span> <span class="n">maskIndex</span><span class="p">,</span> <span class="n">maskFeature</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">maskingFC</span><span class="o">.</span><span class="n">features</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">show_progress</span><span class="p">:</span>
+                    <span class="n">bar</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">maskIndex</span> <span class="o">+</span> <span class="n">featureIndex</span><span class="o">*</span><span class="n">maskCount</span><span class="p">)</span>
+                <span class="n">maskShape</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">maskFeature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">])</span>
+                <span class="k">if</span> <span class="n">featureShape</span><span class="o">.</span><span class="n">intersects</span><span class="p">(</span><span class="n">maskShape</span><span class="p">):</span>
+                    <span class="n">masked</span> <span class="o">=</span> <span class="kc">True</span>
+                    <span class="n">featureShape</span> <span class="o">=</span> <span class="n">featureShape</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">maskShape</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">featureShape</span><span class="o">.</span><span class="n">is_empty</span><span class="p">:</span>
+                        <span class="n">add</span> <span class="o">=</span> <span class="kc">False</span>
+                        <span class="k">break</span>
+
+            <span class="k">if</span><span class="p">(</span><span class="n">add</span><span class="p">):</span>
+                <span class="n">newFeature</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">masked</span><span class="p">):</span>
+                    <span class="n">maskedCount</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="n">newFeature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span> <span class="o">=</span> \
+                        <span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">mapping</span><span class="p">(</span><span class="n">featureShape</span><span class="p">)</span>
+                <span class="n">maskedFeatures</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">newFeature</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">droppedCount</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="n">show_progress</span><span class="p">:</span>
+            <span class="n">bar</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  </span><span class="si">{}</span><span class="s1"> features unchanged, </span><span class="si">{}</span><span class="s1"> masked and </span><span class="si">{}</span><span class="s1"> dropped.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">featureCount</span> <span class="o">-</span> <span class="n">maskedCount</span> <span class="o">-</span> <span class="n">droppedCount</span><span class="p">,</span> <span class="n">maskedCount</span><span class="p">,</span>
+            <span class="n">droppedCount</span><span class="p">))</span>
+
+        <span class="n">fc</span> <span class="o">=</span> <span class="n">FeatureCollection</span><span class="p">(</span><span class="n">maskedFeatures</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">otherProperties</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">fc</span></div>
+
+<div class="viewcode-block" id="FeatureCollection.fix_antimeridian"><a class="viewcode-back" href="../../generated/geometric_features.feature_collection.FeatureCollection.fix_antimeridian.html#geometric_features.feature_collection.FeatureCollection.fix_antimeridian">[docs]</a>    <span class="k">def</span> <span class="nf">fix_antimeridian</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Split features at +/-180 degrees (the antimeridian) to make them valid</span>
+<span class="sd">        geojson geometries</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        fc : ``FeatureCollection``</span>
+<span class="sd">            A new feature collection with the antimeridian handled correctly</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c1"># Authors</span>
+        <span class="c1"># -------</span>
+        <span class="c1"># Xylar Asay-Davis</span>
+
+        <span class="n">newFeatures</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">:</span>
+            <span class="n">geometry</span> <span class="o">=</span> <span class="n">_split_geometry_crossing_antimeridian</span><span class="p">(</span>
+                <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">geometry</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="c1"># no change</span>
+                <span class="n">newFeature</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">newFeature</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+                <span class="n">newFeature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">])</span>
+                <span class="n">newFeature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">geometry</span>
+            <span class="n">newFeatures</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">newFeature</span><span class="p">)</span>
+
+        <span class="n">fc</span> <span class="o">=</span> <span class="n">FeatureCollection</span><span class="p">(</span><span class="n">newFeatures</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">otherProperties</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">fc</span></div>
+
+<div class="viewcode-block" id="FeatureCollection.simplify"><a class="viewcode-back" href="../../generated/geometric_features.feature_collection.FeatureCollection.simplify.html#geometric_features.feature_collection.FeatureCollection.simplify">[docs]</a>    <span class="k">def</span> <span class="nf">simplify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Features in the collection are simplified using ``shapely``</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        tolerance : float, optional</span>
+<span class="sd">            The tolerance in degrees lon/lat allowed when simplifying shapes</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        fc : ``FeatureCollection``</span>
+<span class="sd">            A new feature collection with simplified geometries</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c1"># Authors</span>
+        <span class="c1"># -------</span>
+        <span class="c1"># Xylar Asay-Davis</span>
+
+        <span class="n">newFeatures</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">:</span>
+            <span class="n">featureShape</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">])</span>
+            <span class="n">simplifiedFeature</span> <span class="o">=</span> <span class="n">featureShape</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">tolerance</span><span class="p">)</span>
+            <span class="n">newFeature</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
+            <span class="n">newFeature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span> <span class="o">=</span> \
+                <span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">mapping</span><span class="p">(</span><span class="n">simplifiedFeature</span><span class="p">)</span>
+            <span class="n">newFeatures</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">newFeature</span><span class="p">)</span>
+
+        <span class="n">fc</span> <span class="o">=</span> <span class="n">FeatureCollection</span><span class="p">(</span><span class="n">newFeatures</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">otherProperties</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">fc</span></div>
+
+<div class="viewcode-block" id="FeatureCollection.feature_in_collection"><a class="viewcode-back" href="../../generated/geometric_features.feature_collection.FeatureCollection.feature_in_collection.html#geometric_features.feature_collection.FeatureCollection.feature_in_collection">[docs]</a>    <span class="k">def</span> <span class="nf">feature_in_collection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">feature</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Is this feature already in the collection?</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        feature : dict</span>
+<span class="sd">            The feature to check</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        inCollection : bool</span>
+<span class="sd">            Whether the feature is in the collection</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c1"># Authors</span>
+        <span class="c1"># -------</span>
+        <span class="c1"># Xylar Asay-Davis</span>
+
+        <span class="n">featureNames</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">featureNames</span></div>
+
+<div class="viewcode-block" id="FeatureCollection.to_geojson"><a class="viewcode-back" href="../../generated/geometric_features.feature_collection.FeatureCollection.to_geojson.html#geometric_features.feature_collection.FeatureCollection.to_geojson">[docs]</a>    <span class="k">def</span> <span class="nf">to_geojson</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fileName</span><span class="p">,</span> <span class="n">stripHistory</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Write the feature collection to a geojson file</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        fileName : str</span>
+<span class="sd">            A geojson file to write to</span>
+
+<span class="sd">        stripHistory : bool, optional</span>
+<span class="sd">            Whether to remove the history attribute (e.g. when splitting</span>
+<span class="sd">            features for inclusion in the ``geometric_features`` repo)</span>
+
+<span class="sd">        indent : int, optional</span>
+<span class="sd">            The number of spaces to use for indentation when formatting the</span>
+<span class="sd">            geojson file</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c1"># Authors</span>
+        <span class="c1"># -------</span>
+        <span class="c1"># Douglas Jacobsen, Xylar Asay-Davis, Phillip J. Wolfram</span>
+
+        <span class="n">outFeatures</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">otherProperties</span><span class="p">)</span>
+        <span class="c1"># features go last for readability</span>
+        <span class="n">outFeatures</span><span class="p">[</span><span class="s1">&#39;features&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">stripHistory</span><span class="p">:</span>
+            <span class="c1"># remove provenance from the output</span>
+            <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">outFeatures</span><span class="p">[</span><span class="s1">&#39;features&#39;</span><span class="p">]:</span>
+                <span class="c1"># pop (with default so no exception is raised if no history)</span>
+                <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;history&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># provenance the output</span>
+            <span class="n">command</span> <span class="o">=</span> <span class="n">provenance_command</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">outFeatures</span><span class="p">[</span><span class="s1">&#39;features&#39;</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="s1">&#39;history&#39;</span> <span class="ow">in</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">]:</span>
+                    <span class="n">history</span> <span class="o">=</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;history&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">command</span>
+                    <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;history&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">history</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;history&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">command</span>
+
+        <span class="n">outFile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fileName</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">outFeatures</span><span class="p">[</span><span class="s1">&#39;features&#39;</span><span class="p">]:</span>
+            <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">]</span> <span class="o">=</span> \
+                <span class="n">_round_coords</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">])</span>
+
+        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">outFeatures</span><span class="p">,</span> <span class="n">outFile</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="n">indent</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="FeatureCollection.plot"><a class="viewcode-back" href="../../generated/geometric_features.feature_collection.FeatureCollection.plot.html#geometric_features.feature_collection.FeatureCollection.plot">[docs]</a>    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">projection</span><span class="p">,</span> <span class="n">maxLength</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+             <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Plot the features on a map using cartopy.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        projection : str or ``cartopy.crs.Projection``</span>
+<span class="sd">            A cartopy projection object or one of the internally defined</span>
+<span class="sd">            map names:</span>
+
+<span class="sd">                &#39;cyl&#39;, &#39;merc&#39;, &#39;mill&#39;, &#39;mill2&#39;, &#39;moll&#39;, &#39;moll2&#39;, &#39;robin&#39;,</span>
+<span class="sd">                &#39;robin2&#39;, &#39;ortho&#39;, &#39;northpole&#39;, &#39;southpole&#39;, &#39;atlantic&#39;,</span>
+<span class="sd">                &#39;pacific&#39;, &#39;americas&#39;, &#39;asia&#39;</span>
+
+<span class="sd">        maxLength : float, optional</span>
+<span class="sd">            Maximum allowed segment length after subdivision for smoother</span>
+<span class="sd">            plotting (0.0 indicates skip subdivision)</span>
+
+<span class="sd">        figsize : tuple of float</span>
+<span class="sd">            Size of the figure in inches</span>
+
+<span class="sd">        colors : list of str</span>
+<span class="sd">            Colors to cycle through for the shapes</span>
+
+<span class="sd">        dpi : int</span>
+<span class="sd">            Dots per inch for the figure</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        fig : ``matplotlib.figure.Figure``</span>
+<span class="sd">            The figure</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c1"># Authors</span>
+        <span class="c1"># -------</span>
+        <span class="c1"># Xylar Asay-Davis, `Phillip J. Wolfram</span>
+
+        <span class="n">projectionName</span> <span class="o">=</span> <span class="s1">&#39;custom&#39;</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">projection</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">projections</span> <span class="o">=</span> <span class="n">build_projections</span><span class="p">()</span>
+            <span class="n">projectionName</span> <span class="o">=</span> <span class="n">projection</span>
+            <span class="n">projection</span> <span class="o">=</span> <span class="n">projections</span><span class="p">[</span><span class="n">projectionName</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">figsize</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">projectionName</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;cyl&#39;</span><span class="p">,</span> <span class="s1">&#39;merc&#39;</span><span class="p">,</span> <span class="s1">&#39;mill&#39;</span><span class="p">,</span> <span class="s1">&#39;mill2&#39;</span><span class="p">,</span> <span class="s1">&#39;moll&#39;</span><span class="p">,</span>
+                                  <span class="s1">&#39;moll2&#39;</span><span class="p">,</span> <span class="s1">&#39;robin&#39;</span><span class="p">,</span> <span class="s1">&#39;robin2&#39;</span><span class="p">]:</span>
+                <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">)</span>
+        <span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">projection</span><span class="p">)</span> <span class="o">=</span> <span class="n">plot_base</span><span class="p">(</span><span class="n">projectionName</span><span class="p">,</span> <span class="n">projection</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">colors</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># use colorbrewer qualitative 7 data class colors,</span>
+            <span class="c1"># &quot;7-class Accent&quot;: http://colorbrewer2.org/</span>
+            <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#7fc97f&#39;</span><span class="p">,</span> <span class="s1">&#39;#beaed4&#39;</span><span class="p">,</span> <span class="s1">&#39;#fdc086&#39;</span><span class="p">,</span> <span class="s1">&#39;#ffff99&#39;</span><span class="p">,</span> <span class="s1">&#39;#386cb0&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;#f0027f&#39;</span><span class="p">,</span> <span class="s1">&#39;#bf5b17&#39;</span><span class="p">]</span>
+
+        <span class="n">bounds</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">for</span> <span class="n">featureIndex</span><span class="p">,</span> <span class="n">feature</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">):</span>
+            <span class="n">geomType</span> <span class="o">=</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span>
+            <span class="n">shape</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">])</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">maxLength</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">):</span>
+                <span class="n">shape</span> <span class="o">=</span> <span class="n">subdivide_geom</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">geomType</span><span class="p">,</span> <span class="n">maxLength</span><span class="p">)</span>
+
+            <span class="n">refProjection</span> <span class="o">=</span> <span class="n">cartopy</span><span class="o">.</span><span class="n">crs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()</span>
+
+            <span class="n">color</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="n">featureIndex</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">colors</span><span class="p">)]</span>
+
+            <span class="k">if</span> <span class="n">geomType</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Polygon&#39;</span><span class="p">,</span> <span class="s1">&#39;MultiPolygon&#39;</span><span class="p">]:</span>
+                <span class="n">props</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;linewidth&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span> <span class="s1">&#39;edgecolor&#39;</span><span class="p">:</span> <span class="n">color</span><span class="p">,</span> <span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">,</span>
+                         <span class="s1">&#39;facecolor&#39;</span><span class="p">:</span> <span class="n">color</span><span class="p">}</span>
+            <span class="k">elif</span> <span class="n">geomType</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;LineString&#39;</span><span class="p">,</span> <span class="s1">&#39;MultiLineString&#39;</span><span class="p">]:</span>
+                <span class="n">props</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;linewidth&#39;</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">,</span> <span class="s1">&#39;edgecolor&#39;</span><span class="p">:</span> <span class="n">color</span><span class="p">,</span> <span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="mf">1.</span><span class="p">,</span>
+                         <span class="s1">&#39;facecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;none&#39;</span><span class="p">}</span>
+
+            <span class="k">if</span> <span class="n">bounds</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">bounds</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">shape</span><span class="o">.</span><span class="n">bounds</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># expand the bounding box</span>
+                <span class="n">bounds</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">bounds</span><span class="p">[:</span><span class="mi">2</span><span class="p">],</span> <span class="n">shape</span><span class="o">.</span><span class="n">bounds</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>
+                <span class="n">bounds</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">bounds</span><span class="p">[</span><span class="mi">2</span><span class="p">:],</span> <span class="n">shape</span><span class="o">.</span><span class="n">bounds</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
+
+            <span class="k">if</span> <span class="n">geomType</span> <span class="o">==</span> <span class="s1">&#39;Point&#39;</span><span class="p">:</span>
+                <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">shape</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">shape</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span>
+                           <span class="n">transform</span><span class="o">=</span><span class="n">cartopy</span><span class="o">.</span><span class="n">crs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span>
+                           <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">ax</span><span class="o">.</span><span class="n">add_geometries</span><span class="p">((</span><span class="n">shape</span><span class="p">,),</span> <span class="n">crs</span><span class="o">=</span><span class="n">refProjection</span><span class="p">,</span> <span class="o">**</span><span class="n">props</span><span class="p">)</span>
+
+        <span class="n">box</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">box</span><span class="p">(</span><span class="o">*</span><span class="n">bounds</span><span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">maxLength</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">):</span>
+            <span class="n">box</span> <span class="o">=</span> <span class="n">subdivide_geom</span><span class="p">(</span><span class="n">box</span><span class="p">,</span> <span class="s1">&#39;Polygon&#39;</span><span class="p">,</span> <span class="n">maxLength</span><span class="p">)</span>
+
+        <span class="n">boxProjected</span> <span class="o">=</span> <span class="n">projection</span><span class="o">.</span><span class="n">project_geometry</span><span class="p">(</span><span class="n">box</span><span class="p">,</span> <span class="n">src_crs</span><span class="o">=</span><span class="n">refProjection</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">boxProjected</span><span class="o">.</span><span class="n">bounds</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">])</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">])</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Warning: bounding box could not be projected into &quot;</span>
+                  <span class="s2">&quot;projection </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">projectionName</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Defaulting to global bounds.&quot;</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_global</span><span class="p">()</span>
+
+        <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mf">4.</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">fig</span></div></div>
+
+
+<span class="k">def</span> <span class="nf">_get_geom_object_type</span><span class="p">(</span><span class="n">geomType</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Get the object type for a given geometry type</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">geomObjectTypes</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Polygon&#39;</span><span class="p">:</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;MultiPolygon&#39;</span><span class="p">:</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;LineString&#39;</span><span class="p">:</span> <span class="s1">&#39;transect&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;MultiLineString&#39;</span><span class="p">:</span> <span class="s1">&#39;transect&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;Point&#39;</span><span class="p">:</span> <span class="s1">&#39;point&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;MultiPoint&#39;</span><span class="p">:</span> <span class="s1">&#39;point&#39;</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">geomObjectTypes</span><span class="p">[</span><span class="n">geomType</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">_validate_feature</span><span class="p">(</span><span class="n">feature</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Validate the geometric feature to ensure that it has all required keys:</span>
+<span class="sd">        - properties</span>
+<span class="sd">          - name</span>
+<span class="sd">          - tags</span>
+<span class="sd">          - object</span>
+<span class="sd">          - component</span>
+<span class="sd">          - author</span>
+<span class="sd">        - geometry</span>
+<span class="sd">          - type</span>
+<span class="sd">          - coordinates</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    feature : dict</span>
+<span class="sd">        The feature to check</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    KeyError</span>
+<span class="sd">        If the feature is missing required keys</span>
+
+<span class="sd">    ValueError</span>
+<span class="sd">        If the geometry type doesn&#39;t match the object type</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># Authors</span>
+    <span class="c1"># -------</span>
+    <span class="c1"># Xylar Asay-Davis, Phillip J. Wolfram</span>
+
+    <span class="n">required</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;properties&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span> <span class="s1">&#39;component&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;geometry&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;coordinates&#39;</span><span class="p">]}</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;unknown&#39;</span>
+    <span class="k">for</span> <span class="n">outerKey</span> <span class="ow">in</span> <span class="n">required</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">outerKey</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">feature</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s1">&#39;Feature </span><span class="si">{}</span><span class="s1"> missing [</span><span class="si">{}</span><span class="s1">] key&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">name</span><span class="p">,</span> <span class="n">outerKey</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">innerKey</span> <span class="ow">in</span> <span class="n">required</span><span class="p">[</span><span class="n">outerKey</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">innerKey</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">feature</span><span class="p">[</span><span class="n">outerKey</span><span class="p">]:</span>
+                <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s1">&#39;Feature </span><span class="si">{}</span><span class="s1"> missing [</span><span class="si">{}</span><span class="s1">][</span><span class="si">{}</span><span class="s1">] key&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">name</span><span class="p">,</span> <span class="n">outerKey</span><span class="p">,</span> <span class="n">innerKey</span><span class="p">))</span>
+
+    <span class="n">geomType</span> <span class="o">=</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span>
+    <span class="n">objectType</span> <span class="o">=</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;object&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">_get_geom_object_type</span><span class="p">(</span><span class="n">geomType</span><span class="p">)</span> <span class="o">!=</span> <span class="n">objectType</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Object type </span><span class="si">{}</span><span class="s1"> and geometry type </span><span class="si">{}</span><span class="s1"> &#39;</span>
+                         <span class="s1">&#39;are incompatible&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">objectType</span><span class="p">,</span> <span class="n">geomType</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="s1">&#39;author&#39;</span> <span class="ow">in</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">]:</span>
+        <span class="n">author</span> <span class="o">=</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;author&#39;</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">author</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+    <span class="k">if</span> <span class="s1">&#39;tags&#39;</span> <span class="ow">in</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">]:</span>
+        <span class="n">tags</span> <span class="o">=</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;tags&#39;</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">tags</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+    <span class="c1"># Make the properties an ordered dictionary so they can be sorted</span>
+    <span class="n">outProperties</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">(</span>
+            <span class="p">((</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]),</span>
+             <span class="p">(</span><span class="s1">&#39;tags&#39;</span><span class="p">,</span> <span class="n">tags</span><span class="p">),</span>
+             <span class="p">(</span><span class="s1">&#39;object&#39;</span><span class="p">,</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;object&#39;</span><span class="p">]),</span>
+             <span class="p">(</span><span class="s1">&#39;component&#39;</span><span class="p">,</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;component&#39;</span><span class="p">]),</span>
+             <span class="p">(</span><span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="n">author</span><span class="p">)))</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">]):</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">outProperties</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">outProperties</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="n">key</span><span class="p">]</span>
+
+    <span class="c1"># Make the geometry an ordered dictionary so they can keep it in the</span>
+    <span class="c1"># desired order</span>
+    <span class="n">outGeometry</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">(</span>
+        <span class="p">((</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]),</span>
+         <span class="p">(</span><span class="s1">&#39;coordinates&#39;</span><span class="p">,</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">])))</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]):</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">outGeometry</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">outGeometry</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="n">key</span><span class="p">]</span>
+
+    <span class="c1"># Make the feature an ordered dictionary so properties come before geometry</span>
+    <span class="c1"># (easier to read)</span>
+    <span class="n">outFeature</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">(((</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;Feature&#39;</span><span class="p">),</span>
+                             <span class="p">(</span><span class="s1">&#39;properties&#39;</span><span class="p">,</span> <span class="n">outProperties</span><span class="p">)))</span>
+    <span class="c1"># Add the rest</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">feature</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;properties&#39;</span><span class="p">]:</span>
+            <span class="n">outFeature</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">feature</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+    <span class="c1"># geometry goes last for readability</span>
+    <span class="n">outFeature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">outGeometry</span>
+
+    <span class="k">return</span> <span class="n">outFeature</span>
+
+
+<span class="k">def</span> <span class="nf">_split_geometry_crossing_antimeridian</span><span class="p">(</span><span class="n">geometry</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_to_polar</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">):</span>
+        <span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">180.</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">lon</span> <span class="o">+</span> <span class="mf">180.</span><span class="p">,</span> <span class="mf">360.</span><span class="p">)</span> <span class="o">-</span> <span class="mf">180.</span><span class="p">)</span>
+        <span class="n">radius</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">180.</span><span class="o">*</span><span class="p">(</span><span class="mf">90.</span> <span class="o">-</span> <span class="n">sign</span><span class="o">*</span><span class="n">lat</span><span class="p">)</span>
+
+        <span class="c1"># nudge points at +/- 180 out of the way so they don&#39;t intersect the</span>
+        <span class="c1"># testing wedge</span>
+        <span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">*</span> \
+            <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">-</span> <span class="mf">1.5</span><span class="o">*</span><span class="n">epsilon</span><span class="p">,</span>
+                     <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">-</span> <span class="mf">1.5</span><span class="o">*</span><span class="n">epsilon</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">phi</span><span class="p">))</span>
+        <span class="c1"># radius = np.where(radius &lt; 1.5*epsilon, 1.5*epsilon, radius)</span>
+
+        <span class="n">x</span> <span class="o">=</span> <span class="n">radius</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">radius</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="nb">list</span><span class="p">)):</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="k">elif</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_from_polar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="n">radius</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+        <span class="c1"># close up the tiny gap</span>
+        <span class="n">radius</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">radius</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">*</span><span class="n">epsilon</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">radius</span><span class="p">)</span>
+        <span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">*</span> \
+            <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">epsilon</span><span class="p">,</span>
+                     <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">phi</span><span class="p">))</span>
+
+        <span class="n">lon</span> <span class="o">=</span> <span class="mf">180.</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">phi</span>
+        <span class="n">lat</span> <span class="o">=</span> <span class="n">sign</span><span class="o">*</span><span class="p">(</span><span class="mf">90.</span> <span class="o">-</span> <span class="mf">180.</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">radius</span><span class="p">)</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">list</span><span class="p">)):</span>
+            <span class="n">lon</span> <span class="o">=</span> <span class="n">lon</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+            <span class="n">lat</span> <span class="o">=</span> <span class="n">lat</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="k">elif</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+            <span class="n">lon</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">lon</span><span class="p">)</span>
+            <span class="n">lat</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">)</span>
+
+    <span class="n">epsilon</span> <span class="o">=</span> <span class="mf">1e-14</span>
+    <span class="n">antimeridianWedge</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">Polygon</span><span class="p">([(</span><span class="n">epsilon</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">),</span>
+                                                  <span class="p">(</span><span class="n">epsilon</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="n">epsilon</span><span class="p">),</span>
+                                                  <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">),</span>
+                                                  <span class="p">(</span><span class="o">-</span><span class="n">epsilon</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="n">epsilon</span><span class="p">),</span>
+                                                  <span class="p">(</span><span class="o">-</span><span class="n">epsilon</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">),</span>
+                                                  <span class="p">(</span><span class="n">epsilon</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)])</span>
+
+    <span class="n">featureShape</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">geometry</span><span class="p">)</span>
+    <span class="n">sign</span> <span class="o">=</span> <span class="p">(</span><span class="mf">2.</span><span class="o">*</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">featureShape</span><span class="o">.</span><span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">featureShape</span><span class="o">.</span><span class="n">bounds</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">&gt;=</span> <span class="mf">0.</span><span class="p">)</span> <span class="o">-</span>
+            <span class="mf">1.</span><span class="p">)</span>
+    <span class="n">polarShape</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">_to_polar</span><span class="p">,</span> <span class="n">featureShape</span><span class="p">)</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="ow">not</span> <span class="n">polarShape</span><span class="o">.</span><span class="n">intersects</span><span class="p">(</span><span class="n">antimeridianWedge</span><span class="p">)):</span>
+        <span class="c1"># this feature doesn&#39;t corss the antimeridian</span>
+        <span class="k">return</span>
+
+    <span class="n">difference</span> <span class="o">=</span> <span class="n">polarShape</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">antimeridianWedge</span><span class="p">)</span>
+
+    <span class="n">outShape</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">_from_polar</span><span class="p">,</span> <span class="n">difference</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">mapping</span><span class="p">(</span><span class="n">outShape</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_round_coords</span><span class="p">(</span><span class="n">coordinates</span><span class="p">,</span> <span class="n">digits</span><span class="o">=</span><span class="mi">6</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Round the coordinates of geojson geometry data before writing to a file</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">coordinates</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">coordinates</span><span class="p">,</span> <span class="n">digits</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">coordinates</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">coordinates</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">coordinates</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">_round_coords</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">digits</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">coordinates</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">coordinates</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">tuple</span><span class="p">([</span><span class="n">_round_coords</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">digits</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">coordinates</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Unexpected type for coordinates </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">coordinates</span><span class="p">))</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright This software is open source software available under the BSD-3license. Copyright (c) 2019 Triad National Security, LLC. All rights reserved. Copyright (c) 2018 Lawrence Livermore National Security, LLC. All rights reserved. Copyright (c) 2018 UT-Battelle, LLC. All rights reserved.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
