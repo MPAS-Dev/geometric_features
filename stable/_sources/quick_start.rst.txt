@@ -5,8 +5,8 @@ Quick Start
 ===========
 
 
-.. image:: https://travis-ci.org/MPAS-Dev/geometric_features.svg?branch=master
-   :target: https://travis-ci.org/MPAS-Dev/geometric_features
+.. image:: https://dev.azure.com/MPAS-Dev/geometric_features%20testing/_apis/build/status/MPAS-Dev.geometric_features?branchName=temp
+   :target: https://dev.azure.com/MPAS-Dev/geometric_features%20testing/_build/latest?definitionId=3&branchName=temp
    :alt: Build Status
 
 
