@@ -1,6 +1,6 @@
 # Geometric Features
 
-[![Build Status](https://travis-ci.org/MPAS-Dev/geometric_features.svg?branch=master)](https://travis-ci.org/MPAS-Dev/geometric_features)
+[![Build Status](https://dev.azure.com/MPAS-Dev/geometric_features%20testing/_apis/build/status/MPAS-Dev.geometric_features?branchName=temp)](https://dev.azure.com/MPAS-Dev/geometric_features%20testing/_build/latest?definitionId=3&branchName=temp)
 
 This repository houses definitions of geometric features. These features
 can include regions, transects, and points, described in geojson format.
