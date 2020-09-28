@@ -35,7 +35,7 @@ def read_feature_collection(fileName):
 
     Returns
     -------
-    fc : ``FeatureCollection``
+    fc : geometric_features.FeatureCollection
         The feature collection read in
     '''
     # Authors
@@ -121,7 +121,7 @@ class FeatureCollection(object):
 
         Parameters
         ----------
-        other : ``FeatureCollection``
+        other : geometric_features.FeatureCollection
             The other feature collection
         '''
         # Authors
@@ -184,7 +184,7 @@ class FeatureCollection(object):
 
         Returns
         -------
-        fc : ``FeatureCollection``
+        fc : geometric_features.FeatureCollection
             A new feature collection with a single feature with the combined
             geometry
 
@@ -242,7 +242,7 @@ class FeatureCollection(object):
 
         Parameters
         ----------
-        maskingFC : ``FeatureCollection```
+        maskingFC : geometric_features.FeatureCollection
             Another collection of one or more features to use as masks
 
         show_progress : bool
@@ -250,7 +250,7 @@ class FeatureCollection(object):
 
         Returns
         -------
-        fc : ``FeatureCollection``
+        fc : geometric_features.FeatureCollection
             A new feature collection with a single feature with the geometry
             masked
         '''
@@ -321,7 +321,7 @@ class FeatureCollection(object):
 
         Returns
         -------
-        fc : ``FeatureCollection``
+        fc : geometric_features.FeatureCollection
             A new feature collection with the antimeridian handled correctly
         '''
         # Authors
@@ -355,7 +355,7 @@ class FeatureCollection(object):
 
         Returns
         -------
-        fc : ``FeatureCollection``
+        fc : geometric_features.FeatureCollection
             A new feature collection with simplified geometries
         '''
         # Authors
