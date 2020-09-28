@@ -1,3 +1,5 @@
+.. currentmodule:: geometric_features
+
 #############
 API reference
 #############
@@ -8,8 +10,6 @@ the documentation.
 
 Command-line scripts
 ====================
-
-.. currentmodule:: geometric_features.__main__
 
 .. autosummary::
    :toctree: generated/
@@ -28,22 +28,46 @@ Command-line scripts
 Python package
 ==============
 
-.. currentmodule:: geometric_features.geometric_features
+Reading Geometric Features
+--------------------------
 
 .. autosummary::
    :toctree: generated/
 
    GeometricFeatures
    GeometricFeatures.read
-   GeometricFeatures.split
 
-.. currentmodule:: geometric_features.feature_collection
+Splitting new data into Geometric Features
+------------------------------------------
+
+.. autosummary::
+   :toctree: generated/
+
+   GeometricFeatures.split
+   write_feature_names_and_tags
+
+Reading a Feature Collection
+----------------------------
 
 .. autosummary::
    :toctree: generated/
 
    read_feature_collection
+
+Creating a Feature Collection
+-----------------------------
+
+.. autosummary::
+   :toctree: generated/
+
    FeatureCollection
+
+Manipulating a Feature Collection
+---------------------------------
+
+.. autosummary::
+   :toctree: generated/
+
    FeatureCollection.add_feature
    FeatureCollection.merge
    FeatureCollection.tag
