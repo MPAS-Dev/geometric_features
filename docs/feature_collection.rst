@@ -11,7 +11,7 @@ Reading in Features
 -------------------
 
 A ``FeatureCollection`` can be read from a file with the function
-:func:`geometric_features.feature_collection.read_feature_collection`:
+:func:`geometric_features.read_feature_collection`:
 
 .. code-block:: python
 
@@ -23,7 +23,7 @@ Add a Feature
 -------------
 
 To add a single feature to a ``FeatureColleciton``, use
-:meth:`geometric_features.feature_collection.FeatureCollection.add_feature`:
+:meth:`geometric_features.FeatureCollection.add_feature`:
 
 .. code-block:: python
 
@@ -35,7 +35,7 @@ Merging Features
 ----------------
 
 A ``FeatureCollection`` ``fc2`` can be merged into another colleciton ``fc1``
- with :meth:`geometric_features.feature_collection.FeatureCollection.merge`:
+ with :meth:`geometric_features.FeatureCollection.merge`:
 
 .. code-block:: python
 
@@ -48,7 +48,7 @@ Plotting Features
 -----------------
 
 A ``FeatureCollection`` can be plotted on a given map projeciton with
-:meth:`geometric_features.feature_collection.FeatureCollection.plot`:
+:meth:`geometric_features.FeatureCollection.plot`:
 
 .. code-block:: python
 
@@ -63,7 +63,7 @@ Tag Features
 ------------
 
 All the features in a ``FeatureCollection`` can be tagged with one or more tags
-using :meth:`geometric_features.feature_collection.FeatureCollection.tag`:
+using :meth:`geometric_features.FeatureCollection.tag`:
 
 .. code-block:: python
 
@@ -78,7 +78,7 @@ Writing out Features
 --------------------
 
 To write out a ``FeatureCollection`` to a ``geojson`` file, call
-:meth:`geometric_features.feature_collection.FeatureCollection.to_geojson`
+:meth:`geometric_features.FeatureCollection.to_geojson`
 
 .. code-block:: python
 
@@ -88,7 +88,7 @@ Set a Group Name
 ----------------
 
 To set the ``groupName`` property of a ``FeatureCollection``, call
-:meth:`geometric_features.feature_collection.FeatureCollection.set_group_name`.
+:meth:`geometric_features.FeatureCollection.set_group_name`.
 
 .. code-block:: python
 
@@ -105,7 +105,7 @@ Combine Features
 
 Features in a ``FeatureCollection`` can be combined (fused together into a
 single feature) using
-:meth:`geometric_features.feature_collection.FeatureCollection.combine`:
+:meth:`geometric_features.FeatureCollection.combine`:
 
 .. code-block:: python
 
@@ -117,7 +117,7 @@ Difference Features
 
 Features in a ``FeatureCollection`` can be masked with one or more masking
 features from another ``FeatureCollection`` using
-:meth:`geometric_features.feature_collection.FeatureCollection.difference`:
+:meth:`geometric_features.FeatureCollection.difference`:
 
 .. code-block:: python
 
@@ -132,7 +132,7 @@ Simplify Features
 Sometimes, features are made up of segments or polygons with tiny edges that
 add little relevant detail to the features but make the files describing them
 needlessly large.  In such cases, the features can be simplified by calling
-:meth:`geometric_features.feature_collection.FeatureCollection.simplify` with
+:meth:`geometric_features.FeatureCollection.simplify` with
 and appropriate length scale (in degrees latitude/longitude) over which the
 feature may be modified to make it simpler.  If a length scale of zero is
 used, the feature will be simplified without any modification tot he shape
@@ -153,7 +153,7 @@ provides a bit of a hack for removing a tiny sliver of the feature around the
 antimeridian so that the resulting shape remians between -180 and 180 degrees
 longitude.
 
-:meth:`geometric_features.feature_collection.FeatureCollection.fix_antimeridian`
+:meth:`geometric_features.FeatureCollection.fix_antimeridian`
 
 .. code-block:: python
 

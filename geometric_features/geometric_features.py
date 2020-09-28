@@ -100,7 +100,7 @@ class GeometricFeatures(object):
 
         Returns
         -------
-        fc : ``FeatureCollection``
+        fc : geometric_features.FeatureCollection
             The feature collection read in
         '''
         # Authors
@@ -125,7 +125,7 @@ class GeometricFeatures(object):
 
         Parameters
         ----------
-        fc : ``FeatureCollection``
+        fc : geometric_features.FeatureCollection
             The feature collection to split
 
         destinationDir : str, optional
@@ -134,7 +134,7 @@ class GeometricFeatures(object):
 
         Returns
         -------
-        fc : ``FeatureCollection``
+        fc : geometric_features.FeatureCollection
             The feature collection read in
         '''
         # Authors

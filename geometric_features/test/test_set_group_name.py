@@ -22,7 +22,7 @@ class TestSetGroupName(TestCase):
 
         Parameters
         ----------
-         componentName : {'bedmap2', 'iceshelves', 'landice', 'natural_earth', 'ocean'}, optional
+         componentName : {'bedmachine', 'bedmap2', 'iceshelves', 'landice', 'natural_earth', 'ocean'}, optional
             The component from which to retieve the feature
 
         objectType : {'point', 'transect', 'region'}, optional
