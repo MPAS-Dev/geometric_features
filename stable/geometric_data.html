@@ -92,7 +92,7 @@
 <li class="toctree-l1"><a class="reference internal" href="feature_collection.html">FeatureCollection</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Geometric Data</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#components">Components</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#bedmap2">bedmap2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bedmachine-and-bedmap2">bedmachine and bedmap2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#iceshelves">iceshelves</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#landice">landice</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#natural-earth">natural_earth</a></li>
@@ -183,15 +183,18 @@
 <span id="geometricdata"></span><h1>Geometric Data<a class="headerlink" href="#geometric-data" title="Permalink to this headline">¶</a></h1>
 <p>The the overarching purpose of <code class="docutils literal notranslate"><span class="pre">geometric_features</span></code> is to facilitate access
 to and manipulation of the geometric data in the repository.  This data is
-currently divided across 5 components, <code class="docutils literal notranslate"><span class="pre">bedmap2</span></code>, <code class="docutils literal notranslate"><span class="pre">iceshelves</span></code>,
-<code class="docutils literal notranslate"><span class="pre">landice</span></code>,  <code class="docutils literal notranslate"><span class="pre">natural_earth</span></code>, and  <code class="docutils literal notranslate"><span class="pre">ocean</span></code>.</p>
+currently divided across 6 components, <code class="docutils literal notranslate"><span class="pre">bedmachine</span></code>, <code class="docutils literal notranslate"><span class="pre">bedmap2</span></code>,
+<code class="docutils literal notranslate"><span class="pre">iceshelves</span></code>, <code class="docutils literal notranslate"><span class="pre">landice</span></code>,  <code class="docutils literal notranslate"><span class="pre">natural_earth</span></code>, and  <code class="docutils literal notranslate"><span class="pre">ocean</span></code>.</p>
 <div class="section" id="components">
 <h2>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="bedmap2">
-<h3>bedmap2<a class="headerlink" href="#bedmap2" title="Permalink to this headline">¶</a></h3>
-<p>This component defines two “coastlines” between the Antarctic continent and
-the ocean.  One exclues the cavity under ice shelves while the other includes
-them.  The dataset used to define these coastlines is Bedmap2
+<div class="section" id="bedmachine-and-bedmap2">
+<h3>bedmachine and bedmap2<a class="headerlink" href="#bedmachine-and-bedmap2" title="Permalink to this headline">¶</a></h3>
+<p>These components each define two “coastlines” between the Antarctic continent
+and the ocean.  One excludes the cavity under ice shelves while the other
+includes them.  The <code class="docutils literal notranslate"><span class="pre">bedmachine</span></code> component uses the BedMachine Antarctica
+dataset
+(<a class="reference external" href="https://www.nature.com/articles/s41561-019-0510-8">Morlighem et al. 2020</a>)
+to define the coastlines, while the <code class="docutils literal notranslate"><span class="pre">bedmap2</span></code> dataset is based on Bedmap2
 (<a class="reference external" href="http://www.the-cryosphere.net/7/375/2013/">Fretwell et al. 2016</a>).</p>
 </div>
 <div class="section" id="iceshelves">

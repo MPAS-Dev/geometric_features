@@ -1,6 +1,0 @@
-﻿geometric\_features.feature\_collection.FeatureCollection.simplify
-==================================================================
-
-.. currentmodule:: geometric_features.feature_collection
-
-.. automethod:: FeatureCollection.simplify

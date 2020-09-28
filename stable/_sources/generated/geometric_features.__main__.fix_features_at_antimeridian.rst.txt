@@ -1,6 +1,0 @@
-﻿geometric\_features.\_\_main\_\_.fix\_features\_at\_antimeridian
-================================================================
-
-.. currentmodule:: geometric_features.__main__
-
-.. autofunction:: fix_features_at_antimeridian

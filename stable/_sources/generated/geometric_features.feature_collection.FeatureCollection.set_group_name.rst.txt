@@ -1,6 +1,0 @@
-﻿geometric\_features.feature\_collection.FeatureCollection.set\_group\_name
-==========================================================================
-
-.. currentmodule:: geometric_features.feature_collection
-
-.. automethod:: FeatureCollection.set_group_name

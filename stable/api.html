@@ -36,7 +36,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="geometric_features.__main__.combine_features" href="generated/geometric_features.__main__.combine_features.html" />
+    <link rel="next" title="geometric_features.GeometricFeatures" href="generated/geometric_features.GeometricFeatures.html" />
     <link rel="prev" title="Adding New Features" href="adding_features.html" /> 
 </head>
 
@@ -93,35 +93,39 @@
 <li class="toctree-l1"><a class="reference internal" href="geometric_data.html">Geometric Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="adding_features.html">Adding New Features</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">API reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#command-line-scripts">Command-line scripts</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="generated/geometric_features.__main__.combine_features.html">geometric_features.__main__.combine_features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/geometric_features.__main__.difference_features.html">geometric_features.__main__.difference_features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/geometric_features.__main__.fix_features_at_antimeridian.html">geometric_features.__main__.fix_features_at_antimeridian</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/geometric_features.__main__.merge_features.html">geometric_features.__main__.merge_features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/geometric_features.__main__.plot_features.html">geometric_features.__main__.plot_features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/geometric_features.__main__.set_group_name.html">geometric_features.__main__.set_group_name</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/geometric_features.__main__.split_features.html">geometric_features.__main__.split_features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/geometric_features.__main__.simplify_features.html">geometric_features.__main__.simplify_features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/geometric_features.__main__.tag_features.html">geometric_features.__main__.tag_features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#command-line-scripts">Command-line scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-package">Python package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#reading-geometric-features">Reading Geometric Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/geometric_features.GeometricFeatures.html">geometric_features.GeometricFeatures</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/geometric_features.GeometricFeatures.read.html">geometric_features.GeometricFeatures.read</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#python-package">Python package</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="generated/geometric_features.geometric_features.GeometricFeatures.html">geometric_features.geometric_features.GeometricFeatures</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/geometric_features.geometric_features.GeometricFeatures.read.html">geometric_features.geometric_features.GeometricFeatures.read</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/geometric_features.geometric_features.GeometricFeatures.split.html">geometric_features.geometric_features.GeometricFeatures.split</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/geometric_features.feature_collection.read_feature_collection.html">geometric_features.feature_collection.read_feature_collection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.html">geometric_features.feature_collection.FeatureCollection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.add_feature.html">geometric_features.feature_collection.FeatureCollection.add_feature</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.merge.html">geometric_features.feature_collection.FeatureCollection.merge</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.tag.html">geometric_features.feature_collection.FeatureCollection.tag</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.set_group_name.html">geometric_features.feature_collection.FeatureCollection.set_group_name</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.combine.html">geometric_features.feature_collection.FeatureCollection.combine</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.difference.html">geometric_features.feature_collection.FeatureCollection.difference</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.fix_antimeridian.html">geometric_features.feature_collection.FeatureCollection.fix_antimeridian</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.simplify.html">geometric_features.feature_collection.FeatureCollection.simplify</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.feature_in_collection.html">geometric_features.feature_collection.FeatureCollection.feature_in_collection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.to_geojson.html">geometric_features.feature_collection.FeatureCollection.to_geojson</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.plot.html">geometric_features.feature_collection.FeatureCollection.plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#splitting-new-data-into-geometric-features">Splitting new data into Geometric Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/geometric_features.GeometricFeatures.split.html">geometric_features.GeometricFeatures.split</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#reading-a-feature-collection">Reading a Feature Collection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/geometric_features.read_feature_collection.html">geometric_features.read_feature_collection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-feature-collection">Creating a Feature Collection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/geometric_features.FeatureCollection.html">geometric_features.FeatureCollection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#manipulating-a-feature-collection">Manipulating a Feature Collection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/geometric_features.FeatureCollection.add_feature.html">geometric_features.FeatureCollection.add_feature</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/geometric_features.FeatureCollection.merge.html">geometric_features.FeatureCollection.merge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/geometric_features.FeatureCollection.tag.html">geometric_features.FeatureCollection.tag</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/geometric_features.FeatureCollection.set_group_name.html">geometric_features.FeatureCollection.set_group_name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/geometric_features.FeatureCollection.combine.html">geometric_features.FeatureCollection.combine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/geometric_features.FeatureCollection.difference.html">geometric_features.FeatureCollection.difference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/geometric_features.FeatureCollection.fix_antimeridian.html">geometric_features.FeatureCollection.fix_antimeridian</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/geometric_features.FeatureCollection.simplify.html">geometric_features.FeatureCollection.simplify</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/geometric_features.FeatureCollection.feature_in_collection.html">geometric_features.FeatureCollection.feature_in_collection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/geometric_features.FeatureCollection.to_geojson.html">geometric_features.FeatureCollection.to_geojson</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/geometric_features.FeatureCollection.plot.html">geometric_features.FeatureCollection.plot</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -207,102 +211,114 @@ the documentation.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.__main__.combine_features.html#geometric_features.__main__.combine_features" title="geometric_features.__main__.combine_features"><code class="xref py py-obj docutils literal notranslate"><span class="pre">combine_features</span></code></a>()</p></td>
-<td><p>Entry point for combining features from a file</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/geometric_features.__main__.difference_features.html#geometric_features.__main__.difference_features" title="geometric_features.__main__.difference_features"><code class="xref py py-obj docutils literal notranslate"><span class="pre">difference_features</span></code></a>()</p></td>
-<td><p>Entry point for differencing features from a file</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.__main__.fix_features_at_antimeridian.html#geometric_features.__main__.fix_features_at_antimeridian" title="geometric_features.__main__.fix_features_at_antimeridian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fix_features_at_antimeridian</span></code></a>()</p></td>
-<td><p>Entry point for splitting features that cross +/- 180 degrees</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/geometric_features.__main__.merge_features.html#geometric_features.__main__.merge_features" title="geometric_features.__main__.merge_features"><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge_features</span></code></a>()</p></td>
-<td><p>Entry point for merging features from the geometric_data cache</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.__main__.plot_features.html#geometric_features.__main__.plot_features" title="geometric_features.__main__.plot_features"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_features</span></code></a>()</p></td>
-<td><p>Entry point for plotting features from a file</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/geometric_features.__main__.set_group_name.html#geometric_features.__main__.set_group_name" title="geometric_features.__main__.set_group_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_group_name</span></code></a>()</p></td>
-<td><p>Set the group name of the feature collection</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.__main__.split_features.html#geometric_features.__main__.split_features" title="geometric_features.__main__.split_features"><code class="xref py py-obj docutils literal notranslate"><span class="pre">split_features</span></code></a>()</p></td>
-<td><p>Features in the collection are split into individual files in the geometric_data cache</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/geometric_features.__main__.simplify_features.html#geometric_features.__main__.simplify_features" title="geometric_features.__main__.simplify_features"><code class="xref py py-obj docutils literal notranslate"><span class="pre">simplify_features</span></code></a>()</p></td>
-<td><p>Features in the collection are simplified using <code class="docutils literal notranslate"><span class="pre">shapely</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.__main__.tag_features.html#geometric_features.__main__.tag_features" title="geometric_features.__main__.tag_features"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tag_features</span></code></a>()</p></td>
-<td><p>Features in the collection are tagged with the given tag(s)</p></td>
-</tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="python-package">
 <h2>Python package<a class="headerlink" href="#python-package" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="reading-geometric-features">
+<h3>Reading Geometric Features<a class="headerlink" href="#reading-geometric-features" title="Permalink to this headline">¶</a></h3>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.geometric_features.GeometricFeatures.html#geometric_features.geometric_features.GeometricFeatures" title="geometric_features.geometric_features.GeometricFeatures"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GeometricFeatures</span></code></a>([cacheLocation, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.GeometricFeatures.html#geometric_features.GeometricFeatures" title="geometric_features.GeometricFeatures"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GeometricFeatures</span></code></a>([cacheLocation, …])</p></td>
 <td><p>An object for keeping track of where geometric features are cached and downloading missing features as needed.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/geometric_features.geometric_features.GeometricFeatures.read.html#geometric_features.geometric_features.GeometricFeatures.read" title="geometric_features.geometric_features.GeometricFeatures.read"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GeometricFeatures.read</span></code></a>(componentName, objectType)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/geometric_features.GeometricFeatures.read.html#geometric_features.GeometricFeatures.read" title="geometric_features.GeometricFeatures.read"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GeometricFeatures.read</span></code></a>(componentName, objectType)</p></td>
 <td><p>Read one or more features from the cached collection of geometric features.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.geometric_features.GeometricFeatures.split.html#geometric_features.geometric_features.GeometricFeatures.split" title="geometric_features.geometric_features.GeometricFeatures.split"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GeometricFeatures.split</span></code></a>(fc[, destinationDir])</p></td>
+</tbody>
+</table>
+</div>
+<div class="section" id="splitting-new-data-into-geometric-features">
+<h3>Splitting new data into Geometric Features<a class="headerlink" href="#splitting-new-data-into-geometric-features" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.GeometricFeatures.split.html#geometric_features.GeometricFeatures.split" title="geometric_features.GeometricFeatures.split"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GeometricFeatures.split</span></code></a>(fc[, destinationDir])</p></td>
 <td><p>Split a feature collection into individual files for each feature.</p></td>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="section" id="reading-a-feature-collection">
+<h3>Reading a Feature Collection<a class="headerlink" href="#reading-a-feature-collection" title="Permalink to this headline">¶</a></h3>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.feature_collection.read_feature_collection.html#geometric_features.feature_collection.read_feature_collection" title="geometric_features.feature_collection.read_feature_collection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_feature_collection</span></code></a>(fileName)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.read_feature_collection.html#geometric_features.read_feature_collection" title="geometric_features.read_feature_collection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_feature_collection</span></code></a>(fileName)</p></td>
 <td><p>Read a feature collection from a geojson file.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.html#geometric_features.feature_collection.FeatureCollection" title="geometric_features.feature_collection.FeatureCollection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeatureCollection</span></code></a>([features, otherProperties])</p></td>
+</tbody>
+</table>
+</div>
+<div class="section" id="creating-a-feature-collection">
+<h3>Creating a Feature Collection<a class="headerlink" href="#creating-a-feature-collection" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.FeatureCollection.html#geometric_features.FeatureCollection" title="geometric_features.FeatureCollection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeatureCollection</span></code></a>([features, otherProperties])</p></td>
 <td><p>An object for representing and manipulating a collection of geoscientific geometric features.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.add_feature.html#geometric_features.feature_collection.FeatureCollection.add_feature" title="geometric_features.feature_collection.FeatureCollection.add_feature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeatureCollection.add_feature</span></code></a>(feature)</p></td>
+</tbody>
+</table>
+</div>
+<div class="section" id="manipulating-a-feature-collection">
+<h3>Manipulating a Feature Collection<a class="headerlink" href="#manipulating-a-feature-collection" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.FeatureCollection.add_feature.html#geometric_features.FeatureCollection.add_feature" title="geometric_features.FeatureCollection.add_feature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeatureCollection.add_feature</span></code></a>(feature)</p></td>
 <td><p>Add a feature to the feature collection if it isn’t alerady present</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.merge.html#geometric_features.feature_collection.FeatureCollection.merge" title="geometric_features.feature_collection.FeatureCollection.merge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeatureCollection.merge</span></code></a>(other)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/geometric_features.FeatureCollection.merge.html#geometric_features.FeatureCollection.merge" title="geometric_features.FeatureCollection.merge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeatureCollection.merge</span></code></a>(other)</p></td>
 <td><p>Merge another feature collection into this one</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.tag.html#geometric_features.feature_collection.FeatureCollection.tag" title="geometric_features.feature_collection.FeatureCollection.tag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeatureCollection.tag</span></code></a>(tags[, remove])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.FeatureCollection.tag.html#geometric_features.FeatureCollection.tag" title="geometric_features.FeatureCollection.tag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeatureCollection.tag</span></code></a>(tags[, remove])</p></td>
 <td><p>Add tags to all features in the collection</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.set_group_name.html#geometric_features.feature_collection.FeatureCollection.set_group_name" title="geometric_features.feature_collection.FeatureCollection.set_group_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeatureCollection.set_group_name</span></code></a>(groupName)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/geometric_features.FeatureCollection.set_group_name.html#geometric_features.FeatureCollection.set_group_name" title="geometric_features.FeatureCollection.set_group_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeatureCollection.set_group_name</span></code></a>(groupName)</p></td>
 <td><p>Set the group name of a feature collection</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.combine.html#geometric_features.feature_collection.FeatureCollection.combine" title="geometric_features.feature_collection.FeatureCollection.combine"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeatureCollection.combine</span></code></a>(featureName)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.FeatureCollection.combine.html#geometric_features.FeatureCollection.combine" title="geometric_features.FeatureCollection.combine"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeatureCollection.combine</span></code></a>(featureName)</p></td>
 <td><p>Combines the geometry of the feature collection into a single feature</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.difference.html#geometric_features.feature_collection.FeatureCollection.difference" title="geometric_features.feature_collection.FeatureCollection.difference"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeatureCollection.difference</span></code></a>(maskingFC[, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/geometric_features.FeatureCollection.difference.html#geometric_features.FeatureCollection.difference" title="geometric_features.FeatureCollection.difference"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeatureCollection.difference</span></code></a>(maskingFC[, …])</p></td>
 <td><p>Use features from a masking collection to mask out (remove part of the geometry from) this collection.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.fix_antimeridian.html#geometric_features.feature_collection.FeatureCollection.fix_antimeridian" title="geometric_features.feature_collection.FeatureCollection.fix_antimeridian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeatureCollection.fix_antimeridian</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.FeatureCollection.fix_antimeridian.html#geometric_features.FeatureCollection.fix_antimeridian" title="geometric_features.FeatureCollection.fix_antimeridian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeatureCollection.fix_antimeridian</span></code></a>()</p></td>
 <td><p>Split features at +/-180 degrees (the antimeridian) to make them valid geojson geometries</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.simplify.html#geometric_features.feature_collection.FeatureCollection.simplify" title="geometric_features.feature_collection.FeatureCollection.simplify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeatureCollection.simplify</span></code></a>([tolerance])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/geometric_features.FeatureCollection.simplify.html#geometric_features.FeatureCollection.simplify" title="geometric_features.FeatureCollection.simplify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeatureCollection.simplify</span></code></a>([tolerance])</p></td>
 <td><p>Features in the collection are simplified using <code class="docutils literal notranslate"><span class="pre">shapely</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.feature_in_collection.html#geometric_features.feature_collection.FeatureCollection.feature_in_collection" title="geometric_features.feature_collection.FeatureCollection.feature_in_collection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeatureCollection.feature_in_collection</span></code></a>(feature)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.FeatureCollection.feature_in_collection.html#geometric_features.FeatureCollection.feature_in_collection" title="geometric_features.FeatureCollection.feature_in_collection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeatureCollection.feature_in_collection</span></code></a>(feature)</p></td>
 <td><p>Is this feature already in the collection?</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.to_geojson.html#geometric_features.feature_collection.FeatureCollection.to_geojson" title="geometric_features.feature_collection.FeatureCollection.to_geojson"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeatureCollection.to_geojson</span></code></a>(fileName[, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/geometric_features.FeatureCollection.to_geojson.html#geometric_features.FeatureCollection.to_geojson" title="geometric_features.FeatureCollection.to_geojson"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeatureCollection.to_geojson</span></code></a>(fileName[, …])</p></td>
 <td><p>Write the feature collection to a geojson file</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.plot.html#geometric_features.feature_collection.FeatureCollection.plot" title="geometric_features.feature_collection.FeatureCollection.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeatureCollection.plot</span></code></a>(projection[, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.FeatureCollection.plot.html#geometric_features.FeatureCollection.plot" title="geometric_features.FeatureCollection.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeatureCollection.plot</span></code></a>(projection[, …])</p></td>
 <td><p>Plot the features on a map using cartopy.</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 </div>
 </div>
 
@@ -314,7 +330,7 @@ the documentation.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="generated/geometric_features.__main__.combine_features.html" class="btn btn-neutral float-right" title="geometric_features.__main__.combine_features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="generated/geometric_features.GeometricFeatures.html" class="btn btn-neutral float-right" title="geometric_features.GeometricFeatures" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="adding_features.html" class="btn btn-neutral float-left" title="Adding New Features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

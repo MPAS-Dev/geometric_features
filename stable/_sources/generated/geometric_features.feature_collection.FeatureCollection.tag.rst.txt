@@ -1,6 +1,0 @@
-﻿geometric\_features.feature\_collection.FeatureCollection.tag
-=============================================================
-
-.. currentmodule:: geometric_features.feature_collection
-
-.. automethod:: FeatureCollection.tag

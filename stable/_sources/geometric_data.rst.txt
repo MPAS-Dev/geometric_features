@@ -5,19 +5,22 @@ Geometric Data
 
 The the overarching purpose of ``geometric_features`` is to facilitate access
 to and manipulation of the geometric data in the repository.  This data is
-currently divided across 5 components, ``bedmap2``, ``iceshelves``,
-``landice``,  ``natural_earth``, and  ``ocean``.
+currently divided across 6 components, ``bedmachine``, ``bedmap2``,
+``iceshelves``, ``landice``,  ``natural_earth``, and  ``ocean``.
 
 Components
 ----------
 
-bedmap2
-^^^^^^^
+bedmachine and bedmap2
+^^^^^^^^^^^^^^^^^^^^^^
 
-This component defines two "coastlines" between the Antarctic continent and
-the ocean.  One exclues the cavity under ice shelves while the other includes
-them.  The dataset used to define these coastlines is Bedmap2
-(`Fretwell et al. 2016`_).
+These components each define two "coastlines" between the Antarctic continent
+and the ocean.  One excludes the cavity under ice shelves while the other
+includes them.  The ``bedmachine`` component uses the BedMachine Antarctica
+dataset
+(`Morlighem et al. 2020 <https://www.nature.com/articles/s41561-019-0510-8>`_)
+to define the coastlines, while the ``bedmap2`` dataset is based on Bedmap2
+(`Fretwell et al. 2016 <http://www.the-cryosphere.net/7/375/2013/>`_).
 
 iceshelves
 ^^^^^^^^^^
@@ -176,7 +179,7 @@ Here are two simple examples of features from the repository:
             ]
         }
 
-.. _`Fretwell et al. 2016`: http://www.the-cryosphere.net/7/375/2013/
+
 .. _`IMBIE1 Basins`: http://imbie.org/imbie-2016/drainage-basins/
 .. _`Natural Earth`: http://www.naturalearthdata.com/
 .. _`International Hydrographic Organisation`: http://www.marineregions.org/downloads.php#iho

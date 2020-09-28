@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Overview: module code &mdash; geometric_features 0.1.11 documentation</title>
+  <title>geometric_features.read_feature_collection &mdash; geometric_features 0.1.11 documentation</title>
   
 
   
@@ -35,7 +35,9 @@
 
     
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="geometric_features.FeatureCollection" href="geometric_features.FeatureCollection.html" />
+    <link rel="prev" title="geometric_features.GeometricFeatures.split" href="geometric_features.GeometricFeatures.split.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -84,13 +86,27 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../geometric_features.html">GeometricFeatures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../feature_collection.html">FeatureCollection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../geometric_data.html">Geometric Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../adding_features.html">Adding New Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">API reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api.html#command-line-scripts">Command-line scripts</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api.html#python-package">Python package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../api.html#reading-geometric-features">Reading Geometric Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#splitting-new-data-into-geometric-features">Splitting new data into Geometric Features</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../api.html#reading-a-feature-collection">Reading a Feature Collection</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">geometric_features.read_feature_collection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#creating-a-feature-collection">Creating a Feature Collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#manipulating-a-feature-collection">Manipulating a Feature Collection</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../versions.html">Versions</a></li>
@@ -140,10 +156,16 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Overview: module code</li>
+          <li><a href="../api.html">API reference</a> &raquo;</li>
+        
+      <li>geometric_features.read_feature_collection</li>
     
     
       <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/generated/geometric_features.read_feature_collection.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -155,15 +177,38 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>All modules for which code is available</h1>
-<ul><li><a href="geometric_features/feature_collection.html">geometric_features.feature_collection</a></li>
-<li><a href="geometric_features/geometric_features.html">geometric_features.geometric_features</a></li>
-</ul>
+  <div class="section" id="geometric-features-read-feature-collection">
+<h1>geometric_features.read_feature_collection<a class="headerlink" href="#geometric-features-read-feature-collection" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="geometric_features.read_feature_collection">
+<code class="sig-prename descclassname">geometric_features.</code><code class="sig-name descname">read_feature_collection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fileName</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geometric_features/feature_collection.html#read_feature_collection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#geometric_features.read_feature_collection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a feature collection from a geojson file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fileName</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – The path to the geojson file</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>fc</strong> (<code class="docutils literal notranslate"><span class="pre">FeatureCollection</span></code>) – The feature collection read in</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
 
            </div>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="geometric_features.FeatureCollection.html" class="btn btn-neutral float-right" title="geometric_features.FeatureCollection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="geometric_features.GeometricFeatures.split.html" class="btn btn-neutral float-left" title="geometric_features.GeometricFeatures.split" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

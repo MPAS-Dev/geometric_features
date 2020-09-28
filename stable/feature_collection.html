@@ -182,7 +182,7 @@ ways.  Typically, you would use member functions such as <code class="docutils l
 <div class="section" id="reading-in-features">
 <h2>Reading in Features<a class="headerlink" href="#reading-in-features" title="Permalink to this headline">¶</a></h2>
 <p>A <code class="docutils literal notranslate"><span class="pre">FeatureCollection</span></code> can be read from a file with the function
-<a class="reference internal" href="generated/geometric_features.feature_collection.read_feature_collection.html#geometric_features.feature_collection.read_feature_collection" title="geometric_features.feature_collection.read_feature_collection"><code class="xref py py-func docutils literal notranslate"><span class="pre">geometric_features.feature_collection.read_feature_collection()</span></code></a>:</p>
+<a class="reference internal" href="generated/geometric_features.read_feature_collection.html#geometric_features.read_feature_collection" title="geometric_features.read_feature_collection"><code class="xref py py-func docutils literal notranslate"><span class="pre">geometric_features.read_feature_collection()</span></code></a>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">geometric_features</span> <span class="kn">import</span> <span class="n">read_feature_collection</span>
 
 <span class="n">fc</span> <span class="o">=</span> <span class="n">read_feature_collection</span><span class="p">(</span><span class="s1">&#39;features.geojson&#39;</span><span class="p">)</span>
@@ -192,7 +192,7 @@ ways.  Typically, you would use member functions such as <code class="docutils l
 <div class="section" id="add-a-feature">
 <h2>Add a Feature<a class="headerlink" href="#add-a-feature" title="Permalink to this headline">¶</a></h2>
 <p>To add a single feature to a <code class="docutils literal notranslate"><span class="pre">FeatureColleciton</span></code>, use
-<a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.add_feature.html#geometric_features.feature_collection.FeatureCollection.add_feature" title="geometric_features.feature_collection.FeatureCollection.add_feature"><code class="xref py py-meth docutils literal notranslate"><span class="pre">geometric_features.feature_collection.FeatureCollection.add_feature()</span></code></a>:</p>
+<a class="reference internal" href="generated/geometric_features.FeatureCollection.add_feature.html#geometric_features.FeatureCollection.add_feature" title="geometric_features.FeatureCollection.add_feature"><code class="xref py py-meth docutils literal notranslate"><span class="pre">geometric_features.FeatureCollection.add_feature()</span></code></a>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fc</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -201,7 +201,7 @@ ways.  Typically, you would use member functions such as <code class="docutils l
 <div class="section" id="merging-features">
 <h2>Merging Features<a class="headerlink" href="#merging-features" title="Permalink to this headline">¶</a></h2>
 <dl class="simple">
-<dt>A <code class="docutils literal notranslate"><span class="pre">FeatureCollection</span></code> <code class="docutils literal notranslate"><span class="pre">fc2</span></code> can be merged into another colleciton <code class="docutils literal notranslate"><span class="pre">fc1</span></code></dt><dd><p>with <a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.merge.html#geometric_features.feature_collection.FeatureCollection.merge" title="geometric_features.feature_collection.FeatureCollection.merge"><code class="xref py py-meth docutils literal notranslate"><span class="pre">geometric_features.feature_collection.FeatureCollection.merge()</span></code></a>:</p>
+<dt>A <code class="docutils literal notranslate"><span class="pre">FeatureCollection</span></code> <code class="docutils literal notranslate"><span class="pre">fc2</span></code> can be merged into another colleciton <code class="docutils literal notranslate"><span class="pre">fc1</span></code></dt><dd><p>with <a class="reference internal" href="generated/geometric_features.FeatureCollection.merge.html#geometric_features.FeatureCollection.merge" title="geometric_features.FeatureCollection.merge"><code class="xref py py-meth docutils literal notranslate"><span class="pre">geometric_features.FeatureCollection.merge()</span></code></a>:</p>
 </dd>
 </dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fc1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fc2</span><span class="p">)</span>
@@ -213,7 +213,7 @@ retained.</p>
 <div class="section" id="plotting-features">
 <h2>Plotting Features<a class="headerlink" href="#plotting-features" title="Permalink to this headline">¶</a></h2>
 <p>A <code class="docutils literal notranslate"><span class="pre">FeatureCollection</span></code> can be plotted on a given map projeciton with
-<a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.plot.html#geometric_features.feature_collection.FeatureCollection.plot" title="geometric_features.feature_collection.FeatureCollection.plot"><code class="xref py py-meth docutils literal notranslate"><span class="pre">geometric_features.feature_collection.FeatureCollection.plot()</span></code></a>:</p>
+<a class="reference internal" href="generated/geometric_features.FeatureCollection.plot.html#geometric_features.FeatureCollection.plot" title="geometric_features.FeatureCollection.plot"><code class="xref py py-meth docutils literal notranslate"><span class="pre">geometric_features.FeatureCollection.plot()</span></code></a>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="c1"># plot the features in fc on a cylindrical projection</span>
@@ -226,7 +226,7 @@ retained.</p>
 <div class="section" id="tag-features">
 <h2>Tag Features<a class="headerlink" href="#tag-features" title="Permalink to this headline">¶</a></h2>
 <p>All the features in a <code class="docutils literal notranslate"><span class="pre">FeatureCollection</span></code> can be tagged with one or more tags
-using <a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.tag.html#geometric_features.feature_collection.FeatureCollection.tag" title="geometric_features.feature_collection.FeatureCollection.tag"><code class="xref py py-meth docutils literal notranslate"><span class="pre">geometric_features.feature_collection.FeatureCollection.tag()</span></code></a>:</p>
+using <a class="reference internal" href="generated/geometric_features.FeatureCollection.tag.html#geometric_features.FeatureCollection.tag" title="geometric_features.FeatureCollection.tag"><code class="xref py py-meth docutils literal notranslate"><span class="pre">geometric_features.FeatureCollection.tag()</span></code></a>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fc</span><span class="o">.</span><span class="n">tag</span><span class="p">([</span><span class="s1">&#39;tag1&#39;</span><span class="p">,</span> <span class="s1">&#39;tag2&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -238,7 +238,7 @@ individual ocean regions into ocean basins).</p>
 <div class="section" id="writing-out-features">
 <h2>Writing out Features<a class="headerlink" href="#writing-out-features" title="Permalink to this headline">¶</a></h2>
 <p>To write out a <code class="docutils literal notranslate"><span class="pre">FeatureCollection</span></code> to a <code class="docutils literal notranslate"><span class="pre">geojson</span></code> file, call
-<a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.to_geojson.html#geometric_features.feature_collection.FeatureCollection.to_geojson" title="geometric_features.feature_collection.FeatureCollection.to_geojson"><code class="xref py py-meth docutils literal notranslate"><span class="pre">geometric_features.feature_collection.FeatureCollection.to_geojson()</span></code></a></p>
+<a class="reference internal" href="generated/geometric_features.FeatureCollection.to_geojson.html#geometric_features.FeatureCollection.to_geojson" title="geometric_features.FeatureCollection.to_geojson"><code class="xref py py-meth docutils literal notranslate"><span class="pre">geometric_features.FeatureCollection.to_geojson()</span></code></a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fc</span><span class="o">.</span><span class="n">to_geojson</span><span class="p">(</span><span class="s1">&#39;features.geojson&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -246,7 +246,7 @@ individual ocean regions into ocean basins).</p>
 <div class="section" id="set-a-group-name">
 <h2>Set a Group Name<a class="headerlink" href="#set-a-group-name" title="Permalink to this headline">¶</a></h2>
 <p>To set the <code class="docutils literal notranslate"><span class="pre">groupName</span></code> property of a <code class="docutils literal notranslate"><span class="pre">FeatureCollection</span></code>, call
-<a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.set_group_name.html#geometric_features.feature_collection.FeatureCollection.set_group_name" title="geometric_features.feature_collection.FeatureCollection.set_group_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">geometric_features.feature_collection.FeatureCollection.set_group_name()</span></code></a>.</p>
+<a class="reference internal" href="generated/geometric_features.FeatureCollection.set_group_name.html#geometric_features.FeatureCollection.set_group_name" title="geometric_features.FeatureCollection.set_group_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">geometric_features.FeatureCollection.set_group_name()</span></code></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fc</span><span class="o">.</span><span class="n">set_group_name</span><span class="p">(</span><span class="s1">&#39;Regions Group&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -260,7 +260,7 @@ cavities.</p>
 <h2>Combine Features<a class="headerlink" href="#combine-features" title="Permalink to this headline">¶</a></h2>
 <p>Features in a <code class="docutils literal notranslate"><span class="pre">FeatureCollection</span></code> can be combined (fused together into a
 single feature) using
-<a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.combine.html#geometric_features.feature_collection.FeatureCollection.combine" title="geometric_features.feature_collection.FeatureCollection.combine"><code class="xref py py-meth docutils literal notranslate"><span class="pre">geometric_features.feature_collection.FeatureCollection.combine()</span></code></a>:</p>
+<a class="reference internal" href="generated/geometric_features.FeatureCollection.combine.html#geometric_features.FeatureCollection.combine" title="geometric_features.FeatureCollection.combine"><code class="xref py py-meth docutils literal notranslate"><span class="pre">geometric_features.FeatureCollection.combine()</span></code></a>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fcCombined</span> <span class="o">=</span> <span class="n">fc</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="s1">&#39;my feature name&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -269,7 +269,7 @@ single feature) using
 <h2>Difference Features<a class="headerlink" href="#difference-features" title="Permalink to this headline">¶</a></h2>
 <p>Features in a <code class="docutils literal notranslate"><span class="pre">FeatureCollection</span></code> can be masked with one or more masking
 features from another <code class="docutils literal notranslate"><span class="pre">FeatureCollection</span></code> using
-<a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.difference.html#geometric_features.feature_collection.FeatureCollection.difference" title="geometric_features.feature_collection.FeatureCollection.difference"><code class="xref py py-meth docutils literal notranslate"><span class="pre">geometric_features.feature_collection.FeatureCollection.difference()</span></code></a>:</p>
+<a class="reference internal" href="generated/geometric_features.FeatureCollection.difference.html#geometric_features.FeatureCollection.difference" title="geometric_features.FeatureCollection.difference"><code class="xref py py-meth docutils literal notranslate"><span class="pre">geometric_features.FeatureCollection.difference()</span></code></a>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fcMasked</span> <span class="o">=</span> <span class="n">fc</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">fcMask</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -281,7 +281,7 @@ the features in <code class="docutils literal notranslate"><span class="pre">fcM
 <p>Sometimes, features are made up of segments or polygons with tiny edges that
 add little relevant detail to the features but make the files describing them
 needlessly large.  In such cases, the features can be simplified by calling
-<a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.simplify.html#geometric_features.feature_collection.FeatureCollection.simplify" title="geometric_features.feature_collection.FeatureCollection.simplify"><code class="xref py py-meth docutils literal notranslate"><span class="pre">geometric_features.feature_collection.FeatureCollection.simplify()</span></code></a> with
+<a class="reference internal" href="generated/geometric_features.FeatureCollection.simplify.html#geometric_features.FeatureCollection.simplify" title="geometric_features.FeatureCollection.simplify"><code class="xref py py-meth docutils literal notranslate"><span class="pre">geometric_features.FeatureCollection.simplify()</span></code></a> with
 and appropriate length scale (in degrees latitude/longitude) over which the
 feature may be modified to make it simpler.  If a length scale of zero is
 used, the feature will be simplified without any modification tot he shape
@@ -299,7 +299,7 @@ contstruct a feature’s geometry from the start in this way, so this function
 provides a bit of a hack for removing a tiny sliver of the feature around the
 antimeridian so that the resulting shape remians between -180 and 180 degrees
 longitude.</p>
-<p><a class="reference internal" href="generated/geometric_features.feature_collection.FeatureCollection.fix_antimeridian.html#geometric_features.feature_collection.FeatureCollection.fix_antimeridian" title="geometric_features.feature_collection.FeatureCollection.fix_antimeridian"><code class="xref py py-meth docutils literal notranslate"><span class="pre">geometric_features.feature_collection.FeatureCollection.fix_antimeridian()</span></code></a></p>
+<p><a class="reference internal" href="generated/geometric_features.FeatureCollection.fix_antimeridian.html#geometric_features.FeatureCollection.fix_antimeridian" title="geometric_features.FeatureCollection.fix_antimeridian"><code class="xref py py-meth docutils literal notranslate"><span class="pre">geometric_features.FeatureCollection.fix_antimeridian()</span></code></a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fcFixed</span> <span class="o">=</span> <span class="n">fc</span><span class="o">.</span><span class="n">fix_antimeridian</span><span class="p">()</span>
 </pre></div>
 </div>
