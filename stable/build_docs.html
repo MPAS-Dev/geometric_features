@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>GeometricFeatures &mdash; geometric_features 0.1.11 documentation</title>
+  <title>Building the Documentation &mdash; geometric_features 0.1.11 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="FeatureCollection" href="feature_collection.html" />
-    <link rel="prev" title="Quick Start" href="quick_start.html" /> 
+    <link rel="next" title="API reference" href="api.html" />
+    <link rel="prev" title="Adding New Features" href="adding_features.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -87,16 +87,16 @@
             
             
               <p class="caption"><span class="caption-text">User's Guide</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">GeometricFeatures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geometric_features.html">GeometricFeatures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="feature_collection.html">FeatureCollection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="geometric_data.html">Geometric Data</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Developer's Guide</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="adding_features.html">Adding New Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="build_docs.html">Building the Documentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Building the Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API reference</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Versions</span></p>
@@ -148,13 +148,13 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>GeometricFeatures</li>
+      <li>Building the Documentation</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/geometric_features.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/build_docs.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -167,35 +167,29 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="geometricfeatures">
-<span id="id1"></span><h1>GeometricFeatures<a class="headerlink" href="#geometricfeatures" title="Permalink to this headline">¶</a></h1>
-<p>The <code class="docutils literal notranslate"><span class="pre">GeometricFeatures</span></code> class knows about both a local cache of
-<a class="reference internal" href="geometric_data.html#geometricdata"><span class="std std-ref">Geometric Data</span></a> and the <a class="reference external" href="https://github.com/MPAS-Dev/geometric_features">GitHub repository</a> where it can be retrieved as
-needed.  A <code class="docutils literal notranslate"><span class="pre">GeometricFeatures</span></code> object is created with an optional path to the
-local cache and/or the name of the remote branch or tag in which to find the
-geometric data.  The default local cache is <code class="docutils literal notranslate"><span class="pre">./geometric_data</span></code>, and the
-default remote branch is the same as the version number of the
-<code class="docutils literal notranslate"><span class="pre">geometric_features</span></code> package that is installed (highly recommended!).  If
-using a branch other than the package version, the list of all available
-features and tags (which is included in the package) may not include all the
-features in the desired branch. That is, if you install v0.1 of the
-<code class="docutils literal notranslate"><span class="pre">geometric_features</span></code> conda package, you should expect to work with v0.1
-of the <a class="reference internal" href="geometric_data.html#geometricdata"><span class="std std-ref">Geometric Data</span></a> as well.</p>
-<p>An example workflow for creating a <code class="docutils literal notranslate"><span class="pre">GeometricFeatures</span></code> object and using it
-to read in a set of geometric features (possibly after downloading the
-geometric data from GitHub) is:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">geometric_features</span> <span class="kn">import</span> <span class="n">GeometricFeatures</span>
+  <div class="section" id="building-the-documentation">
+<span id="build-docs"></span><h1>Building the Documentation<a class="headerlink" href="#building-the-documentation" title="Permalink to this headline">¶</a></h1>
+<p>If you add a new capability to <code class="docutils literal notranslate"><span class="pre">geometric_features</span></code>, it should also be
+documented under the <code class="docutils literal notranslate"><span class="pre">docs</span></code> directory.  After making changes, it is useful to
+do a local build of the docs.</p>
+<p>First, make sure to install <code class="docutils literal notranslate"><span class="pre">conda-build</span></code> and update <code class="docutils literal notranslate"><span class="pre">conda</span></code> in you
+<code class="docutils literal notranslate"><span class="pre">base</span></code> conda environment.  Then, from your <code class="docutils literal notranslate"><span class="pre">base</span></code> conda environment, run
+the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># remove any packages you&#39;ve previously built</span>
+rm -rf ~/miniconda3/conda-bld
 
-<span class="c1"># get geometric data from geometric_features v0.1 and store it in</span>
-<span class="c1"># the local directory ./geometric_data</span>
-<span class="n">gf</span> <span class="o">=</span> <span class="n">GeometricFeatures</span><span class="p">(</span><span class="n">localCache</span><span class="o">=</span><span class="s1">&#39;./geometric_data&#39;</span><span class="p">,</span>
-                       <span class="n">remoteBranchOrTag</span><span class="o">=</span><span class="s1">&#39;0.1&#39;</span><span class="p">)</span>
-
-<span class="c1"># read in a feature collection defining the coastline</span>
-<span class="n">fc</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">componentName</span><span class="o">=</span><span class="s1">&#39;natural_earth&#39;</span><span class="p">,</span> <span class="n">objectType</span><span class="o">=</span><span class="s1">&#39;region&#39;</span><span class="p">,</span>
-             <span class="n">featureNames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Land Coverage&#39;</span><span class="p">])</span>
+<span class="c1"># test building the docs</span>
+conda remove -y --all -n geometric_features_docs
+conda build -m ci/python3.8.yaml recipe
+conda create -y -n geometric_features_docs --use-local <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.8 <span class="se">\</span>
+     geometric_features sphinx sphinx_rtd_theme m2r
+conda activate geometric_features_docs
+<span class="nb">cd</span> docs
+make clean
+make html
 </pre></div>
 </div>
+<p>Finally, you can find the test build in <code class="docutils literal notranslate"><span class="pre">_build/html/index.html</span></code>.</p>
 </div>
 
 
@@ -206,10 +200,10 @@ geometric data from GitHub) is:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="feature_collection.html" class="btn btn-neutral float-right" title="FeatureCollection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="api.html" class="btn btn-neutral float-right" title="API reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="quick_start.html" class="btn btn-neutral float-left" title="Quick Start" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="adding_features.html" class="btn btn-neutral float-left" title="Adding New Features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
