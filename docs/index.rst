@@ -24,6 +24,7 @@ This repository houses geometric features relevant for climate science.
    adding_features
    build_docs
    api
+   aggregation
 
 Indices and tables
 ==================

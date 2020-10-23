@@ -30,7 +30,7 @@ def subbasins(gf):
     
     Parameters
     ----------
-        gf : ``GeometricFeatures``
+    gf : geometric_features.GeometricFeatures
         An object that knows how to download and read geometric featuers
     Returns
     -------
