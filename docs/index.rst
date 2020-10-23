@@ -9,12 +9,18 @@ geometric_features
 This repository houses geometric features relevant for climate science.
 
 .. toctree::
+   :caption: User's Guide
    :maxdepth: 2
 
    quick_start
    geometric_features
    feature_collection
    geometric_data
+
+.. toctree::
+   :caption: Developer's Guide
+   :maxdepth: 2
+
    adding_features
    build_docs
    api
@@ -24,9 +30,8 @@ Indices and tables
 
 * :ref:`genindex`
 
-Versions
-========
 .. toctree::
+   :caption: Versions
    :maxdepth: 1
 
    versions
