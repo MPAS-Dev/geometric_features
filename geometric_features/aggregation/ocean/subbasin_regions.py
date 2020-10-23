@@ -1,21 +1,5 @@
 #!/usr/bin/env python
 
-import shapely
-import numpy
-import xarray
-import os
-import matplotlib.pyplot as plt
-import pyproj
-import gzip
-import shutil
-import tempfile
-
-from geometric_features import GeometricFeatures, FeatureCollection
-from geometric_features.feature_collection import _round_coords
-
-from geometric_features.download import download_files
-from geometric_features.utils import write_feature_names_and_tags
-
 
 def subbasins(gf):
     """
