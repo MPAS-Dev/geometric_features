@@ -13,9 +13,6 @@
 # serve to show the default.
 
 import os
-import sys
-import m2r
-from glob import glob
 import geometric_features
 from geometric_features.docs.parse_quick_start import build_quick_start
 
