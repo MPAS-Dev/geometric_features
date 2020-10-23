@@ -16,6 +16,7 @@ This repository houses geometric features relevant for climate science.
    geometric_features
    feature_collection
    geometric_data
+   aggregation
 
 .. toctree::
    :caption: Developer's Guide
@@ -24,7 +25,6 @@ This repository houses geometric features relevant for climate science.
    adding_features
    build_docs
    api
-   aggregation
 
 Indices and tables
 ==================

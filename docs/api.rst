@@ -79,3 +79,13 @@ Manipulating a Feature Collection
    FeatureCollection.feature_in_collection
    FeatureCollection.to_geojson
    FeatureCollection.plot
+
+Aggregation
+-----------
+
+.. autosummary::
+   :toctree: generated/
+
+   aggregation
+   aggregation.ocean
+   aggregation.ocean.subbasins
