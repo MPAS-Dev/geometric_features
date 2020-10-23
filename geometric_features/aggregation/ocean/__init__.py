@@ -1,1 +1,1 @@
-from geometric_features.aggregation.ocean.subbasin_regions import subbasin
+from geometric_features.aggregation.ocean.subbasin_regions import subbasins
