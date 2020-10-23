@@ -18,7 +18,7 @@ from geometric_features.utils import write_feature_names_and_tags
 
 
 def subbasins(gf):
-    '''
+    """
     Aggregates ocean regions into the following larger sub-basins:
     * Arctic Ocean Basin
     * North Atlantic Basin
@@ -27,16 +27,16 @@ def subbasins(gf):
     * South Pacific Basin
     * Indian Ocean Basin
     * Southern Ocean Basin
-    
+
     Parameters
     ----------
     gf : geometric_features.GeometricFeatures
-        An object that knows how to download and read geometric featuers
+        An object that knows how to download and read geometric features
     Returns
     -------
     fc : geometric_features.FeatureCollection
         The new feature collection with ocean sub-basins
-    '''
+    """
     # Authors
     # -------
     # Milena Veneziani
@@ -74,7 +74,8 @@ def subbasins(gf):
     fcEngCh = gf.read('ocean', 'region', ['English Channel'])
     fcCeltic = gf.read('ocean', 'region', ['Celtic Sea'])
     fcBristol = gf.read('ocean', 'region', ['Bristol Channel'])
-    fcScot = gf.read('ocean', 'region', ['Inner Seas off the West Coast of Scotland'])
+    fcScot = gf.read('ocean', 'region',
+                     ['Inner Seas off the West Coast of Scotland'])
     fcIrish = gf.read('ocean', 'region', ['Irish Sea and St Georges Channel'])
     fcBothnia = gf.read('ocean', 'region', ['Gulf of Bothnia'])
     fcCanArc = gf.read('ocean', 'region', ['Canadian Archipelago'])
@@ -124,7 +125,9 @@ def subbasins(gf):
     fcNP = gf.read('ocean', 'region', ['North Pacific Ocean'])
     fcECS = gf.read('ocean', 'region', ['Eastern China Sea'])
     fcAla = gf.read('ocean', 'region', ['Gulf of Alaska'])
-    fcAla2 = gf.read('ocean', 'region', ['The Coastal Waters of Southeast Alaska and British Columbia'])
+    fcAla2 = gf.read('ocean', 'region',
+                     ['The Coastal Waters of Southeast Alaska and British '
+                      'Columbia'])
     fcHala = gf.read('ocean', 'region', ['Halamahera Sea'])
     fcYell = gf.read('ocean', 'region', ['Yellow Sea'])
     fcSCS = gf.read('ocean', 'region', ['South China Sea'])
@@ -158,7 +161,7 @@ def subbasins(gf):
     props = fcNP.features[0]['properties']
     props['tags'] = ['North_Pacific_Basin', 'oceanSubBasinRegions']
     props['author'] = author
- 
+
     # Create South Pacific
     fcSP = gf.read('ocean', 'region', ['South Pacific Ocean'])
     fcBali = gf.read('ocean', 'region', ['Bali Sea'])
