@@ -1,0 +1,23 @@
+﻿geometric\_features.aggregation
+===============================
+
+.. automodule:: geometric_features.aggregation
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
