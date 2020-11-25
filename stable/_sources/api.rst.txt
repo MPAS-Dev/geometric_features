@@ -89,3 +89,9 @@ Aggregation
    aggregation
    aggregation.ocean
    aggregation.ocean.subbasins
+   aggregation.ocean.basins
+   aggregation.ocean.moc
+   aggregation.ocean.arctic
+   aggregation.ocean.antarctic
+   aggregation.ocean.ice_shelves
+   aggregation.ocean.transport
