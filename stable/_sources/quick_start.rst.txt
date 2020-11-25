@@ -5,8 +5,8 @@ Quick Start
 ===========
 
 
-.. image:: https://dev.azure.com/MPAS-Dev/geometric_features%20testing/_apis/build/status/MPAS-Dev.geometric_features?branchName=temp
-   :target: https://dev.azure.com/MPAS-Dev/geometric_features%20testing/_build/latest?definitionId=3&branchName=temp
+.. image:: https://dev.azure.com/MPAS-Dev/geometric_features%20testing/_apis/build/status/MPAS-Dev.geometric_features?branchName=master
+   :target: https://dev.azure.com/MPAS-Dev/geometric_features%20testing/_build/latest?definitionId=3&branchName=master
    :alt: Build Status
 
 
