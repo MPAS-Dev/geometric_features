@@ -37,6 +37,15 @@ Meridional Overturning Circulation Basins
 The function :py:func:`geometric_features.aggregation.ocean.moc` aggregates
 basins for computing the MOC: Atlantic, IndoPacific, Pacific and Indian
 
+Arctic Regions
+~~~~~~~~~~~~~~
+
+The function :py:func:`geometric_features.aggregation.ocean.arctic` aggregates
+regions of the Arctic: Baffin Bay, Baltic Sea, Barents Sea, Canada Basin,
+Canadian Archipelago, Central Arctic, Chukchi Sea, East Siberian Sea,
+Greenland Sea, Hudson Bay, Irminger Sea, Kara Sea, Labrador Sea, Laptev Sea,
+North Sea, Norwegian Sea.
+
 Antarctic Regions
 ~~~~~~~~~~~~~~~~~
 
@@ -66,3 +75,17 @@ Barents Sea Opening, Bering Strait, Davis Strait, Drake Passage,
 Florida-Bahamas, Florida-Cuba, Fram Strait", Indonesian Throughflow,
 Lancaster Sound, Mona Passage", Mozambique Channel, Nares Strait, Tasmania-Ant
 Windward Passage.
+
+Aggregating Sea-ice Features
+----------------------------
+
+Arctic Regions
+~~~~~~~~~~~~~~
+
+The function :py:func:`geometric_features.aggregation.seaice.arctic` aggregates
+regions of the Arctic as defined by the
+`National Snow and Ice Data Center (NSIDC) <https://nsidc.org/>`_ that are
+relevant for sea ice: Baffin Bay NSIDC, Barents Sea, Beaufort Sea NSIDC,
+Canadian Archipelago NSIDC, Central Arctic NSIDC, Chukchi Sea NSIDC,
+East Siberian Sea NSIDC, Hudson Bay NSIDC, Kara Sea, Laptev Sea NSIDC.
+
