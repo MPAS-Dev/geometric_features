@@ -1,6 +1,6 @@
-def transport(gf):
+def arctic(gf):
     """
-    Aggregate standard transport transects
+    Aggregate sea-ice-relevant Arctic regions
 
     Parameters
     ----------
@@ -10,13 +10,13 @@ def transport(gf):
     Returns
     -------
     fc : geometric_features.FeatureCollection
-        The new feature collection with transport transects
+        The new feature collection with sea-ice-relevant Arctic regions
     """
     # Authors
     # -------
-    # Xylar Asay-Davis
+    # Milena Veneziani, Xylar Asay-Davis
 
-    fc = gf.read(componentName='ocean', objectType='transect',
-                 tags=['standard_transport_sections'])
+    fc = gf.read(componentName='ocean', objectType='region',
+                 tags=['Arctic_NSIDC'])
 
     return fc

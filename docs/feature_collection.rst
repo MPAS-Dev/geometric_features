@@ -47,7 +47,7 @@ retained.
 Plotting Features
 -----------------
 
-A ``FeatureCollection`` can be plotted on a given map projeciton with
+A ``FeatureCollection`` can be plotted on a given map projection with
 :meth:`geometric_features.FeatureCollection.plot`:
 
 .. code-block:: python
