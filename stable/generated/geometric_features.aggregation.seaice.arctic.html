@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>geometric_features.aggregation.ocean.moc &mdash; geometric_features 0.1.12 documentation</title>
+  <title>geometric_features.aggregation.seaice.arctic &mdash; geometric_features 0.1.12 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="geometric_features.aggregation.ocean.arctic" href="geometric_features.aggregation.ocean.arctic.html" />
-    <link rel="prev" title="geometric_features.aggregation.ocean.basins" href="geometric_features.aggregation.ocean.basins.html" /> 
+    <link rel="next" title="Versions" href="../versions.html" />
+    <link rel="prev" title="geometric_features.aggregation.seaice" href="geometric_features.aggregation.seaice.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -111,13 +111,13 @@
 <li class="toctree-l4"><a class="reference internal" href="geometric_features.aggregation.ocean.html">geometric_features.aggregation.ocean</a></li>
 <li class="toctree-l4"><a class="reference internal" href="geometric_features.aggregation.ocean.subbasins.html">geometric_features.aggregation.ocean.subbasins</a></li>
 <li class="toctree-l4"><a class="reference internal" href="geometric_features.aggregation.ocean.basins.html">geometric_features.aggregation.ocean.basins</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">geometric_features.aggregation.ocean.moc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geometric_features.aggregation.ocean.moc.html">geometric_features.aggregation.ocean.moc</a></li>
 <li class="toctree-l4"><a class="reference internal" href="geometric_features.aggregation.ocean.arctic.html">geometric_features.aggregation.ocean.arctic</a></li>
 <li class="toctree-l4"><a class="reference internal" href="geometric_features.aggregation.ocean.antarctic.html">geometric_features.aggregation.ocean.antarctic</a></li>
 <li class="toctree-l4"><a class="reference internal" href="geometric_features.aggregation.ocean.ice_shelves.html">geometric_features.aggregation.ocean.ice_shelves</a></li>
 <li class="toctree-l4"><a class="reference internal" href="geometric_features.aggregation.ocean.transport.html">geometric_features.aggregation.ocean.transport</a></li>
 <li class="toctree-l4"><a class="reference internal" href="geometric_features.aggregation.seaice.html">geometric_features.aggregation.seaice</a></li>
-<li class="toctree-l4"><a class="reference internal" href="geometric_features.aggregation.seaice.arctic.html">geometric_features.aggregation.seaice.arctic</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">geometric_features.aggregation.seaice.arctic</a></li>
 </ul>
 </li>
 </ul>
@@ -176,13 +176,13 @@
         
           <li><a href="../api.html">API reference</a> &raquo;</li>
         
-      <li>geometric_features.aggregation.ocean.moc</li>
+      <li>geometric_features.aggregation.seaice.arctic</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/generated/geometric_features.aggregation.ocean.moc.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/generated/geometric_features.aggregation.seaice.arctic.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -195,19 +195,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="geometric-features-aggregation-ocean-moc">
-<h1>geometric_features.aggregation.ocean.moc<a class="headerlink" href="#geometric-features-aggregation-ocean-moc" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="geometric-features-aggregation-seaice-arctic">
+<h1>geometric_features.aggregation.seaice.arctic<a class="headerlink" href="#geometric-features-aggregation-seaice-arctic" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
-<dt id="geometric_features.aggregation.ocean.moc">
-<code class="sig-prename descclassname">geometric_features.aggregation.ocean.</code><code class="sig-name descname">moc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">gf</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geometric_features/aggregation/ocean/moc_basins.html#moc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#geometric_features.aggregation.ocean.moc" title="Permalink to this definition">¶</a></dt>
-<dd><p>Aggregate features defining the ocean basins used in computing the
-meridional overturning circulation (MOC)</p>
+<dt id="geometric_features.aggregation.seaice.arctic">
+<code class="sig-prename descclassname">geometric_features.aggregation.seaice.</code><code class="sig-name descname">arctic</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">gf</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geometric_features/aggregation/seaice/arctic_regions.html#arctic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#geometric_features.aggregation.seaice.arctic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Aggregate sea-ice-relevant Arctic regions</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>gf</strong> (<code class="docutils literal notranslate"><span class="pre">GeometricFeatures</span></code>) – An object that knows how to download and read geometric featuers</p>
+<dd class="field-odd"><p><strong>gf</strong> (<a class="reference internal" href="geometric_features.GeometricFeatures.html#geometric_features.GeometricFeatures" title="geometric_features.GeometricFeatures"><em>geometric_features.GeometricFeatures</em></a>) – An object that knows how to download and read geometric features</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>fc</strong> (<code class="docutils literal notranslate"><span class="pre">FeatureCollection</span></code>) – The new feature collection</p>
+<dd class="field-even"><p><strong>fc</strong> (<em>geometric_features.FeatureCollection</em>) – The new feature collection with sea-ice-relevant Arctic regions</p>
 </dd>
 </dl>
 </dd></dl>
@@ -222,10 +221,10 @@ meridional overturning circulation (MOC)</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="geometric_features.aggregation.ocean.arctic.html" class="btn btn-neutral float-right" title="geometric_features.aggregation.ocean.arctic" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../versions.html" class="btn btn-neutral float-right" title="Versions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="geometric_features.aggregation.ocean.basins.html" class="btn btn-neutral float-left" title="geometric_features.aggregation.ocean.basins" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="geometric_features.aggregation.seaice.html" class="btn btn-neutral float-left" title="geometric_features.aggregation.seaice" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

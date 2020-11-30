@@ -95,3 +95,6 @@ Aggregation
    aggregation.ocean.antarctic
    aggregation.ocean.ice_shelves
    aggregation.ocean.transport
+
+   aggregation.seaice
+   aggregation.seaice.arctic

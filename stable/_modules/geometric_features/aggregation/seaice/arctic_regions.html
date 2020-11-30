@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>geometric_features.aggregation.ocean.transport_transects &mdash; geometric_features 0.1.12 documentation</title>
+  <title>geometric_features.aggregation.seaice.arctic_regions &mdash; geometric_features 0.1.12 documentation</title>
   
 
   
@@ -149,7 +149,7 @@
         
           <li><a href="../../../index.html">Module code</a> &raquo;</li>
         
-      <li>geometric_features.aggregation.ocean.transport_transects</li>
+      <li>geometric_features.aggregation.seaice.arctic_regions</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -164,10 +164,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for geometric_features.aggregation.ocean.transport_transects</h1><div class="highlight"><pre>
-<div class="viewcode-block" id="transport"><a class="viewcode-back" href="../../../../generated/geometric_features.aggregation.ocean.transport.html#geometric_features.aggregation.ocean.transport">[docs]</a><span></span><span class="k">def</span> <span class="nf">transport</span><span class="p">(</span><span class="n">gf</span><span class="p">):</span>
+  <h1>Source code for geometric_features.aggregation.seaice.arctic_regions</h1><div class="highlight"><pre>
+<div class="viewcode-block" id="arctic"><a class="viewcode-back" href="../../../../generated/geometric_features.aggregation.seaice.arctic.html#geometric_features.aggregation.seaice.arctic">[docs]</a><span></span><span class="k">def</span> <span class="nf">arctic</span><span class="p">(</span><span class="n">gf</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Aggregate standard transport transects</span>
+<span class="sd">    Aggregate sea-ice-relevant Arctic regions</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -177,14 +177,14 @@
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    fc : geometric_features.FeatureCollection</span>
-<span class="sd">        The new feature collection with transport transects</span>
+<span class="sd">        The new feature collection with sea-ice-relevant Arctic regions</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Authors</span>
     <span class="c1"># -------</span>
-    <span class="c1"># Xylar Asay-Davis</span>
+    <span class="c1"># Milena Veneziani, Xylar Asay-Davis</span>
 
-    <span class="n">fc</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">componentName</span><span class="o">=</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="n">objectType</span><span class="o">=</span><span class="s1">&#39;transect&#39;</span><span class="p">,</span>
-                 <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;standard_transport_sections&#39;</span><span class="p">])</span>
+    <span class="n">fc</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">componentName</span><span class="o">=</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="n">objectType</span><span class="o">=</span><span class="s1">&#39;region&#39;</span><span class="p">,</span>
+                 <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Arctic_NSIDC&#39;</span><span class="p">])</span>
 
     <span class="k">return</span> <span class="n">fc</span></div>
 </pre></div>
