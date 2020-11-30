@@ -41,10 +41,11 @@ Arctic Regions
 ~~~~~~~~~~~~~~
 
 The function :py:func:`geometric_features.aggregation.ocean.arctic` aggregates
-regions of the Arctic: Baffin Bay, Baltic Sea, Barents Sea, Canada Basin,
-Canadian Archipelago, Central Arctic, Chukchi Sea, East Siberian Sea,
-Greenland Sea, Hudson Bay, Irminger Sea, Kara Sea, Labrador Sea, Laptev Sea,
-North Sea, Norwegian Sea.
+regions of the Arctic: Baffin Bay, Baltic Sea, Barents Sea, Beaufort Gyre,
+Beaufort Gyre Shelf, Canada Basin, Canadian Archipelago, Central Arctic, 
+Chukchi Sea, East Siberian Sea, Greenland Sea, Hudson Bay, Irminger Sea, 
+Kara Sea, Labrador Sea, Laptev Sea, North Sea, Norwegian Sea, and
+Arctic Ocean - no Barents, Kara Seas.
 
 Antarctic Regions
 ~~~~~~~~~~~~~~~~~
@@ -88,4 +89,3 @@ regions of the Arctic as defined by the
 relevant for sea ice: Baffin Bay NSIDC, Barents Sea, Beaufort Sea NSIDC,
 Canadian Archipelago NSIDC, Central Arctic NSIDC, Chukchi Sea NSIDC,
 East Siberian Sea NSIDC, Hudson Bay NSIDC, Kara Sea, Laptev Sea NSIDC.
-
