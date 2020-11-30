@@ -16,7 +16,6 @@ def transport(gf):
     # -------
     # Xylar Asay-Davis
 
-    # create a FeatureCollection to which we will add all regions
     fc = gf.read(componentName='ocean', objectType='transect',
                  tags=['standard_transport_sections'])
 
