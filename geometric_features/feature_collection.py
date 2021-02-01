@@ -75,8 +75,8 @@ class FeatureCollection(object):
         '''
         Construct a new feature collection
 
-        Parameteres
-        -----------
+        Parameters
+        ----------
         features : list of dict, optional
             A list of python dictionaries describing each feature, following
             the geojson convention

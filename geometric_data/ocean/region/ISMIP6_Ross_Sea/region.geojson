@@ -5,11 +5,13 @@
             "type": "Feature",
             "properties": {
                 "name": "ISMIP6 Ross Sea",
-                "tags": "",
+                "tags": "Antarctic;ISMIP6;Shelf",
                 "object": "region",
                 "component": "ocean",
                 "author": "Xylar Asay-Davis, Alice Barthel, Nicolas Jourdain",
-                "constituents": "ISMIP6 Eastern Ross Sea Shelf; ISMIP6 Western Ross Sea Shelf"
+                "constituents": "ISMIP6 Eastern Ross Sea Shelf; ISMIP6 Western Ross Sea Shelf",
+                "zmax": -200.0,
+                "zmin": -1500.0
             },
             "geometry": {
                 "type": "MultiPolygon",
