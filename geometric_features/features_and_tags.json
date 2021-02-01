@@ -1237,6 +1237,36 @@
         "Hudson_Bay_NSIDC",
         "Arctic_NSIDC"
       ],
+      "ISMIP6 Amery Sector Shelf": [
+        "Antarctic",
+        "ISMIP6",
+        "Shelf"
+      ],
+      "ISMIP6 Amundsen Sea Shelf": [
+        "Antarctic",
+        "ISMIP6",
+        "Shelf"
+      ],
+      "ISMIP6 Dronning Maud Land Shelf": [
+        "Antarctic",
+        "ISMIP6",
+        "Shelf"
+      ],
+      "ISMIP6 Ross Sea": [
+        "Antarctic",
+        "ISMIP6",
+        "Shelf"
+      ],
+      "ISMIP6 Totten Region Shelf": [
+        "Antarctic",
+        "ISMIP6",
+        "Shelf"
+      ],
+      "ISMIP6 Weddell Sea Shelf": [
+        "Antarctic",
+        "ISMIP6",
+        "Shelf"
+      ],
       "Indian Ocean": [
         "Indian_Ocean",
         "Indian_Basin"

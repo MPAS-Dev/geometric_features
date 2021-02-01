@@ -1,0 +1,44 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "ISMIP6 Weddell Sea Shelf",
+                "tags": "Antarctic;ISMIP6;Shelf",
+                "object": "region",
+                "component": "ocean",
+                "author": "Xylar Asay-Davis, Alice Barthel, Nicolas Jourdain",
+                "zmax": -200.0,
+                "zmin": -1500.0
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -65.0,
+                            -80.0
+                        ],
+                        [
+                            -25.0,
+                            -80.0
+                        ],
+                        [
+                            -25.0,
+                            -77.0
+                        ],
+                        [
+                            -65.0,
+                            -71.0
+                        ],
+                        [
+                            -65.0,
+                            -80.0
+                        ]
+                    ]
+                ]
+            }
+        }
+    ]
+}
