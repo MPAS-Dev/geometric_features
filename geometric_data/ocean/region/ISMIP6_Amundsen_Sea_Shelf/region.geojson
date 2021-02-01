@@ -10,7 +10,7 @@
                 "component": "ocean",
                 "author": "Xylar Asay-Davis, Alice Barthel, Nicolas Jourdain",
                 "zmax": -200.0,
-                "zmin": -1000.0
+                "zmin": -1500.0
             },
             "geometry": {
                 "type": "Polygon",

@@ -9,7 +9,7 @@
                 "object": "region",
                 "component": "ocean",
                 "author": "Xylar Asay-Davis, Alice Barthel, Nicolas Jourdain",
-                "constituents": "ISMIP6 Western Ross Sea Shelf; ISMIP6 Eastern Ross Sea Shelf"
+                "constituents": "ISMIP6 Eastern Ross Sea Shelf; ISMIP6 Western Ross Sea Shelf"
             },
             "geometry": {
                 "type": "MultiPolygon",
