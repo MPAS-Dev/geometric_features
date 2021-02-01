@@ -174,8 +174,8 @@ def make_polygon(lons, lats, name, author, tags):
                         "object": 'region',
                         "component": 'ocean',
                         "tags": tags,
-                        "zmin": -1000.,
-                        "zmax": -400.},
+                        "zmin": -1500.,
+                        "zmax": -200.},
          "geometry": {
              "type": "Polygon",
              "coordinates": [coords]}})
@@ -196,7 +196,7 @@ def shelf_polygon(lons, lats, name, author, tags, fcContour):
     props = fcShelf.features[0]['properties']
     props['name'] = props['name'] + ' Shelf'
     props['tags'] = props['tags'] + ';Shelf'
-    props['zmin'] = -1000.
+    props['zmin'] = -1500.
     props['zmax'] = -200.
 
     return fcShelf
