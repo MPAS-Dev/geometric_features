@@ -258,7 +258,13 @@ def main():
         lons, lats, name='ISMIP6 Eastern Ross Sea', author=author, tags=tags,
         fcContour=fcContour1500))
 
-    fc.merge(fc_ross.combine('ISMIP6 Ross Sea'))
+    old_props = fc_ross.features[0]['properties']
+    fc_ross = fc_ross.combine('ISMIP6 Ross Sea')
+    props = fc_ross.features[0]['properties']
+    for prop in ['tags', 'zmin', 'zmax']:
+        props[prop] = old_props[prop]
+
+    fc.merge(fc_ross)
 
     fc.plot(projection='southpole')
     fc.to_geojson('ismip6_antarctic_ocean_regions.geojson')
