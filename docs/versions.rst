@@ -8,10 +8,11 @@ Documentation    On GitHub
 `v0.1.7`_        `0.1.7`_
 `v0.1.8`_        `0.1.8`_
 `v0.1.9`_        `0.1.9`_
-`v0.1.10`_        `0.1.10`_
-`v0.1.11`_        `0.1.11`_
-`v0.1.12`_        `0.1.12`_
-`v0.1.13`_        `0.1.13`_
+`v0.1.10`_       `0.1.10`_
+`v0.1.11`_       `0.1.11`_
+`v0.1.12`_       `0.1.12`_
+`v0.1.13`_       `0.1.13`_
+`v0.2.0`_        `0.2.0`_
 ================ ===============
 
 .. _`stable`: ../stable/index.html
@@ -30,3 +31,5 @@ Documentation    On GitHub
 .. _`0.1.12`: https://github.com/MPAS-Dev/geometric_features/tree/0.1.12
 .. _`v0.1.13`: ../0.1.13/index.html
 .. _`0.1.13`: https://github.com/MPAS-Dev/geometric_features/tree/0.1.13
+.. _`v0.2.0`: ../0.2.0/index.html
+.. _`0.2.0`: https://github.com/MPAS-Dev/geometric_features/tree/0.2.0
