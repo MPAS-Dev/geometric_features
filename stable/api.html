@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>API reference &mdash; geometric_features 0.2.0 documentation</title>
+  <title>API reference &mdash; geometric_features 0.3.0 documentation</title>
   
 
   
@@ -63,7 +63,7 @@
             
             
               <div class="version">
-                0.2.0
+                0.3.0
               </div>
             
           
@@ -148,6 +148,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#aggregation">Aggregation</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="generated/geometric_features.aggregation.html">geometric_features.aggregation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/geometric_features.aggregation.get_aggregator_by_name.html">geometric_features.aggregation.get_aggregator_by_name</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/geometric_features.aggregation.ocean.html">geometric_features.aggregation.ocean</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/geometric_features.aggregation.ocean.subbasins.html">geometric_features.aggregation.ocean.subbasins</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/geometric_features.aggregation.ocean.basins.html">geometric_features.aggregation.ocean.basins</a></li>
@@ -397,34 +398,37 @@ the documentation.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.aggregation.html#module-geometric_features.aggregation" title="geometric_features.aggregation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregation</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/geometric_features.aggregation.ocean.html#module-geometric_features.aggregation.ocean" title="geometric_features.aggregation.ocean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregation.ocean</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/geometric_features.aggregation.get_aggregator_by_name.html#geometric_features.aggregation.get_aggregator_by_name" title="geometric_features.aggregation.get_aggregator_by_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregation.get_aggregator_by_name</span></code></a>(region_group)</p></td>
+<td><p>Get a geojson mask file and the appropriate file suffix for the given region group.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.aggregation.ocean.html#module-geometric_features.aggregation.ocean" title="geometric_features.aggregation.ocean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregation.ocean</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.aggregation.ocean.subbasins.html#geometric_features.aggregation.ocean.subbasins" title="geometric_features.aggregation.ocean.subbasins"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregation.ocean.subbasins</span></code></a>(gf)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/geometric_features.aggregation.ocean.subbasins.html#geometric_features.aggregation.ocean.subbasins" title="geometric_features.aggregation.ocean.subbasins"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregation.ocean.subbasins</span></code></a>(gf)</p></td>
 <td><p>Aggregates ocean regions into the following larger sub-basins: * Arctic Ocean Basin * North Atlantic Basin * South Atlantic Basin * North Pacific Basin * South Pacific Basin * Indian Ocean Basin * Southern Ocean Basin</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/geometric_features.aggregation.ocean.basins.html#geometric_features.aggregation.ocean.basins" title="geometric_features.aggregation.ocean.basins"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregation.ocean.basins</span></code></a>(gf)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.aggregation.ocean.basins.html#geometric_features.aggregation.ocean.basins" title="geometric_features.aggregation.ocean.basins"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregation.ocean.basins</span></code></a>(gf)</p></td>
 <td><p>Aggregate Global Ocean as well as Atlantic, Pacific, Indian, Arctic, Southern Ocean, Equatorial (global 15S-15N), and Mediterranean basins</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.aggregation.ocean.moc.html#geometric_features.aggregation.ocean.moc" title="geometric_features.aggregation.ocean.moc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregation.ocean.moc</span></code></a>(gf)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/geometric_features.aggregation.ocean.moc.html#geometric_features.aggregation.ocean.moc" title="geometric_features.aggregation.ocean.moc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregation.ocean.moc</span></code></a>(gf)</p></td>
 <td><p>Aggregate features defining the ocean basins used in computing the meridional overturning circulation (MOC)</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/geometric_features.aggregation.ocean.arctic.html#geometric_features.aggregation.ocean.arctic" title="geometric_features.aggregation.ocean.arctic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregation.ocean.arctic</span></code></a>(gf)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.aggregation.ocean.arctic.html#geometric_features.aggregation.ocean.arctic" title="geometric_features.aggregation.ocean.arctic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregation.ocean.arctic</span></code></a>(gf)</p></td>
 <td><p>Aggregate ocean-relevant Arctic regions</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.aggregation.ocean.antarctic.html#geometric_features.aggregation.ocean.antarctic" title="geometric_features.aggregation.ocean.antarctic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregation.ocean.antarctic</span></code></a>(gf)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/geometric_features.aggregation.ocean.antarctic.html#geometric_features.aggregation.ocean.antarctic" title="geometric_features.aggregation.ocean.antarctic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregation.ocean.antarctic</span></code></a>(gf)</p></td>
 <td><p>Aggregate Antarctic regions similar to Timmermann et al. (2013).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/geometric_features.aggregation.ocean.ice_shelves.html#geometric_features.aggregation.ocean.ice_shelves" title="geometric_features.aggregation.ocean.ice_shelves"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregation.ocean.ice_shelves</span></code></a>(gf)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.aggregation.ocean.ice_shelves.html#geometric_features.aggregation.ocean.ice_shelves" title="geometric_features.aggregation.ocean.ice_shelves"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregation.ocean.ice_shelves</span></code></a>(gf)</p></td>
 <td><p>Aggregate 106 Antarctic ice shelves and ice-shelf regions</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.aggregation.ocean.transport.html#geometric_features.aggregation.ocean.transport" title="geometric_features.aggregation.ocean.transport"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregation.ocean.transport</span></code></a>(gf)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/geometric_features.aggregation.ocean.transport.html#geometric_features.aggregation.ocean.transport" title="geometric_features.aggregation.ocean.transport"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregation.ocean.transport</span></code></a>(gf)</p></td>
 <td><p>Aggregate standard transport transects</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/geometric_features.aggregation.seaice.html#module-geometric_features.aggregation.seaice" title="geometric_features.aggregation.seaice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregation.seaice</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.aggregation.seaice.html#module-geometric_features.aggregation.seaice" title="geometric_features.aggregation.seaice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregation.seaice</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/geometric_features.aggregation.seaice.arctic.html#geometric_features.aggregation.seaice.arctic" title="geometric_features.aggregation.seaice.arctic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregation.seaice.arctic</span></code></a>(gf)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/geometric_features.aggregation.seaice.arctic.html#geometric_features.aggregation.seaice.arctic" title="geometric_features.aggregation.seaice.arctic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregation.seaice.arctic</span></code></a>(gf)</p></td>
 <td><p>Aggregate sea-ice-relevant Arctic regions</p></td>
 </tr>
 </tbody>

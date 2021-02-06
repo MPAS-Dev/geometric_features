@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Aggregate Existing Features &mdash; geometric_features 0.2.0 documentation</title>
+  <title>Aggregate Existing Features &mdash; geometric_features 0.3.0 documentation</title>
   
 
   
@@ -63,7 +63,7 @@
             
             
               <div class="version">
-                0.2.0
+                0.3.0
               </div>
             
           
@@ -193,6 +193,25 @@
 <p>The <a class="reference internal" href="generated/geometric_features.aggregation.html#module-geometric_features.aggregation" title="geometric_features.aggregation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">geometric_features.aggregation</span></code></a> module contains functions used to
 aggregate existing features to make new, larger ones.  An example usage of these
 aggregation functions is to create masks for regional averaging.</p>
+<p>The function <a class="reference internal" href="generated/geometric_features.aggregation.get_aggregator_by_name.html#geometric_features.aggregation.get_aggregator_by_name" title="geometric_features.aggregation.get_aggregator_by_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">geometric_features.aggregation.get_aggregator_by_name()</span></code></a>
+can be used to get information about one of the aggregated features by one of
+the following group names:</p>
+<ul class="simple">
+<li><p>Antarctic Regions</p></li>
+<li><p>Arctic Ocean Regions</p></li>
+<li><p>Arctic Sea Ice Regions</p></li>
+<li><p>Ocean Basins</p></li>
+<li><p>Ice Shelves</p></li>
+<li><p>Ocean Subbasins</p></li>
+<li><p>ISMIP6 Regions</p></li>
+<li><p>Transport Transects</p></li>
+</ul>
+<p>This function returns the function that will aggregate the requested group,
+a prefix for the group (a modified version of the group name) and a date stamp
+that is updated each time the features in the group are changed.  This way,
+mask files can be created from these features with filenames that include the
+date stamp.  As long as the date stamp has not changed, these cached mask files
+can be reused.</p>
 <div class="section" id="aggregating-ocean-features">
 <h2>Aggregating Ocean Features<a class="headerlink" href="#aggregating-ocean-features" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="ocean-sub-basins">

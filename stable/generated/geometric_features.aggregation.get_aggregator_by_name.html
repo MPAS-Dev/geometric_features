@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>geometric_features.aggregation.ocean &mdash; geometric_features 0.3.0 documentation</title>
+  <title>geometric_features.aggregation.get_aggregator_by_name &mdash; geometric_features 0.3.0 documentation</title>
   
 
   
@@ -38,8 +38,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="geometric_features.aggregation.ocean.subbasins" href="geometric_features.aggregation.ocean.subbasins.html" />
-    <link rel="prev" title="geometric_features.aggregation.get_aggregator_by_name" href="geometric_features.aggregation.get_aggregator_by_name.html" /> 
+    <link rel="next" title="geometric_features.aggregation.ocean" href="geometric_features.aggregation.ocean.html" />
+    <link rel="prev" title="geometric_features.aggregation" href="geometric_features.aggregation.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -110,8 +110,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../api.html#manipulating-a-feature-collection">Manipulating a Feature Collection</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../api.html#aggregation">Aggregation</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="geometric_features.aggregation.html">geometric_features.aggregation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="geometric_features.aggregation.get_aggregator_by_name.html">geometric_features.aggregation.get_aggregator_by_name</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">geometric_features.aggregation.ocean</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">geometric_features.aggregation.get_aggregator_by_name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geometric_features.aggregation.ocean.html">geometric_features.aggregation.ocean</a></li>
 <li class="toctree-l4"><a class="reference internal" href="geometric_features.aggregation.ocean.subbasins.html">geometric_features.aggregation.ocean.subbasins</a></li>
 <li class="toctree-l4"><a class="reference internal" href="geometric_features.aggregation.ocean.basins.html">geometric_features.aggregation.ocean.basins</a></li>
 <li class="toctree-l4"><a class="reference internal" href="geometric_features.aggregation.ocean.moc.html">geometric_features.aggregation.ocean.moc</a></li>
@@ -181,13 +181,13 @@
         
           <li><a href="../api.html">API reference</a> &raquo;</li>
         
-      <li>geometric_features.aggregation.ocean</li>
+      <li>geometric_features.aggregation.get_aggregator_by_name</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/generated/geometric_features.aggregation.ocean.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/generated/geometric_features.aggregation.get_aggregator_by_name.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -200,8 +200,34 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-geometric_features.aggregation.ocean">
-<span id="geometric-features-aggregation-ocean"></span><h1>geometric_features.aggregation.ocean<a class="headerlink" href="#module-geometric_features.aggregation.ocean" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="geometric-features-aggregation-get-aggregator-by-name">
+<h1>geometric_features.aggregation.get_aggregator_by_name<a class="headerlink" href="#geometric-features-aggregation-get-aggregator-by-name" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="geometric_features.aggregation.get_aggregator_by_name">
+<code class="sig-prename descclassname">geometric_features.aggregation.</code><code class="sig-name descname">get_aggregator_by_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">region_group</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geometric_features/aggregation.html#get_aggregator_by_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#geometric_features.aggregation.get_aggregator_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a geojson mask file and the appropriate file suffix for the given
+region group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>region_group</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The name of a region group to get mask features for, one of
+‘Antarctic Regions’, ‘Arctic Ocean Regions’, ‘Arctic Sea Ice Regions’,
+‘Ocean Basins’, ‘Ice Shelves’, ‘Ocean Subbasins’, or ‘ISMIP6 Regions’</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>function</strong> (<em>callable</em>) – An aggregation functions for collecting the features, which takes a
+<a class="reference internal" href="geometric_features.GeometricFeatures.html#geometric_features.GeometricFeatures" title="geometric_features.GeometricFeatures"><code class="xref py py-class docutils literal notranslate"><span class="pre">geometric_features.GeometricFeatures</span></code></a> object as its argument</p></li>
+<li><p><strong>prefix</strong> (<em>str</em>) – A prefix (or suffix) for use in file names that corresponds to the
+region group</p></li>
+<li><p><strong>date</strong> (<em>str</em>) – A date stamp when the regions in <code class="docutils literal notranslate"><span class="pre">fc</span></code> were last modified.  This date
+can be used to cache masks based on these regions as long as the date
+remains the same.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 
 
@@ -210,8 +236,8 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="geometric_features.aggregation.ocean.subbasins.html" class="btn btn-neutral float-right" title="geometric_features.aggregation.ocean.subbasins" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="geometric_features.aggregation.get_aggregator_by_name.html" class="btn btn-neutral float-left" title="geometric_features.aggregation.get_aggregator_by_name" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="geometric_features.aggregation.ocean.html" class="btn btn-neutral float-right" title="geometric_features.aggregation.ocean" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="geometric_features.aggregation.html" class="btn btn-neutral float-left" title="geometric_features.aggregation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
