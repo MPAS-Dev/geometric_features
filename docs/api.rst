@@ -87,6 +87,7 @@ Aggregation
    :toctree: generated/
 
    aggregation
+   aggregation.get_aggregator_by_name
    aggregation.ocean
    aggregation.ocean.subbasins
    aggregation.ocean.basins

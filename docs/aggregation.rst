@@ -7,6 +7,33 @@ The :py:mod:`geometric_features.aggregation` module contains functions used to
 aggregate existing features to make new, larger ones.  An example usage of these
 aggregation functions is to create masks for regional averaging.
 
+The function :py:func:`geometric_features.aggregation.get_aggregator_by_name()`
+can be used to get information about one of the aggregated features by one of
+the following group names:
+
+* Antarctic Regions
+
+* Arctic Ocean Regions
+
+* Arctic Sea Ice Regions
+
+* Ocean Basins
+
+* Ice Shelves
+
+* Ocean Subbasins
+
+* ISMIP6 Regions
+
+* Transport Transects
+
+This function returns the function that will aggregate the requested group,
+a prefix for the group (a modified version of the group name) and a date stamp
+that is updated each time the features in the group are changed.  This way,
+mask files can be created from these features with filenames that include the
+date stamp.  As long as the date stamp has not changed, these cached mask files
+can be reused.
+
 
 Aggregating Ocean Features
 --------------------------
