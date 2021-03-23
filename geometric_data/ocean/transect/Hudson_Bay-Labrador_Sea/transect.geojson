@@ -1,0 +1,33 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Hudson Bay-Labrador Sea",
+                "tags": "arctic_sections",
+                "object": "transect",
+                "component": "ocean",
+                "author": "Milena Veneziani",
+                "history": "03/20/21 : milena : hand drawn in geojson.io;"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -64.64,
+                        59.72
+                    ],
+                    [
+                        -65.695,
+                        61.010192354571686
+                    ],
+                    [
+                        -66.75,
+                        62.25
+                    ]
+                ]
+            }
+        }
+    ]
+}
