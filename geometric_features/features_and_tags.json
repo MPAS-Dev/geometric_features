@@ -1671,6 +1671,12 @@
       "Northwest_Passage_Prince_of_Wales_Strait_Variant": [
         "Critical_Passage"
       ],
+      "OSNAP section East": [
+        "arctic_sections"
+      ],
+      "OSNAP section West": [
+        "arctic_sections"
+      ],
       "Oahu": [
         "Critical_Land_Blockage"
       ],
