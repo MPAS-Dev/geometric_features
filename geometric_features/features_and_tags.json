@@ -1551,10 +1551,10 @@
         "Critical_Passage"
       ],
       "Barents Sea Opening": [
-        "standard_transport_sections"
+        "standard_transport_sections;arctic_sections"
       ],
       "Bering Strait": [
-        "standard_transport_sections"
+        "standard_transport_sections;arctic_sections"
       ],
       "Bering_Strait_Ship_Track": [
         "Critical_Passage"
@@ -1567,7 +1567,10 @@
         "Critical_Land_Blockage"
       ],
       "Davis Strait": [
-        "standard_transport_sections"
+        "standard_transport_sections;arctic_sections"
+      ],
+      "Denmark Strait": [
+        "standard_transport_sections;arctic_sections"
       ],
       "Drake Passage": [
         "standard_transport_sections"
@@ -1588,10 +1591,16 @@
         "Critical_Passage"
       ],
       "Fram Strait": [
-        "standard_transport_sections"
+        "standard_transport_sections;arctic_sections"
       ],
       "Hawaii": [
         "Critical_Land_Blockage"
+      ],
+      "Hudson Bay-Labrador Sea": [
+        "arctic_sections"
+      ],
+      "Iceland-Faroe-Scotland": [
+        "standard_transport_sections;arctic_sections"
       ],
       "Indonesian Throughflow": [
         "standard_transport_sections"
@@ -1626,7 +1635,7 @@
         "Critical_Land_Blockage"
       ],
       "Lancaster Sound": [
-        "standard_transport_sections"
+        "standard_transport_sections;arctic_sections"
       ],
       "Maui": [
         "Critical_Land_Blockage"
@@ -1641,7 +1650,7 @@
         "standard_transport_sections"
       ],
       "Nares Strait": [
-        "standard_transport_sections"
+        "standard_transport_sections;arctic_sections"
       ],
       "Nares Strait Deepen": [
         "Nares_Strait_Deepen",
