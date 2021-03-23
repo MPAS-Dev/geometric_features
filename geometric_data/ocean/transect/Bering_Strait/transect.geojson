@@ -5,7 +5,7 @@
             "type": "Feature",
             "properties": {
                 "name": "Bering Strait",
-                "tags": "standard_transport_sections",
+                "tags": "standard_transport_sections;arctic_sections",
                 "object": "transect",
                 "component": "ocean",
                 "author": "Mark Petersen, Xylar Asay-Davis, Milena Veneziani",

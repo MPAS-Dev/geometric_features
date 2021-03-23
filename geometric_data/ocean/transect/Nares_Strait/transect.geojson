@@ -5,7 +5,7 @@
             "type": "Feature",
             "properties": {
                 "name": "Nares Strait",
-                "tags": "standard_transport_sections",
+                "tags": "standard_transport_sections;arctic_sections",
                 "object": "transect",
                 "component": "ocean",
                 "author": "Milena Veneziani",
