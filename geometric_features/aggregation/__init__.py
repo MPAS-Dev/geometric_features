@@ -1,5 +1,6 @@
 from geometric_features.aggregation.ocean import basins, subbasins, \
-    antarctic, ice_shelves, ismip6, arctic as arctic_ocean, transport
+    antarctic, ice_shelves, ismip6, arctic as arctic_ocean, transport, \
+    moc
 from geometric_features.aggregation.seaice import arctic as arctic_seaice
 
 
@@ -52,6 +53,9 @@ def get_aggregator_by_name(region_group):
                'ISMIP6 Regions': {'prefix': 'ismip6Regions',
                                   'date': '20210201',
                                   'function': ismip6},
+               'MOC Basins': {'prefix': 'mocBasins',
+                              'date': '20210331',
+                              'function': moc},
                'Transport Transects': {'prefix': 'transportTransects',
                                        'date': '20200621',
                                        'function': transport}}
