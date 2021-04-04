@@ -57,7 +57,7 @@ def get_aggregator_by_name(region_group):
                               'date': '20210331',
                               'function': moc},
                'Transport Transects': {'prefix': 'transportTransects',
-                                       'date': '20200621',
+                                       'date': '20210323',
                                        'function': transport}}
 
     if region_group not in regions:
