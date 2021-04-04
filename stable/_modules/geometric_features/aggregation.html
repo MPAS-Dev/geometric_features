@@ -86,7 +86,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">User's Guide</span></p>
+              <p><span class="caption-text">User's Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../geometric_features.html">GeometricFeatures</a></li>
@@ -94,13 +94,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../../geometric_data.html">Geometric Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../aggregation.html">Aggregate Existing Features</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Developer's Guide</span></p>
+<p><span class="caption-text">Developer's Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../adding_features.html">Adding New Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../build_docs.html">Building the Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api.html">API reference</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Versions</span></p>
+<p><span class="caption-text">Versions</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../versions.html">Versions</a></li>
 </ul>
@@ -170,7 +170,8 @@
             
   <h1>Source code for geometric_features.aggregation</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">geometric_features.aggregation.ocean</span> <span class="kn">import</span> <span class="n">basins</span><span class="p">,</span> <span class="n">subbasins</span><span class="p">,</span> \
-    <span class="n">antarctic</span><span class="p">,</span> <span class="n">ice_shelves</span><span class="p">,</span> <span class="n">ismip6</span><span class="p">,</span> <span class="n">arctic</span> <span class="k">as</span> <span class="n">arctic_ocean</span><span class="p">,</span> <span class="n">transport</span>
+    <span class="n">antarctic</span><span class="p">,</span> <span class="n">ice_shelves</span><span class="p">,</span> <span class="n">ismip6</span><span class="p">,</span> <span class="n">arctic</span> <span class="k">as</span> <span class="n">arctic_ocean</span><span class="p">,</span> <span class="n">transport</span><span class="p">,</span> \
+    <span class="n">moc</span>
 <span class="kn">from</span> <span class="nn">geometric_features.aggregation.seaice</span> <span class="kn">import</span> <span class="n">arctic</span> <span class="k">as</span> <span class="n">arctic_seaice</span>
 
 
@@ -223,6 +224,9 @@
                <span class="s1">&#39;ISMIP6 Regions&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;ismip6Regions&#39;</span><span class="p">,</span>
                                   <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="s1">&#39;20210201&#39;</span><span class="p">,</span>
                                   <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="n">ismip6</span><span class="p">},</span>
+               <span class="s1">&#39;MOC Basins&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;mocBasins&#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="s1">&#39;20210331&#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="n">moc</span><span class="p">},</span>
                <span class="s1">&#39;Transport Transects&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;transportTransects&#39;</span><span class="p">,</span>
                                        <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="s1">&#39;20200621&#39;</span><span class="p">,</span>
                                        <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="n">transport</span><span class="p">}}</span>
