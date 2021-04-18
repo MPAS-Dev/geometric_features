@@ -307,9 +307,9 @@ class FeatureCollection(object):
         if show_progress:
             bar.finish()
 
-        print('  {} features unchanged, {} masked and {} dropped.'.format(
-            featureCount - maskedCount - droppedCount, maskedCount,
-            droppedCount))
+            print('  {} features unchanged, {} masked and {} dropped.'.format(
+                featureCount - maskedCount - droppedCount, maskedCount,
+                droppedCount))
 
         fc = FeatureCollection(maskedFeatures, self.otherProperties)
         return fc
