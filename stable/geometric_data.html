@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Geometric Data &mdash; geometric_features 0.4.0 documentation</title>
@@ -89,7 +88,7 @@
               
             
             
-              <p><span class="caption-text">User's Guide</span></p>
+              <p class="caption"><span class="caption-text">User's Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="geometric_features.html">GeometricFeatures</a></li>
@@ -115,13 +114,13 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="aggregation.html">Aggregate Existing Features</a></li>
 </ul>
-<p><span class="caption-text">Developer's Guide</span></p>
+<p class="caption"><span class="caption-text">Developer's Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="adding_features.html">Adding New Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="build_docs.html">Building the Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API reference</a></li>
 </ul>
-<p><span class="caption-text">Versions</span></p>
+<p class="caption"><span class="caption-text">Versions</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="versions.html">Versions</a></li>
 </ul>
@@ -191,15 +190,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="geometric-data">
+  <div class="section" id="geometric-data">
 <span id="geometricdata"></span><h1>Geometric Data<a class="headerlink" href="#geometric-data" title="Permalink to this headline">¶</a></h1>
 <p>The the overarching purpose of <code class="docutils literal notranslate"><span class="pre">geometric_features</span></code> is to facilitate access
 to and manipulation of the geometric data in the repository.  This data is
 currently divided across 6 components, <code class="docutils literal notranslate"><span class="pre">bedmachine</span></code>, <code class="docutils literal notranslate"><span class="pre">bedmap2</span></code>,
 <code class="docutils literal notranslate"><span class="pre">iceshelves</span></code>, <code class="docutils literal notranslate"><span class="pre">landice</span></code>,  <code class="docutils literal notranslate"><span class="pre">natural_earth</span></code>, and  <code class="docutils literal notranslate"><span class="pre">ocean</span></code>.</p>
-<section id="components">
+<div class="section" id="components">
 <h2>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h2>
-<section id="bedmachine-and-bedmap2">
+<div class="section" id="bedmachine-and-bedmap2">
 <h3>bedmachine and bedmap2<a class="headerlink" href="#bedmachine-and-bedmap2" title="Permalink to this headline">¶</a></h3>
 <p>These components each define two “coastlines” between the Antarctic continent
 and the ocean.  One excludes the cavity under ice shelves while the other
@@ -208,8 +207,8 @@ dataset
 (<a class="reference external" href="https://www.nature.com/articles/s41561-019-0510-8">Morlighem et al. 2020</a>)
 to define the coastlines, while the <code class="docutils literal notranslate"><span class="pre">bedmap2</span></code> dataset is based on Bedmap2
 (<a class="reference external" href="http://www.the-cryosphere.net/7/375/2013/">Fretwell et al. 2016</a>).</p>
-</section>
-<section id="iceshelves">
+</div>
+<div class="section" id="iceshelves">
 <h3>iceshelves<a class="headerlink" href="#iceshelves" title="Permalink to this headline">¶</a></h3>
 <p>This component defines regions that extend the bounds of present-day Antarctic
 ice shelves both out to the edge of the continental shelf and into regions of
@@ -217,18 +216,18 @@ grounded ice.  These maps are used to partition maps of Antarctic melt into
 total and average melt fluxes over these ice shelves in ocean models that
 simulate this melting.  The ice-shelf features have been divided across the
 <a class="reference external" href="http://imbie.org/imbie-2016/drainage-basins/">IMBIE1 Basins</a> so that melt rates can also be aggregated per basin.</p>
-</section>
-<section id="landice">
+</div>
+<div class="section" id="landice">
 <h3>landice<a class="headerlink" href="#landice" title="Permalink to this headline">¶</a></h3>
 <p>This component defines regions covering <a class="reference external" href="http://imbie.org/imbie-2016/drainage-basins/">IMBIE1 Basins</a> in Antarctica and
 Greenland.</p>
-</section>
-<section id="natural-earth">
+</div>
+<div class="section" id="natural-earth">
 <h3>natural_earth<a class="headerlink" href="#natural-earth" title="Permalink to this headline">¶</a></h3>
 <p>This component defines a single, high-resolution region for global land
 coverage from <a class="reference external" href="http://www.naturalearthdata.com/">Natural Earth</a>.</p>
-</section>
-<section id="ocean">
+</div>
+<div class="section" id="ocean">
 <h3>ocean<a class="headerlink" href="#ocean" title="Permalink to this headline">¶</a></h3>
 <p>This component contains regions, transects and points of significance for the
 global ocean.  The regions mostly define individual seas from the
@@ -242,9 +241,9 @@ should not be allowed to flow.  The points in the database are mostly used
 as seed points for flood-filling ocean meshes to exclude inland seas that are
 not connected to the ocean.  These points are also sometimes used to sample
 ocean properties to debug model runs.</p>
-</section>
-</section>
-<section id="object-types">
+</div>
+</div>
+<div class="section" id="object-types">
 <h2>Object Types<a class="headerlink" href="#object-types" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">geometric_features</span></code> supports three object types: regions, transects and
 points.  Regions are by far the most common, defining areas on the globe.
@@ -254,18 +253,18 @@ ocean model, though the features are defined only on the surface of the
 sphere).  These could represent such features as ship tracks, passages,
 radar lines, or float trajectories.  Points specify a single location on the
 globe.</p>
-</section>
-<section id="feature">
+</div>
+<div class="section" id="feature">
 <span id="id1"></span><h2>Feature<a class="headerlink" href="#feature" title="Permalink to this headline">¶</a></h2>
 <p>An individual feature is defined by nested datastructure of python
 dictionaries.  The outermost dictionary contains at least 3 keys:
 <code class="docutils literal notranslate"><span class="pre">'type'</span></code>, <code class="docutils literal notranslate"><span class="pre">'properties'</span></code> and <code class="docutils literal notranslate"><span class="pre">'geometry'</span></code>.</p>
-<section id="type">
+<div class="section" id="type">
 <h3>type<a class="headerlink" href="#type" title="Permalink to this headline">¶</a></h3>
 <p>The value corresponding to the <code class="docutils literal notranslate"><span class="pre">'type'</span></code> key of a feature is always
 <code class="docutils literal notranslate"><span class="pre">'Feature'</span></code>.</p>
-</section>
-<section id="properties">
+</div>
+<div class="section" id="properties">
 <h3>properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h3>
 <p>The properties of a feature are stored in another python dictionary, nested in
 the outer dictionary.  Properties include: <code class="docutils literal notranslate"><span class="pre">'name'</span></code> - the name of the
@@ -274,16 +273,16 @@ semicolons; <code class="docutils literal notranslate"><span class="pre">'object
 point); <code class="docutils literal notranslate"><span class="pre">'component'</span></code> - the component of the feature; and <code class="docutils literal notranslate"><span class="pre">'author'</span></code> -
 a comma- or semicolon-separated list of authors (or URLs).  Optionally, a
 feature can include any number of other user-defined properties.</p>
-</section>
-<section id="geometry">
+</div>
+<div class="section" id="geometry">
 <h3>geometry<a class="headerlink" href="#geometry" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">'type'</span></code> of the geometry (<code class="docutils literal notranslate"><span class="pre">'Polygon'</span></code> or <code class="docutils literal notranslate"><span class="pre">'MultiPolygon'</span></code> for a
 region, <code class="docutils literal notranslate"><span class="pre">'LineString'</span></code> or <code class="docutils literal notranslate"><span class="pre">'MultiLineString'</span></code> for a transect and
 <code class="docutils literal notranslate"><span class="pre">'Point'</span></code> or <code class="docutils literal notranslate"><span class="pre">'Multipoint'</span></code> for a point) and the <code class="docutils literal notranslate"><span class="pre">'coordinates'</span></code> defining
 the feature’s geometry.  By far, the easiest way to create an manipulate the
 geometry is with the <a class="reference external" href="https://shapely.readthedocs.io/">shapely package</a>.</p>
-</section>
-<section id="examples">
+</div>
+<div class="section" id="examples">
 <h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
 <p>Here are two simple examples of features from the repository:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -351,9 +350,9 @@ geometry is with the <a class="reference external" href="https://shapely.readthe
     <span class="p">}</span>
 </pre></div>
 </div>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
            </div>
