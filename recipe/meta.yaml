@@ -29,13 +29,12 @@ requirements:
     - pip
   run:
     - python
-    - numpy
-    - matplotlib-base
     - cartopy
-    - shapely
-    - requests
+    - matplotlib-base
+    - numpy
     - progressbar2
-    - six
+    - requests
+    - shapely
 
 test:
   requires:

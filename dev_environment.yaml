@@ -1,0 +1,19 @@
+name: geometric_features_dev
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  # Base
+  - python 3.8
+  - cartopy
+  - matplotlib-base
+  - numpy
+  - progressbar2
+  - requests
+  - shapely
+  # Development
+  - pip
+  # Documentation
+  - sphinx
+  - sphinx_rtd_theme
+  - m2r

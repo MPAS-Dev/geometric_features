@@ -13,7 +13,7 @@ from __future__ import absolute_import, division, print_function, \
 import os
 import requests
 import progressbar
-import six
+from urllib.request import pathname2url
 
 
 # From https://stackoverflow.com/a/1094933/7728169
@@ -47,8 +47,7 @@ def download_files(fileList, urlBase, outDir):
         except OSError:
             pass
 
-        url = '{}/{}'.format(urlBase,
-                             six.moves.urllib.request.pathname2url(fileName))
+        url = '{}/{}'.format(urlBase, pathname2url(fileName))
         try:
             response = requests.get(url, stream=True)
             encoding = response.headers.get('content-encoding')
