@@ -185,29 +185,18 @@ found in the <code class="docutils literal notranslate"><span class="pre">exampl
 up the package have extensive documentation.  More user-level documentation
 will be added shortly.</p>
 <p>To use geometric features, you can install it in a conda environment:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create -n geometric_features -c conda-forge <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.7 geometric_features
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create -n geometric_features -c conda-forge <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.9 geometric_features
 conda activate geometric_features
 </pre></div>
 </div>
-<p>By default, <code class="docutils literal notranslate"><span class="pre">geometric_features</span></code> will download the data it needs on the fly.
-Since some of the features are quite large, this can be convenient if disk
-space is at a premium.</p>
-<p>Some systems do not support downloading the data (e.g. because of firewalls or
-compute nodes that don’t have internet access.  In such cases, it is convenient
-to install <code class="docutils literal notranslate"><span class="pre">geometric_features</span></code> including all the data:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create -n geometric_features -c conda-forge <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.7 <span class="se">\</span>
-    <span class="s2">&quot;geometric_features=*=*with_data*&quot;</span>
-conda activate geometric_features
-</pre></div>
-</div>
-<p>This syntax is admittedly a bit clunky but it selects for a special build of
-the conda package with the data included.</p>
-<p>To develop <code class="docutils literal notranslate"><span class="pre">geometric_features</span></code> (e.g. to add new features), it is highly
-recommended that you use an <code class="docutils literal notranslate"><span class="pre">anaconda</span></code> python environment.  Here is how to
-create and activate an environment with all of the required dependencies:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create -n geometric_features -c conda-forge <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.7 numpy matplotlib <span class="se">\</span>
-    cartopy shapely requests progressbar2
-conda activate geometric_features
+<dl class="simple">
+<dt>To develop <code class="docutils literal notranslate"><span class="pre">geometric_features</span></code> (e.g. to add new features), create and activate</dt><dd><p>an environment with all of the required dependencies:</p>
+</dd>
+</dl>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create -n mpas_dev
+conda activate mpas_dev
+conda env update -n mpas_dev -f ./dev_environment.yaml
+python -m pip install -e .
 </pre></div>
 </div>
 <p>A typical workflow will look like:</p>

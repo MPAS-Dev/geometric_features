@@ -177,24 +177,14 @@
 <p>If you add a new capability to <code class="docutils literal notranslate"><span class="pre">geometric_features</span></code>, it should also be
 documented under the <code class="docutils literal notranslate"><span class="pre">docs</span></code> directory.  After making changes, it is useful to
 do a local build of the docs.</p>
-<p>First, make sure to install <code class="docutils literal notranslate"><span class="pre">conda-build</span></code> and update <code class="docutils literal notranslate"><span class="pre">conda</span></code> in you
-<code class="docutils literal notranslate"><span class="pre">base</span></code> conda environment.  Then, from your <code class="docutils literal notranslate"><span class="pre">base</span></code> conda environment, run
-the following:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># remove any packages you&#39;ve previously built</span>
-rm -rf ~/miniconda3/conda-bld
-
-<span class="c1"># test building the docs</span>
-conda remove -y --all -n geometric_features_docs
-conda build -m ci/python3.8.yaml recipe
-conda create -y -n geometric_features_docs --use-local <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.8 <span class="se">\</span>
-     geometric_features sphinx sphinx_rtd_theme m2r
-conda activate geometric_features_docs
-<span class="nb">cd</span> docs
+<p>First, set up the development environment as described in <a class="reference internal" href="quick_start.html#quick-start"><span class="std std-ref">Quick Start</span></a>.
+Then, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> docs
 make clean
 make html
 </pre></div>
 </div>
-<p>Finally, you can find the test build in <code class="docutils literal notranslate"><span class="pre">_build/html/index.html</span></code>.</p>
+<p>You can find the test build in <code class="docutils literal notranslate"><span class="pre">_build/html/index.html</span></code>.</p>
 </div>
 
 
