@@ -1,0 +1,19 @@
+# This file may be used to create an environment using:
+# $ conda create --name <env> --file <this file>
+
+# Base
+python>=3.7
+cartopy
+matplotlib-base
+numpy
+progressbar2
+requests
+shapely
+
+# Development
+pip
+
+# Documentation
+sphinx
+sphinx_rtd_theme
+m2r

@@ -34,9 +34,8 @@ conda activate geometric_features
 To develop `geometric_features` (e.g. to add new features), create and activate
  an environment with all of the required dependencies:
 ```bash
-conda create -n mpas_dev
+conda create -y -n mpas_dev --file dev-spec.txt
 conda activate mpas_dev
-conda env update -n mpas_dev -f ./dev_environment.yaml
 python -m pip install -e .
 ```
 
