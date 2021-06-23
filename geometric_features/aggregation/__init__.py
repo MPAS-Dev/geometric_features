@@ -54,7 +54,7 @@ def get_aggregator_by_name(region_group):
                                   'date': '20210201',
                                   'function': ismip6},
                'MOC Basins': {'prefix': 'mocBasins',
-                              'date': '20210331',
+                              'date': '20210623',
                               'function': moc},
                'Transport Transects': {'prefix': 'transportTransects',
                                        'date': '20210323',
