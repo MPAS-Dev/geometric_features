@@ -24,12 +24,14 @@ def moc(gf):
     # -------
     # Xylar Asay-Davis
 
-    MOCSubBasins = {'Atlantic': ['Atlantic', 'Mediterranean'],
+    MOCSubBasins = {'Atlantic': ['Atlantic'],
+                    'AtlanticMed': ['Atlantic', 'Mediterranean'],
                     'IndoPacific': ['Pacific', 'Indian'],
                     'Pacific': ['Pacific'],
                     'Indian': ['Indian']}
 
     MOCSouthernBoundary = {'Atlantic': '34S',
+                           'AtlanticMed': '34S',
                            'IndoPacific': '34S',
                            'Pacific': '6S',
                            'Indian': '6S'}
