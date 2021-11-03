@@ -4,7 +4,7 @@ from matplotlib import pyplot
 from matplotlib import _cntr as cntr
 
 from shapely.geometry import Polygon, mapping
-from shapely.ops import cascaded_union
+from shapely.ops import unary_union
 
 from utils.feature_write_utils import write_all_features
 
@@ -56,10 +56,10 @@ def extract_geometry(mask):
             lats.insert(outIndex+1,newLat[i])
             outIndex += 1
 
-        print x0, x1, frac
-        print ys[inIndex], ys[inIndex+1], yMid
-        print lats[outIndex-5:outIndex+2], latMid
-        print lons[outIndex-5:outIndex+2]
+        print(x0, x1, frac)
+        print(ys[inIndex], ys[inIndex+1], yMid)
+        print(lats[outIndex-5:outIndex+2], latMid)
+        print(lons[outIndex-5:outIndex+2])
         pyplot.figure(1)
         pyplot.plot(xs,ys)
         pyplot.figure(2)
@@ -72,12 +72,12 @@ def extract_geometry(mask):
     floatMask = 2.*floatMask - 1.
 
     distance = skfmm.distance(floatMask)
-    print name, 'distance', numpy.amin(distance), numpy.amax(distance)
+    print(name, 'distance', numpy.amin(distance), numpy.amax(distance))
     pyplot.imsave('%s_distance.png'%name, distance, vmin=-1., vmax=1.,origin='lower')
 
     # smooth it a little
     distance = gaussian_filter(distance, sigma = 0.5)
-    print name, 'distance smoothed', numpy.amin(distance), numpy.amax(distance)
+    print(name, 'distance smoothed', numpy.amin(distance), numpy.amax(distance))
     pyplot.imsave('%s_distance_smoothed.png'%name, distance, vmin=-1., vmax=1., origin='lower')
 
     contourObj = cntr.Cntr(X,Y,distance)
@@ -109,9 +109,9 @@ def extract_geometry(mask):
         if poly.is_valid:
             polys.append(poly)
         else:
-            print "invalid shape with %i vertices"%v.shape[0]
+            print(f"invalid shape with {v.shape[0]:d} vertices")
 
-    return mapping(cascaded_union(polys))
+    return mapping(unary_union(polys))
 
 inFile = Dataset('bedmap2.nc')
 
