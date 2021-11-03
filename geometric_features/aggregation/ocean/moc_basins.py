@@ -113,7 +113,7 @@ def _remove_small_polygons(fc, minArea):
                     else:
                         removedCount += 1
                 if len(outPolygons) > 0:
-                    outShape = shapely.ops.cascaded_union(outPolygons)
+                    outShape = shapely.ops.unary_union(outPolygons)
                     feature['geometry'] = shapely.geometry.mapping(outShape)
                     add = True
         if add:

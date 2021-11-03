@@ -206,7 +206,7 @@ class FeatureCollection(object):
             authors.append(feature['properties']['author'])
             featureNames.append(feature['properties']['name'])
 
-        combinedShape = shapely.ops.cascaded_union(featureShapes)
+        combinedShape = shapely.ops.unary_union(featureShapes)
 
         geometry = shapely.geometry.mapping(combinedShape)
 

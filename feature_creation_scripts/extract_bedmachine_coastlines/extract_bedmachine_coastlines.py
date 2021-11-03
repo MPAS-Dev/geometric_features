@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from skimage import measure
 
 from shapely.geometry import Polygon, mapping
-from shapely.ops import cascaded_union
+from shapely.ops import unary_union
 
 from geometric_features import FeatureCollection, GeometricFeatures, \
     read_feature_collection
@@ -138,7 +138,7 @@ def extract_geometry(mask):
         else:
             print("invalid shape with {} vertices".format(contour.shape[0]))
 
-    return mapping(cascaded_union(polys))
+    return mapping(unary_union(polys))
 
 
 out_file_name = "AntarcticIceCoverage.geojson"
