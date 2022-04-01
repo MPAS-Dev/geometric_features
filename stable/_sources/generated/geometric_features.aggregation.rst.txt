@@ -1,0 +1,29 @@
+﻿geometric\_features.aggregation
+===============================
+
+.. automodule:: geometric_features.aggregation
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      get_aggregator_by_name
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

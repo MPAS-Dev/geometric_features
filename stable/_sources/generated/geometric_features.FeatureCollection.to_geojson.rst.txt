@@ -1,0 +1,6 @@
+﻿geometric\_features.FeatureCollection.to\_geojson
+=================================================
+
+.. currentmodule:: geometric_features
+
+.. automethod:: FeatureCollection.to_geojson

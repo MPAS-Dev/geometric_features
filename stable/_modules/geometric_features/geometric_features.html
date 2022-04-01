@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>geometric_features.geometric_features &mdash; geometric_features 0.5.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> geometric_features
+          </a>
+              <div class="version">
+                0.5.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User's Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../geometric_features.html">GeometricFeatures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../feature_collection.html">FeatureCollection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../geometric_data.html">Geometric Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../aggregation.html">Aggregate Existing Features</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer's Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../adding_features.html">Adding New Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../build_docs.html">Building the Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">API reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions.html">Versions</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">geometric_features</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      <li>geometric_features.geometric_features</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for geometric_features.geometric_features</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span> \
+    <span class="n">unicode_literals</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">pkg_resources</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">geometric_features</span>
+
+<span class="kn">from</span> <span class="nn">geometric_features.feature_collection</span> <span class="kn">import</span> <span class="n">FeatureCollection</span><span class="p">,</span> \
+    <span class="n">read_feature_collection</span>
+
+<span class="kn">from</span> <span class="nn">geometric_features.download</span> <span class="kn">import</span> <span class="n">download_files</span>
+
+
+<div class="viewcode-block" id="GeometricFeatures"><a class="viewcode-back" href="../../generated/geometric_features.GeometricFeatures.html#geometric_features.GeometricFeatures">[docs]</a><span class="k">class</span> <span class="nc">GeometricFeatures</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    An object for keeping track of where geometric features are cached and</span>
+<span class="sd">    downloading missing features as needed.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    allFeaturesAndTags : dict of dict</span>
+<span class="sd">        A cache of all the feature names and tags in the ``geometric_features``</span>
+<span class="sd">        repo used to determine which featues need to be downloaded into the</span>
+<span class="sd">        local cache</span>
+
+<span class="sd">    remoteBranch : str, optional</span>
+<span class="sd">        The branch or tag from the ``geometric_features`` repo to download</span>
+<span class="sd">        from if files are missing from the local cache</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># Authors</span>
+    <span class="c1"># -------</span>
+    <span class="c1"># Xylar Asay-Davis</span>
+
+<div class="viewcode-block" id="GeometricFeatures.__init__"><a class="viewcode-back" href="../../generated/geometric_features.GeometricFeatures.html#geometric_features.GeometricFeatures.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cacheLocation</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">remoteBranchOrTag</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        The constructor for the GeometricFeatures object</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        cacheLocation : str, optional</span>
+<span class="sd">            The location of the local geometric features cache.  If not</span>
+<span class="sd">            specified, the environment variable ``$GEOMETRIC_DATA_DIR`` is</span>
+<span class="sd">            used if it is set and ``./geometric_data`` is used otherwise.</span>
+
+<span class="sd">        remoteBranchOrTag : str, optional</span>
+<span class="sd">            The branch or tag from the ``geometric_features`` repo to download</span>
+<span class="sd">            from if files are missing from the local cache, with default to</span>
+<span class="sd">            a tag the same as this version of ``geometric_features``</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+        <span class="k">if</span> <span class="n">cacheLocation</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;GEOMETRIC_DATA_DIR&#39;</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cacheLocation</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;GEOMETRIC_DATA_DIR&#39;</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cacheLocation</span> <span class="o">=</span> <span class="s1">&#39;./geometric_data&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cacheLocation</span> <span class="o">=</span> <span class="n">cacheLocation</span>
+        <span class="k">if</span> <span class="n">remoteBranchOrTag</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">remoteBranch</span> <span class="o">=</span> <span class="n">geometric_features</span><span class="o">.</span><span class="n">__version__</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">remoteBranch</span> <span class="o">=</span> <span class="n">remoteBranchOrTag</span>
+
+        <span class="n">featuresAndTagsFileName</span> <span class="o">=</span> <span class="n">pkg_resources</span><span class="o">.</span><span class="n">resource_filename</span><span class="p">(</span>
+            <span class="s1">&#39;geometric_features&#39;</span><span class="p">,</span> <span class="s1">&#39;features_and_tags.json&#39;</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">featuresAndTagsFileName</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">allFeaturesAndTags</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="GeometricFeatures.read"><a class="viewcode-back" href="../../generated/geometric_features.GeometricFeatures.read.html#geometric_features.GeometricFeatures.read">[docs]</a>    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">componentName</span><span class="p">,</span> <span class="n">objectType</span><span class="p">,</span> <span class="n">featureNames</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+             <span class="n">allTags</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Read one or more features from the cached collection of geometric</span>
+<span class="sd">        features. If any of the requested features have not been cached, they</span>
+<span class="sd">        are downloaded from the ``geometric_features`` GitHub repository.  If</span>
+<span class="sd">        neither ``featureNames`` nor ``tags`` are specified, all features of</span>
+<span class="sd">        the component and object type are read in.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        componentName : {&#39;bedmachine&#39;, &#39;bedmap2&#39;, &#39;iceshelves&#39;, &#39;landice&#39;, &#39;natural_earth&#39;, &#39;ocean&#39;}</span>
+<span class="sd">            The component from which to retrieve the geometric features</span>
+
+<span class="sd">        objectType : {&#39;point&#39;, &#39;transect&#39;, &#39;region&#39;}</span>
+<span class="sd">            The type of geometry to load, a point (0D), transect (1D) or region</span>
+<span class="sd">            (2D)</span>
+
+<span class="sd">        featureNames : list of str, optional</span>
+<span class="sd">            The names of geometric features to read</span>
+
+<span class="sd">        tags : list of str, optional</span>
+<span class="sd">            A list of tags to check for.  When ``allTags=True``, a feature is</span>
+<span class="sd">            only read in if it has all tags.  Otherwise, features with any of</span>
+<span class="sd">            the tags are read.</span>
+
+<span class="sd">        allTags : bool, optional</span>
+<span class="sd">            Whether a feature must have all tags (instead of any of the tags)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        fc : geometric_features.FeatureCollection</span>
+<span class="sd">            The feature collection read in</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c1"># Authors</span>
+        <span class="c1"># -------</span>
+        <span class="c1"># Xylar Asay-Davis</span>
+
+        <span class="n">featureNames</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_feature_names</span><span class="p">(</span><span class="n">componentName</span><span class="p">,</span> <span class="n">objectType</span><span class="p">,</span>
+                                               <span class="n">featureNames</span><span class="p">,</span> <span class="n">tags</span><span class="p">,</span> <span class="n">allTags</span><span class="p">)</span>
+        <span class="n">fileList</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_download_geometric_features</span><span class="p">(</span><span class="n">componentName</span><span class="p">,</span> <span class="n">objectType</span><span class="p">,</span>
+                                                     <span class="n">featureNames</span><span class="p">)</span>
+
+        <span class="n">fc</span> <span class="o">=</span> <span class="n">FeatureCollection</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">fileName</span> <span class="ow">in</span> <span class="n">fileList</span><span class="p">:</span>
+            <span class="n">fc</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">read_feature_collection</span><span class="p">(</span><span class="n">fileName</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">fc</span></div>
+
+<div class="viewcode-block" id="GeometricFeatures.split"><a class="viewcode-back" href="../../generated/geometric_features.GeometricFeatures.split.html#geometric_features.GeometricFeatures.split">[docs]</a>    <span class="k">def</span> <span class="nf">split</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fc</span><span class="p">,</span> <span class="n">destinationDir</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Split a feature collection into individual files for each feature. This</span>
+<span class="sd">        is how new geometry should be added to the ``geometric_features`` repo.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        fc : geometric_features.FeatureCollection</span>
+<span class="sd">            The feature collection to split</span>
+
+<span class="sd">        destinationDir : str, optional</span>
+<span class="sd">            The root path where the split geometry will be stored,</span>
+<span class="sd">            ``cacheLocation`` by default</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        fc : geometric_features.FeatureCollection</span>
+<span class="sd">            The feature collection read in</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c1"># Authors</span>
+        <span class="c1"># -------</span>
+        <span class="c1"># Xylar Asay-Davis</span>
+
+        <span class="k">if</span> <span class="n">destinationDir</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">destinationDir</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cacheLocation</span>
+
+        <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">fc</span><span class="o">.</span><span class="n">features</span><span class="p">:</span>
+            <span class="n">featureName</span> <span class="o">=</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+            <span class="n">componentName</span> <span class="o">=</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;component&#39;</span><span class="p">]</span>
+            <span class="n">objectType</span> <span class="o">=</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;object&#39;</span><span class="p">]</span>
+
+            <span class="n">relativePath</span> <span class="o">=</span> <span class="n">_get_file_name</span><span class="p">(</span><span class="n">componentName</span><span class="p">,</span> <span class="n">objectType</span><span class="p">,</span>
+                                          <span class="n">featureName</span><span class="p">)</span>
+            <span class="n">fullPath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">destinationDir</span><span class="p">,</span> <span class="n">relativePath</span><span class="p">)</span>
+
+            <span class="n">path</span><span class="p">,</span> <span class="n">file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">fullPath</span><span class="p">)</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+            <span class="n">singleFC</span> <span class="o">=</span> <span class="n">FeatureCollection</span><span class="p">([</span><span class="n">feature</span><span class="p">])</span>
+            <span class="n">singleFC</span><span class="o">.</span><span class="n">otherProperties</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;groupName&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+            <span class="n">singleFC</span><span class="o">.</span><span class="n">to_geojson</span><span class="p">(</span><span class="n">fullPath</span><span class="p">,</span> <span class="n">stripHistory</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_download_geometric_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">componentName</span><span class="p">,</span> <span class="n">objectType</span><span class="p">,</span>
+                                     <span class="n">featureNames</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Determine a list of requested files and download the any that are</span>
+<span class="sd">        missing from the repo</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        componentName : {&#39;bedmachine&#39;, &#39;bedmap2&#39;, &#39;iceshelves&#39;, &#39;landice&#39;, &#39;natural_earth&#39;, &#39;ocean&#39;}</span>
+<span class="sd">            The component from which to retrieve the geometric features</span>
+
+<span class="sd">        objectType : {&#39;point&#39;, &#39;transect&#39;, &#39;region&#39;}</span>
+<span class="sd">            The type of geometry to load, a point (0D), transect (1D) or region</span>
+<span class="sd">            (2D)</span>
+
+<span class="sd">        featureNames : list of str</span>
+<span class="sd">            The names of geometric features to read</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        fileList : list of str</span>
+<span class="sd">            File names of the features</span>
+
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c1"># Authors</span>
+        <span class="c1"># -------</span>
+        <span class="c1"># Xylar Asay-Davis</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cacheLocation</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+        <span class="n">fileList</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">filesToDownload</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">featureName</span> <span class="ow">in</span> <span class="n">featureNames</span><span class="p">:</span>
+            <span class="n">relativePath</span> <span class="o">=</span> <span class="n">_get_file_name</span><span class="p">(</span><span class="n">componentName</span><span class="p">,</span> <span class="n">objectType</span><span class="p">,</span>
+                                          <span class="n">featureName</span><span class="p">)</span>
+            <span class="n">fullPath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cacheLocation</span><span class="p">,</span> <span class="n">relativePath</span><span class="p">)</span>
+            <span class="n">fileList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fullPath</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">fullPath</span><span class="p">):</span>
+                <span class="n">filesToDownload</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">relativePath</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">filesToDownload</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">baseURL</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/MPAS-Dev/&#39;</span> \
+                <span class="s1">&#39;geometric_features/</span><span class="si">{}</span><span class="s1">/geometric_data&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">remoteBranch</span><span class="p">)</span>
+            <span class="n">download_files</span><span class="p">(</span><span class="n">filesToDownload</span><span class="p">,</span> <span class="n">baseURL</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cacheLocation</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">fileList</span>
+
+    <span class="k">def</span> <span class="nf">_get_feature_names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">componentName</span><span class="p">,</span> <span class="n">objectType</span><span class="p">,</span> <span class="n">featureNames</span><span class="p">,</span>
+                           <span class="n">tags</span><span class="p">,</span> <span class="n">allTags</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Find features by name or tags, reporting errors in the process</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        componentName : {&#39;bedmachine&#39;, &#39;bedmap2&#39;, &#39;iceshelves&#39;, &#39;landice&#39;, &#39;natural_earth&#39;, &#39;ocean&#39;}</span>
+<span class="sd">            The component from which to retrieve the geometric features</span>
+
+<span class="sd">        objectType : {&#39;point&#39;, &#39;transect&#39;, &#39;region&#39;}</span>
+<span class="sd">            The type of geometry to load, a point (0D), transect (1D) or region</span>
+<span class="sd">            (2D)</span>
+
+<span class="sd">        featureNames : list of str</span>
+<span class="sd">            The names of geometric features to read</span>
+
+<span class="sd">        tags : list of str</span>
+<span class="sd">            A list of tags to check for.  A feature is only read in if it has</span>
+<span class="sd">            all tags.</span>
+
+<span class="sd">        allTags : bool, optional</span>
+<span class="sd">            Whether a feature must have all tags (instead of any of the tags)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        featureNames : list of str</span>
+<span class="sd">            The names of features found either explicitly by name or by tags</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        KeyError</span>
+<span class="sd">            If the component is not in the geometric features repo, if the</span>
+<span class="sd">            object type is not in the component, or if one or more feature</span>
+<span class="sd">            names are not found</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c1"># Authors</span>
+        <span class="c1"># -------</span>
+        <span class="c1"># Xylar Asay-Davis</span>
+
+        <span class="k">if</span> <span class="n">componentName</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">allFeaturesAndTags</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s1">&#39;invalid component </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">componentName</span><span class="p">))</span>
+
+        <span class="n">component</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">allFeaturesAndTags</span><span class="p">[</span><span class="n">componentName</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">objectType</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">component</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s1">&#39;invalid object </span><span class="si">{}</span><span class="s1"> in component </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">objectType</span><span class="p">,</span> <span class="n">componentName</span><span class="p">))</span>
+
+        <span class="n">availableFeaturesAndTags</span> <span class="o">=</span> <span class="n">component</span><span class="p">[</span><span class="n">objectType</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">featureNames</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">tags</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">outFeatureNames</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">availableFeaturesAndTags</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">outFeatureNames</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">if</span> <span class="n">featureNames</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">featureName</span> <span class="ow">in</span> <span class="n">featureNames</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">featureName</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">availableFeaturesAndTags</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s1">&#39;invalid feature </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                            <span class="n">featureName</span><span class="p">))</span>
+                    <span class="n">outFeatureNames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">featureName</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">tags</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">allTags</span><span class="p">:</span>
+                    <span class="n">op</span> <span class="o">=</span> <span class="nb">all</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">op</span> <span class="o">=</span> <span class="nb">any</span>
+                <span class="k">for</span> <span class="n">featureName</span> <span class="ow">in</span> <span class="n">availableFeaturesAndTags</span><span class="p">:</span>
+                    <span class="n">featureTags</span> <span class="o">=</span> <span class="n">availableFeaturesAndTags</span><span class="p">[</span><span class="n">featureName</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="n">op</span><span class="p">([</span><span class="n">tag</span> <span class="ow">in</span> <span class="n">featureTags</span> <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">tags</span><span class="p">]):</span>
+                        <span class="n">outFeatureNames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">featureName</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">outFeatureNames</span></div>
+
+
+<span class="k">def</span> <span class="nf">_get_file_name</span><span class="p">(</span><span class="n">componentName</span><span class="p">,</span> <span class="n">objectType</span><span class="p">,</span> <span class="n">featureName</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Get the relative path of a cached geometric feature from its component,</span>
+<span class="sd">    object type and feature name.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    componentName : {&#39;bedmachine&#39;, &#39;bedmap2&#39;, &#39;iceshelves&#39;, &#39;landice&#39;, &#39;natural_earth&#39;, &#39;ocean&#39;}</span>
+<span class="sd">        The component from which to retrieve the geometric features</span>
+
+<span class="sd">    objectType : {&#39;point&#39;, &#39;transect&#39;, &#39;region&#39;}</span>
+<span class="sd">        The type of geometry to load, a point (0D), transect (1D) or region</span>
+<span class="sd">        (2D)</span>
+
+<span class="sd">    featureName : str</span>
+<span class="sd">        The names of a geometric feature</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    fileName : str</span>
+<span class="sd">        The relative path to that feature</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># Authors</span>
+    <span class="c1"># -------</span>
+    <span class="c1"># Douglas Jacobsen, Xylar Asay-Davis</span>
+
+    <span class="n">badCharacters</span> <span class="o">=</span> <span class="s1">&#39;&lt;&gt;:&quot;/</span><span class="se">\\</span><span class="s1">|?*</span><span class="se">\&#39;</span><span class="s1">,;&#39;</span>
+    <span class="n">featureDir</span> <span class="o">=</span> <span class="n">featureName</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">badCharacters</span><span class="p">:</span>
+        <span class="n">featureDir</span> <span class="o">=</span> <span class="n">featureDir</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">fileName</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">componentName</span><span class="p">,</span> <span class="n">objectType</span><span class="p">,</span> <span class="n">featureDir</span><span class="p">,</span>
+                            <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">.geojson&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">objectType</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">fileName</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright This software is open source software available under the BSD-3license. Copyright (c) 2019 Triad National Security, LLC. All rights reserved. Copyright (c) 2018 Lawrence Livermore National Security, LLC. All rights reserved. Copyright (c) 2018 UT-Battelle, LLC. All rights reserved..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
