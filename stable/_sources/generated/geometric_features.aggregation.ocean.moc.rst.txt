@@ -1,6 +1,0 @@
-﻿geometric\_features.aggregation.ocean.moc
-=========================================
-
-.. currentmodule:: geometric_features.aggregation.ocean
-
-.. autofunction:: moc

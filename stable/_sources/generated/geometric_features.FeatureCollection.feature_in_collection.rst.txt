@@ -1,6 +1,0 @@
-﻿geometric\_features.FeatureCollection.feature\_in\_collection
-=============================================================
-
-.. currentmodule:: geometric_features
-
-.. automethod:: FeatureCollection.feature_in_collection

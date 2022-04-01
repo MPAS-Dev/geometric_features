@@ -1,6 +1,0 @@
-﻿geometric\_features.difference\_features
-========================================
-
-.. currentmodule:: geometric_features
-
-.. autofunction:: difference_features

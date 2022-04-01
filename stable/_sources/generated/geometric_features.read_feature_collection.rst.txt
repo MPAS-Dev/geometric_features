@@ -1,6 +1,0 @@
-﻿geometric\_features.read\_feature\_collection
-=============================================
-
-.. currentmodule:: geometric_features
-
-.. autofunction:: read_feature_collection

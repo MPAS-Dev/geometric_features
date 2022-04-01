@@ -1,6 +1,0 @@
-﻿geometric\_features.aggregation.ocean.ice\_shelves
-==================================================
-
-.. currentmodule:: geometric_features.aggregation.ocean
-
-.. autofunction:: ice_shelves

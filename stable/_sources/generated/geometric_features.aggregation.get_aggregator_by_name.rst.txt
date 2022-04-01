@@ -1,6 +1,0 @@
-﻿geometric\_features.aggregation.get\_aggregator\_by\_name
-=========================================================
-
-.. currentmodule:: geometric_features.aggregation
-
-.. autofunction:: get_aggregator_by_name

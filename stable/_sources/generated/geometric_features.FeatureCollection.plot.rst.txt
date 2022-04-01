@@ -1,6 +1,0 @@
-﻿geometric\_features.FeatureCollection.plot
-==========================================
-
-.. currentmodule:: geometric_features
-
-.. automethod:: FeatureCollection.plot

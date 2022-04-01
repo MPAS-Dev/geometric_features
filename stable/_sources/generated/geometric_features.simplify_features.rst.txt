@@ -1,6 +1,0 @@
-﻿geometric\_features.simplify\_features
-======================================
-
-.. currentmodule:: geometric_features
-
-.. autofunction:: simplify_features
