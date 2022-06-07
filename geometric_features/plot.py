@@ -123,7 +123,7 @@ def subdivide_geom(geometry, geomtype, maxLength):
         newGeometry = shapely.geometry.Polygon(exterior, interiors)
     elif geomtype == 'MultiPolygon':
         polygons = []
-        for polygon in geometry:
+        for polygon in geometry.geoms:
             exterior = subdivide_line_string(polygon.exterior, periodic=True)
             interiors = [subdivide_line_string(inLineString, periodic=True)
                          for inLineString in polygon.interiors]
