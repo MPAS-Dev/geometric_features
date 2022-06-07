@@ -743,6 +743,72 @@
         "AmeryIceShelfDrainage",
         "EastAntarcticaIMBIE"
       ],
+      "ISMIP6 Basin A-Ap": [
+        "ISMIP6_Basin",
+        " IMBIE_A-Ap"
+      ],
+      "ISMIP6 Basin Ap-B": [
+        "ISMIP6_Basin",
+        " IMBIE_Ap-B"
+      ],
+      "ISMIP6 Basin B-C": [
+        "ISMIP6_Basin",
+        " IMBIE_B-C"
+      ],
+      "ISMIP6 Basin C-Cp": [
+        "ISMIP6_Basin",
+        " IMBIE_C-Cp"
+      ],
+      "ISMIP6 Basin Cp-D": [
+        "ISMIP6_Basin",
+        " IMBIE_Cp-D"
+      ],
+      "ISMIP6 Basin D-Dp": [
+        "ISMIP6_Basin",
+        " IMBIE_D-Dp"
+      ],
+      "ISMIP6 Basin Dp-E": [
+        "ISMIP6_Basin",
+        " IMBIE_Dp-E"
+      ],
+      "ISMIP6 Basin E-F": [
+        "ISMIP6_Basin",
+        " IMBIE_E-Ep",
+        " IMBIE_Ep-F"
+      ],
+      "ISMIP6 Basin F-G": [
+        "ISMIP6_Basin",
+        " IMBIE_F-G"
+      ],
+      "ISMIP6 Basin G-H": [
+        "ISMIP6_Basin",
+        " IMBIE_G-H"
+      ],
+      "ISMIP6 Basin H-Hp": [
+        "ISMIP6_Basin",
+        " IMBIE_H-Hp"
+      ],
+      "ISMIP6 Basin Hp-I": [
+        "ISMIP6_Basin",
+        " IMBIE_Hp-I"
+      ],
+      "ISMIP6 Basin I-Ipp": [
+        "ISMIP6_Basin",
+        " IMBIE_I-Ipp"
+      ],
+      "ISMIP6 Basin Ipp-J": [
+        "ISMIP6_Basin",
+        " IMBIE_Ipp-J"
+      ],
+      "ISMIP6 Basin J-K": [
+        "ISMIP6_Basin",
+        " IMBIE_J-Jpp",
+        " IMBIE_Jpp-K"
+      ],
+      "ISMIP6 Basin K-A": [
+        "ISMIP6_Basin",
+        " IMBIE_K-A"
+      ],
       "eastCentralGreenland1": [
         "eastCentralGreenland"
       ],

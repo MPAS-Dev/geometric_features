@@ -328,7 +328,8 @@ class FeatureCollection(object):
         # -------
         # Xylar Asay-Davis
 
-        newFeatures = []
+        fc = FeatureCollection(features=None,
+                               otherProperties=self.otherProperties)
         for feature in self.features:
             geometry = _split_geometry_crossing_antimeridian(
                 feature['geometry'])
@@ -339,9 +340,8 @@ class FeatureCollection(object):
                 newFeature = OrderedDict()
                 newFeature['properties'] = OrderedDict(feature['properties'])
                 newFeature['geometry'] = geometry
-            newFeatures.append(newFeature)
+            fc.add_feature(newFeature)
 
-        fc = FeatureCollection(newFeatures, self.otherProperties)
         return fc
 
     def simplify(self, tolerance=0.0):
