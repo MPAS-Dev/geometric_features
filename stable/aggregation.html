@@ -14,6 +14,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -100,7 +101,7 @@
            <div itemprop="articleBody">
              
   <section id="aggregate-existing-features">
-<span id="aggregation"></span><h1>Aggregate Existing Features<a class="headerlink" href="#aggregate-existing-features" title="Permalink to this headline">¶</a></h1>
+<span id="aggregation"></span><h1>Aggregate Existing Features<a class="headerlink" href="#aggregate-existing-features" title="Permalink to this heading">¶</a></h1>
 <p>The <a class="reference internal" href="generated/geometric_features.aggregation.html#module-geometric_features.aggregation" title="geometric_features.aggregation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">geometric_features.aggregation</span></code></a> module contains functions used to
 aggregate existing features to make new, larger ones.  An example usage of these
 aggregation functions is to create masks for regional averaging.</p>
@@ -124,9 +125,9 @@ mask files can be created from these features with filenames that include the
 date stamp.  As long as the date stamp has not changed, these cached mask files
 can be reused.</p>
 <section id="aggregating-ocean-features">
-<h2>Aggregating Ocean Features<a class="headerlink" href="#aggregating-ocean-features" title="Permalink to this headline">¶</a></h2>
+<h2>Aggregating Ocean Features<a class="headerlink" href="#aggregating-ocean-features" title="Permalink to this heading">¶</a></h2>
 <section id="ocean-sub-basins">
-<h3>Ocean Sub-basins<a class="headerlink" href="#ocean-sub-basins" title="Permalink to this headline">¶</a></h3>
+<h3>Ocean Sub-basins<a class="headerlink" href="#ocean-sub-basins" title="Permalink to this heading">¶</a></h3>
 <p>The function <a class="reference internal" href="generated/geometric_features.aggregation.ocean.subbasins.html#geometric_features.aggregation.ocean.subbasins" title="geometric_features.aggregation.ocean.subbasins"><code class="xref py py-func docutils literal notranslate"><span class="pre">geometric_features.aggregation.ocean.subbasins()</span></code></a>
 aggregates oceanic regions to make the following ocean subbasins: North and
 South Atlantic, North and South Pacific, Indian Basin, Arctic Basin, and
@@ -134,19 +135,19 @@ Southern Ocean Basin.</p>
 <a class="reference internal image-reference" href="_images/subbasins.png"><img alt="_images/subbasins.png" class="align-center" src="_images/subbasins.png" style="width: 500px;" /></a>
 </section>
 <section id="ocean-basins">
-<h3>Ocean Basins<a class="headerlink" href="#ocean-basins" title="Permalink to this headline">¶</a></h3>
+<h3>Ocean Basins<a class="headerlink" href="#ocean-basins" title="Permalink to this heading">¶</a></h3>
 <p>The function <a class="reference internal" href="generated/geometric_features.aggregation.ocean.basins.html#geometric_features.aggregation.ocean.basins" title="geometric_features.aggregation.ocean.basins"><code class="xref py py-func docutils literal notranslate"><span class="pre">geometric_features.aggregation.ocean.basins()</span></code></a> aggregates
 oceanic regions to make the following ocean basins: Atlantic, Pacific, Indian,
 Arctic, Southern Ocean, Mediterranean, Global Ocean, Global Ocean 65N to 65S,
 Global Ocean 15S to 15N.</p>
 </section>
 <section id="meridional-overturning-circulation-basins">
-<h3>Meridional Overturning Circulation Basins<a class="headerlink" href="#meridional-overturning-circulation-basins" title="Permalink to this headline">¶</a></h3>
+<h3>Meridional Overturning Circulation Basins<a class="headerlink" href="#meridional-overturning-circulation-basins" title="Permalink to this heading">¶</a></h3>
 <p>The function <a class="reference internal" href="generated/geometric_features.aggregation.ocean.moc.html#geometric_features.aggregation.ocean.moc" title="geometric_features.aggregation.ocean.moc"><code class="xref py py-func docutils literal notranslate"><span class="pre">geometric_features.aggregation.ocean.moc()</span></code></a> aggregates
 basins for computing the MOC: Atlantic, IndoPacific, Pacific and Indian</p>
 </section>
 <section id="arctic-regions">
-<h3>Arctic Regions<a class="headerlink" href="#arctic-regions" title="Permalink to this headline">¶</a></h3>
+<h3>Arctic Regions<a class="headerlink" href="#arctic-regions" title="Permalink to this heading">¶</a></h3>
 <p>The function <a class="reference internal" href="generated/geometric_features.aggregation.ocean.arctic.html#geometric_features.aggregation.ocean.arctic" title="geometric_features.aggregation.ocean.arctic"><code class="xref py py-func docutils literal notranslate"><span class="pre">geometric_features.aggregation.ocean.arctic()</span></code></a> aggregates
 regions of the Arcic (and subArctic): Baffin Bay, Baltic Sea, Barents Sea,
 Beaufort Gyre, Beaufort Gyre Shelf, Canada Basin, Canadian Archipelago,
@@ -155,7 +156,7 @@ Irminger Sea, Kara Sea, Labrador Sea, Laptev Sea, North Sea, Norwegian Sea, and
 Arctic Ocean - no Barents, Kara Seas.</p>
 </section>
 <section id="antarctic-regions">
-<h3>Antarctic Regions<a class="headerlink" href="#antarctic-regions" title="Permalink to this headline">¶</a></h3>
+<h3>Antarctic Regions<a class="headerlink" href="#antarctic-regions" title="Permalink to this heading">¶</a></h3>
 <p>The function <a class="reference internal" href="generated/geometric_features.aggregation.ocean.antarctic.html#geometric_features.aggregation.ocean.antarctic" title="geometric_features.aggregation.ocean.antarctic"><code class="xref py py-func docutils literal notranslate"><span class="pre">geometric_features.aggregation.ocean.antarctic()</span></code></a> aggregates
 regions of the Antarctic: Southern Ocean, Southern Ocean 60S,
 Eastern Weddell Sea Shelf, Eastern Weddell Sea Deep, Western Weddell Sea Shelf,
@@ -166,14 +167,14 @@ Western Ross Sea Shelf, Western Ross Sea Deep, East Antarctic Seas Shelf,
 East Antarctic Seas Deep.</p>
 </section>
 <section id="ice-shelf-regions">
-<h3>Ice-shelf Regions<a class="headerlink" href="#ice-shelf-regions" title="Permalink to this headline">¶</a></h3>
+<h3>Ice-shelf Regions<a class="headerlink" href="#ice-shelf-regions" title="Permalink to this heading">¶</a></h3>
 <p>The function <a class="reference internal" href="generated/geometric_features.aggregation.ocean.ice_shelves.html#geometric_features.aggregation.ocean.ice_shelves" title="geometric_features.aggregation.ocean.ice_shelves"><code class="xref py py-func docutils literal notranslate"><span class="pre">geometric_features.aggregation.ocean.ice_shelves()</span></code></a>
 aggregates ice shelves and ice-shelf regions.  There are 106 regions, so they
 won’t all be listed.  See the resulting feature collection or the code itself
 for the full list.</p>
 </section>
 <section id="transport-transects">
-<h3>Transport Transects<a class="headerlink" href="#transport-transects" title="Permalink to this headline">¶</a></h3>
+<h3>Transport Transects<a class="headerlink" href="#transport-transects" title="Permalink to this heading">¶</a></h3>
 <p>The function <a class="reference internal" href="generated/geometric_features.aggregation.ocean.transport.html#geometric_features.aggregation.ocean.transport" title="geometric_features.aggregation.ocean.transport"><code class="xref py py-func docutils literal notranslate"><span class="pre">geometric_features.aggregation.ocean.transport()</span></code></a>
 aggregates transport transects:  Africa-Ant, Agulhas, Antilles Inflow,
 Barents Sea Opening, Bering Strait, Davis Strait, Drake Passage,
@@ -183,9 +184,9 @@ Windward Passage.</p>
 </section>
 </section>
 <section id="aggregating-sea-ice-features">
-<h2>Aggregating Sea-ice Features<a class="headerlink" href="#aggregating-sea-ice-features" title="Permalink to this headline">¶</a></h2>
+<h2>Aggregating Sea-ice Features<a class="headerlink" href="#aggregating-sea-ice-features" title="Permalink to this heading">¶</a></h2>
 <section id="id1">
-<h3>Arctic Regions<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3>Arctic Regions<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
 <p>The function <a class="reference internal" href="generated/geometric_features.aggregation.seaice.arctic.html#geometric_features.aggregation.seaice.arctic" title="geometric_features.aggregation.seaice.arctic"><code class="xref py py-func docutils literal notranslate"><span class="pre">geometric_features.aggregation.seaice.arctic()</span></code></a> aggregates
 regions of the Arctic as defined by the
 <a class="reference external" href="https://nsidc.org/">National Snow and Ice Data Center (NSIDC)</a> that are
