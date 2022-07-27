@@ -1,0 +1,33 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "St Paul Island",
+                "tags": "Critical_Land_Blockage",
+                "object": "transect",
+                "component": "ocean",
+                "author": "Milena Veneziani",
+                "height": "100.0"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -170.423,
+                        57.194
+                    ],
+                    [
+                        -170.27,
+                        57.178
+                    ],
+                    [
+                        -170.11,
+                        57.18
+                    ]
+                ]
+            }
+        }
+    ]
+}

@@ -1601,6 +1601,9 @@
       "Agulhas": [
         "standard_transport_sections"
       ],
+      "Akimiski Strait": [
+        "Critical_Passage"
+      ],
       "Antarctic Peninsula": [
         "Antarctic_Peninsula",
         "Critical_Land_Blockage"
@@ -1641,6 +1644,12 @@
       "Denmark Strait": [
         "standard_transport_sections",
         "arctic_sections"
+      ],
+      "Diomede Islands": [
+        "Critical_Land_Blockage"
+      ],
+      "Disco Bay Channel": [
+        "Critical_Passage"
       ],
       "Drake Passage": [
         "standard_transport_sections"
@@ -1710,6 +1719,9 @@
         "standard_transport_sections",
         "arctic_sections"
       ],
+      "Lombok Strait": [
+        "Critical_Passage"
+      ],
       "Maui": [
         "Critical_Land_Blockage"
       ],
@@ -1742,6 +1754,9 @@
       "Northern_Sea_Route_Severnaya_Zemlya": [
         "Critical_Passage"
       ],
+      "Northwest Passage Cardigan Strait": [
+        "Critical_Passage"
+      ],
       "Northwest_Passage_McClintock_Channel_Variant": [
         "Critical_Passage"
       ],
@@ -1767,6 +1782,9 @@
         "Persian_Gulf_Deepen",
         "Critical_Passage"
       ],
+      "Qiongzhou Strait": [
+        "Critical_Passage"
+      ],
       "Red Sea Deepen": [
         "Red_Sea_Deepen",
         "Critical_Passage"
@@ -1779,6 +1797,12 @@
         "Critical_Land_Blockage"
       ],
       "Sicily": [
+        "Critical_Land_Blockage"
+      ],
+      "St George Island": [
+        "Critical_Land_Blockage"
+      ],
+      "St Paul Island": [
         "Critical_Land_Blockage"
       ],
       "Strait of Gibralter Deepen 1": [

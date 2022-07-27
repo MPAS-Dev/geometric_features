@@ -1,0 +1,56 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Akimiski Strait",
+                "tags": "Critical_Passage",
+                "object": "transect",
+                "component": "ocean",
+                "author": "Milena Veneziani"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -81.650391,
+                        53.442264
+                    ],
+                    [
+                        -81.870117,
+                        53.304621
+                    ],
+                    [
+                        -82.026672,
+                        53.191225
+                    ],
+                    [
+                        -82.142029,
+                        53.100621
+                    ],
+                    [
+                        -82.150269,
+                        53.001562
+                    ],
+                    [
+                        -82.034912,
+                        52.928775
+                    ],
+                    [
+                        -81.793213,
+                        52.812723
+                    ],
+                    [
+                        -81.455383,
+                        52.64473
+                    ],
+                    [
+                        -81.221924,
+                        52.536273
+                    ]
+                ]
+            }
+        }
+    ]
+}
