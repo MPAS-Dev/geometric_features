@@ -1,0 +1,64 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Northwest Passage Cardigan Strait",
+                "tags": "Critical_Passage",
+                "object": "transect",
+                "component": "ocean",
+                "author": "Milena Veneziani"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -91.549072,
+                        76.910665
+                    ],
+                    [
+                        -91.021729,
+                        76.775629
+                    ],
+                    [
+                        -90.802002,
+                        76.705073
+                    ],
+                    [
+                        -90.604248,
+                        76.623985
+                    ],
+                    [
+                        -90.406494,
+                        76.542411
+                    ],
+                    [
+                        -90.230713,
+                        76.45263
+                    ],
+                    [
+                        -90.032959,
+                        76.413973
+                    ],
+                    [
+                        -89.626465,
+                        76.370031
+                    ],
+                    [
+                        -89.077148,
+                        76.320754
+                    ],
+                    [
+                        -88.428955,
+                        76.205967
+                    ],
+                    [
+                        -87.791748,
+                        76.098157
+                    ]
+                ]
+            }
+        }
+    ]
+}

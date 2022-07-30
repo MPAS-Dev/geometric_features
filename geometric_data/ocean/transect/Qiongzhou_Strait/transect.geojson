@@ -1,0 +1,52 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Qiongzhou Strait",
+                "tags": "Critical_Passage",
+                "object": "transect",
+                "component": "ocean",
+                "author": "Milena Veneziani"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        109.033813,
+                        20.097206
+                    ],
+                    [
+                        109.533691,
+                        20.153942
+                    ],
+                    [
+                        109.945679,
+                        20.13847
+                    ],
+                    [
+                        110.181885,
+                        20.153942
+                    ],
+                    [
+                        110.385132,
+                        20.200346
+                    ],
+                    [
+                        110.571899,
+                        20.236429
+                    ],
+                    [
+                        110.758667,
+                        20.334326
+                    ],
+                    [
+                        111.005859,
+                        20.416717
+                    ]
+                ]
+            }
+        }
+    ]
+}

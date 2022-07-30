@@ -1,0 +1,33 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "St George Island",
+                "tags": "Critical_Land_Blockage",
+                "object": "transect",
+                "component": "ocean",
+                "author": "Milena Veneziani",
+                "height": "100.0"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -169.78,
+                        56.615
+                    ],
+                    [
+                        -169.6,
+                        56.57
+                    ],
+                    [
+                        -169.459,
+                        56.596
+                    ]
+                ]
+            }
+        }
+    ]
+}

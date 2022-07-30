@@ -1,0 +1,52 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Lombok Strait",
+                "tags": "Critical_Passage",
+                "object": "transect",
+                "component": "ocean",
+                "author": "Milena Veneziani"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        116.07605,
+                        -7.988518
+                    ],
+                    [
+                        115.900269,
+                        -8.233237
+                    ],
+                    [
+                        115.85083,
+                        -8.42347
+                    ],
+                    [
+                        115.790405,
+                        -8.597316
+                    ],
+                    [
+                        115.713501,
+                        -8.695069
+                    ],
+                    [
+                        115.702515,
+                        -8.944767
+                    ],
+                    [
+                        115.614624,
+                        -9.112945
+                    ],
+                    [
+                        115.52124,
+                        -9.297307
+                    ]
+                ]
+            }
+        }
+    ]
+}

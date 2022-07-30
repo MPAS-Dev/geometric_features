@@ -1,0 +1,33 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Diomede Islands",
+                "tags": "Critical_Land_Blockage",
+                "object": "transect",
+                "component": "ocean",
+                "author": "Milena Veneziani",
+                "height": "100.0"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -169.15,
+                        65.8
+                    ],
+                    [
+                        -169.0,
+                        65.77
+                    ],
+                    [
+                        -168.88,
+                        65.75
+                    ]
+                ]
+            }
+        }
+    ]
+}
