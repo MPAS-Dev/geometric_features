@@ -5,7 +5,7 @@
             "type": "Feature",
             "properties": {
                 "name": "OSNAP section West",
-                "tags": "arctic_sections",
+                "tags": "arctic_transport_sections",
                 "object": "transect",
                 "component": "ocean",
                 "author": "Milena Veneziani"
