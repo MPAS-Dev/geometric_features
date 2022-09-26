@@ -5,4 +5,5 @@ from geometric_features.aggregation.ocean.antarctic_regions import antarctic
 from geometric_features.aggregation.ocean.ice_shelf_regions import ice_shelves
 from geometric_features.aggregation.ocean.moc_basins import moc
 from geometric_features.aggregation.ocean.transport_transects import transport
+from geometric_features.aggregation.ocean.arctic_transport_transects import arctic_transport
 from geometric_features.aggregation.ocean.ismip6_regions import ismip6
