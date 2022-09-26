@@ -58,7 +58,7 @@ def get_aggregator_by_name(region_group):
                               'function': moc},
                'Transport Transects': {'prefix': 'transportTransects',
                                        'date': '20210323',
-                                       'function': transport}}
+                                       'function': transport},
                'Arctic Transport Transects': {'prefix': 'arcticTransportTransects',
                                        'date': '20220926',
                                        'function': arctic_transport}}
