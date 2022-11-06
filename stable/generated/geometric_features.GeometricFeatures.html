@@ -16,6 +16,7 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -89,9 +90,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../api.html">API reference</a> &raquo;</li>
-      <li>geometric_features.GeometricFeatures</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">API reference</a></li>
+      <li class="breadcrumb-item active">geometric_features.GeometricFeatures</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/generated/geometric_features.GeometricFeatures.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -111,10 +112,10 @@ downloading missing features as needed.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Variables</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>allFeaturesAndTags</strong> (<em>dict of dict</em>) – A cache of all the feature names and tags in the <code class="docutils literal notranslate"><span class="pre">geometric_features</span></code>
+<li><p><strong>allFeaturesAndTags</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – A cache of all the feature names and tags in the <code class="docutils literal notranslate"><span class="pre">geometric_features</span></code>
 repo used to determine which featues need to be downloaded into the
 local cache</p></li>
-<li><p><strong>remoteBranch</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The branch or tag from the <code class="docutils literal notranslate"><span class="pre">geometric_features</span></code> repo to download
+<li><p><strong>remoteBranch</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>, </em><em>optional</em>) – The branch or tag from the <code class="docutils literal notranslate"><span class="pre">geometric_features</span></code> repo to download
 from if files are missing from the local cache</p></li>
 </ul>
 </dd>
@@ -126,10 +127,10 @@ from if files are missing from the local cache</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>cacheLocation</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The location of the local geometric features cache.  If not
+<li><p><strong>cacheLocation</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>, </em><em>optional</em>) – The location of the local geometric features cache.  If not
 specified, the environment variable <code class="docutils literal notranslate"><span class="pre">$GEOMETRIC_DATA_DIR</span></code> is
 used if it is set and <code class="docutils literal notranslate"><span class="pre">./geometric_data</span></code> is used otherwise.</p></li>
-<li><p><strong>remoteBranchOrTag</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The branch or tag from the <code class="docutils literal notranslate"><span class="pre">geometric_features</span></code> repo to download
+<li><p><strong>remoteBranchOrTag</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>, </em><em>optional</em>) – The branch or tag from the <code class="docutils literal notranslate"><span class="pre">geometric_features</span></code> repo to download
 from if files are missing from the local cache, with default to
 a tag the same as this version of <code class="docutils literal notranslate"><span class="pre">geometric_features</span></code></p></li>
 </ul>
