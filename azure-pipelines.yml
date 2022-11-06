@@ -21,10 +21,11 @@ jobs:
       eval "$(conda shell.bash hook)"
       conda config --add channels conda-forge
       conda config --set channel_priority strict
-      conda install --yes python=$PYTHON_VERSION conda conda-build mamba boa
+      conda install --yes conda conda-build mamba boa
     displayName: Update conda base environment
 
   - bash: |
+      set -e
       eval "$(conda shell.bash hook)"
       # workaround based on recent failures
       rm /usr/share/miniconda/pkgs/cache/*.json
@@ -135,10 +136,11 @@ jobs:
       eval "$(conda shell.bash hook)"
       conda config --add channels conda-forge
       conda config --set channel_priority strict
-      conda install --yes python=$PYTHON_VERSION conda conda-build mamba boa
+      conda install --yes conda conda-build mamba boa
     displayName: Update conda base environment
 
   - bash: |
+      set -e
       eval "$(conda shell.bash hook)"
       conda mambabuild -m "ci/python${PYTHON_VERSION}.yaml" "recipe"
     displayName: Build geometric_features
