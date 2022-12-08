@@ -1621,11 +1621,11 @@
       ],
       "Barents Sea Opening": [
         "standard_transport_sections",
-        "arctic_sections"
+        "arctic_transport_sections"
       ],
       "Bering Strait": [
         "standard_transport_sections",
-        "arctic_sections"
+        "arctic_transport_sections"
       ],
       "Bering_Strait_Ship_Track": [
         "Critical_Passage"
@@ -1639,11 +1639,11 @@
       ],
       "Davis Strait": [
         "standard_transport_sections",
-        "arctic_sections"
+        "arctic_transport_sections"
       ],
       "Denmark Strait": [
         "standard_transport_sections",
-        "arctic_sections"
+        "arctic_transport_sections"
       ],
       "Diomede Islands": [
         "Critical_Land_Blockage"
@@ -1671,17 +1671,17 @@
       ],
       "Fram Strait": [
         "standard_transport_sections",
-        "arctic_sections"
+        "arctic_transport_sections"
       ],
       "Hawaii": [
         "Critical_Land_Blockage"
       ],
       "Hudson Bay-Labrador Sea": [
-        "arctic_sections"
+        "arctic_transport_sections"
       ],
       "Iceland-Faroe-Scotland": [
         "standard_transport_sections",
-        "arctic_sections"
+        "arctic_transport_sections"
       ],
       "Indonesian Throughflow": [
         "standard_transport_sections"
@@ -1717,7 +1717,7 @@
       ],
       "Lancaster Sound": [
         "standard_transport_sections",
-        "arctic_sections"
+        "arctic_transport_sections"
       ],
       "Lombok Strait": [
         "Critical_Passage"
@@ -1736,7 +1736,7 @@
       ],
       "Nares Strait": [
         "standard_transport_sections",
-        "arctic_sections"
+        "arctic_transport_sections"
       ],
       "Nares Strait Deepen": [
         "Nares_Strait_Deepen",
@@ -1770,10 +1770,10 @@
         "Critical_Passage"
       ],
       "OSNAP section East": [
-        "arctic_sections"
+        "arctic_transport_sections"
       ],
       "OSNAP section West": [
-        "arctic_sections"
+        "arctic_transport_sections"
       ],
       "Oahu": [
         "Critical_Land_Blockage"

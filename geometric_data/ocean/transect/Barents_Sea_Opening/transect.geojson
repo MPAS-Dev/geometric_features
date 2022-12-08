@@ -5,7 +5,7 @@
             "type": "Feature",
             "properties": {
                 "name": "Barents Sea Opening",
-                "tags": "standard_transport_sections;arctic_sections",
+                "tags": "standard_transport_sections;arctic_transport_sections",
                 "object": "transect",
                 "component": "ocean",
                 "author": "Milena Veneziani",
