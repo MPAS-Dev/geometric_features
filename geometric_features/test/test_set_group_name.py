@@ -52,7 +52,7 @@ class TestSetGroupName(TestCase):
 
         # test via shell script
         gf = GeometricFeatures(cacheLocation=str(self.datadir),
-                               remoteBranchOrTag='master')
+                               remoteBranchOrTag='main')
         fc = gf.read(componentName, objectType, [featureName])
         fc.set_group_name(groupName)
         assert fc.otherProperties['groupName'] == groupName, \

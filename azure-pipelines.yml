@@ -64,7 +64,7 @@ jobs:
 
       REPO_PATH=$PWD
 
-      if [[ "$(Build.SourceBranch)" == "refs/heads/master" ]]; then
+      if [[ "$(Build.SourceBranch)" == "refs/heads/main" ]]; then
         export DOCS_VERSION="stable"
         deploy=True
       elif [[ "$(Build.SourceBranch)" == refs/tags/* ]]; then
