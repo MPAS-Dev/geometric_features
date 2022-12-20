@@ -7,7 +7,7 @@ from geometric_features.utils import write_feature_names_and_tags
 
 
 gf = GeometricFeatures(cacheLocation='../../geometric_data',
-                       remoteBranchOrTag='master')
+                       remoteBranchOrTag='main')
 
 fcNew = FeatureCollection()
 

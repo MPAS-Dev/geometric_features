@@ -121,7 +121,7 @@ def main():
     # make a geometric features object that knows about the geometric data
     # cache up a couple of directories
     gf = GeometricFeatures(cacheLocation='../../geometric_data',
-                           remoteBranchOrTag='master')
+                           remoteBranchOrTag='main')
 
     fc = FeatureCollection()
 
