@@ -155,7 +155,7 @@ class FeatureCollection(object):
             featureTags = feature['properties']['tags'].split(';')
             for tag in tags:
                 if remove and tag in featureTags:
-                    featureTags.pop(tag)
+                    featureTags.remove(tag)
                 elif not remove and tag not in featureTags:
                     featureTags.append(tag)
             feature['properties']['tags'] = ';'.join(featureTags)
