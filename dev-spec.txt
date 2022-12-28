@@ -8,7 +8,7 @@ matplotlib-base
 numpy
 progressbar2
 requests
-shapely
+shapely>=2.0,<3.0
 
 # Development
 pip
