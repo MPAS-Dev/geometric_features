@@ -207,7 +207,7 @@ def remove_small_polygons(fc, minArea):
             else:
                 # a MultiPolygon
                 outPolygons = []
-                for polygon in featureShape:
+                for polygon in featureShape.geoms:
                     if polygon.area > minArea:
                         outPolygons.append(polygon)
                     else:
