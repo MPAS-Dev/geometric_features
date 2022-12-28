@@ -2,7 +2,6 @@ from __future__ import absolute_import, division, print_function, \
     unicode_literals
 
 import json
-from collections import OrderedDict
 try:
     import matplotlib.pyplot as plt
 except ImportError:
@@ -92,7 +91,7 @@ class FeatureCollection(object):
             self.features = []
         else:
             self.features = features
-        self.otherProperties = OrderedDict()
+        self.otherProperties = dict()
         self.otherProperties['type'] = 'FeatureCollection'
         self.otherProperties['groupName'] = 'enterGroupName'
         if otherProperties is not None:
@@ -338,10 +337,10 @@ class FeatureCollection(object):
                 feature['geometry'])
             if geometry is None:
                 # no change
-                newFeature = OrderedDict(feature)
+                newFeature = dict(feature)
             else:
-                newFeature = OrderedDict()
-                newFeature['properties'] = OrderedDict(feature['properties'])
+                newFeature = dict()
+                newFeature['properties'] = dict(feature['properties'])
                 newFeature['geometry'] = geometry
             fc.add_feature(newFeature)
 
@@ -419,7 +418,7 @@ class FeatureCollection(object):
         # -------
         # Douglas Jacobsen, Xylar Asay-Davis, Phillip J. Wolfram
 
-        outFeatures = OrderedDict(self.otherProperties)
+        outFeatures = dict(self.otherProperties)
         # features go last for readability
         outFeatures['features'] = copy.deepcopy(self.features)
 
@@ -637,29 +636,27 @@ def _validate_feature(feature):
         tags = ''
 
     # Make the properties an ordered dictionary so they can be sorted
-    outProperties = OrderedDict(
-            (('name', feature['properties']['name']),
-             ('tags', tags),
-             ('object', feature['properties']['object']),
-             ('component', feature['properties']['component']),
-             ('author', author)))
+    outProperties = {'name': feature['properties']['name'],
+                     'tags': tags,
+                     'object': feature['properties']['object'],
+                     'component': feature['properties']['component'],
+                     'author': author}
     for key in sorted(feature['properties']):
         if key not in outProperties.keys():
             outProperties[key] = feature['properties'][key]
 
     # Make the geometry an ordered dictionary so they can keep it in the
     # desired order
-    outGeometry = OrderedDict(
-        (('type', feature['geometry']['type']),
-         ('coordinates', feature['geometry']['coordinates'])))
+    outGeometry = {'type': feature['geometry']['type'],
+                   'coordinates': feature['geometry']['coordinates']}
     for key in sorted(feature['geometry']):
         if key not in outGeometry.keys():
             outGeometry[key] = feature['geometry'][key]
 
     # Make the feature an ordered dictionary so properties come before geometry
     # (easier to read)
-    outFeature = OrderedDict((('type', 'Feature'),
-                             ('properties', outProperties)))
+    outFeature = {'type': 'Feature',
+                  'properties': outProperties}
     # Add the rest
     for key in sorted(feature):
         if key not in ['geometry', 'type', 'properties']:
