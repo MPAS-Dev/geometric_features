@@ -12,6 +12,7 @@ shapely
 
 # Development
 pip
+pytest
 
 # Documentation
 sphinx
