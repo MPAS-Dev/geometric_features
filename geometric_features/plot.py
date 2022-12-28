@@ -9,17 +9,13 @@ import shapely
 
 
 def build_projections():
-    '''
+    """
     Create a list of projections for plotting features. Possible map types are
     'cyl', 'merc', 'mill', 'mill2', 'moll', 'moll2', 'robin', 'robin2',
     'ortho', 'northpole', 'southpole', 'atlantic', 'pacific', 'americas',
     'asia'
-    '''
-    # Authors
-    # -------
-    # Xylar Asay-Davis, `Phillip J. Wolfram
-
-    projections = {}
+    """
+    projections = dict()
     projections['cyl'] = cartopy.crs.PlateCarree()
     projections['merc'] = cartopy.crs.Mercator()
     projections['mill'] = cartopy.crs.Miller()
@@ -48,9 +44,9 @@ def build_projections():
 
 
 def plot_base(mapType, projection):
-    '''
+    """
     Plot the background map on which to plot a feature collection
-    '''
+    """
     # Authors
     # -------
     # Xylar Asay-Davis, `Phillip J. Wolfram
@@ -71,14 +67,14 @@ def plot_base(mapType, projection):
     ax.gridlines(crs=cartopy.crs.PlateCarree(), draw_labels=draw_labels,
                  linewidth=0.5, color='gray', linestyle='--')
 
-    return (ax, projection)
+    return ax, projection
 
 
 def subdivide_geom(geometry, geomtype, maxLength):
-    '''
+    """
     Subdivide the line segments for a given set of geometry so plots are
     smoother
-    '''
+    """
     # Authors
     # -------
     # Xylar Asay-Davis, `Phillip J. Wolfram
@@ -93,7 +89,7 @@ def subdivide_geom(geometry, geomtype, maxLength):
         for iVert in range(len(coords)-1):
             segment = shapely.geometry.LineString([coords[iVert],
                                                    coords[iVert+1]])
-            if(segment.length < maxLength):
+            if segment.length < maxLength:
                 outCoords.append(coords[iVert+1])
             else:
                 # we need to subdivide this segment

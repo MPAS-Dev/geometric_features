@@ -11,8 +11,8 @@ import datetime
 
 
 def write_feature_names_and_tags(cacheLocation='./geometry_data'):
-    '''
-    Make a json file with all the availabe features and tags by component
+    """
+    Make a json file with all the available features and tags by component
     and object type, used to update the file when new geometric features are
     added to the repo
 
@@ -20,7 +20,7 @@ def write_feature_names_and_tags(cacheLocation='./geometry_data'):
     ----------
     cacheLocation : str, optional
         The location of the geometric features cache
-    '''
+    """
     # Authors
     # -------
     # Xylar Asay-Davis
@@ -50,9 +50,9 @@ def write_feature_names_and_tags(cacheLocation='./geometry_data'):
 
 
 def provenance_command():
-    '''
+    """
     Get a string to use for provenance in each feature
-    '''
+    """
     # Authors
     # -------
     # Phillip J. Wolfram, Xylar Asay-Davis

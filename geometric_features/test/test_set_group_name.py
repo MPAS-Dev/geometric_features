@@ -1,9 +1,3 @@
-"""
-Unit test infrastructure for FeatureCollection.set_group_name
-
-Phillip J. Wolfram
-"""
-
 import pytest
 import json
 
@@ -60,6 +54,3 @@ class TestSetGroupName(TestCase):
         destfile = str(self.datadir.join('test.geojson'))
         fc.to_geojson(destfile)
         verify_groupName(destfile, groupName)
-
-
-# vim: foldmethod=marker ai ts=4 sts=4 et sw=4 ft=python

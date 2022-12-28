@@ -8,7 +8,7 @@ try:
 except ImportError:
     # maybe no xwindows, so let's use the 'Agg' backend
     import matplotlib as mpl
-    mpl.use('Agg', warn=False, force=True)
+    mpl.use('Agg', force=True)
     import matplotlib.pyplot as plt
 
 import shapely.geometry
@@ -25,7 +25,7 @@ from geometric_features.plot import build_projections, subdivide_geom, \
 
 
 def read_feature_collection(fileName):
-    '''
+    """
     Read a feature collection from a geojson file.
 
     Parameters
@@ -37,7 +37,7 @@ def read_feature_collection(fileName):
     -------
     fc : geometric_features.FeatureCollection
         The feature collection read in
-    '''
+    """
     # Authors
     # -------
     # Xylar Asay-Davis
@@ -53,7 +53,7 @@ def read_feature_collection(fileName):
 
 
 class FeatureCollection(object):
-    '''
+    """
     An object for representing and manipulating a collection of geoscientific
     geometric features.
 
@@ -66,13 +66,13 @@ class FeatureCollection(object):
     otherProperties : dict
         Other properties of the feature collection such as ``type`` and
         ``groupName``
-    '''
+    """
     # Authors
     # -------
     # Xylar Asay-Davis
 
     def __init__(self, features=None, otherProperties=None):
-        '''
+        """
         Construct a new feature collection
 
         Parameters
@@ -81,10 +81,10 @@ class FeatureCollection(object):
             A list of python dictionaries describing each feature, following
             the geojson convention
 
-        otherProperties : dict
+        otherProperties : dict, optional
             Other properties of the feature collection such as ``type`` and
             ``groupName``
-        '''
+        """
         # Authors
         # -------
         # Xylar Asay-Davis
@@ -99,14 +99,14 @@ class FeatureCollection(object):
             self.otherProperties.update(otherProperties)
 
     def add_feature(self, feature):
-        '''
-        Add a feature to the feature collection if it isn't alerady present
+        """
+        Add a feature to the feature collection if it isn't already present
 
         Parameters
         ----------
         feature : dict
             The feature to add
-        '''
+        """
         # Authors
         # -------
         # Xylar Asay-Davis
@@ -116,14 +116,14 @@ class FeatureCollection(object):
             self.features.append(feature)
 
     def merge(self, other):
-        '''
+        """
         Merge another feature collection into this one
 
         Parameters
         ----------
         other : geometric_features.FeatureCollection
             The other feature collection
-        '''
+        """
         # Authors
         # -------
         # Xylar Asay-Davis
@@ -137,14 +137,17 @@ class FeatureCollection(object):
                 self.otherProperties[key] = other.otherProperties[key]
 
     def tag(self, tags, remove=False):
-        '''
+        """
         Add tags to all features in the collection
 
         Parameters
         ----------
         tags : list of str
             Tags to be added
-        '''
+
+        remove : bool, optional
+            Whether to remove the tag rather than adding it
+        """
         # Authors
         # -------
         # Xylar Asay-Davis
@@ -159,14 +162,14 @@ class FeatureCollection(object):
             feature['properties']['tags'] = ';'.join(featureTags)
 
     def set_group_name(self, groupName):
-        '''
+        """
         Set the group name of a feature collection
 
         Parameters
         ----------
         groupName : str
             The group name
-        '''
+        """
         # Authors
         # -------
         # Xylar Asay-Davis
@@ -174,7 +177,7 @@ class FeatureCollection(object):
         self.otherProperties['groupName'] = groupName
 
     def combine(self, featureName):
-        '''
+        """
         Combines the geometry of the feature collection into a single feature
 
         Parameters
@@ -193,7 +196,7 @@ class FeatureCollection(object):
         ValueError
            If the combined geometry is of an unsupported type (typically
            ``GeometryCollection``)
-        '''
+        """
         # Authors
         # -------
         # Xylar Asay-Davis
@@ -216,7 +219,7 @@ class FeatureCollection(object):
             raise ValueError('combined geometry is of unsupported type '
                              '{}. Most likely cause is that '
                              'multiple feature types (regions, points and '
-                             'transects) are being cobined.'.format(
+                             'transects) are being combined.'.format(
                                  geometry['type']))
 
         feature = {}
@@ -236,7 +239,7 @@ class FeatureCollection(object):
         return fc
 
     def difference(self, maskingFC, show_progress=False):
-        '''
+        """
         Use features from a masking collection to mask out (remove part of
         the geometry from) this collection.
 
@@ -253,7 +256,7 @@ class FeatureCollection(object):
         fc : geometric_features.FeatureCollection
             A new feature collection with a single feature with the geometry
             masked
-        '''
+        """
         # Authors
         # -------
         # Xylar Asay-Davis
@@ -294,9 +297,9 @@ class FeatureCollection(object):
                         add = False
                         break
 
-            if(add):
+            if add:
                 newFeature = copy.deepcopy(feature)
-                if(masked):
+                if masked:
                     maskedCount += 1
                     newFeature['geometry'] = \
                         shapely.geometry.mapping(featureShape)
@@ -315,7 +318,7 @@ class FeatureCollection(object):
         return fc
 
     def fix_antimeridian(self):
-        '''
+        """
         Split features at +/-180 degrees (the antimeridian) to make them valid
         geojson geometries
 
@@ -323,7 +326,7 @@ class FeatureCollection(object):
         -------
         fc : geometric_features.FeatureCollection
             A new feature collection with the antimeridian handled correctly
-        '''
+        """
         # Authors
         # -------
         # Xylar Asay-Davis
@@ -345,7 +348,7 @@ class FeatureCollection(object):
         return fc
 
     def simplify(self, tolerance=0.0):
-        '''
+        """
         Features in the collection are simplified using ``shapely``
 
         Parameters
@@ -357,7 +360,7 @@ class FeatureCollection(object):
         -------
         fc : geometric_features.FeatureCollection
             A new feature collection with simplified geometries
-        '''
+        """
         # Authors
         # -------
         # Xylar Asay-Davis
@@ -375,7 +378,7 @@ class FeatureCollection(object):
         return fc
 
     def feature_in_collection(self, feature):
-        '''
+        """
         Is this feature already in the collection?
 
         Parameters
@@ -387,7 +390,7 @@ class FeatureCollection(object):
         -------
         inCollection : bool
             Whether the feature is in the collection
-        '''
+        """
         # Authors
         # -------
         # Xylar Asay-Davis
@@ -396,7 +399,7 @@ class FeatureCollection(object):
         return feature['properties']['name'] in featureNames
 
     def to_geojson(self, fileName, stripHistory=False, indent=4):
-        '''
+        """
         Write the feature collection to a geojson file
 
         Parameters
@@ -411,7 +414,7 @@ class FeatureCollection(object):
         indent : int, optional
             The number of spaces to use for indentation when formatting the
             geojson file
-        '''
+        """
         # Authors
         # -------
         # Douglas Jacobsen, Xylar Asay-Davis, Phillip J. Wolfram
@@ -445,7 +448,7 @@ class FeatureCollection(object):
 
     def plot(self, projection, maxLength=4.0, figsize=None, colors=None,
              dpi=200):
-        '''
+        """
         Plot the features on a map using cartopy.
 
         Parameters
@@ -475,7 +478,7 @@ class FeatureCollection(object):
         -------
         fig : ``matplotlib.figure.Figure``
             The figure
-        '''
+        """
         # Authors
         # -------
         # Xylar Asay-Davis, `Phillip J. Wolfram
@@ -508,7 +511,7 @@ class FeatureCollection(object):
         for featureIndex, feature in enumerate(self.features):
             geomType = feature['geometry']['type']
             shape = shapely.geometry.shape(feature['geometry'])
-            if(maxLength > 0.0):
+            if maxLength > 0.0:
                 shape = subdivide_geom(shape, geomType, maxLength)
 
             refProjection = cartopy.crs.PlateCarree()
@@ -537,7 +540,7 @@ class FeatureCollection(object):
                 ax.add_geometries((shape,), crs=refProjection, **props)
 
         box = shapely.geometry.box(*bounds)
-        if(maxLength > 0.0):
+        if maxLength > 0.0:
             box = subdivide_geom(box, 'Polygon', maxLength)
 
         boxProjected = projection.project_geometry(box, src_crs=refProjection)
@@ -558,9 +561,9 @@ class FeatureCollection(object):
 
 
 def _get_geom_object_type(geomType):
-    '''
+    """
     Get the object type for a given geometry type
-    '''
+    """
     geomObjectTypes = {'Polygon': 'region',
                        'MultiPolygon': 'region',
                        'LineString': 'transect',
@@ -571,7 +574,7 @@ def _get_geom_object_type(geomType):
 
 
 def _validate_feature(feature):
-    '''
+    """
     Validate the geometric feature to ensure that it has all required keys:
         - properties
           - name
@@ -595,7 +598,7 @@ def _validate_feature(feature):
 
     ValueError
         If the geometry type doesn't match the object type
-    '''
+    """
     # Authors
     # -------
     # Xylar Asay-Davis, Phillip J. Wolfram
@@ -682,14 +685,14 @@ def _split_geometry_crossing_antimeridian(geometry):
 
         x = radius*np.sin(phi)
         y = radius*np.cos(phi)
-        if(isinstance(lon, list)):
+        if isinstance(lon, list):
             x = x.tolist()
             y = y.tolist()
-        elif(isinstance(lon, tuple)):
+        elif isinstance(lon, tuple):
             x = tuple(x)
             y = tuple(y)
 
-        return (x, y)
+        return x, y
 
     def _from_polar(x, y):
         radius = np.sqrt(np.array(x)**2+np.array(y)**2)
@@ -704,13 +707,13 @@ def _split_geometry_crossing_antimeridian(geometry):
         lon = 180./np.pi*phi
         lat = sign*(90. - 180./np.pi*radius)
 
-        if(isinstance(x, list)):
+        if isinstance(x, list):
             lon = lon.tolist()
             lat = lat.tolist()
-        elif(isinstance(x, tuple)):
+        elif isinstance(x, tuple):
             lon = tuple(lon)
             lat = tuple(lat)
-        return (lon, lat)
+        return lon, lat
 
     epsilon = 1e-14
     antimeridianWedge = shapely.geometry.Polygon([(epsilon, -np.pi),
@@ -725,8 +728,8 @@ def _split_geometry_crossing_antimeridian(geometry):
             1.)
     polarShape = shapely.ops.transform(_to_polar, featureShape)
 
-    if(not polarShape.intersects(antimeridianWedge)):
-        # this feature doesn't corss the antimeridian
+    if not polarShape.intersects(antimeridianWedge):
+        # this feature doesn't cross the antimeridian
         return
 
     difference = polarShape.difference(antimeridianWedge)
@@ -737,9 +740,9 @@ def _split_geometry_crossing_antimeridian(geometry):
 
 
 def _round_coords(coordinates, digits=6):
-    '''
+    """
     Round the coordinates of geojson geometry data before writing to a file
-    '''
+    """
     if isinstance(coordinates, float):
         return round(coordinates, digits)
     if isinstance(coordinates, int):

@@ -1,11 +1,3 @@
-"""
-Utilities for downloading files
-"""
-# Authors
-# -------
-# Milena Veneziani
-# Xylar Asay-Davis
-
 from __future__ import absolute_import, division, print_function, \
     unicode_literals
 
@@ -18,9 +10,9 @@ from urllib.request import pathname2url
 
 # From https://stackoverflow.com/a/1094933/7728169
 def sizeof_fmt(num, suffix='B'):
-    '''
+    """
     Covert a number of bytes to a human-readable file size
-    '''
+    """
     for unit in ['', 'Ki', 'Mi', 'Gi', 'Ti', 'Pi', 'Ei', 'Zi']:
         if abs(num) < 1024.0:
             return "%3.1f%s%s" % (num, unit, suffix)
@@ -29,9 +21,9 @@ def sizeof_fmt(num, suffix='B'):
 
 
 def download_files(fileList, urlBase, outDir):
-    '''
+    """
     Download a list of files from a URL to a directory
-    '''
+    """
     # Authors
     # -------
     # Milena Veneziani

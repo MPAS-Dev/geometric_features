@@ -13,7 +13,7 @@ def moc(gf):
     Parameters
     ----------
     gf : ``GeometricFeatures``
-        An object that knows how to download and read geometric featuers
+        An object that knows how to download and read geometric features
 
     Returns
     -------

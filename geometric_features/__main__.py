@@ -10,9 +10,9 @@ from geometric_features.feature_collection import FeatureCollection, \
 
 
 def combine_features():
-    '''
+    """
     Entry point for combining features from a file
-    '''
+    """
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
     parser.add_argument("-f", "--feature_file", dest="feature_file",
@@ -39,9 +39,9 @@ def combine_features():
 
 
 def difference_features():
-    '''
+    """
     Entry point for differencing features from a file
-    '''
+    """
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
     parser.add_argument("-f", "--feature_file", dest="feature_file",
@@ -70,9 +70,9 @@ def difference_features():
 
 
 def fix_features_at_antimeridian():
-    '''
+    """
     Entry point for splitting features that cross +/- 180 degrees
-    '''
+    """
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
     parser.add_argument("-f", "--feature_file", dest="feature_file",
@@ -95,9 +95,9 @@ def fix_features_at_antimeridian():
 
 
 def merge_features():
-    '''
+    """
     Entry point for merging features from the geometric_data cache
-    '''
+    """
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
     parser.add_argument("-f", "--feature_file", dest="feature_file",
@@ -106,7 +106,7 @@ def merge_features():
                         metavar="FILE")
     parser.add_argument("-c", "--component", dest="component",
                         help="The component (ocean, landice, etc.) from which "
-                             "to retieve the geometric features",
+                             "to retrieve the geometric features",
                         metavar="COMP")
     parser.add_argument("-b", "--object_type", dest="object_type",
                         help="The type of geometry to load, a point (0D), "
@@ -154,9 +154,9 @@ def merge_features():
 
 
 def plot_features():
-    '''
+    """
     Entry point for plotting features from a file
-    '''
+    """
 
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
@@ -202,9 +202,9 @@ def plot_features():
 
 
 def set_group_name():
-    '''
+    """
     Set the group name of the feature collection
-    '''
+    """
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
     parser.add_argument("-f", "--feature_file", dest="feature_file",
@@ -228,9 +228,9 @@ def set_group_name():
 
 
 def simplify_features():
-    '''
+    """
     Features in the collection are simplified using ``shapely``
-    '''
+    """
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
     parser.add_argument("-f", "--feature_file", dest="feature_file",
@@ -239,7 +239,7 @@ def simplify_features():
     parser.add_argument("-t", "--tolerance", dest="tolerance", type=float,
                         default=0.0,
                         help="A distance in deg lon/lat by which each point "
-                             "in a  feature can be moved during simpification",
+                             "in a feature can be moved during simplification",
                         metavar="TOLERANCE")
     parser.add_argument("-o", "--output", dest="output_file_name",
                         help="Output file, e.g., features.geojson.",
@@ -257,10 +257,10 @@ def simplify_features():
 
 
 def split_features():
-    '''
+    """
     Features in the collection are split into individual files in the
     geometric_data cache
-    '''
+    """
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
     parser.add_argument("-f", "--feature_file", dest="feature_file",
@@ -283,9 +283,9 @@ def split_features():
 
 
 def tag_features():
-    '''
+    """
     Features in the collection are tagged with the given tag(s)
-    '''
+    """
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
     parser.add_argument("-f", "--feature_file", dest="feature_file",
