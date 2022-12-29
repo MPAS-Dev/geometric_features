@@ -2,7 +2,7 @@ from __future__ import absolute_import, division, print_function, \
     unicode_literals
 
 import json
-import pkg_resources
+import importlib.resources
 import os
 
 import geometric_features
@@ -63,11 +63,10 @@ class GeometricFeatures(object):
         else:
             self.remoteBranch = remoteBranchOrTag
 
-        featuresAndTagsFileName = pkg_resources.resource_filename(
-            'geometric_features', 'features_and_tags.json')
-
-        with open(featuresAndTagsFileName) as f:
-            self.allFeaturesAndTags = json.load(f)
+        features_file = (importlib.resources.files('geometric_features') /
+                         'features_and_tags.json')
+        with features_file.open('r') as file:
+            self.allFeaturesAndTags = json.load(file)
 
     def read(self, componentName, objectType, featureNames=None, tags=None,
              allTags=True):
