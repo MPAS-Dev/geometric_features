@@ -19,6 +19,7 @@ Documentation    On GitHub
 `v0.6.0`_        `0.6.0`_
 `v0.7.0`_        `0.7.0`_
 `v0.8.0`_        `0.8.0`_
+`v1.0.0`_        `1.0.0`_
 ================ ===============
 
 .. _`stable`: ../stable/index.html
@@ -51,3 +52,5 @@ Documentation    On GitHub
 .. _`0.7.0`: https://github.com/MPAS-Dev/geometric_features/tree/0.7.0
 .. _`v0.8.0`: ../0.8.0/index.html
 .. _`0.8.0`: https://github.com/MPAS-Dev/geometric_features/tree/0.8.0
+.. _`v1.0.0`: ../1.0.0/index.html
+.. _`1.0.0`: https://github.com/MPAS-Dev/geometric_features/tree/1.0.0
