@@ -13,7 +13,7 @@ def moc(gf):
     Parameters
     ----------
     gf : ``GeometricFeatures``
-        An object that knows how to download and read geometric featuers
+        An object that knows how to download and read geometric features
 
     Returns
     -------
@@ -99,7 +99,7 @@ def _remove_small_polygons(fc, minArea):
             fcOut.add_feature(copy.deepcopy(feature))
         else:
             featureShape = shapely.geometry.shape(geom)
-            if featureShape.type == 'Polygon':
+            if featureShape.geom_type == 'Polygon':
                 if featureShape.area > minArea:
                     add = True
                 else:

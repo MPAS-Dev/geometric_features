@@ -2,7 +2,7 @@ from __future__ import absolute_import, division, print_function, \
     unicode_literals
 
 import json
-import pkg_resources
+import importlib.resources
 import os
 
 import geometric_features
@@ -14,7 +14,7 @@ from geometric_features.download import download_files
 
 
 class GeometricFeatures(object):
-    '''
+    """
     An object for keeping track of where geometric features are cached and
     downloading missing features as needed.
 
@@ -22,20 +22,20 @@ class GeometricFeatures(object):
     ----------
     allFeaturesAndTags : dict of dict
         A cache of all the feature names and tags in the ``geometric_features``
-        repo used to determine which featues need to be downloaded into the
+        repo used to determine which features need to be downloaded into the
         local cache
 
     remoteBranch : str, optional
         The branch or tag from the ``geometric_features`` repo to download
         from if files are missing from the local cache
 
-    '''
+    """
     # Authors
     # -------
     # Xylar Asay-Davis
 
     def __init__(self, cacheLocation=None, remoteBranchOrTag=None):
-        '''
+        """
         The constructor for the GeometricFeatures object
 
         Parameters
@@ -49,7 +49,7 @@ class GeometricFeatures(object):
             The branch or tag from the ``geometric_features`` repo to download
             from if files are missing from the local cache, with default to
             a tag the same as this version of ``geometric_features``
-        '''
+        """
 
         if cacheLocation is None:
             if 'GEOMETRIC_DATA_DIR' in os.environ:
@@ -63,15 +63,14 @@ class GeometricFeatures(object):
         else:
             self.remoteBranch = remoteBranchOrTag
 
-        featuresAndTagsFileName = pkg_resources.resource_filename(
-            'geometric_features', 'features_and_tags.json')
-
-        with open(featuresAndTagsFileName) as f:
-            self.allFeaturesAndTags = json.load(f)
+        features_file = (importlib.resources.files('geometric_features') /
+                         'features_and_tags.json')
+        with features_file.open('r') as file:
+            self.allFeaturesAndTags = json.load(file)
 
     def read(self, componentName, objectType, featureNames=None, tags=None,
              allTags=True):
-        '''
+        """
         Read one or more features from the cached collection of geometric
         features. If any of the requested features have not been cached, they
         are downloaded from the ``geometric_features`` GitHub repository.  If
@@ -102,7 +101,7 @@ class GeometricFeatures(object):
         -------
         fc : geometric_features.FeatureCollection
             The feature collection read in
-        '''
+        """
         # Authors
         # -------
         # Xylar Asay-Davis
@@ -119,7 +118,7 @@ class GeometricFeatures(object):
         return fc
 
     def split(self, fc, destinationDir=None):
-        '''
+        """
         Split a feature collection into individual files for each feature. This
         is how new geometry should be added to the ``geometric_features`` repo.
 
@@ -136,7 +135,7 @@ class GeometricFeatures(object):
         -------
         fc : geometric_features.FeatureCollection
             The feature collection read in
-        '''
+        """
         # Authors
         # -------
         # Xylar Asay-Davis
@@ -167,7 +166,7 @@ class GeometricFeatures(object):
 
     def _download_geometric_features(self, componentName, objectType,
                                      featureNames):
-        '''
+        """
         Determine a list of requested files and download the any that are
         missing from the repo
 
@@ -189,7 +188,7 @@ class GeometricFeatures(object):
             File names of the features
 
 
-        '''
+        """
         # Authors
         # -------
         # Xylar Asay-Davis
@@ -218,7 +217,7 @@ class GeometricFeatures(object):
 
     def _get_feature_names(self, componentName, objectType, featureNames,
                            tags, allTags):
-        '''
+        """
         Find features by name or tags, reporting errors in the process
 
         Parameters
@@ -251,7 +250,7 @@ class GeometricFeatures(object):
             If the component is not in the geometric features repo, if the
             object type is not in the component, or if one or more feature
             names are not found
-        '''
+        """
         # Authors
         # -------
         # Xylar Asay-Davis
@@ -292,7 +291,7 @@ class GeometricFeatures(object):
 
 
 def _get_file_name(componentName, objectType, featureName):
-    '''
+    """
     Get the relative path of a cached geometric feature from its component,
     object type and feature name.
 
@@ -312,7 +311,7 @@ def _get_file_name(componentName, objectType, featureName):
     -------
     fileName : str
         The relative path to that feature
-    '''
+    """
     # Authors
     # -------
     # Douglas Jacobsen, Xylar Asay-Davis

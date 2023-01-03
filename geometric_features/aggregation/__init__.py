@@ -14,7 +14,8 @@ def get_aggregator_by_name(region_group):
     region_group : str
         The name of a region group to get mask features for, one of
         'Antarctic Regions', 'Arctic Ocean Regions', 'Arctic Sea Ice Regions',
-        'Ocean Basins', 'Ice Shelves', 'Ocean Subbasins', or 'ISMIP6 Regions'
+        'Ocean Basins', 'Ice Shelves', 'Ocean Subbasins', 'ISMIP6 Regions',
+        'MOC Basins', 'Transport Transects', or 'Arctic Transport Transects'
 
     Returns
     -------
@@ -60,11 +61,11 @@ def get_aggregator_by_name(region_group):
                                        'date': '20210323',
                                        'function': transport},
                'Arctic Transport Transects': {'prefix': 'arcticTransportTransects',
-                                       'date': '20220926',
-                                       'function': arctic_transport}}
+                                              'date': '20220926',
+                                              'function': arctic_transport}}
 
     if region_group not in regions:
-        raise ValueError('Unknown region group {}'.format(region_group))
+        raise ValueError(f'Unknown region group {region_group}')
 
     region = regions[region_group]
 
