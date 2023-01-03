@@ -188,7 +188,7 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    gf : ``GeometricFeatures``</span>
-<span class="sd">        An object that knows how to download and read geometric featuers</span>
+<span class="sd">        An object that knows how to download and read geometric features</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -274,7 +274,7 @@
             <span class="n">fcOut</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">feature</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">featureShape</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">featureShape</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;Polygon&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">featureShape</span><span class="o">.</span><span class="n">geom_type</span> <span class="o">==</span> <span class="s1">&#39;Polygon&#39;</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">featureShape</span><span class="o">.</span><span class="n">area</span> <span class="o">&gt;</span> <span class="n">minArea</span><span class="p">:</span>
                     <span class="n">add</span> <span class="o">=</span> <span class="kc">True</span>
                 <span class="k">else</span><span class="p">:</span>
