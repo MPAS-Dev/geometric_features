@@ -175,8 +175,12 @@
     <span class="n">unicode_literals</span>
 
 <span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">importlib.resources</span>
 <span class="kn">import</span> <span class="nn">os</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">importlib.resources</span> <span class="kn">import</span> <span class="n">files</span> <span class="k">as</span> <span class="n">imp_res_files</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="c1"># python&lt;=3.8</span>
+    <span class="kn">from</span> <span class="nn">importlib_resources</span> <span class="kn">import</span> <span class="n">files</span> <span class="k">as</span> <span class="n">imp_res_files</span>
 
 <span class="kn">import</span> <span class="nn">geometric_features</span>
 
@@ -236,7 +240,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">remoteBranch</span> <span class="o">=</span> <span class="n">remoteBranchOrTag</span>
 
-        <span class="n">features_file</span> <span class="o">=</span> <span class="p">(</span><span class="n">importlib</span><span class="o">.</span><span class="n">resources</span><span class="o">.</span><span class="n">files</span><span class="p">(</span><span class="s1">&#39;geometric_features&#39;</span><span class="p">)</span> <span class="o">/</span>
+        <span class="n">features_file</span> <span class="o">=</span> <span class="p">(</span><span class="n">imp_res_files</span><span class="p">(</span><span class="s1">&#39;geometric_features&#39;</span><span class="p">)</span> <span class="o">/</span>
                          <span class="s1">&#39;features_and_tags.json&#39;</span><span class="p">)</span>
         <span class="k">with</span> <span class="n">features_file</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">allFeaturesAndTags</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span></div>
