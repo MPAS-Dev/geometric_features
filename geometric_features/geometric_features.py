@@ -2,8 +2,12 @@ from __future__ import absolute_import, division, print_function, \
     unicode_literals
 
 import json
-import importlib.resources
 import os
+try:
+    from importlib.resources import files as imp_res_files
+except ImportError:
+    # python<=3.8
+    from importlib_resources import files as imp_res_files
 
 import geometric_features
 
@@ -63,7 +67,7 @@ class GeometricFeatures(object):
         else:
             self.remoteBranch = remoteBranchOrTag
 
-        features_file = (importlib.resources.files('geometric_features') /
+        features_file = (imp_res_files('geometric_features') /
                          'features_and_tags.json')
         with features_file.open('r') as file:
             self.allFeaturesAndTags = json.load(file)
