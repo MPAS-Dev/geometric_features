@@ -30,6 +30,7 @@ requirements:
   run:
     - python >=3.8
     - cartopy
+    - importlib_resources
     - matplotlib-base
     - numpy
     - progressbar2
