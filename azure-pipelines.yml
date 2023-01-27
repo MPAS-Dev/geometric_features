@@ -21,7 +21,11 @@ jobs:
       eval "$(conda shell.bash hook)"
       conda config --add channels conda-forge
       conda config --set channel_priority strict
-      conda install --yes conda conda-build mamba boa
+      conda update --yes --all
+      conda install --yes mamba
+      # workaround based on recent failures
+      rm /usr/share/miniconda/pkgs/cache/*.json
+      mamba install --yes conda-build boa
     displayName: Update conda base environment
 
   - bash: |
@@ -136,7 +140,9 @@ jobs:
       eval "$(conda shell.bash hook)"
       conda config --add channels conda-forge
       conda config --set channel_priority strict
-      conda install --yes conda conda-build mamba boa
+      conda update --yes --all
+      conda install --yes mamba
+      mamba install --yes conda-build boa
     displayName: Update conda base environment
 
   - bash: |
