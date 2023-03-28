@@ -164,6 +164,29 @@ def get_longest_contour(contourValue, author):
     return fc
 
 
+def make_polygon(lon_vector, lat_vector, name, author, tags):
+    fc = FeatureCollection()
+
+    coordinates_list = []
+    for idx in len(lon_vector):
+        coordinates_pair = [lon_vector[idx], lat_vector[idx]]
+        coordinates_list.append(coordinates_pair)
+
+    fc.add_feature(
+        {"type": "Feature",
+         "properties": {"name": name,
+                        "author": author,
+                        "object": 'region',
+                        "component": 'ocean',
+                        "tags": tags,
+                        "zmin": -1000.,
+                        "zmax": -400.},
+         "geometry": {
+             "type": "Polygon",
+             "coordinates": [coordinates_list]}})
+    return fc
+
+
 def make_rectangle(lon0, lon1, lat0, lat1, name, author, tags):
     fc = FeatureCollection()
 
@@ -188,6 +211,31 @@ def make_rectangle(lon0, lon1, lat0, lat1, name, author, tags):
 
 def split_rectangle(lon0, lon1, lat0, lat1, name, author, tags, fcContour):
     fc = make_rectangle(lon0, lon1, lat0, lat1, name, author, tags)
+
+    fcDeep = fc.difference(fcContour)
+
+    props = fcDeep.features[0]['properties']
+    props['name'] = props['name'] + ' Deep'
+    props['tags'] = props['tags'] + ';Deep'
+    props['zmin'] = -1000.
+    props['zmax'] = -400.
+
+    fcShelf = fc.difference(fcDeep)
+
+    props = fcShelf.features[0]['properties']
+    props['name'] = props['name'] + ' Shelf'
+    props['tags'] = props['tags'] + ';Shelf'
+    props['zmin'] = -1000.
+    props['zmax'] = -200.
+
+    fc.merge(fcDeep)
+    fc.merge(fcShelf)
+
+    return fc
+
+
+def split_polygon(lon_vector, lat_vector, name, author, tags, fcContour):
+    fc = make_polygon(lon_vector, lat_vector, name, author, tags)
 
     fcDeep = fc.difference(fcContour)
 
@@ -242,8 +290,10 @@ def main():
 
     fc.merge(fcEW)
 
-    fcWW = split_rectangle(
-        lon0=-63., lon1=-20., lat0=-80., lat1=-60., name='Western Weddell Sea',
+    fcWW = split_polygon(
+        lon_vector=[-80., -63., -48., -20., -20.],
+        lat_vector=[-80., -65., -60., -60., -85.],
+        name='Western Weddell Sea',
         author=author, tags=orsiTags, fcContour=fcContour800)
 
     fc.merge(fcWW)
