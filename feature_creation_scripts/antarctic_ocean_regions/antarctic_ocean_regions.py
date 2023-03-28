@@ -171,6 +171,7 @@ def make_polygon(lon_vector, lat_vector, name, author, tags):
     for idx in len(lon_vector):
         coordinates_pair = [lon_vector[idx], lat_vector[idx]]
         coordinates_list.append(coordinates_pair)
+    coordinates_list.append(coordinates_pair[0])
 
     fc.add_feature(
         {"type": "Feature",
