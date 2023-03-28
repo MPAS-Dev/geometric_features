@@ -275,8 +275,10 @@ def main():
 
     fc = FeatureCollection()
 
-    fcWeddell = split_rectangle(
-        lon0=-63., lon1=0., lat0=-80., lat1=-65., name='Weddell Sea',
+    fcWeddell = split_polygon(
+        lon_vector=[-80., -63., -48., 0., 0.],
+        lat_vector=[-85., -65., -65., -65., -85.],
+        name='Weddell Sea',
         author=author, tags=timTags, fcContour=fcContour800)
 
     # get rid of the Weddell Sea because we're not that happy with this
@@ -315,12 +317,16 @@ def main():
     fc.merge(fcWeddell)
 
     # add the Weddell Sea back as the sum of Eastern and Western
-    fc.merge(make_rectangle(
-        lon0=-63., lon1=45., lat0=-80., lat1=-58., name='Weddell Sea',
+    fc.merge(split_polygon(
+        lon_vector=[-80., -63., -48., 45., 45.],
+        lat_vector=[-85., -65., -58., -58., -85.],
+        name='Weddell Sea',
         author=author, tags=orsiTags))
 
-    fc.merge(split_rectangle(
-        lon0=-100., lon1=-63., lat0=-80., lat1=-67., name='Bellingshausen Sea',
+    fc.merge(split_polygon(
+        lon_vector=[-100., -100., -63., -80.],
+        lat_vector=[-85., -67., -67., -85.],
+        name='Bellingshausen Sea',
         author=author, tags=timTags, fcContour=fcContour700))
 
     fc.merge(split_rectangle(
