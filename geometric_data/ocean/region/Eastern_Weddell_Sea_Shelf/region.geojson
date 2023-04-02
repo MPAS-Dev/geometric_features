@@ -5,7 +5,7 @@
             "type": "Feature",
             "properties": {
                 "name": "Eastern Weddell Sea Shelf",
-                "tags": "Antarctic;Orsi;Shelf",
+                "tags": "Antarctic;Shelf",
                 "object": "region",
                 "component": "ocean",
                 "author": "Xylar Asay-Davis",
@@ -16,18 +16,6 @@
                 "type": "Polygon",
                 "coordinates": [
                     [
-                        [
-                            25.0,
-                            -70.03844
-                        ],
-                        [
-                            25.0,
-                            -80.0
-                        ],
-                        [
-                            -20.0,
-                            -80.0
-                        ],
                         [
                             -20.0,
                             -73.090735
@@ -10659,6 +10647,18 @@
                         [
                             25.0,
                             -70.03844
+                        ],
+                        [
+                            25.0,
+                            -80.0
+                        ],
+                        [
+                            -20.0,
+                            -80.0
+                        ],
+                        [
+                            -20.0,
+                            -73.090735
                         ]
                     ]
                 ]

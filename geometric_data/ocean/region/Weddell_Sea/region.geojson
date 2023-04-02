@@ -5,10 +5,10 @@
             "type": "Feature",
             "properties": {
                 "name": "Weddell Sea",
-                "tags": "Antarctic;Orsi",
+                "tags": "Antarctic",
                 "object": "region",
                 "component": "ocean",
-                "author": "Xylar Asay-Davis",
+                "author": "Carolyn Begeman; Xylar Asay-Davis",
                 "constituents": "Western Weddell Sea; Eastern Weddell Sea",
                 "zmax": -400.0,
                 "zmin": -1000.0
@@ -18,15 +18,23 @@
                 "coordinates": [
                     [
                         [
-                            -20.0,
-                            -80.0
+                            -86.0,
+                            -75.0
                         ],
                         [
                             -63.0,
-                            -80.0
+                            -73.0
                         ],
                         [
-                            -63.0,
+                            -66.0,
+                            -67.0
+                        ],
+                        [
+                            -60.0,
+                            -64.0
+                        ],
+                        [
+                            -51.0,
                             -60.0
                         ],
                         [
@@ -34,7 +42,7 @@
                             -60.0
                         ],
                         [
-                            -20.0,
+                            10.0,
                             -55.0
                         ],
                         [
@@ -48,6 +56,18 @@
                         [
                             -20.0,
                             -80.0
+                        ],
+                        [
+                            -20.0,
+                            -85.0
+                        ],
+                        [
+                            -100.0,
+                            -81.0
+                        ],
+                        [
+                            -86.0,
+                            -75.0
                         ]
                     ]
                 ]

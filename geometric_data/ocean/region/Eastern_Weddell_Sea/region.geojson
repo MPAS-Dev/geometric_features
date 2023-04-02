@@ -5,7 +5,7 @@
             "type": "Feature",
             "properties": {
                 "name": "Eastern Weddell Sea",
-                "tags": "Antarctic;Orsi",
+                "tags": "Antarctic",
                 "object": "region",
                 "component": "ocean",
                 "author": "Xylar Asay-Davis",
@@ -21,16 +21,20 @@
                             -80.0
                         ],
                         [
+                            -20.0,
+                            -60.0
+                        ],
+                        [
+                            10.0,
+                            -55.0
+                        ],
+                        [
+                            25.0,
+                            -55.0
+                        ],
+                        [
                             25.0,
                             -80.0
-                        ],
-                        [
-                            25.0,
-                            -55.0
-                        ],
-                        [
-                            -20.0,
-                            -55.0
                         ],
                         [
                             -20.0,
