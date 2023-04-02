@@ -282,8 +282,8 @@ def main():
     fc = FeatureCollection()
 
     fcWeddell = split_polygon(
-        lon_vector=[-80., -63., -48., 0., 0.],
-        lat_vector=[-85., -65., -65., -65., -85.],
+        lon_vector=[-100., -86., -63., -66., -60., -51., 0., 0.],
+        lat_vector=[-81., -75., -73., -67., -64., -62., -62., -90.],
         name='Weddell Sea',
         author=carolyn, tags=antTag, fcContour=fcContour800)
 
@@ -299,8 +299,8 @@ def main():
     fc.merge(fcEW)
 
     fcWW = split_polygon(
-        lon_vector=[-80., -63., -48., -20., -20.],
-        lat_vector=[-80., -65., -60., -60., -85.],
+        lon_vector=[-100., -86., -63., -66., -60., -51., -20., -20.],
+        lat_vector=[-81., -75., -73., -67., -64., -62., -62., -85.],
         name='Western Weddell Sea',
         author=carolyn, tags=antTag, fcContour=fcContour800)
 
@@ -323,8 +323,8 @@ def main():
     fc.merge(fcWeddell)
 
     fc.merge(split_polygon(
-        lon_vector=[-100., -100., -63., -80.],
-        lat_vector=[-85., -67., -67., -85.],
+        lon_vector=[-100., -86., -63., -66., -100.],
+        lat_vector=[-81., -75., -73., -67., -67.],
         name='Bellingshausen Sea',
         author=carolyn, tags=antTag, fcContour=fcContour700))
 
