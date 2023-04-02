@@ -106,11 +106,15 @@ def get_longest_contour(contourValue, author):
     def stereo_to_lon_lat(x, y):
         return pyproj.transform(inProj, outProj, x, y)
 
-    ds = xarray.open_dataset('bedmap2.nc')
+    with xarray.open_dataset('bedmap2.nc') as ds:
+        # the bed but not under grounded ice
+        bed = xarray.where(ds.icemask_grounded > 0.5, 0., ds.bed).values
+        x = ds.x.values
+        y = ds.y.values
 
     # plot contours
     plt.figure()
-    cs = plt.contour(ds.x.values, ds.y.values, ds.bed, (contourValue,))
+    cs = plt.contour(x, y, bed, (contourValue,))
     paths = cs.collections[0].get_paths()
 
     pathLengths = [len(paths[i]) for i in range(len(paths))]
@@ -125,7 +129,6 @@ def get_longest_contour(contourValue, author):
     inProj = pyproj.Proj(init='epsg:3031')
     # lon/lat
     outProj = pyproj.Proj(init='epsg:4326')
-    lon, lat = pyproj.transform(inProj, outProj, x, y)
 
     poly = shapely.geometry.Polygon([(i[0], i[1]) for i in zip(x, y)])
 
