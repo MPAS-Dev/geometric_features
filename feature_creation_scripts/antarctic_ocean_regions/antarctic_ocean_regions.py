@@ -168,10 +168,10 @@ def make_polygon(lon_vector, lat_vector, name, author, tags):
     fc = FeatureCollection()
 
     coordinates_list = []
-    for idx in len(lon_vector):
+    for idx in range(len(lon_vector)):
         coordinates_pair = [lon_vector[idx], lat_vector[idx]]
         coordinates_list.append(coordinates_pair)
-    coordinates_list.append(coordinates_pair[0])
+    coordinates_list.append(coordinates_list[0])
 
     fc.add_feature(
         {"type": "Feature",
