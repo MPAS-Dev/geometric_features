@@ -1066,17 +1066,14 @@
         "Arctic_NSIDC"
       ],
       "Bellingshausen Sea": [
-        "Antarctic",
-        "Timmermann"
+        "Antarctic"
       ],
       "Bellingshausen Sea Deep": [
         "Antarctic",
-        "Timmermann",
         "Deep"
       ],
       "Bellingshausen Sea Shelf": [
         "Antarctic",
-        "Timmermann",
         "Shelf"
       ],
       "Bering Sea": [
@@ -1188,17 +1185,14 @@
         "Shelf"
       ],
       "Eastern Weddell Sea": [
-        "Antarctic",
-        "Orsi"
+        "Antarctic"
       ],
       "Eastern Weddell Sea Deep": [
         "Antarctic",
-        "Orsi",
         "Deep"
       ],
       "Eastern Weddell Sea Shelf": [
         "Antarctic",
-        "Orsi",
         "Shelf"
       ],
       "English Channel": [
@@ -1545,17 +1539,14 @@
         "Mediterranean_Basin"
       ],
       "Weddell Sea": [
-        "Antarctic",
-        "Orsi"
+        "Antarctic"
       ],
       "Weddell Sea Deep": [
         "Antarctic",
-        "Timmermann",
         "Deep"
       ],
       "Weddell Sea Shelf": [
         "Antarctic",
-        "Timmermann",
         "Shelf"
       ],
       "Western Ross Sea": [
@@ -1573,17 +1564,14 @@
         "Shelf"
       ],
       "Western Weddell Sea": [
-        "Antarctic",
-        "Orsi"
+        "Antarctic"
       ],
       "Western Weddell Sea Deep": [
         "Antarctic",
-        "Orsi",
         "Deep"
       ],
       "Western Weddell Sea Shelf": [
         "Antarctic",
-        "Orsi",
         "Shelf"
       ],
       "White Sea": [
