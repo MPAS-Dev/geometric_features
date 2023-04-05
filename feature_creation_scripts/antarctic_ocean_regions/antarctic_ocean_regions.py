@@ -292,15 +292,17 @@ def main():
     fcWeddell.features = fcWeddell.features[1:]
     fc.merge(fcWeddell)
 
-    fcEW = split_rectangle(
-        lon0=-20., lon1=25., lat0=-80., lat1=-55., name='Eastern Weddell Sea',
+    fcEW = split_polygon(
+        lon_vector=[-20., -20., 10., 25., 25.], 
+        lat_vector=[-80., -60., -55., -55., -80.], 
+        name='Eastern Weddell Sea',
         author=xylar, tags=antTag, fcContour=fcContour800)
 
     fc.merge(fcEW)
 
     fcWW = split_polygon(
         lon_vector=[-100., -86., -63., -66., -60., -51., -20., -20.],
-        lat_vector=[-81., -75., -73., -67., -64., -62., -62., -85.],
+        lat_vector=[-81., -75., -73., -67., -64., -60., -60., -85.],
         name='Western Weddell Sea',
         author=carolyn, tags=antTag, fcContour=fcContour800)
 
