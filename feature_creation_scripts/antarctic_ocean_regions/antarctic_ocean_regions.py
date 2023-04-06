@@ -213,9 +213,7 @@ def make_rectangle(lon0, lon1, lat0, lat1, name, author, tags):
     return fc
 
 
-def split_rectangle(lon0, lon1, lat0, lat1, name, author, tags, fcContour):
-    fc = make_rectangle(lon0, lon1, lat0, lat1, name, author, tags)
-
+def split_feature(fc, fcContour):
     fcDeep = fc.difference(fcContour)
 
     props = fcDeep.features[0]['properties']
@@ -238,28 +236,15 @@ def split_rectangle(lon0, lon1, lat0, lat1, name, author, tags, fcContour):
     return fc
 
 
+def split_rectangle(lon0, lon1, lat0, lat1, name, author, tags, fcContour):
+    fc = make_rectangle(lon0, lon1, lat0, lat1, name, author, tags)
+    split_feature(fc, fcContour)
+    return fc
+
+
 def split_polygon(lon_vector, lat_vector, name, author, tags, fcContour):
     fc = make_polygon(lon_vector, lat_vector, name, author, tags)
-
-    fcDeep = fc.difference(fcContour)
-
-    props = fcDeep.features[0]['properties']
-    props['name'] = props['name'] + ' Deep'
-    props['tags'] = props['tags'] + ';Deep'
-    props['zmin'] = -1000.
-    props['zmax'] = -400.
-
-    fcShelf = fc.difference(fcDeep)
-
-    props = fcShelf.features[0]['properties']
-    props['name'] = props['name'] + ' Shelf'
-    props['tags'] = props['tags'] + ';Shelf'
-    props['zmin'] = -1000.
-    props['zmax'] = -200.
-
-    fc.merge(fcDeep)
-    fc.merge(fcShelf)
-
+    split_feature(fc, fcContour)
     return fc
 
 
@@ -281,20 +266,9 @@ def main():
 
     fc = FeatureCollection()
 
-    fcWeddell = split_polygon(
-        lon_vector=[-100., -86., -63., -66., -60., -51., 0., 0.],
-        lat_vector=[-81., -75., -73., -67., -64., -62., -62., -90.],
-        name='Weddell Sea',
-        author=carolyn, tags=antTag, fcContour=fcContour800)
-
-    # get rid of the Weddell Sea because we're not that happy with this
-    # definition, but keep the deep/shelf ones
-    fcWeddell.features = fcWeddell.features[1:]
-    fc.merge(fcWeddell)
-
     fcEW = split_polygon(
-        lon_vector=[-20., -20., 10., 25., 25.], 
-        lat_vector=[-80., -60., -55., -55., -80.], 
+        lon_vector=[-20., -20., 10., 25., 25.],
+        lat_vector=[-80., -60., -55., -55., -80.],
         name='Eastern Weddell Sea',
         author=xylar, tags=antTag, fcContour=fcContour800)
 
@@ -321,6 +295,8 @@ def main():
     props['tags'] = antTag
     props['zmin'] = -1000.
     props['zmax'] = -400.
+
+    split_feature(fcWeddell, fcContour800)
 
     fc.merge(fcWeddell)
 
