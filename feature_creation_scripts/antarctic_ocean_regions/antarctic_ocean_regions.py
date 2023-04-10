@@ -106,11 +106,15 @@ def get_longest_contour(contourValue, author):
     def stereo_to_lon_lat(x, y):
         return pyproj.transform(inProj, outProj, x, y)
 
-    ds = xarray.open_dataset('bedmap2.nc')
+    with xarray.open_dataset('bedmap2.nc') as ds:
+        # the bed but not under grounded ice
+        bed = xarray.where(ds.icemask_grounded > 0.5, 0., ds.bed).values
+        x = ds.x.values
+        y = ds.y.values
 
     # plot contours
     plt.figure()
-    cs = plt.contour(ds.x.values, ds.y.values, ds.bed, (contourValue,))
+    cs = plt.contour(x, y, bed, (contourValue,))
     paths = cs.collections[0].get_paths()
 
     pathLengths = [len(paths[i]) for i in range(len(paths))]
@@ -125,7 +129,6 @@ def get_longest_contour(contourValue, author):
     inProj = pyproj.Proj(init='epsg:3031')
     # lon/lat
     outProj = pyproj.Proj(init='epsg:4326')
-    lon, lat = pyproj.transform(inProj, outProj, x, y)
 
     poly = shapely.geometry.Polygon([(i[0], i[1]) for i in zip(x, y)])
 
@@ -164,6 +167,30 @@ def get_longest_contour(contourValue, author):
     return fc
 
 
+def make_polygon(lon_vector, lat_vector, name, author, tags):
+    fc = FeatureCollection()
+
+    coordinates_list = []
+    for idx in range(len(lon_vector)):
+        coordinates_pair = [lon_vector[idx], lat_vector[idx]]
+        coordinates_list.append(coordinates_pair)
+    coordinates_list.append(coordinates_list[0])
+
+    fc.add_feature(
+        {"type": "Feature",
+         "properties": {"name": name,
+                        "author": author,
+                        "object": 'region',
+                        "component": 'ocean',
+                        "tags": tags,
+                        "zmin": -1000.,
+                        "zmax": -400.},
+         "geometry": {
+             "type": "Polygon",
+             "coordinates": [coordinates_list]}})
+    return fc
+
+
 def make_rectangle(lon0, lon1, lat0, lat1, name, author, tags):
     fc = FeatureCollection()
 
@@ -186,9 +213,7 @@ def make_rectangle(lon0, lon1, lat0, lat1, name, author, tags):
     return fc
 
 
-def split_rectangle(lon0, lon1, lat0, lat1, name, author, tags, fcContour):
-    fc = make_rectangle(lon0, lon1, lat0, lat1, name, author, tags)
-
+def split_feature(fc, fcContour):
     fcDeep = fc.difference(fcContour)
 
     props = fcDeep.features[0]['properties']
@@ -211,10 +236,24 @@ def split_rectangle(lon0, lon1, lat0, lat1, name, author, tags, fcContour):
     return fc
 
 
+def split_rectangle(lon0, lon1, lat0, lat1, name, author, tags, fcContour):
+    fc = make_rectangle(lon0, lon1, lat0, lat1, name, author, tags)
+    split_feature(fc, fcContour)
+    return fc
+
+
+def split_polygon(lon_vector, lat_vector, name, author, tags, fcContour):
+    fc = make_polygon(lon_vector, lat_vector, name, author, tags)
+    split_feature(fc, fcContour)
+    return fc
+
+
 def main():
-    author = 'Xylar Asay-Davis'
+    xylar = 'Xylar Asay-Davis'
+    carolyn = 'Carolyn Begeman'
     timTags = 'Antarctic;Timmermann'
     orsiTags = 'Antarctic;Orsi'
+    antTag = 'Antarctic'
 
     # make a geometric fieatures object that knows about the geometric data
     # cache up a couple of directories
@@ -222,29 +261,24 @@ def main():
 
     bedmap2_bin_to_netcdf('bedmap2.nc')
 
-    fcContour700 = get_longest_contour(contourValue=-700., author=author)
-    fcContour800 = get_longest_contour(contourValue=-800., author=author)
+    fcContour700 = get_longest_contour(contourValue=-700., author=xylar)
+    fcContour800 = get_longest_contour(contourValue=-800., author=xylar)
 
     fc = FeatureCollection()
 
-    fcWeddell = split_rectangle(
-        lon0=-63., lon1=0., lat0=-80., lat1=-65., name='Weddell Sea',
-        author=author, tags=timTags, fcContour=fcContour800)
-
-    # get rid of the Weddell Sea because we're not that happy with this
-    # definition, but keep the deep/shelf ones
-    fcWeddell.features = fcWeddell.features[1:]
-    fc.merge(fcWeddell)
-
-    fcEW = split_rectangle(
-        lon0=-20., lon1=25., lat0=-80., lat1=-55., name='Eastern Weddell Sea',
-        author=author, tags=orsiTags, fcContour=fcContour800)
+    fcEW = split_polygon(
+        lon_vector=[-20., -20., 10., 25., 25.],
+        lat_vector=[-80., -60., -55., -55., -80.],
+        name='Eastern Weddell Sea',
+        author=xylar, tags=antTag, fcContour=fcContour800)
 
     fc.merge(fcEW)
 
-    fcWW = split_rectangle(
-        lon0=-63., lon1=-20., lat0=-80., lat1=-60., name='Western Weddell Sea',
-        author=author, tags=orsiTags, fcContour=fcContour800)
+    fcWW = split_polygon(
+        lon_vector=[-100., -86., -63., -66., -60., -51., -20., -20.],
+        lat_vector=[-81., -75., -73., -67., -64., -60., -60., -85.],
+        name='Western Weddell Sea',
+        author=carolyn, tags=antTag, fcContour=fcContour800)
 
     fc.merge(fcWW)
 
@@ -258,40 +292,39 @@ def main():
     # now combine these into a single feature
     fcWeddell = fcWeddell.combine('Weddell Sea')
     props = fcWeddell.features[0]['properties']
-    props['tags'] = orsiTags
+    props['tags'] = antTag
     props['zmin'] = -1000.
     props['zmax'] = -400.
 
+    split_feature(fcWeddell, fcContour800)
+
     fc.merge(fcWeddell)
 
-    # add the Weddell Sea back as the sum of Eastern and Western
-    fc.merge(make_rectangle(
-        lon0=-63., lon1=45., lat0=-80., lat1=-58., name='Weddell Sea',
-        author=author, tags=orsiTags))
-
-    fc.merge(split_rectangle(
-        lon0=-100., lon1=-63., lat0=-80., lat1=-67., name='Bellingshausen Sea',
-        author=author, tags=timTags, fcContour=fcContour700))
+    fc.merge(split_polygon(
+        lon_vector=[-100., -86., -63., -66., -100.],
+        lat_vector=[-81., -75., -73., -67., -67.],
+        name='Bellingshausen Sea',
+        author=carolyn, tags=antTag, fcContour=fcContour700))
 
     fc.merge(split_rectangle(
         lon0=-140., lon1=-100., lat0=-80., lat1=-67., name='Amundsen Sea',
-        author=author, tags=timTags, fcContour=fcContour800))
+        author=xylar, tags=timTags, fcContour=fcContour800))
 
     fc.merge(split_rectangle(
         lon0=-180., lon1=-140., lat0=-80., lat1=-67., name='Eastern Ross Sea',
-        author=author, tags=timTags, fcContour=fcContour700))
+        author=xylar, tags=timTags, fcContour=fcContour700))
 
     fc.merge(split_rectangle(
         lon0=160., lon1=180., lat0=-80., lat1=-67., name='Western Ross Sea',
-        author=author, tags=timTags, fcContour=fcContour700))
+        author=xylar, tags=timTags, fcContour=fcContour700))
 
     fc.merge(split_rectangle(
         lon0=25., lon1=160., lat0=-80., lat1=-62., name='East Antarctic Seas',
-        author=author, tags=orsiTags, fcContour=fcContour800))
+        author=xylar, tags=orsiTags, fcContour=fcContour800))
 
     fc.merge(make_rectangle(
         lon0=-180., lon1=180., lat0=-80., lat1=-60., name='Southern Ocean 60S',
-        author=author, tags=timTags))
+        author=xylar, tags=timTags))
 
     fcSO = gf.read('ocean', 'region', ['Southern Ocean'])
     props = fcSO.features[0]['properties']

@@ -34,7 +34,7 @@ def get_aggregator_by_name(region_group):
     """
 
     regions = {'Antarctic Regions': {'prefix': 'antarcticRegions',
-                                     'date': '20200621',
+                                     'date': '20230403',
                                      'function': antarctic},
                'Arctic Ocean Regions': {'prefix': 'arcticOceanRegions',
                                         'date': '20201130',

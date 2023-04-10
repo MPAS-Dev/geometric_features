@@ -5,10 +5,10 @@
             "type": "Feature",
             "properties": {
                 "name": "Bellingshausen Sea Shelf",
-                "tags": "Antarctic;Timmermann;Shelf",
+                "tags": "Antarctic;Shelf",
                 "object": "region",
                 "component": "ocean",
-                "author": "Xylar Asay-Davis",
+                "author": "Carolyn Begeman",
                 "zmax": -200.0,
                 "zmin": -1000.0
             },
@@ -17,20 +17,20 @@
                 "coordinates": [
                     [
                         [
-                            -72.825769,
+                            -66.0,
                             -67.0
                         ],
                         [
                             -63.0,
-                            -67.0
+                            -73.0
                         ],
                         [
-                            -63.0,
-                            -80.0
+                            -86.0,
+                            -75.0
                         ],
                         [
                             -100.0,
-                            -80.0
+                            -81.0
                         ],
                         [
                             -100.0,
@@ -6274,6 +6274,10 @@
                         ],
                         [
                             -72.825769,
+                            -67.0
+                        ],
+                        [
+                            -66.0,
                             -67.0
                         ]
                     ]

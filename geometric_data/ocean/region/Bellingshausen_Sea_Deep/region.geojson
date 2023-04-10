@@ -5,10 +5,10 @@
             "type": "Feature",
             "properties": {
                 "name": "Bellingshausen Sea Deep",
-                "tags": "Antarctic;Timmermann;Deep",
+                "tags": "Antarctic;Deep",
                 "object": "region",
                 "component": "ocean",
-                "author": "Xylar Asay-Davis",
+                "author": "Carolyn Begeman",
                 "zmax": -400.0,
                 "zmin": -1000.0
             },
@@ -16,10 +16,6 @@
                 "type": "Polygon",
                 "coordinates": [
                     [
-                        [
-                            -100.0,
-                            -71.006346
-                        ],
                         [
                             -100.0,
                             -67.0
@@ -6267,6 +6263,10 @@
                         [
                             -100.0,
                             -71.006346
+                        ],
+                        [
+                            -100.0,
+                            -67.0
                         ]
                     ]
                 ]

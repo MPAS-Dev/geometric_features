@@ -5,7 +5,7 @@
             "type": "Feature",
             "properties": {
                 "name": "Eastern Weddell Sea Deep",
-                "tags": "Antarctic;Orsi;Deep",
+                "tags": "Antarctic;Deep",
                 "object": "region",
                 "component": "ocean",
                 "author": "Xylar Asay-Davis",
@@ -18,10 +18,10 @@
                     [
                         [
                             -20.0,
-                            -73.090735
+                            -60.0
                         ],
                         [
-                            -20.0,
+                            10.0,
                             -55.0
                         ],
                         [
@@ -10659,6 +10659,10 @@
                         [
                             -20.0,
                             -73.090735
+                        ],
+                        [
+                            -20.0,
+                            -60.0
                         ]
                     ]
                 ]

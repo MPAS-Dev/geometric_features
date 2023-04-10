@@ -5,10 +5,10 @@
             "type": "Feature",
             "properties": {
                 "name": "Bellingshausen Sea",
-                "tags": "Antarctic;Timmermann",
+                "tags": "Antarctic",
                 "object": "region",
                 "component": "ocean",
-                "author": "Xylar Asay-Davis",
+                "author": "Carolyn Begeman",
                 "zmax": -400.0,
                 "zmin": -1000.0
             },
@@ -18,14 +18,18 @@
                     [
                         [
                             -100.0,
-                            -80.0
+                            -81.0
+                        ],
+                        [
+                            -86.0,
+                            -75.0
                         ],
                         [
                             -63.0,
-                            -80.0
+                            -73.0
                         ],
                         [
-                            -63.0,
+                            -66.0,
                             -67.0
                         ],
                         [
@@ -34,7 +38,7 @@
                         ],
                         [
                             -100.0,
-                            -80.0
+                            -81.0
                         ]
                     ]
                 ]
