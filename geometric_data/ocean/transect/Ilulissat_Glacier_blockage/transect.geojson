@@ -1,0 +1,41 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Ilulissat Glacier blockage",
+                "tags": "Critical_Land_Blockage",
+                "object": "transect",
+                "component": "ocean",
+                "height": "100.0",
+                "author": "Milena Veneziani"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -50.33,
+                        69.31
+                    ],
+                    [
+                        -49.62,
+                        69.34
+                    ],
+                    [
+                        -49.04,
+                        69.26
+                    ],
+                    [
+                        -49.25,
+                        69.01
+                    ],
+                    [
+                        -50.18,
+                        69.05
+                    ]
+                ]
+            }
+        }
+    ]
+}

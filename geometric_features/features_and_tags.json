@@ -1667,9 +1667,15 @@
       "Hudson Bay-Labrador Sea": [
         "arctic_transport_sections"
       ],
+      "Humboldt Petermann Glaciers blockage": [
+        "Critical_Land_Blockage"
+      ],
       "Iceland-Faroe-Scotland": [
         "standard_transport_sections",
         "arctic_transport_sections"
+      ],
+      "Ilulissat Glacier blockage": [
+        "Critical_Land_Blockage"
       ],
       "Indonesian Throughflow": [
         "standard_transport_sections"

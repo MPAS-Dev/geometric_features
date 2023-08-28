@@ -1,0 +1,41 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Humboldt Petermann Glaciers blockage",
+                "tags": "Critical_Land_Blockage",
+                "object": "transect",
+                "component": "ocean",
+                "author": "Milena Veneziani",
+                "height": "100.0"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -67.25,
+                        79.03
+                    ],
+                    [
+                        -64.0,
+                        78.72
+                    ],
+                    [
+                        -59.58,
+                        79.87
+                    ],
+                    [
+                        -53.46,
+                        80.9
+                    ],
+                    [
+                        -56.75,
+                        82.03
+                    ]
+                ]
+            }
+        }
+    ]
+}
