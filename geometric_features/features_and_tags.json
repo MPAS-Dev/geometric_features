@@ -1312,6 +1312,41 @@
         "ISMIP6",
         "Shelf"
       ],
+      "ISMIP6 Greenland Central East Shelf": [
+        "Greenland",
+        "ISMIP6",
+        "Shelf"
+      ],
+      "ISMIP6 Greenland Central West Shelf": [
+        "Greenland",
+        "ISMIP6",
+        "Shelf"
+      ],
+      "ISMIP6 Greenland North East Shelf": [
+        "Greenland",
+        "ISMIP6",
+        "Shelf"
+      ],
+      "ISMIP6 Greenland North Shelf": [
+        "Greenland",
+        "ISMIP6",
+        "Shelf"
+      ],
+      "ISMIP6 Greenland North West Shelf": [
+        "Greenland",
+        "ISMIP6",
+        "Shelf"
+      ],
+      "ISMIP6 Greenland South East Shelf": [
+        "Greenland",
+        "ISMIP6",
+        "Shelf"
+      ],
+      "ISMIP6 Greenland South West Shelf": [
+        "Greenland",
+        "ISMIP6",
+        "Shelf"
+      ],
       "ISMIP6 Ross Sea": [
         "Antarctic",
         "ISMIP6",
