@@ -94,6 +94,7 @@ Aggregation
    aggregation.ocean.moc
    aggregation.ocean.arctic
    aggregation.ocean.antarctic
+   aggregation.ocean.greenland
    aggregation.ocean.ice_shelves
    aggregation.ocean.transport
 
