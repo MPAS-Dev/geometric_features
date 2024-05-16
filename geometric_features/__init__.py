@@ -13,5 +13,5 @@ from geometric_features.__main__ import combine_features, difference_features, \
 from geometric_features.utils import write_feature_names_and_tags
 
 
-__version_info__ = (1, 3, 0)
+__version_info__ = (1, 4, 0)
 __version__ = '.'.join(str(vi) for vi in __version_info__)
