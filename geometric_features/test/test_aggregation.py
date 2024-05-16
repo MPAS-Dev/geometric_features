@@ -12,7 +12,7 @@ class TestAggregation(TestCase):
 
     def test_get_aggregator_by_name(self):
         gf = GeometricFeatures()
-        names = ['Antarctic Regions', 'Arctic Ocean Regions',
+        names = ['Antarctic Regions', 'Arctic Ocean Regions', 'Greenland Regions',
                  'Arctic Sea Ice Regions', 'Ocean Basins', 'Ice Shelves',
                  'Ocean Subbasins', 'ISMIP6 Regions', 'MOC Basins',
                  'Transport Transects', 'Arctic Transport Transects']

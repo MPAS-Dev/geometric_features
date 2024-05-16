@@ -17,6 +17,8 @@ the following group names:
 
 * Arctic Sea Ice Regions
 
+* Greenland Regions
+
 * Ocean Basins
 
 * Ice Shelves
@@ -85,6 +87,16 @@ Bellingshausen Sea Shelf, Bellingshausen Sea Deep, Amundsen Sea Shelf,
 Amundsen Sea Deep, Eastern Ross Sea Shelf, Eastern Ross Sea Deep,
 Western Ross Sea Shelf, Western Ross Sea Deep, East Antarctic Seas Shelf,
 East Antarctic Seas Deep.
+
+Greenland Regions
+~~~~~~~~~~~~~~~~~
+
+The function :py:func:`geometric_features.aggregation.ocean.greenland`
+aggregates regions of the continental shelves around Greenland based on the
+ISMIP6 regions: ISMIP6 Greenland Central East Shelf,
+ISMIP6 Greenland Central West Shelf, ISMIP6 Greenland North East Shelf,
+ISMIP6 Greenland North Shelf, ISMIP6 Greenland North West Shelf,
+ISMIP6 Greenland South East Shelf, ISMIP6 Greenland South West Shelf.
 
 Ice-shelf Regions
 ~~~~~~~~~~~~~~~~~
