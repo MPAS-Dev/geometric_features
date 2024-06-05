@@ -990,6 +990,9 @@
         "Andaman_or_Burma_Sea",
         "Indian_Basin"
       ],
+      "Antarctica within 1000m isobath": [
+        "Antarctic"
+      ],
       "Arabian Sea": [
         "Arabian_Sea",
         "Indian_Basin"
@@ -1626,6 +1629,9 @@
       ],
       "Akimiski Strait": [
         "Critical_Passage"
+      ],
+      "Antarctic 1000m isobath": [
+        "Antarctic"
       ],
       "Antarctic Peninsula": [
         "Antarctic_Peninsula",
