@@ -1660,6 +1660,9 @@
       "Calabria": [
         "Critical_Land_Blockage"
       ],
+      "Carroll Inlet": [
+        "Critical_Passage"
+      ],
       "Davis Strait": [
         "standard_transport_sections",
         "arctic_transport_sections"
