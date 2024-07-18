@@ -1,0 +1,33 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Carroll Inlet",
+                "tags": "Critical_Passage",
+                "object": "transect",
+                "component": "ocean",
+                "author": "Xylar Asay-Davis",
+                "depth": "200.0"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -79.97838,
+                        -72.807268
+                    ],
+                    [
+                        -79.318248,
+                        -73.070876
+                    ],
+                    [
+                        -78.6627,
+                        -73.268643
+                    ]
+                ]
+            }
+        }
+    ]
+}
