@@ -4,13 +4,13 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "Southern Ocean 60S",
-                "tags": "Antarctic;Timmermann",
+                "name": "Southern Hemisphere",
+                "tags": "",
                 "object": "region",
                 "component": "ocean",
-                "author": "Xylar Asay-Davis",
-                "zmax": -400.0,
-                "zmin": -1000.0
+                "author": "Carolyn Begeman",
+                "zmax": 10.0,
+                "zmin": -10000.0
             },
             "geometry": {
                 "type": "Polygon",

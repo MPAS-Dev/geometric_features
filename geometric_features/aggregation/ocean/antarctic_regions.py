@@ -16,7 +16,7 @@ def antarctic(gf):
     # -------
     # Xylar Asay-Davis
 
-    regions = ['Southern Hemisphere', 'Southern Ocean', 'Southern Ocean 60S',
+    regions = ['Southern Ocean', 'Southern Ocean 60S',
                'Eastern Weddell Sea Shelf', 'Eastern Weddell Sea Deep',
                'Western Weddell Sea Shelf', 'Western Weddell Sea Deep',
                'Weddell Sea Shelf', 'Weddell Sea Deep',

@@ -44,6 +44,7 @@ def basins(gf):
     fc.merge(gf.read(componentName='ocean', objectType='region',
                      featureNames=['Global Ocean',
                                    'Global Ocean 65N to 65S',
-                                   'Global Ocean 15S to 15N']))
+                                   'Global Ocean 15S to 15N',
+                                   'Southern Hemisphere']))
 
     return fc

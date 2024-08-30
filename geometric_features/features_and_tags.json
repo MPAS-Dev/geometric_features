@@ -1537,13 +1537,16 @@
         "South_Pacific_Ocean",
         "Pacific_Basin"
       ],
-      "Southern Ocean 60S": [
-        "Antarctic",
-        "Timmermann"
+      "Southern Hemisphere": [
+        ""
       ],
       "Southern Ocean": [
         "Southern_Ocean",
         "Southern_Ocean_Basin"
+      ],
+      "Southern Ocean 60S": [
+        "Antarctic",
+        "Timmermann"
       ],
       "Strait of Gibraltar": [
         "Strait_of_Gibraltar",
