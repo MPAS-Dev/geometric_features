@@ -1,0 +1,44 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Southern Ocean 60S",
+                "tags": "Antarctic;Timmermann",
+                "object": "region",
+                "component": "ocean",
+                "author": "Xylar Asay-Davis",
+                "zmax": -400.0,
+                "zmin": -1000.0
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -180.0,
+                            -80.0
+                        ],
+                        [
+                            180.0,
+                            -80.0
+                        ],
+                        [
+                            180.0,
+                            0.0
+                        ],
+                        [
+                            -180.0,
+                            0.0
+                        ],
+                        [
+                            -180.0,
+                            -80.0
+                        ]
+                    ]
+                ]
+            }
+        }
+    ]
+}
