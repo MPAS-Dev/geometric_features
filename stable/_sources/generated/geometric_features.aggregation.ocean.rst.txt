@@ -4,20 +4,3 @@
 .. automodule:: geometric_features.aggregation.ocean
 
    
-   
-   
-
-   
-   
-   
-
-   
-   
-   
-
-   
-   
-   
-
-
-

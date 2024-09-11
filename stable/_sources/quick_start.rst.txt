@@ -29,7 +29,7 @@ To use geometric features, you can install it in a conda environment:
 
 .. code-block:: bash
 
-   conda create -n geometric_features -c conda-forge python=3.9 geometric_features
+   conda create -n geometric_features -c conda-forge python=3.12 geometric_features
    conda activate geometric_features
 
 To develop ``geometric_features`` (e.g. to add new features), create and activate
