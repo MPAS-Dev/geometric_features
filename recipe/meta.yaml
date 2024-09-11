@@ -25,10 +25,10 @@ build:
 
 requirements:
   host:
-    - python >=3.8
+    - python >=3.9
     - pip
   run:
-    - python >=3.8
+    - python >=3.9
     - cartopy
     - importlib_resources
     - matplotlib-base

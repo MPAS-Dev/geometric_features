@@ -3,11 +3,8 @@ from __future__ import absolute_import, division, print_function, \
 
 import json
 import os
-try:
-    from importlib.resources import files as imp_res_files
-except ImportError:
-    # python<=3.8
-    from importlib_resources import files as imp_res_files
+
+from importlib.resources import files as imp_res_files
 
 import geometric_features
 

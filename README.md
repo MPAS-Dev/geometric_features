@@ -27,7 +27,7 @@ will be added shortly.
 
 To use geometric features, you can install it in a conda environment:
 ```bash
-conda create -n geometric_features -c conda-forge python=3.9 geometric_features
+conda create -n geometric_features -c conda-forge python=3.12 geometric_features
 conda activate geometric_features
 ```
 
