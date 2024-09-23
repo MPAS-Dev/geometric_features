@@ -111,7 +111,7 @@ conda<span class="w"> </span>activate<span class="w"> </span>geometric_features
 </dl>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-y<span class="w"> </span>-n<span class="w"> </span>mpas_dev<span class="w"> </span>--file<span class="w"> </span>dev-spec.txt
 conda<span class="w"> </span>activate<span class="w"> </span>mpas_dev
-python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--no-deps<span class="w"> </span>--no-build-isolation<span class="w"> </span>-e<span class="w"> </span>.
 </pre></div>
 </div>
 <p>A typical workflow will look like:</p>
