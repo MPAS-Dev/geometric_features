@@ -36,7 +36,7 @@ To develop `geometric_features` (e.g. to add new features), create and activate
 ```bash
 conda create -y -n mpas_dev --file dev-spec.txt
 conda activate mpas_dev
-python -m pip install -e .
+python -m pip install --no-deps --no-build-isolation -e .
 ```
 
 A typical workflow will look like:

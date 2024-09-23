@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-$PYTHON -m pip install . --no-deps -vv
+$PYTHON -m pip install --no-deps --no-build-isolation -vv .
 
 cp -r "${SRC_DIR}/geometric_data" "${PREFIX}/share/geometric_data"
 
