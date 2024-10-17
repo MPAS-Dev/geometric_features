@@ -865,6 +865,63 @@
       ],
       "westCentralGreenland2": [
         "westCentralGreenland"
+      ],
+      "eastCentralGreenland1_oceanExtended": [
+        "eastCentralGreenland"
+      ],
+      "eastCentralGreenland2_oceanExtended": [
+        "eastCentralGreenland"
+      ],
+      "eastCentralGreenland3_oceanExtended": [
+        "eastCentralGreenland"
+      ],
+      "northEastGreenland1_oceanExtended": [
+        "northEastGreenland"
+      ],
+      "northEastGreenland2_oceanExtended": [
+        "northEastGreenland"
+      ],
+      "northGreenland1_oceanExtended": [
+        "northGreenland"
+      ],
+      "northGreenland2_oceanExtended": [
+        "northGreenland"
+      ],
+      "northGreenland3_oceanExtended": [
+        "northGreenland"
+      ],
+      "northGreenland4_oceanExtended": [
+        "northGreenland"
+      ],
+      "northWestGreenland1_oceanExtended": [
+        "northWestGreenland"
+      ],
+      "northWestGreenland2_oceanExtended": [
+        "northWestGreenland"
+      ],
+      "southEastGreenland1_oceanExtended": [
+        "southEastGreenland"
+      ],
+      "southEastGreenland2_oceanExtended": [
+        "southEastGreenland"
+      ],
+      "southEastGreenland3_oceanExtended": [
+        "southEastGreenland"
+      ],
+      "southGreenland1_oceanExtended": [
+        "southGreenland"
+      ],
+      "southWestGreenland1_oceanExtended": [
+        "southWestGreenland"
+      ],
+      "southWestGreenland2_oceanExtended": [
+        "southWestGreenland"
+      ],
+      "westCentralGreenland1_oceanExtended": [
+        "westCentralGreenland"
+      ],
+      "westCentralGreenland2_oceanExtended": [
+        "westCentralGreenland"
       ]
     }
   },
