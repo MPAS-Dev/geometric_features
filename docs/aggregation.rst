@@ -19,6 +19,8 @@ the following group names:
 
 * Greenland Regions
 
+* Greenland Landice Regions
+
 * Ocean Basins
 
 * Ice Shelves
@@ -97,6 +99,16 @@ ISMIP6 regions: ISMIP6 Greenland Central East Shelf,
 ISMIP6 Greenland Central West Shelf, ISMIP6 Greenland North East Shelf,
 ISMIP6 Greenland North Shelf, ISMIP6 Greenland North West Shelf,
 ISMIP6 Greenland South East Shelf, ISMIP6 Greenland South West Shelf.
+
+Greenland Landice Regions
+~~~~~~~~~~~~~~~~~
+
+The function :py:func:`geometric_features.aggregation.landice.greenland`
+aggregates regions of Greenland drainage basins taken from NASA: 
+(https://earth.gsfc.nasa.gov/cryo/data/polar-altimetry/antarctic-and-greenland-drainage-systems)
+The drainage basins have been altered to extend to the continental shelf. Boundaries between basins
+have also been altered so that all glaciers terminating in an individual fjord 
+are from the same drainage basin.
 
 Ice-shelf Regions
 ~~~~~~~~~~~~~~~~~

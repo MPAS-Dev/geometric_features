@@ -100,3 +100,5 @@ Aggregation
 
    aggregation.seaice
    aggregation.seaice.arctic
+
+   aggregation.landice.greenland
