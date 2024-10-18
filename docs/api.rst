@@ -100,5 +100,5 @@ Aggregation
 
    aggregation.seaice
    aggregation.seaice.arctic
-
+   aggregation.seaice.qgreenland
    aggregation.landice.nasa_greenland
