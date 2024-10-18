@@ -100,3 +100,4 @@ Aggregation
 
    aggregation.seaice
    aggregation.seaice.arctic
+   aggregation.seaice.qgreenland
