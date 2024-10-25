@@ -1,0 +1,299 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FeatureCollection &mdash; geometric_features 1.5.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=7ab3649f" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=e0a75244"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Geometric Data" href="geometric_data.html" />
+    <link rel="prev" title="GeometricFeatures" href="geometric_features.html" />
+    <link href="_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            geometric_features
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User's Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geometric_features.html">GeometricFeatures</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FeatureCollection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#reading-in-features">Reading in Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-a-feature">Add a Feature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#merging-features">Merging Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#plotting-features">Plotting Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tag-features">Tag Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#writing-out-features">Writing out Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#set-a-group-name">Set a Group Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#combine-features">Combine Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#difference-features">Difference Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#simplify-features">Simplify Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fix-features-at-180">Fix Features at +/- 180</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="geometric_data.html">Geometric Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aggregation.html">Aggregate Existing Features</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer's Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="adding_features.html">Adding New Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build_docs.html">Building the Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="versions.html">Versions</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">geometric_features</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">FeatureCollection</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/feature_collection.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="featurecollection">
+<span id="id1"></span><h1>FeatureCollection<a class="headerlink" href="#featurecollection" title="Link to this heading"></a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">FeatureCollection</span></code> objects can be used to manipulate features in several
+ways.  Typically, you would use member functions such as <code class="docutils literal notranslate"><span class="pre">fc.merge()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">fc.combine()</span></code> and <code class="docutils literal notranslate"><span class="pre">fc.plot()</span></code> to perform these manipulations.</p>
+<section id="reading-in-features">
+<h2>Reading in Features<a class="headerlink" href="#reading-in-features" title="Link to this heading"></a></h2>
+<p>A <code class="docutils literal notranslate"><span class="pre">FeatureCollection</span></code> can be read from a file with the function
+<a class="reference internal" href="generated/geometric_features.read_feature_collection.html#geometric_features.read_feature_collection" title="geometric_features.read_feature_collection"><code class="xref py py-func docutils literal notranslate"><span class="pre">geometric_features.read_feature_collection()</span></code></a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">geometric_features</span> <span class="kn">import</span> <span class="n">read_feature_collection</span>
+
+<span class="n">fc</span> <span class="o">=</span> <span class="n">read_feature_collection</span><span class="p">(</span><span class="s1">&#39;features.geojson&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="add-a-feature">
+<h2>Add a Feature<a class="headerlink" href="#add-a-feature" title="Link to this heading"></a></h2>
+<p>To add a single feature to a <code class="docutils literal notranslate"><span class="pre">FeatureColleciton</span></code>, use
+<a class="reference internal" href="generated/geometric_features.FeatureCollection.add_feature.html#geometric_features.FeatureCollection.add_feature" title="geometric_features.FeatureCollection.add_feature"><code class="xref py py-meth docutils literal notranslate"><span class="pre">geometric_features.FeatureCollection.add_feature()</span></code></a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fc</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">feature</span></code> is a dictionary describing a single <a class="reference internal" href="geometric_data.html#feature"><span class="std std-ref">Feature</span></a>.</p>
+</section>
+<section id="merging-features">
+<h2>Merging Features<a class="headerlink" href="#merging-features" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>A <code class="docutils literal notranslate"><span class="pre">FeatureCollection</span></code> <code class="docutils literal notranslate"><span class="pre">fc2</span></code> can be merged into another colleciton <code class="docutils literal notranslate"><span class="pre">fc1</span></code></dt><dd><p>with <a class="reference internal" href="generated/geometric_features.FeatureCollection.merge.html#geometric_features.FeatureCollection.merge" title="geometric_features.FeatureCollection.merge"><code class="xref py py-meth docutils literal notranslate"><span class="pre">geometric_features.FeatureCollection.merge()</span></code></a>:</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fc1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fc2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If the same feature name is found in both, the original feature from <code class="docutils literal notranslate"><span class="pre">fc1</span></code> is
+retained.</p>
+</section>
+<section id="plotting-features">
+<h2>Plotting Features<a class="headerlink" href="#plotting-features" title="Link to this heading"></a></h2>
+<p>A <code class="docutils literal notranslate"><span class="pre">FeatureCollection</span></code> can be plotted on a given map projection with
+<a class="reference internal" href="generated/geometric_features.FeatureCollection.plot.html#geometric_features.FeatureCollection.plot" title="geometric_features.FeatureCollection.plot"><code class="xref py py-meth docutils literal notranslate"><span class="pre">geometric_features.FeatureCollection.plot()</span></code></a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># plot the features in fc on a cylindrical projection</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">fc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;cyl&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="tag-features">
+<h2>Tag Features<a class="headerlink" href="#tag-features" title="Link to this heading"></a></h2>
+<p>All the features in a <code class="docutils literal notranslate"><span class="pre">FeatureCollection</span></code> can be tagged with one or more tags
+using <a class="reference internal" href="generated/geometric_features.FeatureCollection.tag.html#geometric_features.FeatureCollection.tag" title="geometric_features.FeatureCollection.tag"><code class="xref py py-meth docutils literal notranslate"><span class="pre">geometric_features.FeatureCollection.tag()</span></code></a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fc</span><span class="o">.</span><span class="n">tag</span><span class="p">([</span><span class="s1">&#39;tag1&#39;</span><span class="p">,</span> <span class="s1">&#39;tag2&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>These features can later be split into the :ref: <cite>GemoetricData</cite>
+direcory (see <a class="reference internal" href="adding_features.html#adding-features"><span class="std std-ref">Adding New Features</span></a>) and uploaded to the <a class="reference external" href="https://github.com/MPAS-Dev/geometric_features">GitHub repository</a>.
+Tags make it easier to combine many features into a feature collection (e.g.
+individual ocean regions into ocean basins).</p>
+</section>
+<section id="writing-out-features">
+<h2>Writing out Features<a class="headerlink" href="#writing-out-features" title="Link to this heading"></a></h2>
+<p>To write out a <code class="docutils literal notranslate"><span class="pre">FeatureCollection</span></code> to a <code class="docutils literal notranslate"><span class="pre">geojson</span></code> file, call
+<a class="reference internal" href="generated/geometric_features.FeatureCollection.to_geojson.html#geometric_features.FeatureCollection.to_geojson" title="geometric_features.FeatureCollection.to_geojson"><code class="xref py py-meth docutils literal notranslate"><span class="pre">geometric_features.FeatureCollection.to_geojson()</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fc</span><span class="o">.</span><span class="n">to_geojson</span><span class="p">(</span><span class="s1">&#39;features.geojson&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="set-a-group-name">
+<h2>Set a Group Name<a class="headerlink" href="#set-a-group-name" title="Link to this heading"></a></h2>
+<p>To set the <code class="docutils literal notranslate"><span class="pre">groupName</span></code> property of a <code class="docutils literal notranslate"><span class="pre">FeatureCollection</span></code>, call
+<a class="reference internal" href="generated/geometric_features.FeatureCollection.set_group_name.html#geometric_features.FeatureCollection.set_group_name" title="geometric_features.FeatureCollection.set_group_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">geometric_features.FeatureCollection.set_group_name()</span></code></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fc</span><span class="o">.</span><span class="n">set_group_name</span><span class="p">(</span><span class="s1">&#39;Regions Group&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Group names can be used later to identify the features in a collection, e.g.
+in order to create a mask for that cells in a mesh that belong to the features
+in that group.  The MPAS-Ocean model uses these features to create masks for
+land and for ocean regions such as ocean basins and Antarctic ice-shelf
+cavities.</p>
+</section>
+<section id="combine-features">
+<h2>Combine Features<a class="headerlink" href="#combine-features" title="Link to this heading"></a></h2>
+<p>Features in a <code class="docutils literal notranslate"><span class="pre">FeatureCollection</span></code> can be combined (fused together into a
+single feature) using
+<a class="reference internal" href="generated/geometric_features.FeatureCollection.combine.html#geometric_features.FeatureCollection.combine" title="geometric_features.FeatureCollection.combine"><code class="xref py py-meth docutils literal notranslate"><span class="pre">geometric_features.FeatureCollection.combine()</span></code></a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fcCombined</span> <span class="o">=</span> <span class="n">fc</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="s1">&#39;my feature name&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="difference-features">
+<h2>Difference Features<a class="headerlink" href="#difference-features" title="Link to this heading"></a></h2>
+<p>Features in a <code class="docutils literal notranslate"><span class="pre">FeatureCollection</span></code> can be masked with one or more masking
+features from another <code class="docutils literal notranslate"><span class="pre">FeatureCollection</span></code> using
+<a class="reference internal" href="generated/geometric_features.FeatureCollection.difference.html#geometric_features.FeatureCollection.difference" title="geometric_features.FeatureCollection.difference"><code class="xref py py-meth docutils literal notranslate"><span class="pre">geometric_features.FeatureCollection.difference()</span></code></a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fcMasked</span> <span class="o">=</span> <span class="n">fc</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">fcMask</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In this example, any part of the features in <code class="docutils literal notranslate"><span class="pre">fc</span></code> that overlap with any of
+the features in <code class="docutils literal notranslate"><span class="pre">fcMask</span></code> is removed in the resulting <code class="docutils literal notranslate"><span class="pre">fcMasked</span></code>.</p>
+</section>
+<section id="simplify-features">
+<h2>Simplify Features<a class="headerlink" href="#simplify-features" title="Link to this heading"></a></h2>
+<p>Sometimes, features are made up of segments or polygons with tiny edges that
+add little relevant detail to the features but make the files describing them
+needlessly large.  In such cases, the features can be simplified by calling
+<a class="reference internal" href="generated/geometric_features.FeatureCollection.simplify.html#geometric_features.FeatureCollection.simplify" title="geometric_features.FeatureCollection.simplify"><code class="xref py py-meth docutils literal notranslate"><span class="pre">geometric_features.FeatureCollection.simplify()</span></code></a> with
+and appropriate length scale (in degrees latitude/longitude) over which the
+feature may be modified to make it simpler.  If a length scale of zero is
+used, the feature will be simplified without any modification tot he shape
+being described (so that only edges or polygons that are truly reduntant will
+be removed).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fcSimplified</span> <span class="o">=</span> <span class="n">fc</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="fix-features-at-180">
+<h2>Fix Features at +/- 180<a class="headerlink" href="#fix-features-at-180" title="Link to this heading"></a></h2>
+<p>Valid <code class="docutils literal notranslate"><span class="pre">geojson</span></code> shapes should not cross the “antimeridian”, the location
+where 180 degrees longitude meets -180 degrees.  Often, it isn’t practical to
+contstruct a feature’s geometry from the start in this way, so this function
+provides a bit of a hack for removing a tiny sliver of the feature around the
+antimeridian so that the resulting shape remians between -180 and 180 degrees
+longitude.</p>
+<p><a class="reference internal" href="generated/geometric_features.FeatureCollection.fix_antimeridian.html#geometric_features.FeatureCollection.fix_antimeridian" title="geometric_features.FeatureCollection.fix_antimeridian"><code class="xref py py-meth docutils literal notranslate"><span class="pre">geometric_features.FeatureCollection.fix_antimeridian()</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fcFixed</span> <span class="o">=</span> <span class="n">fc</span><span class="o">.</span><span class="n">fix_antimeridian</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="geometric_features.html" class="btn btn-neutral float-left" title="GeometricFeatures" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="geometric_data.html" class="btn btn-neutral float-right" title="Geometric Data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright This software is open source software available under the BSD-3license. Copyright (c) 2024 Triad National Security, LLC. All rights reserved. Copyright (c) 2024 Lawrence Livermore National Security, LLC. All rights reserved. Copyright (c) 2024 UT-Battelle, LLC. All rights reserved..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: 0.4.0
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Tags</dt>
+      <dd><a href="../0.1.12/feature_collection.html">0.1.12</a></dd>
+      <dd><a href="../0.1.13/feature_collection.html">0.1.13</a></dd>
+      <dd><a href="../0.2.0/feature_collection.html">0.2.0</a></dd>
+      <dd><a href="../0.3.0/feature_collection.html">0.3.0</a></dd>
+      <dd><a href="feature_collection.html">0.4.0</a></dd>
+      <dd><a href="../0.5.0/feature_collection.html">0.5.0</a></dd>
+      <dd><a href="../0.6.0/feature_collection.html">0.6.0</a></dd>
+      <dd><a href="../0.7.0/feature_collection.html">0.7.0</a></dd>
+      <dd><a href="../0.8.0/feature_collection.html">0.8.0</a></dd>
+      <dd><a href="../1.0.0/feature_collection.html">1.0.0</a></dd>
+      <dd><a href="../1.0.1/feature_collection.html">1.0.1</a></dd>
+      <dd><a href="../1.1.0/feature_collection.html">1.1.0</a></dd>
+      <dd><a href="../1.2.0/feature_collection.html">1.2.0</a></dd>
+      <dd><a href="../1.3.0/feature_collection.html">1.3.0</a></dd>
+      <dd><a href="../1.4.0/feature_collection.html">1.4.0</a></dd>
+      <dd><a href="../1.5.0/feature_collection.html">1.5.0</a></dd>
+    </dl>
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="../main/feature_collection.html">main</a></dd>
+    </dl>
+  </div>
+</div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,233 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>geometric_features.aggregation &mdash; geometric_features 1.5.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=7ab3649f" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=e0a75244"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link href="../../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            geometric_features
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User's Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../geometric_features.html">GeometricFeatures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../feature_collection.html">FeatureCollection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../geometric_data.html">Geometric Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../aggregation.html">Aggregate Existing Features</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer's Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../adding_features.html">Adding New Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../build_docs.html">Building the Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">API reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions.html">Versions</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">geometric_features</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">geometric_features.aggregation</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for geometric_features.aggregation</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">geometric_features.aggregation.ocean</span> <span class="kn">import</span> <span class="n">basins</span><span class="p">,</span> <span class="n">subbasins</span><span class="p">,</span> \
+    <span class="n">antarctic</span><span class="p">,</span> <span class="n">greenland</span><span class="p">,</span> <span class="n">ice_shelves</span><span class="p">,</span> <span class="n">ismip6</span><span class="p">,</span> <span class="n">arctic</span> <span class="k">as</span> <span class="n">arctic_ocean</span><span class="p">,</span> \
+    <span class="n">transport</span><span class="p">,</span> <span class="n">arctic_transport</span><span class="p">,</span> <span class="n">moc</span>
+<span class="kn">from</span> <span class="nn">geometric_features.aggregation.seaice</span> <span class="kn">import</span> <span class="n">arctic</span> <span class="k">as</span> <span class="n">arctic_seaice</span>
+
+
+<div class="viewcode-block" id="get_aggregator_by_name">
+<a class="viewcode-back" href="../../generated/geometric_features.aggregation.get_aggregator_by_name.html#geometric_features.aggregation.get_aggregator_by_name">[docs]</a>
+<span class="k">def</span> <span class="nf">get_aggregator_by_name</span><span class="p">(</span><span class="n">region_group</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get a geojson mask file and the appropriate file suffix for the given</span>
+<span class="sd">    region group.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    region_group : str</span>
+<span class="sd">        The name of a region group to get mask features for, one of</span>
+<span class="sd">        &#39;Antarctic Regions&#39;, &#39;Arctic Ocean Regions&#39;, &#39;Arctic Sea Ice Regions&#39;,</span>
+<span class="sd">        &#39;Ocean Basins&#39;, &#39;Ice Shelves&#39;, &#39;Ocean Subbasins&#39;, &#39;ISMIP6 Regions&#39;,</span>
+<span class="sd">        &#39;MOC Basins&#39;, &#39;Transport Transects&#39;, or &#39;Arctic Transport Transects&#39;</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    function : callable</span>
+<span class="sd">        An aggregation functions for collecting the features, which takes a</span>
+<span class="sd">        :py:class:`geometric_features.GeometricFeatures` object as its argument</span>
+
+<span class="sd">    prefix : str</span>
+<span class="sd">        A prefix (or suffix) for use in file names that corresponds to the</span>
+<span class="sd">        region group</span>
+
+<span class="sd">    date : str</span>
+<span class="sd">        A date stamp when the regions in ``fc`` were last modified.  This date</span>
+<span class="sd">        can be used to cache masks based on these regions as long as the date</span>
+<span class="sd">        remains the same.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">regions</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Antarctic Regions&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;antarcticRegions&#39;</span><span class="p">,</span>
+                                     <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="s1">&#39;20230403&#39;</span><span class="p">,</span>
+                                     <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="n">antarctic</span><span class="p">},</span>
+               <span class="s1">&#39;Arctic Ocean Regions&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;arcticOceanRegions&#39;</span><span class="p">,</span>
+                                        <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="s1">&#39;20201130&#39;</span><span class="p">,</span>
+                                        <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="n">arctic_ocean</span><span class="p">},</span>
+               <span class="s1">&#39;Arctic Sea Ice Regions&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;arcticSeaIceRegions&#39;</span><span class="p">,</span>
+                                          <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="s1">&#39;20201130&#39;</span><span class="p">,</span>
+                                          <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="n">arctic_seaice</span><span class="p">},</span>
+               <span class="s1">&#39;Ocean Basins&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;oceanBasins&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="s1">&#39;20200621&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="n">basins</span><span class="p">},</span>
+               <span class="s1">&#39;Ice Shelves&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;iceShelves&#39;</span><span class="p">,</span>
+                               <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="s1">&#39;20200621&#39;</span><span class="p">,</span>
+                               <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="n">ice_shelves</span><span class="p">},</span>
+               <span class="s1">&#39;Ocean Subbasins&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;oceanSubbasins&#39;</span><span class="p">,</span>
+                                   <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="s1">&#39;20201123&#39;</span><span class="p">,</span>
+                                   <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="n">subbasins</span><span class="p">},</span>
+               <span class="s1">&#39;Greenland Regions&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;greenlandRegions&#39;</span><span class="p">,</span>
+                                     <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="s1">&#39;20240510&#39;</span><span class="p">,</span>
+                                     <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="n">greenland</span><span class="p">},</span>
+               <span class="s1">&#39;ISMIP6 Regions&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;ismip6Regions&#39;</span><span class="p">,</span>
+                                  <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="s1">&#39;20210201&#39;</span><span class="p">,</span>
+                                  <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="n">ismip6</span><span class="p">},</span>
+               <span class="s1">&#39;MOC Basins&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;mocBasins&#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="s1">&#39;20210623&#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="n">moc</span><span class="p">},</span>
+               <span class="s1">&#39;Transport Transects&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;transportTransects&#39;</span><span class="p">,</span>
+                                       <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="s1">&#39;20210323&#39;</span><span class="p">,</span>
+                                       <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="n">transport</span><span class="p">},</span>
+               <span class="s1">&#39;Arctic Transport Transects&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;arcticTransportTransects&#39;</span><span class="p">,</span>
+                                              <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="s1">&#39;20220926&#39;</span><span class="p">,</span>
+                                              <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="n">arctic_transport</span><span class="p">}}</span>
+
+    <span class="k">if</span> <span class="n">region_group</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">regions</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Unknown region group </span><span class="si">{</span><span class="n">region_group</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="n">region</span> <span class="o">=</span> <span class="n">regions</span><span class="p">[</span><span class="n">region_group</span><span class="p">]</span>
+
+    <span class="n">prefix</span> <span class="o">=</span> <span class="n">region</span><span class="p">[</span><span class="s1">&#39;prefix&#39;</span><span class="p">]</span>
+    <span class="n">date</span> <span class="o">=</span> <span class="n">region</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span>
+
+    <span class="n">function</span> <span class="o">=</span> <span class="n">region</span><span class="p">[</span><span class="s1">&#39;function&#39;</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">function</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">date</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright This software is open source software available under the BSD-3license. Copyright (c) 2024 Triad National Security, LLC. All rights reserved. Copyright (c) 2024 Lawrence Livermore National Security, LLC. All rights reserved. Copyright (c) 2024 UT-Battelle, LLC. All rights reserved..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: 1.3.0
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Tags</dt>
+      <dd><a href="../../../0.1.12/index.html">0.1.12</a></dd>
+      <dd><a href="../../../0.1.13/index.html">0.1.13</a></dd>
+      <dd><a href="../../../0.2.0/index.html">0.2.0</a></dd>
+      <dd><a href="../../../0.3.0/index.html">0.3.0</a></dd>
+      <dd><a href="../../../0.4.0/index.html">0.4.0</a></dd>
+      <dd><a href="../../../0.5.0/index.html">0.5.0</a></dd>
+      <dd><a href="../../../0.6.0/index.html">0.6.0</a></dd>
+      <dd><a href="../../../0.7.0/index.html">0.7.0</a></dd>
+      <dd><a href="../../../0.8.0/index.html">0.8.0</a></dd>
+      <dd><a href="../../../1.0.0/index.html">1.0.0</a></dd>
+      <dd><a href="../../../1.0.1/index.html">1.0.1</a></dd>
+      <dd><a href="../../../1.1.0/index.html">1.1.0</a></dd>
+      <dd><a href="../../../1.2.0/index.html">1.2.0</a></dd>
+      <dd><a href="aggregation.html">1.3.0</a></dd>
+      <dd><a href="../../../1.4.0/index.html">1.4.0</a></dd>
+      <dd><a href="../../../1.5.0/index.html">1.5.0</a></dd>
+    </dl>
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="../../../main/index.html">main</a></dd>
+    </dl>
+  </div>
+</div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

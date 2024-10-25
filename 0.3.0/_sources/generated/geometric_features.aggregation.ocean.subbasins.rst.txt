@@ -1,0 +1,6 @@
+﻿geometric\_features.aggregation.ocean.subbasins
+===============================================
+
+.. currentmodule:: geometric_features.aggregation.ocean
+
+.. autofunction:: subbasins

@@ -1,0 +1,393 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>geometric_features.aggregation.ocean.subbasin_regions &mdash; geometric_features 1.5.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=7ab3649f" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=e0a75244"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link href="../../../../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            geometric_features
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User's Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../geometric_features.html">GeometricFeatures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../feature_collection.html">FeatureCollection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../geometric_data.html">Geometric Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../aggregation.html">Aggregate Existing Features</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer's Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../adding_features.html">Adding New Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../build_docs.html">Building the Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api.html">API reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../versions.html">Versions</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">geometric_features</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../../aggregation.html">geometric_features.aggregation</a></li>
+      <li class="breadcrumb-item active">geometric_features.aggregation.ocean.subbasin_regions</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for geometric_features.aggregation.ocean.subbasin_regions</h1><div class="highlight"><pre>
+<span></span>
+
+<div class="viewcode-block" id="subbasins">
+<a class="viewcode-back" href="../../../../generated/geometric_features.aggregation.ocean.subbasins.html#geometric_features.aggregation.ocean.subbasins">[docs]</a>
+<span class="k">def</span> <span class="nf">subbasins</span><span class="p">(</span><span class="n">gf</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Aggregates ocean regions into the following larger sub-basins:</span>
+<span class="sd">    * Arctic Ocean Basin</span>
+<span class="sd">    * North Atlantic Basin</span>
+<span class="sd">    * South Atlantic Basin</span>
+<span class="sd">    * North Pacific Basin</span>
+<span class="sd">    * South Pacific Basin</span>
+<span class="sd">    * Indian Ocean Basin</span>
+<span class="sd">    * Southern Ocean Basin</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    gf : geometric_features.GeometricFeatures</span>
+<span class="sd">        An object that knows how to download and read geometric features</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    fc : geometric_features.FeatureCollection</span>
+<span class="sd">        The new feature collection with ocean sub-basins</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Authors</span>
+    <span class="c1"># -------</span>
+    <span class="c1"># Milena Veneziani</span>
+
+    <span class="n">author</span> <span class="o">=</span> <span class="s1">&#39;Milena Veneziani&#39;</span>
+
+    <span class="c1"># Create Arctic Ocean</span>
+    <span class="n">fcAr</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Central Arctic&#39;</span><span class="p">])</span>
+    <span class="n">fcESS</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;East Siberian Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcLap</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Laptev Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcChu</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Chukchi Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcCa</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Canada Basin&#39;</span><span class="p">])</span>
+    <span class="n">fcKara</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Kara Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcBarents</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Barents Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcAr</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcESS</span><span class="p">)</span>
+    <span class="n">fcAr</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcLap</span><span class="p">)</span>
+    <span class="n">fcAr</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcChu</span><span class="p">)</span>
+    <span class="n">fcAr</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcCa</span><span class="p">)</span>
+    <span class="n">fcAr</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcKara</span><span class="p">)</span>
+    <span class="n">fcAr</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcBarents</span><span class="p">)</span>
+    <span class="n">fcAr</span> <span class="o">=</span> <span class="n">fcAr</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="s1">&#39;Arctic Ocean Basin&#39;</span><span class="p">)</span>
+    <span class="n">props</span> <span class="o">=</span> <span class="n">fcAr</span><span class="o">.</span><span class="n">features</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;properties&#39;</span><span class="p">]</span>
+    <span class="n">props</span><span class="p">[</span><span class="s1">&#39;tags&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Arctic_Ocean_Basin&#39;</span><span class="p">,</span> <span class="s1">&#39;oceanSubBasinRegions&#39;</span><span class="p">]</span>
+    <span class="n">props</span><span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">author</span>
+
+    <span class="c1"># Create North Atlantic</span>
+    <span class="n">fcNA</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;North Atlantic Ocean&#39;</span><span class="p">])</span>
+    <span class="n">fcGS</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Greenland Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcLab</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Labrador Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcNor</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Norwegian Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcIrm</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Irminger Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcBayFundy</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Bay of Fundy&#39;</span><span class="p">])</span>
+    <span class="n">fcNorthSea</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;North Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcBaltic</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Baltic Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcEngCh</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;English Channel&#39;</span><span class="p">])</span>
+    <span class="n">fcCeltic</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Celtic Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcBristol</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Bristol Channel&#39;</span><span class="p">])</span>
+    <span class="n">fcScot</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span>
+                     <span class="p">[</span><span class="s1">&#39;Inner Seas off the West Coast of Scotland&#39;</span><span class="p">])</span>
+    <span class="n">fcIrish</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Irish Sea and St Georges Channel&#39;</span><span class="p">])</span>
+    <span class="n">fcBothnia</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Gulf of Bothnia&#39;</span><span class="p">])</span>
+    <span class="n">fcCanArc</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Canadian Archipelago&#39;</span><span class="p">])</span>
+    <span class="n">fcHudson</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Hudson Bay&#39;</span><span class="p">])</span>
+    <span class="n">fcBaffin</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Baffin Bay&#39;</span><span class="p">])</span>
+    <span class="n">fcBayBiscay</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Bay of Biscay&#39;</span><span class="p">])</span>
+    <span class="n">fcGStLaw</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Gulf of St-Lawrence&#39;</span><span class="p">])</span>
+    <span class="n">fcGMexico</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Gulf of Mexico&#39;</span><span class="p">])</span>
+    <span class="n">fcCarr</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Caribbean Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcGuinea</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Gulf of Guinea&#39;</span><span class="p">])</span>
+    <span class="n">fcNA</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcGS</span><span class="p">)</span>
+    <span class="n">fcNA</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcLab</span><span class="p">)</span>
+    <span class="n">fcNA</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcNor</span><span class="p">)</span>
+    <span class="n">fcNA</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcIrm</span><span class="p">)</span>
+    <span class="n">fcNA</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcBayFundy</span><span class="p">)</span>
+    <span class="n">fcNA</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcNorthSea</span><span class="p">)</span>
+    <span class="n">fcNA</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcBaltic</span><span class="p">)</span>
+    <span class="n">fcNA</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcEngCh</span><span class="p">)</span>
+    <span class="n">fcNA</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcCeltic</span><span class="p">)</span>
+    <span class="n">fcNA</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcBristol</span><span class="p">)</span>
+    <span class="n">fcNA</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcScot</span><span class="p">)</span>
+    <span class="n">fcNA</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcIrish</span><span class="p">)</span>
+    <span class="n">fcNA</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcBothnia</span><span class="p">)</span>
+    <span class="n">fcNA</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcCanArc</span><span class="p">)</span>
+    <span class="n">fcNA</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcHudson</span><span class="p">)</span>
+    <span class="n">fcNA</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcBaffin</span><span class="p">)</span>
+    <span class="n">fcNA</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcBayBiscay</span><span class="p">)</span>
+    <span class="n">fcNA</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcGStLaw</span><span class="p">)</span>
+    <span class="n">fcNA</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcGMexico</span><span class="p">)</span>
+    <span class="n">fcNA</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcCarr</span><span class="p">)</span>
+    <span class="n">fcNA</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcGuinea</span><span class="p">)</span>
+    <span class="n">fcNA</span> <span class="o">=</span> <span class="n">fcNA</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="s1">&#39;North Atlantic Basin&#39;</span><span class="p">)</span>
+    <span class="n">props</span> <span class="o">=</span> <span class="n">fcNA</span><span class="o">.</span><span class="n">features</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;properties&#39;</span><span class="p">]</span>
+    <span class="n">props</span><span class="p">[</span><span class="s1">&#39;tags&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;North_Atlantic_Basin&#39;</span><span class="p">,</span> <span class="s1">&#39;oceanSubBasinRegions&#39;</span><span class="p">]</span>
+    <span class="n">props</span><span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">author</span>
+
+    <span class="c1"># Create South Atlantic</span>
+    <span class="n">fcSA</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;South Atlantic Ocean&#39;</span><span class="p">])</span>
+    <span class="n">fcRio</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Rio de La Plata&#39;</span><span class="p">])</span>
+    <span class="n">fcSA</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcRio</span><span class="p">)</span>
+    <span class="n">fcSA</span> <span class="o">=</span> <span class="n">fcSA</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="s1">&#39;South Atlantic Basin&#39;</span><span class="p">)</span>
+    <span class="n">props</span> <span class="o">=</span> <span class="n">fcSA</span><span class="o">.</span><span class="n">features</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;properties&#39;</span><span class="p">]</span>
+    <span class="n">props</span><span class="p">[</span><span class="s1">&#39;tags&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;South_Atlantic_Basin&#39;</span><span class="p">,</span> <span class="s1">&#39;oceanSubBasinRegions&#39;</span><span class="p">]</span>
+    <span class="n">props</span><span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">author</span>
+
+    <span class="c1"># Create North Pacific</span>
+    <span class="n">fcNP</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;North Pacific Ocean&#39;</span><span class="p">])</span>
+    <span class="n">fcECS</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Eastern China Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcAla</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Gulf of Alaska&#39;</span><span class="p">])</span>
+    <span class="n">fcAla2</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span>
+                     <span class="p">[</span><span class="s1">&#39;The Coastal Waters of Southeast Alaska and British &#39;</span>
+                      <span class="s1">&#39;Columbia&#39;</span><span class="p">])</span>
+    <span class="n">fcHala</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Halamahera Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcYell</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Yellow Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcSCS</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;South China Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcThai</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Gulf of Thailand&#39;</span><span class="p">])</span>
+    <span class="n">fcBering</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Bering Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcGCali</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Gulf of California&#39;</span><span class="p">])</span>
+    <span class="n">fcJapan</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Japan Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcSeaOk</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Sea of Okhotsk&#39;</span><span class="p">])</span>
+    <span class="n">fcSingapore</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Singapore Strait&#39;</span><span class="p">])</span>
+    <span class="n">fcPhil</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Philippine Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcSulu</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Sulu Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcInland</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Inland Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcCelebes</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Celebes Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcNP</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcECS</span><span class="p">)</span>
+    <span class="n">fcNP</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcAla</span><span class="p">)</span>
+    <span class="n">fcNP</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcAla2</span><span class="p">)</span>
+    <span class="n">fcNP</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcHala</span><span class="p">)</span>
+    <span class="n">fcNP</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcYell</span><span class="p">)</span>
+    <span class="n">fcNP</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcSCS</span><span class="p">)</span>
+    <span class="n">fcNP</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcThai</span><span class="p">)</span>
+    <span class="n">fcNP</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcBering</span><span class="p">)</span>
+    <span class="n">fcNP</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcGCali</span><span class="p">)</span>
+    <span class="n">fcNP</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcJapan</span><span class="p">)</span>
+    <span class="n">fcNP</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcSeaOk</span><span class="p">)</span>
+    <span class="n">fcNP</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcSingapore</span><span class="p">)</span>
+    <span class="n">fcNP</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcPhil</span><span class="p">)</span>
+    <span class="n">fcNP</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcSulu</span><span class="p">)</span>
+    <span class="n">fcNP</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcInland</span><span class="p">)</span>
+    <span class="n">fcNP</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcCelebes</span><span class="p">)</span>
+    <span class="n">fcNP</span> <span class="o">=</span> <span class="n">fcNP</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="s1">&#39;North Pacific Basin&#39;</span><span class="p">)</span>
+    <span class="n">props</span> <span class="o">=</span> <span class="n">fcNP</span><span class="o">.</span><span class="n">features</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;properties&#39;</span><span class="p">]</span>
+    <span class="n">props</span><span class="p">[</span><span class="s1">&#39;tags&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;North_Pacific_Basin&#39;</span><span class="p">,</span> <span class="s1">&#39;oceanSubBasinRegions&#39;</span><span class="p">]</span>
+    <span class="n">props</span><span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">author</span>
+
+    <span class="c1"># Create South Pacific</span>
+    <span class="n">fcSP</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;South Pacific Ocean&#39;</span><span class="p">])</span>
+    <span class="n">fcBali</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Bali Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcSavu</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Savu Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcMak</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Makassar Strait&#39;</span><span class="p">])</span>
+    <span class="n">fcAra</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Arafura Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcCeram</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Ceram Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcBis</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Bismarck Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcSolo</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Solomon Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcMol</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Molukka Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcBanda</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Banda Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcGBoni</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Gulf of Boni&#39;</span><span class="p">])</span>
+    <span class="n">fcGTomini</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Gulf of Tomini&#39;</span><span class="p">])</span>
+    <span class="n">fcJava</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Java Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcFlores</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Flores Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcTimor</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Timor Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcTasmanN</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Tasman Sea North&#39;</span><span class="p">])</span>
+    <span class="n">fcCoral</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Coral Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcSP</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcBali</span><span class="p">)</span>
+    <span class="n">fcSP</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcSavu</span><span class="p">)</span>
+    <span class="n">fcSP</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcMak</span><span class="p">)</span>
+    <span class="n">fcSP</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcAra</span><span class="p">)</span>
+    <span class="n">fcSP</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcCeram</span><span class="p">)</span>
+    <span class="n">fcSP</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcBis</span><span class="p">)</span>
+    <span class="n">fcSP</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcSolo</span><span class="p">)</span>
+    <span class="n">fcSP</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcMol</span><span class="p">)</span>
+    <span class="n">fcSP</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcBanda</span><span class="p">)</span>
+    <span class="n">fcSP</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcGBoni</span><span class="p">)</span>
+    <span class="n">fcSP</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcGTomini</span><span class="p">)</span>
+    <span class="n">fcSP</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcJava</span><span class="p">)</span>
+    <span class="n">fcSP</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcFlores</span><span class="p">)</span>
+    <span class="n">fcSP</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcTimor</span><span class="p">)</span>
+    <span class="n">fcSP</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcTasmanN</span><span class="p">)</span>
+    <span class="n">fcSP</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcCoral</span><span class="p">)</span>
+    <span class="n">fcSP</span> <span class="o">=</span> <span class="n">fcSP</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="s1">&#39;South Pacific Basin&#39;</span><span class="p">)</span>
+    <span class="n">props</span> <span class="o">=</span> <span class="n">fcSP</span><span class="o">.</span><span class="n">features</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;properties&#39;</span><span class="p">]</span>
+    <span class="n">props</span><span class="p">[</span><span class="s1">&#39;tags&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;South_Pacific_Basin&#39;</span><span class="p">,</span> <span class="s1">&#39;oceanSubBasinRegions&#39;</span><span class="p">]</span>
+    <span class="n">props</span><span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">author</span>
+
+    <span class="c1"># Create Indian Ocean</span>
+    <span class="n">fcI</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Indian Ocean&#39;</span><span class="p">])</span>
+    <span class="n">fcBassStN</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Bass Strait North&#39;</span><span class="p">])</span>
+    <span class="n">fcBayBengal</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Bay of Bengal&#39;</span><span class="p">])</span>
+    <span class="n">fcGulfOman</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Gulf of Oman&#39;</span><span class="p">])</span>
+    <span class="n">fcMalaccaSt</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Malacca Strait&#39;</span><span class="p">])</span>
+    <span class="n">fcGABN</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Great Australian Bight North&#39;</span><span class="p">])</span>
+    <span class="n">fcMoz</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Mozambique Channel&#39;</span><span class="p">])</span>
+    <span class="n">fcBu</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Andaman or Burma Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcAden</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Gulf of Aden&#39;</span><span class="p">])</span>
+    <span class="n">fcLacc</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Laccadive Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcArab</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Arabian Sea&#39;</span><span class="p">])</span>
+    <span class="n">fcI</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcBassStN</span><span class="p">)</span>
+    <span class="n">fcI</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcBayBengal</span><span class="p">)</span>
+    <span class="n">fcI</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcGulfOman</span><span class="p">)</span>
+    <span class="n">fcI</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcMalaccaSt</span><span class="p">)</span>
+    <span class="n">fcI</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcGABN</span><span class="p">)</span>
+    <span class="n">fcI</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcMoz</span><span class="p">)</span>
+    <span class="n">fcI</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcBu</span><span class="p">)</span>
+    <span class="n">fcI</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcAden</span><span class="p">)</span>
+    <span class="n">fcI</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcLacc</span><span class="p">)</span>
+    <span class="n">fcI</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcArab</span><span class="p">)</span>
+    <span class="n">fcI</span> <span class="o">=</span> <span class="n">fcI</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="s1">&#39;Indian Ocean Basin&#39;</span><span class="p">)</span>
+    <span class="n">props</span> <span class="o">=</span> <span class="n">fcI</span><span class="o">.</span><span class="n">features</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;properties&#39;</span><span class="p">]</span>
+    <span class="n">props</span><span class="p">[</span><span class="s1">&#39;tags&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Indian_Ocean_Basin&#39;</span><span class="p">,</span> <span class="s1">&#39;oceanSubBasinRegions&#39;</span><span class="p">]</span>
+    <span class="n">props</span><span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">author</span>
+
+    <span class="c1"># Create Southern Ocean</span>
+    <span class="n">fcSO</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Southern Ocean&#39;</span><span class="p">])</span>
+    <span class="n">fcTasmanS</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Tasman Sea South&#39;</span><span class="p">])</span>
+    <span class="n">fcBassStS</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Bass Strait South&#39;</span><span class="p">])</span>
+    <span class="n">fcGABS</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Great Australian Bight South&#39;</span><span class="p">])</span>
+    <span class="n">fcSO</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcTasmanS</span><span class="p">)</span>
+    <span class="n">fcSO</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcBassStS</span><span class="p">)</span>
+    <span class="n">fcSO</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcGABS</span><span class="p">)</span>
+    <span class="n">fcSO</span> <span class="o">=</span> <span class="n">fcSO</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="s1">&#39;Southern Ocean Basin&#39;</span><span class="p">)</span>
+    <span class="n">props</span> <span class="o">=</span> <span class="n">fcSO</span><span class="o">.</span><span class="n">features</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;properties&#39;</span><span class="p">]</span>
+    <span class="n">props</span><span class="p">[</span><span class="s1">&#39;tags&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;South_Ocean_Basin&#39;</span><span class="p">,</span> <span class="s1">&#39;oceanSubBasinRegions&#39;</span><span class="p">]</span>
+    <span class="n">props</span><span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">author</span>
+
+    <span class="c1"># Create Ocean subBasins merged feature</span>
+    <span class="n">fc</span> <span class="o">=</span> <span class="n">fcSO</span>
+    <span class="n">fc</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcAr</span><span class="p">)</span>
+    <span class="n">fc</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcNA</span><span class="p">)</span>
+    <span class="n">fc</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcSA</span><span class="p">)</span>
+    <span class="n">fc</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcNP</span><span class="p">)</span>
+    <span class="n">fc</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcSP</span><span class="p">)</span>
+    <span class="n">fc</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcI</span><span class="p">)</span>
+    <span class="n">props</span> <span class="o">=</span> <span class="n">fc</span><span class="o">.</span><span class="n">features</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;properties&#39;</span><span class="p">]</span>
+    <span class="n">props</span><span class="p">[</span><span class="s1">&#39;tags&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;oceanSubBasinRegions&#39;</span>
+    <span class="n">props</span><span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">author</span>
+
+    <span class="k">return</span> <span class="n">fc</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright This software is open source software available under the BSD-3license. Copyright (c) 2024 Triad National Security, LLC. All rights reserved. Copyright (c) 2024 Lawrence Livermore National Security, LLC. All rights reserved. Copyright (c) 2024 UT-Battelle, LLC. All rights reserved..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: 1.1.0
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Tags</dt>
+      <dd><a href="../../../../../0.1.12/index.html">0.1.12</a></dd>
+      <dd><a href="../../../../../0.1.13/index.html">0.1.13</a></dd>
+      <dd><a href="../../../../../0.2.0/index.html">0.2.0</a></dd>
+      <dd><a href="../../../../../0.3.0/index.html">0.3.0</a></dd>
+      <dd><a href="../../../../../0.4.0/index.html">0.4.0</a></dd>
+      <dd><a href="../../../../../0.5.0/index.html">0.5.0</a></dd>
+      <dd><a href="../../../../../0.6.0/index.html">0.6.0</a></dd>
+      <dd><a href="../../../../../0.7.0/index.html">0.7.0</a></dd>
+      <dd><a href="../../../../../0.8.0/index.html">0.8.0</a></dd>
+      <dd><a href="../../../../../1.0.0/index.html">1.0.0</a></dd>
+      <dd><a href="../../../../../1.0.1/index.html">1.0.1</a></dd>
+      <dd><a href="subbasin_regions.html">1.1.0</a></dd>
+      <dd><a href="../../../../../1.2.0/index.html">1.2.0</a></dd>
+      <dd><a href="../../../../../1.3.0/index.html">1.3.0</a></dd>
+      <dd><a href="../../../../../1.4.0/index.html">1.4.0</a></dd>
+      <dd><a href="../../../../../1.5.0/index.html">1.5.0</a></dd>
+    </dl>
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="../../../../../main/index.html">main</a></dd>
+    </dl>
+  </div>
+</div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

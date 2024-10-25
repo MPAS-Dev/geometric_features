@@ -1,0 +1,6 @@
+﻿geometric\_features.aggregation.ocean.arctic
+============================================
+
+.. currentmodule:: geometric_features.aggregation.ocean
+
+.. autofunction:: arctic

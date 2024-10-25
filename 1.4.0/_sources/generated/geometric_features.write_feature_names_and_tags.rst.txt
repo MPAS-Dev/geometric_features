@@ -1,0 +1,6 @@
+﻿geometric\_features.write\_feature\_names\_and\_tags
+====================================================
+
+.. currentmodule:: geometric_features
+
+.. autofunction:: write_feature_names_and_tags
