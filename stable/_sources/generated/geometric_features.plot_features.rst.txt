@@ -1,6 +1,0 @@
-﻿geometric\_features.plot\_features
-==================================
-
-.. currentmodule:: geometric_features
-
-.. autofunction:: plot_features

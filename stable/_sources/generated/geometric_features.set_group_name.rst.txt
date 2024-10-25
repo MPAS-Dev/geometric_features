@@ -1,6 +1,0 @@
-﻿geometric\_features.set\_group\_name
-====================================
-
-.. currentmodule:: geometric_features
-
-.. autofunction:: set_group_name

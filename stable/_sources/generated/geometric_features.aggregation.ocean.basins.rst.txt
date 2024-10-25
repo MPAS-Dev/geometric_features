@@ -1,6 +1,0 @@
-﻿geometric\_features.aggregation.ocean.basins
-============================================
-
-.. currentmodule:: geometric_features.aggregation.ocean
-
-.. autofunction:: basins

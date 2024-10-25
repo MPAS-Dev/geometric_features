@@ -1,6 +1,0 @@
-﻿geometric\_features.aggregation.seaice.arctic
-=============================================
-
-.. currentmodule:: geometric_features.aggregation.seaice
-
-.. autofunction:: arctic

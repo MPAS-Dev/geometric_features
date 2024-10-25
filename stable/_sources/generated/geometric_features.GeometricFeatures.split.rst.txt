@@ -1,6 +1,0 @@
-﻿geometric\_features.GeometricFeatures.split
-===========================================
-
-.. currentmodule:: geometric_features
-
-.. automethod:: GeometricFeatures.split

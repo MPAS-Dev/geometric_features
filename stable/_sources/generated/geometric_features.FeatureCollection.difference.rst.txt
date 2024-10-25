@@ -1,6 +1,0 @@
-﻿geometric\_features.FeatureCollection.difference
-================================================
-
-.. currentmodule:: geometric_features
-
-.. automethod:: FeatureCollection.difference

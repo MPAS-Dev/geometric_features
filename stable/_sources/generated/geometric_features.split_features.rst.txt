@@ -1,6 +1,0 @@
-﻿geometric\_features.split\_features
-===================================
-
-.. currentmodule:: geometric_features
-
-.. autofunction:: split_features

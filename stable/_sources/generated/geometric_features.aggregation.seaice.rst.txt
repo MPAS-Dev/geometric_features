@@ -1,6 +1,0 @@
-﻿geometric\_features.aggregation.seaice
-======================================
-
-.. automodule:: geometric_features.aggregation.seaice
-
-   

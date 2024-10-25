@@ -1,6 +1,0 @@
-﻿geometric\_features.merge\_features
-===================================
-
-.. currentmodule:: geometric_features
-
-.. autofunction:: merge_features
