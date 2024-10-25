@@ -1,7 +1,3 @@
-# Geometric Features
-
-[![Build Status](https://dev.azure.com/MPAS-Dev/geometric_features%20testing/_apis/build/status/MPAS-Dev.geometric_features?branchName=main)](https://dev.azure.com/MPAS-Dev/geometric_features%20testing/_build/latest?definitionId=3&branchName=main)
-
 This repository houses definitions of geometric features. These features
 can include regions, transects, and points, described in geojson format.
 For example, here are some regions for Antarctica.
@@ -9,7 +5,7 @@ For example, here are some regions for Antarctica.
 
 ## Documentation
 
-[http://mpas-dev.github.io/geometric_features/stable/](http://mpas-dev.github.io/geometric_features/stable/)
+[http://mpas-dev.github.io/geometric_features/main/](http://mpas-dev.github.io/geometric_features/main/)
 
 ## Contributors
 
