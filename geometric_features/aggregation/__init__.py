@@ -43,7 +43,7 @@ def get_aggregator_by_name(region_group):
                                           'date': '20201130',
                                           'function': arctic_seaice},
                'Ocean Basins': {'prefix': 'oceanBasins',
-                                'date': '20200621',
+                                'date': '20240830',
                                 'function': basins},
                'Ice Shelves': {'prefix': 'iceShelves',
                                'date': '20200621',
