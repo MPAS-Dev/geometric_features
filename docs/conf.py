@@ -65,7 +65,7 @@ copyright = f'This software is open source software available under the BSD-3' \
             f'All rights reserved. Copyright (c) {date.today().year} Lawrence Livermore ' \
             f'National Security, LLC. All rights reserved. Copyright (c) ' \
             f'{date.today().year} UT-Battelle, LLC. All rights reserved.'
-author = 'gemoetric_features development team'
+author = 'geometric_features development team'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -195,7 +195,6 @@ html_sidebars = {
 }
 
 # -- Options sphinx-multiversion -------------------------------------------
-# Include tags like "tags/1.0.0" -- 1.7.2 doesn't build
-smv_tag_whitelist = r'^(?!1.7.2)\d+\.\d+.\d+$'
+smv_tag_whitelist = r'^\d+\.\d+.\d+$'
 smv_branch_whitelist = 'main'
 smv_remote_whitelist = 'origin'
