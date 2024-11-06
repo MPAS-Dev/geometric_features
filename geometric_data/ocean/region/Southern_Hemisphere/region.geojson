@@ -1,0 +1,44 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Southern Hemisphere",
+                "tags": "",
+                "object": "region",
+                "component": "ocean",
+                "author": "Carolyn Begeman",
+                "zmax": 10.0,
+                "zmin": -10000.0
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -180.0,
+                            -90.0
+                        ],
+                        [
+                            180.0,
+                            -90.0
+                        ],
+                        [
+                            180.0,
+                            0.0
+                        ],
+                        [
+                            -180.0,
+                            0.0
+                        ],
+                        [
+                            -180.0,
+                            -90.0
+                        ]
+                    ]
+                ]
+            }
+        }
+    ]
+}
