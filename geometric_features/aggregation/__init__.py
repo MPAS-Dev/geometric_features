@@ -1,8 +1,8 @@
 from geometric_features.aggregation.ocean import basins, subbasins, \
-    antarctic, greenland, ice_shelves, ismip6, arctic as arctic_ocean, \
+    antarctic, ismip6_greenland, ice_shelves, ismip6, arctic as arctic_ocean, \
     transport, arctic_transport, moc
 from geometric_features.aggregation.seaice import arctic as arctic_seaice
-from geometric_features.aggregation.landice import greenland as greenland_landice
+from geometric_features.aggregation.landice import nasa_greenland
 
 def get_aggregator_by_name(region_group):
     """
@@ -51,12 +51,12 @@ def get_aggregator_by_name(region_group):
                'Ocean Subbasins': {'prefix': 'oceanSubbasins',
                                    'date': '20201123',
                                    'function': subbasins},
-               'Greenland Regions': {'prefix': 'greenlandRegions',
+               'ISMIP6 Greenland Regions': {'prefix': 'ISMIP6GreenlandRegions',
                                      'date': '20240510',
-                                     'function': greenland},
-               'Greenland Landice Regions': {'prefix':'greenlandLandiceRegions',
+                                     'function': ismip6_greenland},
+               'NASA Greenland Regions': {'prefix':'NASAgreenlandRegions',
                                              'date':'20241017',
-                                             'function': greenland_landice},
+                                             'function': nasa_greenland},
                'ISMIP6 Regions': {'prefix': 'ismip6Regions',
                                   'date': '20210201',
                                   'function': ismip6},

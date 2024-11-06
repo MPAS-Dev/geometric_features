@@ -17,9 +17,9 @@ the following group names:
 
 * Arctic Sea Ice Regions
 
-* Greenland Regions
+* ISMIP6 Greenland Regions
 
-* Greenland Landice Regions
+* NASA Greenland Regions
 
 * Ocean Basins
 
@@ -90,20 +90,20 @@ Amundsen Sea Deep, Eastern Ross Sea Shelf, Eastern Ross Sea Deep,
 Western Ross Sea Shelf, Western Ross Sea Deep, East Antarctic Seas Shelf,
 East Antarctic Seas Deep.
 
-Greenland Regions
+ISMIP6 Greenland Regions
 ~~~~~~~~~~~~~~~~~
 
-The function :py:func:`geometric_features.aggregation.ocean.greenland`
+The function :py:func:`geometric_features.aggregation.ocean.ismip6_greenland`
 aggregates regions of the continental shelves around Greenland based on the
 ISMIP6 regions: ISMIP6 Greenland Central East Shelf,
 ISMIP6 Greenland Central West Shelf, ISMIP6 Greenland North East Shelf,
 ISMIP6 Greenland North Shelf, ISMIP6 Greenland North West Shelf,
 ISMIP6 Greenland South East Shelf, ISMIP6 Greenland South West Shelf.
 
-Greenland Landice Regions
+NASA Greenland Regions
 ~~~~~~~~~~~~~~~~~
 
-The function :py:func:`geometric_features.aggregation.landice.greenland`
+The function :py:func:`geometric_features.aggregation.landice.nasa_greenland`
 aggregates regions of Greenland drainage basins taken from NASA: 
 (https://earth.gsfc.nasa.gov/cryo/data/polar-altimetry/antarctic-and-greenland-drainage-systems)
 The drainage basins have been altered to extend to the continental shelf. Boundaries between basins

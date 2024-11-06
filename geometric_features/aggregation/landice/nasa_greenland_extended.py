@@ -1,6 +1,6 @@
-def greenland(gf):
+def nasa_greenland(gf):
     """
-    Aggregate Greenland continental shelf regions similar to ISMIP6
+    Aggregate NASA Greenland ice basin region extended to continental shelf.
 
     Parameters
     ----------
