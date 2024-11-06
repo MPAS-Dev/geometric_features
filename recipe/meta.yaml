@@ -27,6 +27,7 @@ requirements:
   host:
     - python >=3.9
     - pip
+    - setuptools >=60
   run:
     - python >=3.9
     - cartopy
