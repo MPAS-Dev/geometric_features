@@ -5,7 +5,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "December Median Sea Ice Extent (1981-2010)",
+                "name": "April Median Sea Ice Extent (1981-2010)",
                 "tags": "QGreenland;Historical_Sea_Ice_Extent",
                 "object": "region",
                 "component": "sea ice",
