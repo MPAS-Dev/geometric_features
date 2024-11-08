@@ -1,4 +1,4 @@
-def greenland(gf):
+def ismip6_greenland(gf):
     """
     Aggregate Greenland continental shelf regions similar to ISMIP6
 
