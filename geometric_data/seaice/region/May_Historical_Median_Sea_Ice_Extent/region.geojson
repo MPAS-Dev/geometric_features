@@ -9,7 +9,7 @@
                 "tags": "QGreenland;Historical_Sea_Ice_Extent",
                 "object": "region",
                 "component": "sea ice",
-                "author": "Modified by Alex Hager from https://github.com/nsidc/qgreenland/",
+                "author": "Modified by Alex Hager from the QGreenland dataset (doi:10.5281/zenodo.12823307)",
                 "history": "11/06/24 12:57 : ch-fe2 : ahager : /usr/projects/climate/ahager/geometric_features/geometric_data/seaice/region : /usr/projects/climate/ahager/scripts/fix_antimeridian_geojson.py -f May_Historical_Median_Sea_Ice_Extent/region.geojson;"
             },
             "geometry": {
