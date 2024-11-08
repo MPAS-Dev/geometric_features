@@ -25,6 +25,8 @@ the following group names:
 
 * Ocean Subbasins
 
+* Historical Sea Ice
+
 * ISMIP6 Regions
 
 * Transport Transects
@@ -97,6 +99,19 @@ ISMIP6 regions: ISMIP6 Greenland Central East Shelf,
 ISMIP6 Greenland Central West Shelf, ISMIP6 Greenland North East Shelf,
 ISMIP6 Greenland North Shelf, ISMIP6 Greenland North West Shelf,
 ISMIP6 Greenland South East Shelf, ISMIP6 Greenland South West Shelf.
+
+Historical Sea Ice
+~~~~~~~~~~~~~~~~~~
+
+The function :py:func:`geometric_features.aggregation.seaice.qgreenland`
+aggregates the historical monthly median sea ice extents taken from 
+the QGreenland dataset: January Historical Median Sea Ice Extent,
+February Historical Median Sea Ice Extent, March Historical Median Sea Ice Extent,
+April Historical Median Sea Ice Extent, May Historical Median Sea Ice Extent,
+June Historical Median Sea Ice Extent, July Historical Median Sea Ice Extent,
+August Historical Median Sea Ice Extent, September Historical Median Sea Ice Extent,
+October Historical Median Sea Ice Extent, November Historical Median Sea Ice Extent,
+December Historical Median Sea Ice Extent.
 
 Ice-shelf Regions
 ~~~~~~~~~~~~~~~~~
