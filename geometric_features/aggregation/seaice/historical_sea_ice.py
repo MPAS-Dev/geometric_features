@@ -1,6 +1,8 @@
 def qgreenland(gf):
     """
-    Aggregate Greenland continental shelf regions similar to ISMIP6
+    Aggregate regions defining median monthly arctic sea ice extent (1981-2010)
+    from the QGreenland dataset (doi:10.5281/zenodo.12823307).
+
     Parameters
     ----------
     gf : geometric_features.GeometricFeatures

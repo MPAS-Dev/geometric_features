@@ -119,7 +119,7 @@ Historical Sea Ice
 
 The function :py:func:`geometric_features.aggregation.seaice.qgreenland`
 aggregates the historical monthly median sea ice extents taken from 
-the QGreenland dataset: January Historical Median Sea Ice Extent,
+the QGreenland dataset (doi: doi:10.5281/zenodo.12823307): January Historical Median Sea Ice Extent,
 February Historical Median Sea Ice Extent, March Historical Median Sea Ice Extent,
 April Historical Median Sea Ice Extent, May Historical Median Sea Ice Extent,
 June Historical Median Sea Ice Extent, July Historical Median Sea Ice Extent,

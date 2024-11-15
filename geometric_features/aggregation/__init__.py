@@ -1,8 +1,9 @@
 from geometric_features.aggregation.ocean import basins, subbasins, \
     antarctic, ismip6_greenland, ice_shelves, ismip6, arctic as arctic_ocean, \
     transport, arctic_transport, moc
-from geometric_features.aggregation.seaice import qgreenland, arctic as arctic_seaice
 from geometric_features.aggregation.landice import nasa_greenland
+from geometric_features.aggregation.seaice import arctic as arctic_seaice
+from geometric_features.aggregation.seaice import qgreenland as qgreenland_seaice
 
 def get_aggregator_by_name(region_group):
     """
@@ -65,7 +66,7 @@ def get_aggregator_by_name(region_group):
                               'function': moc},
                'Historical Sea Ice': {'prefix': 'historicalSeaIce',
                                       'date': '20241018',
-                                      'function': qgreenland},
+                                      'function': qgreenland_seaice},
                'Transport Transects': {'prefix': 'transportTransects',
                                        'date': '20210323',
                                        'function': transport},
