@@ -98,7 +98,8 @@ aggregates regions of the continental shelves around Greenland based on the
 ISMIP6 regions: ISMIP6 Greenland Central East Shelf,
 ISMIP6 Greenland Central West Shelf, ISMIP6 Greenland North East Shelf,
 ISMIP6 Greenland North Shelf, ISMIP6 Greenland North West Shelf,
-ISMIP6 Greenland South East Shelf, ISMIP6 Greenland South West Shelf.
+ISMIP6 Greenland South East Shelf, ISMIP6 Greenland South West Shelf. Regions cover both
+landice and ocean, and could be used for either component.
 
 NASA Greenland Regions
 ~~~~~~~~~~~~~~~~~
@@ -106,9 +107,10 @@ NASA Greenland Regions
 The function :py:func:`geometric_features.aggregation.landice.nasa_greenland`
 aggregates regions of Greenland drainage basins taken from NASA: 
 (https://earth.gsfc.nasa.gov/cryo/data/polar-altimetry/antarctic-and-greenland-drainage-systems)
-The drainage basins have been altered to extend to the continental shelf. Boundaries between basins
+The drainage basins have been altered to extend to the continental shelf break. Boundaries between basins
 have also been altered so that all glaciers terminating in an individual fjord 
-are from the same drainage basin.
+are from the same drainage basin. Regions cover both landice and ocean, and could be used for either
+component.
 
 Ice-shelf Regions
 ~~~~~~~~~~~~~~~~~
