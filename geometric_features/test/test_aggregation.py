@@ -4,7 +4,7 @@ from geometric_features.test import TestCase, loaddatadir
 from geometric_features import GeometricFeatures
 from geometric_features.aggregation import get_aggregator_by_name, basins, \
     subbasins, antarctic, ice_shelves, ismip6, arctic_ocean, transport, \
-    arctic_transport, moc, arctic_seaice
+    arctic_transport, moc, arctic_seaice, nasa_greenland, ismip6_greenland
 
 
 @pytest.mark.usefixtures('loaddatadir')
@@ -12,9 +12,9 @@ class TestAggregation(TestCase):
 
     def test_get_aggregator_by_name(self):
         gf = GeometricFeatures()
-        names = ['Antarctic Regions', 'Arctic Ocean Regions', 'Greenland Regions',
-                 'Arctic Sea Ice Regions', 'Ocean Basins', 'Ice Shelves',
-                 'Ocean Subbasins', 'ISMIP6 Regions', 'MOC Basins',
+        names = ['Antarctic Regions', 'Arctic Ocean Regions', 'ISMIP6 Greenland Regions',
+                 'NASA Greenland Regions', 'Arctic Sea Ice Regions', 'Ocean Basins', 
+                 'Ice Shelves', 'Ocean Subbasins', 'ISMIP6 Regions', 'MOC Basins',
                  'Transport Transects', 'Arctic Transport Transects']
 
         for name in names:
@@ -60,3 +60,11 @@ class TestAggregation(TestCase):
     def test_arctic_transport(self):
         gf = GeometricFeatures()
         arctic_transport(gf)
+
+    def test_nasa_greenland(self):
+        gf = GeometricFeatures()
+        nasa_greenland(gf)
+
+    def test_ismip6_greenland(self):
+        gf = GeometricFeatures()
+        ismip6_greenland(gf)
