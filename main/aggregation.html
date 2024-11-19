@@ -56,7 +56,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#meridional-overturning-circulation-basins">Meridional Overturning Circulation Basins</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#arctic-regions">Arctic Regions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#antarctic-regions">Antarctic Regions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#greenland-regions">Greenland Regions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ismip6-greenland-regions">ISMIP6 Greenland Regions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nasa-greenland-regions">NASA Greenland Regions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ice-shelf-regions">Ice-shelf Regions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#transport-transects">Transport Transects</a></li>
 </ul>
@@ -111,7 +112,8 @@ the following group names:</p>
 <li><p>Antarctic Regions</p></li>
 <li><p>Arctic Ocean Regions</p></li>
 <li><p>Arctic Sea Ice Regions</p></li>
-<li><p>Greenland Regions</p></li>
+<li><p>ISMIP6 Greenland Regions</p></li>
+<li><p>NASA Greenland Regions</p></li>
 <li><p>Ocean Basins</p></li>
 <li><p>Ice Shelves</p></li>
 <li><p>Ocean Subbasins</p></li>
@@ -167,14 +169,25 @@ Amundsen Sea Deep, Eastern Ross Sea Shelf, Eastern Ross Sea Deep,
 Western Ross Sea Shelf, Western Ross Sea Deep, East Antarctic Seas Shelf,
 East Antarctic Seas Deep.</p>
 </section>
-<section id="greenland-regions">
-<h3>Greenland Regions<a class="headerlink" href="#greenland-regions" title="Link to this heading"></a></h3>
-<p>The function <a class="reference internal" href="generated/geometric_features.aggregation.ocean.greenland.html#geometric_features.aggregation.ocean.greenland" title="geometric_features.aggregation.ocean.greenland"><code class="xref py py-func docutils literal notranslate"><span class="pre">geometric_features.aggregation.ocean.greenland()</span></code></a>
+<section id="ismip6-greenland-regions">
+<h3>ISMIP6 Greenland Regions<a class="headerlink" href="#ismip6-greenland-regions" title="Link to this heading"></a></h3>
+<p>The function <a class="reference internal" href="generated/geometric_features.aggregation.ocean.ismip6_greenland.html#geometric_features.aggregation.ocean.ismip6_greenland" title="geometric_features.aggregation.ocean.ismip6_greenland"><code class="xref py py-func docutils literal notranslate"><span class="pre">geometric_features.aggregation.ocean.ismip6_greenland()</span></code></a>
 aggregates regions of the continental shelves around Greenland based on the
 ISMIP6 regions: ISMIP6 Greenland Central East Shelf,
 ISMIP6 Greenland Central West Shelf, ISMIP6 Greenland North East Shelf,
 ISMIP6 Greenland North Shelf, ISMIP6 Greenland North West Shelf,
-ISMIP6 Greenland South East Shelf, ISMIP6 Greenland South West Shelf.</p>
+ISMIP6 Greenland South East Shelf, ISMIP6 Greenland South West Shelf. Regions cover both
+landice and ocean, and could be used for either component.</p>
+</section>
+<section id="nasa-greenland-regions">
+<h3>NASA Greenland Regions<a class="headerlink" href="#nasa-greenland-regions" title="Link to this heading"></a></h3>
+<p>The function <a class="reference internal" href="generated/geometric_features.aggregation.landice.nasa_greenland.html#geometric_features.aggregation.landice.nasa_greenland" title="geometric_features.aggregation.landice.nasa_greenland"><code class="xref py py-func docutils literal notranslate"><span class="pre">geometric_features.aggregation.landice.nasa_greenland()</span></code></a>
+aggregates regions of Greenland drainage basins taken from NASA:
+(<a class="reference external" href="https://earth.gsfc.nasa.gov/cryo/data/polar-altimetry/antarctic-and-greenland-drainage-systems">https://earth.gsfc.nasa.gov/cryo/data/polar-altimetry/antarctic-and-greenland-drainage-systems</a>)
+The drainage basins have been altered to extend to the continental shelf break. Boundaries between basins
+have also been altered so that all glaciers terminating in an individual fjord
+are from the same drainage basin. Regions cover both landice and ocean, and could be used for either
+component.</p>
 </section>
 <section id="ice-shelf-regions">
 <h3>Ice-shelf Regions<a class="headerlink" href="#ice-shelf-regions" title="Link to this heading"></a></h3>

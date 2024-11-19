@@ -1,0 +1,6 @@
+﻿geometric\_features.aggregation.landice.nasa\_greenland
+=======================================================
+
+.. currentmodule:: geometric_features.aggregation.landice
+
+.. autofunction:: nasa_greenland
