@@ -1918,5 +1918,61 @@
         "standard_transport_sections"
       ]
     }
+  },
+  "seaice": {
+    "region": {
+      "April Historical Median Sea Ice Extent":[
+        "QGreenland",
+        "Historical_Sea_Ice_Extent"
+      ],
+      "August Historical Median Sea Ice Extent":[
+        "QGreenland",
+        "Historical_Sea_Ice_Extent"
+      ], 
+      "December Historical Median Sea Ice Extent":[
+        "QGreenland",
+        "Historical_Sea_Ice_Extent"
+      ], 
+      "February Historical Median Sea Ice Extent":[
+        "QGreenland",
+        "Historical_Sea_Ice_Extent"
+      ],
+      "January Historical Median Sea Ice Extent":[
+        "QGreenland",
+        "Historical_Sea_Ice_Extent"
+      ],
+      "July Historical Median Sea Ice Extent":[
+        "QGreenland",
+        "Historical_Sea_Ice_Extent"
+      ],
+      "June Historical Median Sea Ice Extent":[
+        "QGreenland",
+        "Historical_Sea_Ice_Extent"
+      ],
+      "March Historical Median Sea Ice Extent":[
+        "QGreenland",
+        "Historical_Sea_Ice_Extent"
+      ],
+      "May Historical Median Sea Ice Extent":[
+        "QGreenland",
+        "Historical_Sea_Ice_Extent"
+      ],
+      "November Historical Median Sea Ice Extent":[
+        "QGreenland",
+        "Historical_Sea_Ice_Extent"
+      ],
+      "March Historical Median Sea Ice Extent":[
+        "QGreenland",
+        "Historical_Sea_Ice_Extent"
+      ],
+      "October Historical Median Sea Ice Extent":[
+        "QGreenland",
+        "Historical_Sea_Ice_Extent"
+      ],
+      "September Historical Median Sea Ice Extent":[
+        "QGreenland",
+        "Historical_Sea_Ice_Extent"
+      ]
+    }
   }
 }

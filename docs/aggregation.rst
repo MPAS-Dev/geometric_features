@@ -27,6 +27,8 @@ the following group names:
 
 * Ocean Subbasins
 
+* Historical Sea Ice
+
 * ISMIP6 Regions
 
 * Transport Transects
@@ -111,6 +113,19 @@ The drainage basins have been altered to extend to the continental shelf break. 
 have also been altered so that all glaciers terminating in an individual fjord 
 are from the same drainage basin. Regions cover both landice and ocean, and could be used for either
 component.
+
+Historical Sea Ice
+~~~~~~~~~~~~~~~~~~
+
+The function :py:func:`geometric_features.aggregation.seaice.qgreenland`
+aggregates the historical monthly median sea ice extents taken from 
+the QGreenland dataset (doi: doi:10.5281/zenodo.12823307): January Historical Median Sea Ice Extent,
+February Historical Median Sea Ice Extent, March Historical Median Sea Ice Extent,
+April Historical Median Sea Ice Extent, May Historical Median Sea Ice Extent,
+June Historical Median Sea Ice Extent, July Historical Median Sea Ice Extent,
+August Historical Median Sea Ice Extent, September Historical Median Sea Ice Extent,
+October Historical Median Sea Ice Extent, November Historical Median Sea Ice Extent,
+December Historical Median Sea Ice Extent.
 
 Ice-shelf Regions
 ~~~~~~~~~~~~~~~~~

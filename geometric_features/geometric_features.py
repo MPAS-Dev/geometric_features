@@ -80,7 +80,8 @@ class GeometricFeatures(object):
 
         Parameters
         ----------
-        componentName : {'bedmachine', 'bedmap2', 'iceshelves', 'landice', 'natural_earth', 'ocean'}
+        componentName : {'bedmachine', 'bedmap2', 'iceshelves', 'landice', 
+        'natural_earth', 'ocean','seaice'}
             The component from which to retrieve the geometric features
 
         objectType : {'point', 'transect', 'region'}
@@ -173,7 +174,8 @@ class GeometricFeatures(object):
 
         Parameters
         ----------
-        componentName : {'bedmachine', 'bedmap2', 'iceshelves', 'landice', 'natural_earth', 'ocean'}
+        componentName : {'bedmachine', 'bedmap2', 'iceshelves', 'landice', 
+        'natural_earth', 'ocean','seaice'}
             The component from which to retrieve the geometric features
 
         objectType : {'point', 'transect', 'region'}
@@ -223,7 +225,8 @@ class GeometricFeatures(object):
 
         Parameters
         ----------
-        componentName : {'bedmachine', 'bedmap2', 'iceshelves', 'landice', 'natural_earth', 'ocean'}
+        componentName : {'bedmachine', 'bedmap2', 'iceshelves', 'landice', 
+        'natural_earth', 'ocean','seaice'}
             The component from which to retrieve the geometric features
 
         objectType : {'point', 'transect', 'region'}
@@ -298,7 +301,8 @@ def _get_file_name(componentName, objectType, featureName):
 
     Parameters
     ----------
-    componentName : {'bedmachine', 'bedmap2', 'iceshelves', 'landice', 'natural_earth', 'ocean'}
+    componentName : {'bedmachine', 'bedmap2', 'iceshelves', 'landice', 
+    'natural_earth', 'ocean','seaice'}
         The component from which to retrieve the geometric features
 
     objectType : {'point', 'transect', 'region'}
