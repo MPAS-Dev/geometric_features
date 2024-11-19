@@ -4,7 +4,7 @@ from geometric_features.test import TestCase, loaddatadir
 from geometric_features import GeometricFeatures
 from geometric_features.aggregation import get_aggregator_by_name, basins, \
     subbasins, antarctic, ice_shelves, ismip6, arctic_ocean, transport, \
-    arctic_transport, moc, arctic_seaice, qgreenland, nasa_greenland, ismip6_greenland
+    arctic_transport, moc, arctic_seaice, qgreenland_seaice, nasa_greenland, ismip6_greenland
 
 @pytest.mark.usefixtures('loaddatadir')
 class TestAggregation(TestCase):
@@ -62,7 +62,7 @@ class TestAggregation(TestCase):
 
     def test_qgreenland(self):
         gf = GeometricFeatures()
-        qgreenland(gf)
+        qgreenland_seaice(gf)
     
     def test_nasa_greenland(self):
         gf = GeometricFeatures()
