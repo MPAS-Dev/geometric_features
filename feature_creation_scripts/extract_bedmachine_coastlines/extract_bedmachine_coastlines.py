@@ -96,13 +96,13 @@ def extract_geometry(mask):
 
     distance = skfmm.distance(floatMask)
     print(name, 'distance', numpy.amin(distance), numpy.amax(distance))
-    plt.imsave('%s_distance.png' % name, distance, vmin=-1., vmax=1.,
+    plt.imsave(f'{name}_distance.png', distance, vmin=-1., vmax=1.,
                origin='lower')
 
     # smooth it a little
     distance = gaussian_filter(distance, sigma=0.5)
     print(name, 'distance smoothed', numpy.amin(distance), numpy.amax(distance))
-    plt.imsave('%s_distance_smoothed.png' % name, distance, vmin=-1.,
+    plt.imsave(f'{name}_distance_smoothed.png', distance, vmin=-1.,
                vmax=1., origin='lower')
 
     # extract contours and interpolate following
@@ -136,7 +136,7 @@ def extract_geometry(mask):
         if poly.is_valid:
             polys.append(poly)
         else:
-            print("invalid shape with {} vertices".format(contour.shape[0]))
+            print(f"invalid shape with {contour.shape[0]} vertices")
 
     return mapping(unary_union(polys))
 

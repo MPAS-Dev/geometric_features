@@ -125,8 +125,8 @@ combinedIceShelves = {'Filchner-Ronne': ['Filchner', 'Ronne'],
 
 nIMBIEBasins = 27
 for basinNumber in range(1, nIMBIEBasins+1):
-    basinName = 'Antarctica_IMBIE{}'.format(basinNumber)
-    combinedIceShelves['IMBIE{}'.format(basinNumber)] = [basinName]
+    basinName = f'Antarctica_IMBIE{basinNumber}'
+    combinedIceShelves[f'IMBIE{basinNumber}'] = [basinName]
 
 # create a GeometricFeatures object that points to a local cache of geometric
 # data and knows which branch of geometric_feature to use to download

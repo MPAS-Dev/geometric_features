@@ -129,8 +129,7 @@ def subdivide_geom(geometry, geomtype, maxLength):
     elif geomtype == 'Point':
         newGeometry = geometry
     else:
-        print("Warning: subdividing geometry type {} is not supported.".format(
-            geomtype))
+        print(f"Warning: subdividing geometry type {geomtype} is not supported.")
         newGeometry = geometry
 
     return newGeometry

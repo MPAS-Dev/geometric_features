@@ -41,15 +41,15 @@ def moc(gf):
 
     # build MOC basins from regions with the appropriate tags
     for basinName in MOCSubBasins:
-        tags = ['{}_Basin'.format(basin) for basin in
+        tags = [f'{basin}_Basin' for basin in
                 MOCSubBasins[basinName]]
 
         fcBasin = gf.read(componentName='ocean', objectType='region',
                           tags=tags, allTags=False)
 
-        fcBasin = fcBasin.combine(featureName='{}_MOC'.format(basinName))
+        fcBasin = fcBasin.combine(featureName=f'{basinName}_MOC')
 
-        maskName = 'MOC mask {}'.format(MOCSouthernBoundary[basinName])
+        maskName = f'MOC mask {MOCSouthernBoundary[basinName]}'
         fcMask = gf.read(componentName='ocean', objectType='region',
                          featureNames=[maskName])
         # mask out the region covered by the mask

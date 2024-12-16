@@ -28,7 +28,7 @@ def write_feature_names_and_tags(cacheLocation='./geometry_data', quiet=False):
     # -------
     # Xylar Asay-Davis
     outFileName = 'features_and_tags.json'
-    fileNames = sorted(glob.glob('{}/*/*/*/*.geojson'.format(cacheLocation)))
+    fileNames = sorted(glob.glob(f'{cacheLocation}/*/*/*/*.geojson'))
 
     allFeaturesAndTags = OrderedDict()
     for fileName in fileNames:

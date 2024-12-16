@@ -260,13 +260,12 @@ class GeometricFeatures(object):
         # Xylar Asay-Davis
 
         if componentName not in self.allFeaturesAndTags:
-            raise KeyError('invalid component {}'.format(componentName))
+            raise KeyError(f'invalid component {componentName}')
 
         component = self.allFeaturesAndTags[componentName]
 
         if objectType not in component:
-            raise KeyError('invalid object {} in component {}'.format(
-                objectType, componentName))
+            raise KeyError(f'invalid object {objectType} in component {componentName}')
 
         availableFeaturesAndTags = component[objectType]
 
@@ -278,8 +277,7 @@ class GeometricFeatures(object):
             if featureNames is not None:
                 for featureName in featureNames:
                     if featureName not in availableFeaturesAndTags:
-                        raise KeyError('invalid feature {}'.format(
-                            featureName))
+                        raise KeyError(f'invalid feature {featureName}')
                     outFeatureNames.append(featureName)
 
             if tags is not None:
@@ -326,6 +324,6 @@ def _get_file_name(componentName, objectType, featureName):
     for char in badCharacters:
         featureDir = featureDir.replace(char, '')
     fileName = os.path.join(componentName, objectType, featureDir,
-                            '{}.geojson'.format(objectType))
+                            f'{objectType}.geojson')
 
     return fileName

@@ -131,8 +131,8 @@ def ice_shelves(gf):
 
     nIMBIEBasins = 27
     for basinNumber in range(1, nIMBIEBasins + 1):
-        basinName = 'Antarctica_IMBIE{}'.format(basinNumber)
-        combinedIceShelves['IMBIE{}'.format(basinNumber)] = [basinName]
+        basinName = f'Antarctica_IMBIE{basinNumber}'
+        combinedIceShelves[f'IMBIE{basinNumber}'] = [basinName]
 
     # create a FeatureCollection containing all ice shelves and combined
     # ice-shelf regions

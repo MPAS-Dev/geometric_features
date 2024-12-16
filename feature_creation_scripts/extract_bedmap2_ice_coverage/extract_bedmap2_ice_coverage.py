@@ -73,12 +73,12 @@ def extract_geometry(mask):
 
     distance = skfmm.distance(floatMask)
     print(name, 'distance', numpy.amin(distance), numpy.amax(distance))
-    pyplot.imsave('%s_distance.png'%name, distance, vmin=-1., vmax=1.,origin='lower')
+    pyplot.imsave(f'{name}_distance.png', distance, vmin=-1., vmax=1.,origin='lower')
 
     # smooth it a little
     distance = gaussian_filter(distance, sigma = 0.5)
     print(name, 'distance smoothed', numpy.amin(distance), numpy.amax(distance))
-    pyplot.imsave('%s_distance_smoothed.png'%name, distance, vmin=-1., vmax=1., origin='lower')
+    pyplot.imsave(f'{name}_distance_smoothed.png', distance, vmin=-1., vmax=1., origin='lower')
 
     contourObj = cntr.Cntr(X,Y,distance)
 

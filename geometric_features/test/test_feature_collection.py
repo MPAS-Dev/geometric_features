@@ -169,7 +169,7 @@ class TestFeatureCollection(TestCase):
             with open(destfile) as f:
                 filevals = json.load(f)
                 assert 'groupName' in filevals, \
-                    'groupName does not exist in {}'.format(destfile)
+                    f'groupName does not exist in {destfile}'
                 assert filevals['groupName'] == groupName, \
                     'Incorrect groupName of {} specified instead of ' \
                     '{}.'.format(filevals['groupName'], groupName)

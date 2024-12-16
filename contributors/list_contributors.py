@@ -37,8 +37,7 @@ def build_contrib_file():
     shutil.copyfile(contribdir + '/CONTRIBUTORS_HEADER', contribfile)
 
     append_to_file(
-        'List populated on {}:'.format(
-            datetime.datetime.now().strftime("%Y-%m-%d %H:%M")),
+        f"List populated on {datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}:",
         contribfile)
     append_to_file('\n', contribfile)
 
