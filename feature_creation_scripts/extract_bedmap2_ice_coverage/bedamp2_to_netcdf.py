@@ -113,5 +113,3 @@ addVariable(Lat,'lat','f4')
 
 
 ncfile.close()
-
-

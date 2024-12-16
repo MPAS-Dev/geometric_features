@@ -97,4 +97,3 @@ plt.ylim([-dx*0.5*(ny+1),dx*0.5*(ny+1)])
 fig.canvas.draw()
 plt.savefig('streamlines.png',dpi=my_dpi)
 plt.close()
-

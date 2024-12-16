@@ -70,4 +70,3 @@ var = outFile.createVariable('Y','f8',('y','x'))
 var[:,:] = Y
 
 outFile.close()
-

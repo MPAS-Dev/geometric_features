@@ -81,6 +81,3 @@ for basinIndex in range(len(names)):
   var[basinIndex,:,:] = distance
 
 outFile.close()
-
-
-

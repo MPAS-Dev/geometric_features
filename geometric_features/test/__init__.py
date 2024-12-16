@@ -81,5 +81,3 @@ class TestCase(unittest.TestCase):
             yield
             assert len(w) > 0
             assert all(message in str(wi.message) for wi in w)
-
-

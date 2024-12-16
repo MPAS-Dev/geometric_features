@@ -153,4 +153,3 @@ for name in masks:
 out_file_name = "AntarcticIceCoverage.geojson"
 
 write_all_features(features_file, out_file_name, indend=4)
-
