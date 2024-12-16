@@ -15,6 +15,7 @@ shapely>=2.0,<3.0
 pip
 pytest
 setuptools>=60
+pre-commit
 
 # Documentation
 sphinx
