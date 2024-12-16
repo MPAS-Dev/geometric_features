@@ -12,7 +12,7 @@ class TestAggregation(TestCase):
     def test_get_aggregator_by_name(self):
         gf = GeometricFeatures()
         names = ['Antarctic Regions', 'Arctic Ocean Regions', 'ISMIP6 Greenland Regions',
-                 'NASA Greenland Regions', 'Arctic Sea Ice Regions', 'Ocean Basins', 
+                 'NASA Greenland Regions', 'Arctic Sea Ice Regions', 'Ocean Basins',
                  'Ice Shelves', 'Ocean Subbasins', 'ISMIP6 Regions', 'MOC Basins', 'Historical Sea Ice',
                  'Transport Transects', 'Arctic Transport Transects']
 
@@ -63,7 +63,7 @@ class TestAggregation(TestCase):
     def test_qgreenland(self):
         gf = GeometricFeatures()
         qgreenland_seaice(gf)
-    
+
     def test_nasa_greenland(self):
         gf = GeometricFeatures()
         nasa_greenland(gf)

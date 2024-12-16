@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-  
+
 import shutil
 
 from geometric_features import GeometricFeatures, FeatureCollection

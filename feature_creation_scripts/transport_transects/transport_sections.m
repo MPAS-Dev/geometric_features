@@ -98,7 +98,7 @@ sectionCoord = [...
  -64.5  -64    -55    -65.3;... % Drake
  -67    140    -43.5  147  ;... % Tasm-Ant
  -70.0   30    -31.3   30  ;... % Afri-Ant
-  10.7  -63.2   18.0  -65.9;... % Antilles  
+  10.7  -63.2   18.0  -65.9;... % Antilles
   18.4  -67.2   18.4  -68.5;... % Mona Passage
   19.8  -73.4   20.1  -74.3;... % Windward Passage
   23.1  -81.0   25.15 -81.0;... % Florida-Cuba
@@ -111,7 +111,7 @@ sectionCoord = [...
 %  73.7  -80.6   74.6  -81.0;... % Lancaster Sound- was not able to
 %  get this to connect for all resolutions
 % 79.7   10.7   79.7  -17.7;... % Fram St - crosses 0 lon.  This is not in code yet.
-% 81.0  -63.5   82.0  -63.5;... % Robeson Ch - was not able to get this to connect 
+% 81.0  -63.5   82.0  -63.5;... % Robeson Ch - was not able to get this to connect
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -122,7 +122,7 @@ sectionCoord = [...
 % var_name(nVars)    a cell array with text for each variable to
 %                    load or compute.
 % var_conv_factor    multiply each variable by this unit conversion.
-% var_lims(nVars,3)  contour line definition: min, max, interval 
+% var_lims(nVars,3)  contour line definition: min, max, interval
 
 % Eulerian velocity from prognostic momentum equation
 var_name = {'avgNormalVelocity'};
@@ -169,7 +169,7 @@ for iSim = 1:length(sim)
   %
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-  if find_edge_sections_flag 
+  if find_edge_sections_flag
     [sim(iSim).sectionEdgeIndex, sim(iSim).sectionEdgeSign, sim(iSim).nEdgesInSection, ...
      sim(iSim).latSectionVertex,sim(iSim).lonSectionVertex, ...
      sim(iSim).latVertexDeg,sim(iSim).lonVertexDeg] ...
@@ -183,14 +183,14 @@ for iSim = 1:length(sim)
   %
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-  if write_edge_sections_text_flag 
+  if write_edge_sections_text_flag
     write_edge_sections_text...
        (sim(iSim).dir, sim(iSim).sectionEdgeIndex, ...
         sim(iSim).sectionEdgeSign, sim(iSim).nEdgesInSection, ...
         sectionText,sectionAbbreviation,sectionCoord)
   end
-  
-  if write_edge_sections_netcdf_flag 
+
+  if write_edge_sections_netcdf_flag
     write_edge_sections_netcdf...
        (sim(iSim).dir, sim(iSim).sectionEdgeIndex, ...
         sim(iSim).sectionEdgeSign, sim(iSim).nEdgesInSection, ...
@@ -222,7 +222,7 @@ for iSim = 1:length(sim)
        (wd,sim(iSim).dir,sim(iSim).netcdf_file, var_name,var_conv_factor, ...
         sim(iSim).sectionEdgeIndex, sim(iSim).nEdgesInSection);
   end
-  
+
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   %
   %  Compute transport through each section
@@ -234,17 +234,17 @@ for iSim = 1:length(sim)
      (wd,sim(iSim).dir,sim(iSim).netcdf_file, ...
       sim(iSim).sectionEdgeIndex, sim(iSim).sectionEdgeSign, sim(iSim).nEdgesInSection, ...
       sim(iSim).sectionData,sectionText,sectionAbbreviation);
-    
+
     if iSim==1
       tr_total = sim(iSim).tr_total';
     else
       tr_total = [tr_total; sim(iSim).tr_total'];
     end
-    
+
   end
 
   fclose(fid_latex);
-  
+
 end % iSim
 
 % tr_total

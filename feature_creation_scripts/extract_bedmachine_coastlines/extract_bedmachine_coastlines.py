@@ -39,7 +39,7 @@ conda activate bedmachine
 cp feature_creation_scripts/extract_bedmachine_coastlines/extract_bedmachine_coastlines.py .
 ./extract_bedmachine_coastlines.py
 
-This script takes as input the BedMachine topography data.  It produces the 
+This script takes as input the BedMachine topography data.  It produces the
 feature file AntarcticIceCoverage.geojson containing two features:
 1) AntarcticIceCoverage contains all grounded or floating ice in Antarctica
 as well as all bare bedrock above sea level lying south of 60S
