@@ -1,23 +1,21 @@
 #!/usr/bin/env python
 
 import os
-import xarray
+
+import matplotlib.pyplot as plt
 import numpy
 import pyproj
-import matplotlib.pyplot as plt
-from skimage import measure
-
+import skfmm
+import xarray
+from scipy.interpolate import interp1d
+from scipy.ndimage.filters import gaussian_filter
 from shapely.geometry import Polygon, mapping
 from shapely.ops import unary_union
+from skimage import measure
 
-from geometric_features import FeatureCollection, GeometricFeatures, \
-    read_feature_collection
+from geometric_features import (FeatureCollection, GeometricFeatures,
+                                read_feature_collection)
 from geometric_features.utils import write_feature_names_and_tags
-
-import skfmm
-
-from scipy.ndimage.filters import gaussian_filter
-from scipy.interpolate import interp1d
 
 """
 We do not have permission to automatically download or re-distribute the

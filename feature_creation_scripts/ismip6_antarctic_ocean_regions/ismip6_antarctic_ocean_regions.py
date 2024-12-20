@@ -1,19 +1,19 @@
 #!/usr/bin/env python
 
+import os
+import shutil
+import zipfile
+
+import matplotlib.pyplot as plt
+import numpy
+import pyproj
 import shapely.geometry
 import shapely.ops
-import numpy
 import xarray
-import os
-import matplotlib.pyplot as plt
-import pyproj
-import zipfile
-import shutil
 
-from geometric_features import GeometricFeatures, FeatureCollection
-from geometric_features.feature_collection import _round_coords
-
+from geometric_features import FeatureCollection, GeometricFeatures
 from geometric_features.download import download_files
+from geometric_features.feature_collection import _round_coords
 from geometric_features.utils import write_feature_names_and_tags
 
 

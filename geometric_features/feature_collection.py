@@ -1,7 +1,8 @@
-from __future__ import absolute_import, division, print_function, \
-    unicode_literals
+from __future__ import (absolute_import, division, print_function,
+                        unicode_literals)
 
 import json
+
 try:
     import matplotlib.pyplot as plt
 except ImportError:
@@ -10,17 +11,17 @@ except ImportError:
     mpl.use('Agg', force=True)
     import matplotlib.pyplot as plt
 
-import shapely.geometry
-import shapely.ops
+import copy
+
 import cartopy
 import numpy as np
 import progressbar
-import copy
+import shapely.geometry
+import shapely.ops
 
+from geometric_features.plot import (build_projections, plot_base,
+                                     subdivide_geom)
 from geometric_features.utils import provenance_command
-
-from geometric_features.plot import build_projections, subdivide_geom, \
-    plot_base
 
 
 def read_feature_collection(fileName):

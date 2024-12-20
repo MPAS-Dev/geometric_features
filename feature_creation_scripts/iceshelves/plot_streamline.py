@@ -1,18 +1,16 @@
 #!/usr/bin/env python
 
+import matplotlib
 import numpy
 from netCDF4 import Dataset
 
-import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-
-from mpl_toolkits.basemap import interp
-
 import scipy.integrate
 import scipy.ndimage.morphology as morphology
-
+from mpl_toolkits.basemap import interp
 from skimage import measure
+
 
 def interpVel(p,t):
   np = len(p)/2

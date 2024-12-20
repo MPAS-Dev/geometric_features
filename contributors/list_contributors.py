@@ -7,11 +7,11 @@ Phillip J. Wolfram, Xylar-Asay-Davis
 02/23/2019
 """
 
-import os
-import subprocess
-import shutil
 import datetime
+import os
 import re
+import shutil
+import subprocess
 
 
 def append_to_file(aline, afile):

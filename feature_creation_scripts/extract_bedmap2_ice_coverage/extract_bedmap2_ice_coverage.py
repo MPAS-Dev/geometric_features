@@ -1,19 +1,13 @@
-from netCDF4 import Dataset
 import numpy
-from matplotlib import pyplot
+import skfmm
 from matplotlib import _cntr as cntr
-
+from matplotlib import pyplot
+from mpl_toolkits.basemap import interp as basemap_interp
+from netCDF4 import Dataset
+from scipy.ndimage.filters import gaussian_filter
 from shapely.geometry import Polygon, mapping
 from shapely.ops import unary_union
-
 from utils.feature_write_utils import write_all_features
-
-
-import skfmm
-
-from scipy.ndimage.filters import gaussian_filter
-
-from mpl_toolkits.basemap import interp as basemap_interp
 
 """
 This script takes as input the Bedmap2 topography data produced by the

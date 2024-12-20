@@ -1,5 +1,6 @@
 import numpy
 
+
 def toPolar(points):
   lons = numpy.pi*points[:,0]/180.
   lats = numpy.pi*points[:,1]/180.

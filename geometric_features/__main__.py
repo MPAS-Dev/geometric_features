@@ -1,12 +1,13 @@
-from __future__ import absolute_import, division, print_function, \
-    unicode_literals
+from __future__ import (absolute_import, division, print_function,
+                        unicode_literals)
 
 import argparse
 import os
+
 import geometric_features
 from geometric_features import GeometricFeatures
-from geometric_features.feature_collection import FeatureCollection, \
-    read_feature_collection
+from geometric_features.feature_collection import (FeatureCollection,
+                                                   read_feature_collection)
 
 
 def combine_features():

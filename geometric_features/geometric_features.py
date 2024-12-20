@@ -1,17 +1,14 @@
-from __future__ import absolute_import, division, print_function, \
-    unicode_literals
+from __future__ import (absolute_import, division, print_function,
+                        unicode_literals)
 
 import json
 import os
-
 from importlib.resources import files as imp_res_files
 
 import geometric_features
-
-from geometric_features.feature_collection import FeatureCollection, \
-    read_feature_collection
-
 from geometric_features.download import download_files
+from geometric_features.feature_collection import (FeatureCollection,
+                                                   read_feature_collection)
 
 
 class GeometricFeatures(object):

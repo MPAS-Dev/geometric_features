@@ -1,10 +1,10 @@
-from __future__ import absolute_import, division, print_function, \
-    unicode_literals
+from __future__ import (absolute_import, division, print_function,
+                        unicode_literals)
 
-import numpy as np
-import matplotlib.pyplot as plt
 import cartopy.crs
 import cartopy.feature
+import matplotlib.pyplot as plt
+import numpy as np
 import shapely
 
 

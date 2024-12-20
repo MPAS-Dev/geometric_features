@@ -12,14 +12,15 @@ iii) NinoRegionGroups, which includes the Nino3, Nino4, and Nino3.4
 """
 
 # stuff to make scipts work for python 2 and python 3
-from __future__ import absolute_import, division, print_function, \
-    unicode_literals
+from __future__ import (absolute_import, division, print_function,
+                        unicode_literals)
+
+import copy
 
 import matplotlib.pyplot as plt
-import copy
 import shapely
 
-from geometric_features import GeometricFeatures, FeatureCollection
+from geometric_features import FeatureCollection, GeometricFeatures
 
 
 def build_ocean_basins(gf, plot):

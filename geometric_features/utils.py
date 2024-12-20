@@ -1,13 +1,13 @@
-from __future__ import absolute_import, division, print_function, \
-    unicode_literals
+from __future__ import (absolute_import, division, print_function,
+                        unicode_literals)
 
+import datetime
 import glob
 import json
-from collections import OrderedDict
 import os
-import sys
 import socket
-import datetime
+import sys
+from collections import OrderedDict
 
 
 def write_feature_names_and_tags(cacheLocation='./geometry_data', quiet=False):

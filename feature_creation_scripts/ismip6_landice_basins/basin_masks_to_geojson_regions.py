@@ -6,17 +6,17 @@
 #   * pyproj
 
 import os
-import numpy
-import xarray
-import pyproj
-import matplotlib.pyplot as plt
-from importlib.resources import path
 from configparser import ConfigParser, ExtendedInterpolation
+from importlib.resources import path
 
+import matplotlib.pyplot as plt
+import numpy
+import pyproj
+import xarray
 from ismip6_ocean_forcing.bedmap2 import bedmap2_to_ismip6_grid
 from ismip6_ocean_forcing.imbie import make_imbie_masks
 
-from geometric_features import GeometricFeatures, FeatureCollection
+from geometric_features import FeatureCollection, GeometricFeatures
 from geometric_features.utils import write_feature_names_and_tags
 
 

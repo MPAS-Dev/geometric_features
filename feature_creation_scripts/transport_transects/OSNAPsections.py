@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 
 import csv
-import matplotlib.pyplot as plt
 import shutil
 
-from geometric_features import GeometricFeatures, FeatureCollection
+import matplotlib.pyplot as plt
+
+from geometric_features import FeatureCollection, GeometricFeatures
 from geometric_features.utils import write_feature_names_and_tags
 
 

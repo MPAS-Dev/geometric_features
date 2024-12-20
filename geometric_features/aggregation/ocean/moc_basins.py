@@ -1,6 +1,7 @@
+import copy
+
 import shapely.geometry
 import shapely.ops
-import copy
 
 from geometric_features import FeatureCollection
 

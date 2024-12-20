@@ -1,14 +1,15 @@
 #!/usr/bin/env python
 
-import numpy
 import csv
-from netCDF4 import Dataset
 
 import matplotlib
+import numpy
+from netCDF4 import Dataset
+
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-
 import skfmm
+
 
 def getBoundinBox(mask):
   xIndices = numpy.nonzero(numpy.amax(mask,axis=0))[0]

@@ -1,11 +1,11 @@
-from __future__ import absolute_import, division, print_function, \
-    unicode_literals
-
+from __future__ import (absolute_import, division, print_function,
+                        unicode_literals)
 
 import os
-import requests
-import progressbar
 from urllib.request import pathname2url
+
+import progressbar
+import requests
 
 
 # From https://stackoverflow.com/a/1094933/7728169

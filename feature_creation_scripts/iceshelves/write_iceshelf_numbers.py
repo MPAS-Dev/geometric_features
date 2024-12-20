@@ -1,22 +1,18 @@
 #!/usr/bin/env python
 
-import numpy
 import csv
-from netCDF4 import Dataset
 
 import matplotlib
+import numpy
+from netCDF4 import Dataset
+
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-
-from mpl_toolkits.basemap import interp
-
-from skimage import measure
-
 import scipy.misc
-
 import skfmm
-
+from mpl_toolkits.basemap import interp
 from polar import toPolar
+from skimage import measure
 
 inFileName = 'Bedmap2_ice_shelf_distance.nc'
 outFileName = 'Bedmap2_ice_shelf_numbers.nc'
