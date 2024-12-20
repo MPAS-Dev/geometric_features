@@ -10,7 +10,7 @@ import socket
 import datetime
 
 
-def write_feature_names_and_tags(cacheLocation='./geometry_data'):
+def write_feature_names_and_tags(cacheLocation='./geometry_data', quiet=False):
     """
     Make a json file with all the available features and tags by component
     and object type, used to update the file when new geometric features are
@@ -20,6 +20,9 @@ def write_feature_names_and_tags(cacheLocation='./geometry_data'):
     ----------
     cacheLocation : str, optional
         The location of the geometric features cache
+
+    quiet : bool, optional
+        Whether to suppress printing of feature filenames
     """
     # Authors
     # -------
@@ -29,7 +32,8 @@ def write_feature_names_and_tags(cacheLocation='./geometry_data'):
 
     allFeaturesAndTags = OrderedDict()
     for fileName in fileNames:
-        print(fileName)
+        if not quiet:
+            print(fileName)
         with open(fileName) as f:
             features = json.load(f)['features']
             feature = features[0]
