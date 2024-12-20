@@ -5,10 +5,10 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "December Median Sea Ice Extent (1981-2010)",
+                "name": "December Historical Median Sea Ice Extent",
                 "tags": "QGreenland;Historical_Sea_Ice_Extent",
                 "object": "region",
-                "component": "sea ice",
+                "component": "seaice",
                 "author": "Modified by Alex Hager from the QGreenland dataset (doi:10.5281/zenodo.12823307)",
                 "history": "11/06/24 12:55 : ch-fe2 : ahager : /usr/projects/climate/ahager/geometric_features/geometric_data/seaice/region : /usr/projects/climate/ahager/scripts/fix_antimeridian_geojson.py -f December_Historical_Median_Sea_Ice_Extent/region.geojson;"
             },
