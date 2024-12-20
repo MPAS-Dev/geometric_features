@@ -6,8 +6,8 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "northWestGreenland2",
-                "tags": "northWestGreenland_oceanExtended",
+                "name": "northWestGreenland2_oceanExtended",
+                "tags": "northWestGreenland",
                 "object": "region",
                 "component": "landice",
                 "author": "Modified by Alex Hager from https://earth.gsfc.nasa.gov/cryo/data/polar-altimetry/antarctic-and-greenland-drainage-systems",
