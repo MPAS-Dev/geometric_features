@@ -812,25 +812,49 @@
       "eastCentralGreenland1": [
         "eastCentralGreenland"
       ],
+      "eastCentralGreenland1_oceanExtended": [
+        "eastCentralGreenland"
+      ],
       "eastCentralGreenland2": [
+        "eastCentralGreenland"
+      ],
+      "eastCentralGreenland2_oceanExtended": [
         "eastCentralGreenland"
       ],
       "eastCentralGreenland3": [
         "eastCentralGreenland"
       ],
+      "eastCentralGreenland3_oceanExtended": [
+        "eastCentralGreenland"
+      ],
       "northEastGreenland1": [
+        "northEastGreenland"
+      ],
+      "northEastGreenland1_oceanExtended": [
         "northEastGreenland"
       ],
       "northEastGreenland2": [
         "northEastGreenland"
       ],
+      "northEastGreenland2_oceanExtended": [
+        "northEastGreenland"
+      ],
       "northGreenland1": [
+        "northGreenland"
+      ],
+      "northGreenland1_oceanExtended": [
         "northGreenland"
       ],
       "northGreenland2": [
         "northGreenland"
       ],
+      "northGreenland2_oceanExtended": [
+        "northGreenland"
+      ],
       "northGreenland3": [
+        "northGreenland"
+      ],
+      "northGreenland3_oceanExtended": [
         "northGreenland"
       ],
       "northGreenland4": [
@@ -839,85 +863,58 @@
       "northWestGreenland1": [
         "northWestGreenland"
       ],
-      "northWestGreenland2": [
+      "northWestGreenland1_oceanExtended": [
         "northWestGreenland"
       ],
-      "southEastGreenland1": [
-        "southEastGreenland"
-      ],
-      "southEastGreenland2": [
-        "southEastGreenland"
-      ],
-      "southEastGreenland3": [
-        "southEastGreenland"
-      ],
-      "southGreenland1": [
-        "southGreenland"
-      ],
-      "southWestGreenland1": [
-        "southWestGreenland"
-      ],
-      "southWestGreenland2": [
-        "southWestGreenland"
-      ],
-      "westCentralGreenland1": [
-        "westCentralGreenland"
-      ],
-      "westCentralGreenland2": [
-        "westCentralGreenland"
-      ],
-      "eastCentralGreenland1_oceanExtended": [
-        "eastCentralGreenland"
-      ],
-      "eastCentralGreenland2_oceanExtended": [
-        "eastCentralGreenland"
-      ],
-      "eastCentralGreenland3_oceanExtended": [
-        "eastCentralGreenland"
-      ],
-      "northEastGreenland1_oceanExtended": [
-        "northEastGreenland"
-      ],
-      "northEastGreenland2_oceanExtended": [
-        "northEastGreenland"
-      ],
-      "northGreenland1_oceanExtended": [
-        "northGreenland"
-      ],
-      "northGreenland2_oceanExtended": [
-        "northGreenland"
-      ],
-      "northGreenland3_oceanExtended": [
-        "northGreenland"
-      ],
-      "northGreenland4_oceanExtended": [
-        "northGreenland"
-      ],
-      "northWestGreenland1_oceanExtended": [
+      "northWestGreenland2": [
         "northWestGreenland"
       ],
       "northWestGreenland2_oceanExtended": [
         "northWestGreenland"
       ],
+      "southEastGreenland1": [
+        "southEastGreenland"
+      ],
       "southEastGreenland1_oceanExtended": [
+        "southEastGreenland"
+      ],
+      "southEastGreenland2": [
         "southEastGreenland"
       ],
       "southEastGreenland2_oceanExtended": [
         "southEastGreenland"
       ],
+      "southEastGreenland3": [
+        "southEastGreenland"
+      ],
       "southEastGreenland3_oceanExtended": [
         "southEastGreenland"
+      ],
+      "southGreenland1": [
+        "southGreenland"
       ],
       "southGreenland1_oceanExtended": [
         "southGreenland"
       ],
+      "southWestGreenland1": [
+        "southWestGreenland"
+      ],
       "southWestGreenland1_oceanExtended": [
+        "southWestGreenland"
+      ],
+      "southWestGreenland2": [
         "southWestGreenland"
       ],
       "southWestGreenland2_oceanExtended": [
         "southWestGreenland"
       ],
+      "westCentralGreenland1": [
+        "westCentralGreenland"
+      ],
       "westCentralGreenland1_oceanExtended": [
+        "westCentralGreenland"
+      ],
+      "westCentralGreenland2": [
         "westCentralGreenland"
       ],
       "westCentralGreenland2_oceanExtended": [
@@ -1921,55 +1918,51 @@
   },
   "seaice": {
     "region": {
-      "April Historical Median Sea Ice Extent":[
+      "April Historical Median Sea Ice Extent": [
         "QGreenland",
         "Historical_Sea_Ice_Extent"
       ],
-      "August Historical Median Sea Ice Extent":[
-        "QGreenland",
-        "Historical_Sea_Ice_Extent"
-      ], 
-      "December Historical Median Sea Ice Extent":[
-        "QGreenland",
-        "Historical_Sea_Ice_Extent"
-      ], 
-      "February Historical Median Sea Ice Extent":[
+      "August Historical Median Sea Ice Extent": [
         "QGreenland",
         "Historical_Sea_Ice_Extent"
       ],
-      "January Historical Median Sea Ice Extent":[
+      "December Historical Median Sea Ice Extent": [
         "QGreenland",
         "Historical_Sea_Ice_Extent"
       ],
-      "July Historical Median Sea Ice Extent":[
+      "February Historical Median Sea Ice Extent": [
         "QGreenland",
         "Historical_Sea_Ice_Extent"
       ],
-      "June Historical Median Sea Ice Extent":[
+      "January Historical Median Sea Ice Extent": [
         "QGreenland",
         "Historical_Sea_Ice_Extent"
       ],
-      "March Historical Median Sea Ice Extent":[
+      "July Historical Median Sea Ice Extent": [
         "QGreenland",
         "Historical_Sea_Ice_Extent"
       ],
-      "May Historical Median Sea Ice Extent":[
+      "June Historical Median Sea Ice Extent": [
         "QGreenland",
         "Historical_Sea_Ice_Extent"
       ],
-      "November Historical Median Sea Ice Extent":[
+      "March Historical Median Sea Ice Extent": [
         "QGreenland",
         "Historical_Sea_Ice_Extent"
       ],
-      "March Historical Median Sea Ice Extent":[
+      "May Historical Median Sea Ice Extent": [
         "QGreenland",
         "Historical_Sea_Ice_Extent"
       ],
-      "October Historical Median Sea Ice Extent":[
+      "November Historical Median Sea Ice Extent": [
         "QGreenland",
         "Historical_Sea_Ice_Extent"
       ],
-      "September Historical Median Sea Ice Extent":[
+      "October Historical Median Sea Ice Extent": [
+        "QGreenland",
+        "Historical_Sea_Ice_Extent"
+      ],
+      "September Historical Median Sea Ice Extent": [
         "QGreenland",
         "Historical_Sea_Ice_Extent"
       ]
