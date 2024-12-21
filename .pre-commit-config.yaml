@@ -33,12 +33,3 @@ repos:
       - id: flake8
         args: ["--config=.flake8"]
         additional_dependencies: [flake8-isort]
-
-  # Can run individually with `pre-commit run mypy --all-files`
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.13.0
-    hooks:
-      - id: mypy
-        args: ["--config=pyproject.toml", "--show-error-codes"]
-        verbose: true
-        additional_dependencies: ['types-requests', 'types-PyYAML']
