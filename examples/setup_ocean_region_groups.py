@@ -11,10 +11,6 @@ iii) NinoRegionGroups, which includes the Nino3, Nino4, and Nino3.4
     regions.
 """
 
-# stuff to make scipts work for python 2 and python 3
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
-
 import copy
 
 import matplotlib.pyplot as plt

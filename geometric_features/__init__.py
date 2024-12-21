@@ -1,6 +1,3 @@
-from __future__ import absolute_import, division, print_function, \
-    unicode_literals
-
 from geometric_features.geometric_features import GeometricFeatures
 
 from geometric_features.feature_collection import FeatureCollection, \
