@@ -58,11 +58,11 @@ def get_aggregator_by_name(region_group):
                                    'date': '20201123',
                                    'function': subbasins},
                'ISMIP6 Greenland Regions': {'prefix': 'ismip6GreenlandRegions',
-                                     'date': '20240510',
-                                     'function': ismip6_greenland},
-               'NASA Greenland Regions': {'prefix':'nasaGreenlandRegions',
-                                             'date':'20241017',
-                                             'function': nasa_greenland},
+                                            'date': '20240510',
+                                            'function': ismip6_greenland},
+               'NASA Greenland Regions': {'prefix': 'nasaGreenlandRegions',
+                                          'date': '20241017',
+                                          'function': nasa_greenland},
                'ISMIP6 Regions': {'prefix': 'ismip6Regions',
                                   'date': '20210201',
                                   'function': ismip6},
@@ -75,7 +75,7 @@ def get_aggregator_by_name(region_group):
                'Transport Transects': {'prefix': 'transportTransects',
                                        'date': '20210323',
                                        'function': transport},
-               'Arctic Transport Transects': {'prefix': 'arcticTransportTransects',
+               'Arctic Transport Transects': {'prefix': 'arcticTransportTransects',  # noqa: E501
                                               'date': '20220926',
                                               'function': arctic_transport}}
 
