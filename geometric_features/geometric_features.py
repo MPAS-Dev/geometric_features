@@ -2,10 +2,10 @@ import json
 import os
 from importlib.resources import files as imp_res_files
 
-import geometric_features
 from geometric_features.download import download_files
 from geometric_features.feature_collection import (FeatureCollection,
                                                    read_feature_collection)
+from geometric_features.version import __version__
 
 
 class GeometricFeatures(object):
@@ -54,7 +54,7 @@ class GeometricFeatures(object):
         else:
             self.cacheLocation = cacheLocation
         if remoteBranchOrTag is None:
-            self.remoteBranch = geometric_features.__version__
+            self.remoteBranch = __version__
         else:
             self.remoteBranch = remoteBranchOrTag
 
@@ -259,7 +259,8 @@ class GeometricFeatures(object):
         component = self.allFeaturesAndTags[componentName]
 
         if objectType not in component:
-            raise KeyError(f'invalid object {objectType} in component {componentName}')
+            raise KeyError(
+                f'invalid object {objectType} in component {componentName}')
 
         availableFeaturesAndTags = component[objectType]
 
