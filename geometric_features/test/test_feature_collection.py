@@ -7,7 +7,7 @@ import shapely.geometry
 
 from geometric_features import (FeatureCollection, GeometricFeatures,
                                 read_feature_collection)
-from geometric_features.test import TestCase, loaddatadir
+from geometric_features.test import TestCase, loaddatadir  # noqa: F401
 
 
 @pytest.mark.usefixtures('loaddatadir')
@@ -393,7 +393,7 @@ class TestFeatureCollection(TestCase):
 
         projection = 'cyl'
 
-        fig = fc.plot(projection, maxLength=4.0, figsize=(12,12),
+        fig = fc.plot(projection, maxLength=4.0, figsize=(12, 12),
                       colors=colors, dpi=200)
 
         dest_filename = str(self.datadir.join('plot.png'))

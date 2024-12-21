@@ -1,13 +1,10 @@
 import difflib
 import os
 
-import pytest
-
-from geometric_features.test import TestCase, loaddatadir
+from geometric_features.test import TestCase
 from geometric_features.utils import write_feature_names_and_tags
 
 
-@pytest.mark.usefixtures('loaddatadir')
 class TestFeaturesAndTags(TestCase):
 
     def test_features_and_tags(self):
@@ -36,5 +33,5 @@ class TestFeaturesAndTags(TestCase):
 
         if count != 0:
             raise ValueError(
-                'Unexpected differences in geometric_features/features_and_tags.json '
-                'compared with the results of geometric_features.utils.write_feature_names_and_tags()')
+                'Unexpected differences in geometric_features/features_and_tags.json '  # noqa: E501
+                'compared with the results of geometric_features.utils.write_feature_names_and_tags()')  # noqa: E501

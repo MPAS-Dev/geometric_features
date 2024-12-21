@@ -3,7 +3,7 @@ import os
 import pytest
 
 from geometric_features import GeometricFeatures
-from geometric_features.test import TestCase, loaddatadir
+from geometric_features.test import TestCase, loaddatadir  # noqa: F401
 
 
 @pytest.mark.usefixtures('loaddatadir')
@@ -138,5 +138,5 @@ class TestGeometricFeatures(TestCase):
         for feature in fc.features:
             name = feature['properties']['name']
             subdir = name.replace(' ', '_')
-            path = f'{self.datadir}/{component}/{object_type}/{subdir}/{object_type}.geojson'
+            path = f'{self.datadir}/{component}/{object_type}/{subdir}/{object_type}.geojson'  # noqa: E501
             assert os.path.exists(path)
