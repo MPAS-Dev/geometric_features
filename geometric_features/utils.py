@@ -64,5 +64,5 @@ def provenance_command():
     call = ' '.join(sys.argv)
     host = socket.gethostname()
     sep = ' : '
-    provstr = sep.join([curtime,  host, user, cwd, call]) + ';'
+    provstr = sep.join([curtime, host, user, cwd, call]) + ';'
     return provstr

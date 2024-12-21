@@ -1,6 +1,7 @@
 def nasa_greenland(gf):
     """
-    Aggregate NASA Greenland ice sheet basin regions extended to continental shelf.
+    Aggregate NASA Greenland ice sheet basin regions extended to continental
+    shelf.
 
     Parameters
     ----------

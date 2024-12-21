@@ -27,8 +27,8 @@ def qgreenland(gf):
                'May Historical Median Sea Ice Extent',
                'November Historical Median Sea Ice Extent',
                'October Historical Median Sea Ice Extent',
-               'September Historical Median Sea Ice Extent'
-              ]
+               'September Historical Median Sea Ice Extent']
+
     fc = gf.read(componentName='seaice', objectType='region',
                  featureNames=regions)
 
