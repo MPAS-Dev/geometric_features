@@ -6,7 +6,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "westCentralGreenland1_oceanExtended.",
+                "name": "westCentralGreenland1_oceanExtended",
                 "tags": "westCentralGreenland",
                 "object": "region",
                 "component": "landice",
