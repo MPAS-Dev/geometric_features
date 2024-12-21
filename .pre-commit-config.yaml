@@ -1,4 +1,4 @@
-exclude: "docs|.git|geometric_data"
+exclude: "docs|.git|geometric_data|geometric_features/features_and_tags.json"
 default_stages: [pre-commit]
 fail_fast: true
 
