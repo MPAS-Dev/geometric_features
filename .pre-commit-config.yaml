@@ -14,7 +14,6 @@ repos:
     rev: 5.13.2
     hooks:
       - id: isort
-        exclude: "geometric_features/__init__.py"
 
   # Can run individually with `flynt [file]` or `flynt [source]`
   - repo: https://github.com/ikamensh/flynt

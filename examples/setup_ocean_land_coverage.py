@@ -7,10 +7,6 @@ both grounded and floating ice to determine land coverage (thus opening
 up sub-ice-shelf cavities in the ocean around Antarctica.
 """
 
-# stuff to make scipts work for python 2 and python 3
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
-
 import matplotlib.pyplot as plt
 
 from geometric_features import GeometricFeatures

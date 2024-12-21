@@ -1,13 +1,10 @@
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
-
 import argparse
 import os
 
-import geometric_features
-from geometric_features import GeometricFeatures
 from geometric_features.feature_collection import (FeatureCollection,
                                                    read_feature_collection)
+from geometric_features.geometric_features import GeometricFeatures
+from geometric_features.version import __version__
 
 
 def combine_features():
@@ -28,7 +25,7 @@ def combine_features():
                         metavar="PATH", default="features.geojson")
     parser.add_argument('-v', '--version',
                         action='version',
-                        version=f'geometric_features {geometric_features.__version__}',
+                        version=f'geometric_features {__version__}',
                         help="Show version number and exit")
 
     args = parser.parse_args()
@@ -57,7 +54,7 @@ def difference_features():
                         metavar="PATH", default="features.geojson")
     parser.add_argument('-v', '--version',
                         action='version',
-                        version=f'geometric_features {geometric_features.__version__}',
+                        version=f'geometric_features {__version__}',
                         help="Show version number and exit")
 
     args = parser.parse_args()
@@ -82,7 +79,7 @@ def fix_features_at_antimeridian():
                         metavar="PATH", default="features.geojson")
     parser.add_argument('-v', '--version',
                         action='version',
-                        version=f'geometric_features {geometric_features.__version__}',
+                        version=f'geometric_features {__version__}',
                         help="Show version number and exit")
 
     args = parser.parse_args()
@@ -124,7 +121,7 @@ def merge_features():
                         metavar="PATH")
     parser.add_argument('-v', '--version',
                         action='version',
-                        version=f'geometric_features {geometric_features.__version__}',
+                        version=f'geometric_features {__version__}',
                         help="Show version number and exit")
 
     args = parser.parse_args()
@@ -169,7 +166,7 @@ def plot_features():
                         " (0.0 indicates skip subdivision)")
     parser.add_argument('-v', '--version',
                         action='version',
-                        version=f'geometric_features {geometric_features.__version__}',
+                        version=f'geometric_features {__version__}',
                         help="Show version number and exit")
 
     args = parser.parse_args()
@@ -191,7 +188,8 @@ def plot_features():
             figsize = (12, 9)
         fig = fc.plot(mapType, args.max_length, figsize)
 
-        plotFileName = f'{os.path.splitext(args.feature_file)[0]}_{mapType}.png'
+        plotFileName = \
+            f'{os.path.splitext(args.feature_file)[0]}_{mapType}.png'
 
         fig.savefig(plotFileName)
 
@@ -211,7 +209,7 @@ def set_group_name():
                         required=True)
     parser.add_argument('-v', '--version',
                         action='version',
-                        version=f'geometric_features {geometric_features.__version__}',
+                        version=f'geometric_features {__version__}',
                         help="Show version number and exit")
 
     args = parser.parse_args()
@@ -240,7 +238,7 @@ def simplify_features():
                         metavar="PATH", default="features.geojson")
     parser.add_argument('-v', '--version',
                         action='version',
-                        version=f'geometric_features {geometric_features.__version__}',
+                        version=f'geometric_features {__version__}',
                         help="Show version number and exit")
     args = parser.parse_args()
 
@@ -265,7 +263,7 @@ def split_features():
                         metavar="PATH", default="./geometric_data")
     parser.add_argument('-v', '--version',
                         action='version',
-                        version=f'geometric_features {geometric_features.__version__}',
+                        version=f'geometric_features {__version__}',
                         help="Show version number and exit")
     args = parser.parse_args()
 
@@ -294,7 +292,7 @@ def tag_features():
                         metavar="PATH", default="features.geojson")
     parser.add_argument('-v', '--version',
                         action='version',
-                        version=f'geometric_features {geometric_features.__version__}',
+                        version=f'geometric_features {__version__}',
                         help="Show version number and exit")
     args = parser.parse_args()
 
