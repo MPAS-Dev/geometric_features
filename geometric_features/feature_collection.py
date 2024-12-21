@@ -261,7 +261,7 @@ class FeatureCollection(object):
         featureCount = len(self.features)
         maskCount = len(maskingFC.features)
 
-        totalCount = featureCount*maskCount
+        totalCount = featureCount * maskCount
 
         if show_progress:
             print('Masking features...')
@@ -285,7 +285,7 @@ class FeatureCollection(object):
             masked = False
             for maskIndex, maskFeature in enumerate(maskingFC.features):
                 if show_progress:
-                    bar.update(maskIndex + featureIndex*maskCount)
+                    bar.update(maskIndex + featureIndex * maskCount)
                 maskShape = shapely.geometry.shape(maskFeature['geometry'])
                 if featureShape.intersects(maskShape):
                     masked = True
@@ -613,7 +613,8 @@ def _validate_feature(feature):
             raise KeyError(f'Feature {name} missing [{outerKey}] key')
         for innerKey in required[outerKey]:
             if innerKey not in feature[outerKey]:
-                raise KeyError(f'Feature {name} missing [{outerKey}][{innerKey}] key')
+                raise KeyError(
+                    f'Feature {name} missing [{outerKey}][{innerKey}] key')
 
     geomType = feature['geometry']['type']
     objectType = feature['properties']['object']
@@ -666,18 +667,18 @@ def _validate_feature(feature):
 
 def _split_geometry_crossing_antimeridian(geometry):
     def _to_polar(lon, lat):
-        phi = np.pi/180.*(np.mod(lon + 180., 360.) - 180.)
-        radius = np.pi/180.*(90. - sign*lat)
+        phi = np.pi / 180. * (np.mod(lon + 180., 360.) - 180.)
+        radius = np.pi / 180. * (90. - sign * lat)
 
         # nudge points at +/- 180 out of the way so they don't intersect the
         # testing wedge
         phi = np.sign(phi) * \
-            np.where(np.abs(phi) > np.pi - 1.5*epsilon,
-                     np.pi - 1.5*epsilon, np.abs(phi))
+            np.where(np.abs(phi) > np.pi - 1.5 * epsilon,
+                     np.pi - 1.5 * epsilon, np.abs(phi))
         # radius = np.where(radius < 1.5*epsilon, 1.5*epsilon, radius)
 
-        x = radius*np.sin(phi)
-        y = radius*np.cos(phi)
+        x = radius * np.sin(phi)
+        y = radius * np.cos(phi)
         if isinstance(lon, list):
             x = x.tolist()
             y = y.tolist()
@@ -688,17 +689,17 @@ def _split_geometry_crossing_antimeridian(geometry):
         return x, y
 
     def _from_polar(x, y):
-        radius = np.sqrt(np.array(x)**2+np.array(y)**2)
+        radius = np.sqrt(np.array(x)**2 + np.array(y)**2)
         phi = np.arctan2(x, y)
 
         # close up the tiny gap
-        radius = np.where(radius < 2*epsilon, 0., radius)
+        radius = np.where(radius < 2 * epsilon, 0., radius)
         phi = np.sign(phi) * \
-            np.where(np.abs(phi) > np.pi - 2*epsilon,
+            np.where(np.abs(phi) > np.pi - 2 * epsilon,
                      np.pi, np.abs(phi))
 
-        lon = 180./np.pi*phi
-        lat = sign*(90. - 180./np.pi*radius)
+        lon = 180. / np.pi * phi
+        lat = sign * (90. - 180. / np.pi * radius)
 
         if isinstance(x, list):
             lon = lon.tolist()
@@ -717,8 +718,8 @@ def _split_geometry_crossing_antimeridian(geometry):
                                                   (epsilon, -np.pi)])
 
     featureShape = shapely.geometry.shape(geometry)
-    sign = (2.*(0.5*(featureShape.bounds[1] + featureShape.bounds[3]) >= 0.) -
-            1.)
+    sign_mask = featureShape.bounds[1] + featureShape.bounds[3] >= 0.
+    sign = 2. * sign_mask - 1.
     polarShape = shapely.ops.transform(_to_polar, featureShape)
 
     if not polarShape.intersects(antimeridianWedge):
