@@ -6,7 +6,7 @@ import re
 from setuptools import find_packages, setup
 
 here = os.path.abspath(os.path.dirname(__file__))
-with open(os.path.join(here, 'geometric_features', '__init__.py')) as f:
+with open(os.path.join(here, 'geometric_features', 'version.py')) as f:
     init_file = f.read()
 
 version = re.search(r'{}\s*=\s*[(]([^)]*)[)]'.format('__version_info__'),
@@ -49,7 +49,7 @@ setup(name='geometric_features',
                      'difference_features = '
                      'geometric_features.__main__:difference_features',
                      'fix_features_at_antimeridian = '
-                     'geometric_features.__main__:fix_features_at_antimeridian',
+                     'geometric_features.__main__:fix_features_at_antimeridian',  # noqa: E501
                      'merge_features = '
                      'geometric_features.__main__:merge_features',
                      'plot_features = '
