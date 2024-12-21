@@ -83,17 +83,17 @@ def subdivide_geom(geometry, geomtype, maxLength):
             coords.append(coords[0])
 
         outCoords = [coords[0]]
-        for iVert in range(len(coords)-1):
+        for iVert in range(len(coords) - 1):
             segment = shapely.geometry.LineString([coords[iVert],
-                                                   coords[iVert+1]])
+                                                   coords[iVert + 1]])
             if segment.length < maxLength:
-                outCoords.append(coords[iVert+1])
+                outCoords.append(coords[iVert + 1])
             else:
                 # we need to subdivide this segment
-                subsegment_count = int(np.ceil(segment.length/maxLength))
+                subsegment_count = int(np.ceil(segment.length / maxLength))
                 for index in range(subsegment_count):
                     point = segment.interpolate(
-                        float(index+1)/float(subsegment_count),
+                        float(index + 1) / float(subsegment_count),
                         normalized=True)
                     outCoords.append(point.coords[0])
 
@@ -126,7 +126,8 @@ def subdivide_geom(geometry, geomtype, maxLength):
     elif geomtype == 'Point':
         newGeometry = geometry
     else:
-        print(f"Warning: subdividing geometry type {geomtype} is not supported.")
+        print(
+            f"Warning: subdividing geometry type {geomtype} is not supported.")
         newGeometry = geometry
 
     return newGeometry
