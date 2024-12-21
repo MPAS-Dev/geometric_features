@@ -1,16 +1,16 @@
 #!/usr/bin/env python
 
-import numpy
-from netCDF4 import Dataset
-
-import scipy.misc
-
-import skfmm
 import os
 
 import matplotlib
+import numpy
+import scipy.misc
+import skfmm
+from netCDF4 import Dataset
+
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+
 
 def readBasinImage(name):
   basinImage = scipy.misc.imread('basins/%s.png'%name)
@@ -81,6 +81,3 @@ for basinIndex in range(len(names)):
   var[basinIndex,:,:] = distance
 
 outFile.close()
-
-
-

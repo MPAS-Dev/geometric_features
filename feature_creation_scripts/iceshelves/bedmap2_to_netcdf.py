@@ -1,9 +1,9 @@
 #!/usr/bin/env python2
 
-from netCDF4 import Dataset
 import numpy
+from netCDF4 import Dataset
+from progressbar import ETA, Bar, Percentage, ProgressBar
 
-from progressbar import ProgressBar, Percentage, Bar, ETA
 """
 This script converts the Bedmap2 binary dataset into a NetCDF file, including
 longitude and latitude fields.  The Bedmap2 bindary dataset is available via
@@ -112,5 +112,3 @@ addVariable(Lat,'lat','f4')
 
 
 ncfile.close()
-
-

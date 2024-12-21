@@ -2,7 +2,8 @@
 
 import os
 import re
-from setuptools import setup, find_packages
+
+from setuptools import find_packages, setup
 
 here = os.path.abspath(os.path.dirname(__file__))
 with open(os.path.join(here, 'geometric_features', '__init__.py')) as f:

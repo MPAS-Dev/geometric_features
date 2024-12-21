@@ -1,17 +1,14 @@
-from __future__ import absolute_import, division, print_function, \
-    unicode_literals
+from __future__ import (absolute_import, division, print_function,
+                        unicode_literals)
 
 import json
 import os
-
 from importlib.resources import files as imp_res_files
 
 import geometric_features
-
-from geometric_features.feature_collection import FeatureCollection, \
-    read_feature_collection
-
 from geometric_features.download import download_files
+from geometric_features.feature_collection import (FeatureCollection,
+                                                   read_feature_collection)
 
 
 class GeometricFeatures(object):
@@ -80,7 +77,7 @@ class GeometricFeatures(object):
 
         Parameters
         ----------
-        componentName : {'bedmachine', 'bedmap2', 'iceshelves', 'landice', 
+        componentName : {'bedmachine', 'bedmap2', 'iceshelves', 'landice',
         'natural_earth', 'ocean','seaice'}
             The component from which to retrieve the geometric features
 
@@ -174,7 +171,7 @@ class GeometricFeatures(object):
 
         Parameters
         ----------
-        componentName : {'bedmachine', 'bedmap2', 'iceshelves', 'landice', 
+        componentName : {'bedmachine', 'bedmap2', 'iceshelves', 'landice',
         'natural_earth', 'ocean','seaice'}
             The component from which to retrieve the geometric features
 
@@ -225,7 +222,7 @@ class GeometricFeatures(object):
 
         Parameters
         ----------
-        componentName : {'bedmachine', 'bedmap2', 'iceshelves', 'landice', 
+        componentName : {'bedmachine', 'bedmap2', 'iceshelves', 'landice',
         'natural_earth', 'ocean','seaice'}
             The component from which to retrieve the geometric features
 
@@ -260,13 +257,12 @@ class GeometricFeatures(object):
         # Xylar Asay-Davis
 
         if componentName not in self.allFeaturesAndTags:
-            raise KeyError('invalid component {}'.format(componentName))
+            raise KeyError(f'invalid component {componentName}')
 
         component = self.allFeaturesAndTags[componentName]
 
         if objectType not in component:
-            raise KeyError('invalid object {} in component {}'.format(
-                objectType, componentName))
+            raise KeyError(f'invalid object {objectType} in component {componentName}')
 
         availableFeaturesAndTags = component[objectType]
 
@@ -278,8 +274,7 @@ class GeometricFeatures(object):
             if featureNames is not None:
                 for featureName in featureNames:
                     if featureName not in availableFeaturesAndTags:
-                        raise KeyError('invalid feature {}'.format(
-                            featureName))
+                        raise KeyError(f'invalid feature {featureName}')
                     outFeatureNames.append(featureName)
 
             if tags is not None:
@@ -301,7 +296,7 @@ def _get_file_name(componentName, objectType, featureName):
 
     Parameters
     ----------
-    componentName : {'bedmachine', 'bedmap2', 'iceshelves', 'landice', 
+    componentName : {'bedmachine', 'bedmap2', 'iceshelves', 'landice',
     'natural_earth', 'ocean','seaice'}
         The component from which to retrieve the geometric features
 
@@ -326,6 +321,6 @@ def _get_file_name(componentName, objectType, featureName):
     for char in badCharacters:
         featureDir = featureDir.replace(char, '')
     fileName = os.path.join(componentName, objectType, featureDir,
-                            '{}.geojson'.format(objectType))
+                            f'{objectType}.geojson')
 
     return fileName

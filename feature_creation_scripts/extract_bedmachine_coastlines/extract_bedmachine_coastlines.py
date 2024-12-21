@@ -1,23 +1,21 @@
 #!/usr/bin/env python
 
 import os
-import xarray
+
+import matplotlib.pyplot as plt
 import numpy
 import pyproj
-import matplotlib.pyplot as plt
-from skimage import measure
-
+import skfmm
+import xarray
+from scipy.interpolate import interp1d
+from scipy.ndimage.filters import gaussian_filter
 from shapely.geometry import Polygon, mapping
 from shapely.ops import unary_union
+from skimage import measure
 
-from geometric_features import FeatureCollection, GeometricFeatures, \
-    read_feature_collection
+from geometric_features import (FeatureCollection, GeometricFeatures,
+                                read_feature_collection)
 from geometric_features.utils import write_feature_names_and_tags
-
-import skfmm
-
-from scipy.ndimage.filters import gaussian_filter
-from scipy.interpolate import interp1d
 
 """
 We do not have permission to automatically download or re-distribute the
@@ -39,7 +37,7 @@ conda activate bedmachine
 cp feature_creation_scripts/extract_bedmachine_coastlines/extract_bedmachine_coastlines.py .
 ./extract_bedmachine_coastlines.py
 
-This script takes as input the BedMachine topography data.  It produces the 
+This script takes as input the BedMachine topography data.  It produces the
 feature file AntarcticIceCoverage.geojson containing two features:
 1) AntarcticIceCoverage contains all grounded or floating ice in Antarctica
 as well as all bare bedrock above sea level lying south of 60S
@@ -96,13 +94,13 @@ def extract_geometry(mask):
 
     distance = skfmm.distance(floatMask)
     print(name, 'distance', numpy.amin(distance), numpy.amax(distance))
-    plt.imsave('%s_distance.png' % name, distance, vmin=-1., vmax=1.,
+    plt.imsave(f'{name}_distance.png', distance, vmin=-1., vmax=1.,
                origin='lower')
 
     # smooth it a little
     distance = gaussian_filter(distance, sigma=0.5)
     print(name, 'distance smoothed', numpy.amin(distance), numpy.amax(distance))
-    plt.imsave('%s_distance_smoothed.png' % name, distance, vmin=-1.,
+    plt.imsave(f'{name}_distance_smoothed.png', distance, vmin=-1.,
                vmax=1., origin='lower')
 
     # extract contours and interpolate following
@@ -136,7 +134,7 @@ def extract_geometry(mask):
         if poly.is_valid:
             polys.append(poly)
         else:
-            print("invalid shape with {} vertices".format(contour.shape[0]))
+            print(f"invalid shape with {contour.shape[0]} vertices")
 
     return mapping(unary_union(polys))
 

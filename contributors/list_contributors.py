@@ -7,11 +7,11 @@ Phillip J. Wolfram, Xylar-Asay-Davis
 02/23/2019
 """
 
-import os
-import subprocess
-import shutil
 import datetime
+import os
 import re
+import shutil
+import subprocess
 
 
 def append_to_file(aline, afile):
@@ -37,8 +37,7 @@ def build_contrib_file():
     shutil.copyfile(contribdir + '/CONTRIBUTORS_HEADER', contribfile)
 
     append_to_file(
-        'List populated on {}:'.format(
-            datetime.datetime.now().strftime("%Y-%m-%d %H:%M")),
+        f"List populated on {datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}:",
         contribfile)
     append_to_file('\n', contribfile)
 

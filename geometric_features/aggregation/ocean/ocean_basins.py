@@ -27,7 +27,7 @@ def basins(gf):
     for oceanName in ['Atlantic', 'Pacific', 'Indian', 'Arctic',
                       'Southern_Ocean', 'Mediterranean']:
 
-        basinName = '{}_Basin'.format(oceanName)
+        basinName = f'{oceanName}_Basin'
         print(oceanName)
 
         print(' * merging features')

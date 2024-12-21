@@ -5,12 +5,12 @@ into a single feature file.
 """
 
 # stuff to make scipts work for python 2 and python 3
-from __future__ import absolute_import, division, print_function, \
-    unicode_literals
-
-from geometric_features import GeometricFeatures, FeatureCollection
+from __future__ import (absolute_import, division, print_function,
+                        unicode_literals)
 
 import matplotlib.pyplot as plt
+
+from geometric_features import FeatureCollection, GeometricFeatures
 
 plot = True
 
@@ -23,8 +23,8 @@ gf = GeometricFeatures('./geometric_data')
 # 27 IMBIE basin tags tags
 fc = FeatureCollection()
 for basin in range(1, 28):
-    print('Adding feature from IMBIE basin {:d}'.format(basin))
-    basinName = 'Antarctica_IMBIE{:d}'.format(basin)
+    print(f'Adding feature from IMBIE basin {basin:d}')
+    basinName = f'Antarctica_IMBIE{basin:d}'
     tags = [basinName]
     # load the iceshelf regions for one IMBIE basin
     fcBasin = gf.read(componentName='iceshelves', objectType='region',

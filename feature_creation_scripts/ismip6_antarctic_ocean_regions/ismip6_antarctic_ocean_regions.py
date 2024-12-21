@@ -1,19 +1,19 @@
 #!/usr/bin/env python
 
+import os
+import shutil
+import zipfile
+
+import matplotlib.pyplot as plt
+import numpy
+import pyproj
 import shapely.geometry
 import shapely.ops
-import numpy
 import xarray
-import os
-import matplotlib.pyplot as plt
-import pyproj
-import zipfile
-import shutil
 
-from geometric_features import GeometricFeatures, FeatureCollection
-from geometric_features.feature_collection import _round_coords
-
+from geometric_features import FeatureCollection, GeometricFeatures
 from geometric_features.download import download_files
+from geometric_features.feature_collection import _round_coords
 from geometric_features.utils import write_feature_names_and_tags
 
 
@@ -27,7 +27,7 @@ def bedmap2_bin_to_netcdf(outFileName):
 
     allExist = True
     for field in fields:
-        fileName = 'bedmap2/bedmap2_bin/bedmap2_{}.flt'.format(field)
+        fileName = f'bedmap2/bedmap2_bin/bedmap2_{field}.flt'
         if not os.path.exists(fileName):
             allExist = False
             break
@@ -77,7 +77,7 @@ def bedmap2_bin_to_netcdf(outFileName):
 
     # add Bedmap2 data
     for fieldName in fields:
-        fileName = 'bedmap2/bedmap2_bin/bedmap2_{}.flt'.format(fieldName)
+        fileName = f'bedmap2/bedmap2_bin/bedmap2_{fieldName}.flt'
         with open(fileName, 'r') as f:
             field = numpy.fromfile(f, dtype=numpy.float32).reshape(6667, 6667)
             # flip the y axis
@@ -150,7 +150,7 @@ def get_longest_contour(contourValue, author):
 
     fc.add_feature(
         {"type": "Feature",
-         "properties": {"name": "Contour {}".format(contourValue),
+         "properties": {"name": f"Contour {contourValue}",
                         "author": author,
                         "object": 'region',
                         "component": 'ocean'},

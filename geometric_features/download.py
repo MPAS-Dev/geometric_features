@@ -1,11 +1,11 @@
-from __future__ import absolute_import, division, print_function, \
-    unicode_literals
-
+from __future__ import (absolute_import, division, print_function,
+                        unicode_literals)
 
 import os
-import requests
-import progressbar
 from urllib.request import pathname2url
+
+import progressbar
+import requests
 
 
 # From https://stackoverflow.com/a/1094933/7728169
@@ -15,9 +15,9 @@ def sizeof_fmt(num, suffix='B'):
     """
     for unit in ['', 'Ki', 'Mi', 'Gi', 'Ti', 'Pi', 'Ei', 'Zi']:
         if abs(num) < 1024.0:
-            return "%3.1f%s%s" % (num, unit, suffix)
+            return f"{num:3.1f}{unit}{suffix}"
         num /= 1024.0
-    return "%.1f%s%s" % (num, 'Yi', suffix)
+    return f"{num:.1f}Yi{suffix}"
 
 
 def download_files(fileList, urlBase, outDir):
@@ -39,20 +39,20 @@ def download_files(fileList, urlBase, outDir):
         except OSError:
             pass
 
-        url = '{}/{}'.format(urlBase, pathname2url(fileName))
+        url = f'{urlBase}/{pathname2url(fileName)}'
         try:
             response = requests.get(url, stream=True)
             encoding = response.headers.get('content-encoding')
             totalSize = response.headers.get('content-length')
 
         except requests.exceptions.RequestException:
-            print('  {} could not be reached!'.format(fileName))
+            print(f'  {fileName} could not be reached!')
             continue
 
         try:
             response.raise_for_status()
         except requests.exceptions.HTTPError as e:
-            print('ERROR while downloading {}:'.format(fileName))
+            print(f'ERROR while downloading {fileName}:')
             print(e)
             continue
 
@@ -60,13 +60,13 @@ def download_files(fileList, urlBase, outDir):
             # no content length header, or not related unzipped size
             if not os.path.exists(outFileName):
                 with open(outFileName, 'wb') as f:
-                    print('Downloading {}...'.format(fileName))
+                    print(f'Downloading {fileName}...')
                     try:
                         f.write(response.content)
                     except requests.exceptions.RequestException:
-                        print('  {} failed!'.format(fileName))
+                        print(f'  {fileName} failed!')
                     else:
-                        print('  {} done.'.format(fileName))
+                        print(f'  {fileName} done.')
         else:
             # we can do the download in chunks and use a progress bar, yay!
 
@@ -76,8 +76,7 @@ def download_files(fileList, urlBase, outDir):
                 # we already have the file, so just continue
                 continue
 
-            print('Downloading {} ({})...'.format(fileName,
-                                                  sizeof_fmt(totalSize)))
+            print(f'Downloading {fileName} ({sizeof_fmt(totalSize)})...')
             widgets = [progressbar.Percentage(), ' ', progressbar.Bar(),
                        ' ', progressbar.ETA()]
             bar = progressbar.ProgressBar(widgets=widgets,
@@ -91,6 +90,6 @@ def download_files(fileList, urlBase, outDir):
                         bar.update(size)
                     bar.finish()
                 except requests.exceptions.RequestException:
-                    print('  {} failed!'.format(fileName))
+                    print(f'  {fileName} failed!')
                 else:
-                    print('  {} done.'.format(fileName))
+                    print(f'  {fileName} done.')

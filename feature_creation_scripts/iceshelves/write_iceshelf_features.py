@@ -1,33 +1,27 @@
 #!/usr/bin/env python
 
-import numpy
-import json
 import csv
-from netCDF4 import Dataset
-from shapely.geometry import Polygon, mapping, shape
-from descartes import PolygonPatch
+import json
 
 import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-import matplotlib.patches
-import matplotlib.colors
+import numpy
+from descartes import PolygonPatch
+from netCDF4 import Dataset
+from shapely.geometry import Polygon, mapping, shape
 
+matplotlib.use('Agg')
+import gc
 import os
 
-from mpl_toolkits.basemap import interp
-
-from skimage import measure
-
+import matplotlib.colors
+import matplotlib.patches
+import matplotlib.pyplot as plt
 import scipy.misc
-
 import skfmm
-
+from mpl_toolkits.basemap import interp
 from polar import fromPolar
-
+from skimage import measure
 from utils.feature_write_utils import write_all_features
-
-import gc
 
 overlapsFileName = 'extendedOverlaps.nc'
 shelfDistanceFileName = 'Bedmap2_ice_shelf_distance.nc'

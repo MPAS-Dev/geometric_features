@@ -1,10 +1,10 @@
-from __future__ import absolute_import, division, print_function, \
-    unicode_literals
+from __future__ import (absolute_import, division, print_function,
+                        unicode_literals)
 
-import numpy as np
-import matplotlib.pyplot as plt
 import cartopy.crs
 import cartopy.feature
+import matplotlib.pyplot as plt
+import numpy as np
 import shapely
 
 
@@ -129,8 +129,7 @@ def subdivide_geom(geometry, geomtype, maxLength):
     elif geomtype == 'Point':
         newGeometry = geometry
     else:
-        print("Warning: subdividing geometry type {} is not supported.".format(
-            geomtype))
+        print(f"Warning: subdividing geometry type {geomtype} is not supported.")
         newGeometry = geometry
 
     return newGeometry

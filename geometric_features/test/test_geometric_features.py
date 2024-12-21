@@ -1,8 +1,9 @@
 import os
+
 import pytest
 
-from geometric_features.test import TestCase, loaddatadir
 from geometric_features import GeometricFeatures
+from geometric_features.test import TestCase, loaddatadir
 
 
 @pytest.mark.usefixtures('loaddatadir')

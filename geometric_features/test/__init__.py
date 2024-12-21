@@ -5,11 +5,11 @@ Phillip J. Wolfram
 03/16/2017
 """
 
+import os
+import shutil
 import warnings
 from contextlib import contextmanager
 
-import os
-import shutil
 from pytest import fixture
 
 try:
@@ -81,5 +81,3 @@ class TestCase(unittest.TestCase):
             yield
             assert len(w) > 0
             assert all(message in str(wi.message) for wi in w)
-
-

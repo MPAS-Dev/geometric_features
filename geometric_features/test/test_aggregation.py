@@ -1,10 +1,15 @@
 import pytest
 
-from geometric_features.test import TestCase, loaddatadir
 from geometric_features import GeometricFeatures
-from geometric_features.aggregation import get_aggregator_by_name, basins, \
-    subbasins, antarctic, ice_shelves, ismip6, arctic_ocean, transport, \
-    arctic_transport, moc, arctic_seaice, qgreenland_seaice, nasa_greenland, ismip6_greenland
+from geometric_features.aggregation import (antarctic, arctic_ocean,
+                                            arctic_seaice, arctic_transport,
+                                            basins, get_aggregator_by_name,
+                                            ice_shelves, ismip6,
+                                            ismip6_greenland, moc,
+                                            nasa_greenland, qgreenland_seaice,
+                                            subbasins, transport)
+from geometric_features.test import TestCase, loaddatadir
+
 
 @pytest.mark.usefixtures('loaddatadir')
 class TestAggregation(TestCase):
@@ -12,7 +17,7 @@ class TestAggregation(TestCase):
     def test_get_aggregator_by_name(self):
         gf = GeometricFeatures()
         names = ['Antarctic Regions', 'Arctic Ocean Regions', 'ISMIP6 Greenland Regions',
-                 'NASA Greenland Regions', 'Arctic Sea Ice Regions', 'Ocean Basins', 
+                 'NASA Greenland Regions', 'Arctic Sea Ice Regions', 'Ocean Basins',
                  'Ice Shelves', 'Ocean Subbasins', 'ISMIP6 Regions', 'MOC Basins', 'Historical Sea Ice',
                  'Transport Transects', 'Arctic Transport Transects']
 
@@ -63,7 +68,7 @@ class TestAggregation(TestCase):
     def test_qgreenland(self):
         gf = GeometricFeatures()
         qgreenland_seaice(gf)
-    
+
     def test_nasa_greenland(self):
         gf = GeometricFeatures()
         nasa_greenland(gf)

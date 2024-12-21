@@ -1,12 +1,11 @@
 #!/usr/bin/env python
 
+import matplotlib
 import numpy
 from netCDF4 import Dataset
 
-import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-
 
 inFileName = 'Bedmap2_ice_shelf_distance.nc'
 basinFileName = 'Bedmap2_grid_basin_distances.nc'

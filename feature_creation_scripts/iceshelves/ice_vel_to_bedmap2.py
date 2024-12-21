@@ -1,15 +1,13 @@
 #!/usr/bin/env python
 
+import matplotlib
 import numpy
 from netCDF4 import Dataset
 
-import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-
-from mpl_toolkits.basemap import interp
-
 import scipy.ndimage.filters as filters
+from mpl_toolkits.basemap import interp
 
 inFileName = 'Bedmap2_ice_shelf_distance.nc'
 inFile = Dataset(inFileName,'r')

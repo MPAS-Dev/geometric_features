@@ -1,19 +1,19 @@
 #!/usr/bin/env python
 
-import shapely
-import numpy
-import xarray
-import os
-import matplotlib.pyplot as plt
-import pyproj
 import gzip
+import os
 import shutil
 import tempfile
 
-from geometric_features import GeometricFeatures, FeatureCollection
-from geometric_features.feature_collection import _round_coords
+import matplotlib.pyplot as plt
+import numpy
+import pyproj
+import shapely
+import xarray
 
+from geometric_features import FeatureCollection, GeometricFeatures
 from geometric_features.download import download_files
+from geometric_features.feature_collection import _round_coords
 from geometric_features.utils import write_feature_names_and_tags
 
 
@@ -86,7 +86,7 @@ def get_longest_contour(contourValue, author):
 
     fc.add_feature(
         {"type": "Feature",
-         "properties": {"name": "Contour {}".format(contourValue),
+         "properties": {"name": f"Contour {contourValue}",
                         "author": author,
                         "object": 'region',
                         "component": 'ocean'},
@@ -335,20 +335,20 @@ def main():
     for feature in fcArcticTags.features:
         featureName = feature['properties']['name']
         shape = shapely.geometry.shape(feature['geometry'])
-        print('{} is_valid: {}'.format(featureName, shape.is_valid))
+        print(f'{featureName} is_valid: {shape.is_valid}')
         if not shape.is_valid:
             fixed = shape.buffer(0)
-            print('  Fixed? {}'.format(fixed.is_valid))
+            print(f'  Fixed? {fixed.is_valid}')
             feature['geometry'] = shapely.geometry.mapping(fixed)
     fcArcticNSIDCTags = gf.read(componentName='ocean', objectType='region',
                                 tags=['Arctic_NSIDC'])
     for feature in fcArcticNSIDCTags.features:
         featureName = feature['properties']['name']
         shape = shapely.geometry.shape(feature['geometry'])
-        print('{} is_valid: {}'.format(featureName, shape.is_valid))
+        print(f'{featureName} is_valid: {shape.is_valid}')
         if not shape.is_valid:
             fixed = shape.buffer(0)
-            print('  Fixed? {}'.format(fixed.is_valid))
+            print(f'  Fixed? {fixed.is_valid}')
             feature['geometry'] = shapely.geometry.mapping(fixed)
 
     fcArctic = fcArcticTags

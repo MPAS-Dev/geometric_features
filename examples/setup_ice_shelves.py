@@ -4,12 +4,12 @@ This script creates region groups for ice shelves
 """
 
 # stuff to make scipts work for python 2 and python 3
-from __future__ import absolute_import, division, print_function, \
-    unicode_literals
-
-from geometric_features import GeometricFeatures, FeatureCollection
+from __future__ import (absolute_import, division, print_function,
+                        unicode_literals)
 
 import matplotlib.pyplot as plt
+
+from geometric_features import FeatureCollection, GeometricFeatures
 
 plot = True
 
@@ -125,8 +125,8 @@ combinedIceShelves = {'Filchner-Ronne': ['Filchner', 'Ronne'],
 
 nIMBIEBasins = 27
 for basinNumber in range(1, nIMBIEBasins+1):
-    basinName = 'Antarctica_IMBIE{}'.format(basinNumber)
-    combinedIceShelves['IMBIE{}'.format(basinNumber)] = [basinName]
+    basinName = f'Antarctica_IMBIE{basinNumber}'
+    combinedIceShelves[f'IMBIE{basinNumber}'] = [basinName]
 
 # create a GeometricFeatures object that points to a local cache of geometric
 # data and knows which branch of geometric_feature to use to download

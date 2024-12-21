@@ -1,19 +1,13 @@
-from netCDF4 import Dataset
 import numpy
-from matplotlib import pyplot
+import skfmm
 from matplotlib import _cntr as cntr
-
+from matplotlib import pyplot
+from mpl_toolkits.basemap import interp as basemap_interp
+from netCDF4 import Dataset
+from scipy.ndimage.filters import gaussian_filter
 from shapely.geometry import Polygon, mapping
 from shapely.ops import unary_union
-
 from utils.feature_write_utils import write_all_features
-
-
-import skfmm
-
-from scipy.ndimage.filters import gaussian_filter
-
-from mpl_toolkits.basemap import interp as basemap_interp
 
 """
 This script takes as input the Bedmap2 topography data produced by the
@@ -73,12 +67,12 @@ def extract_geometry(mask):
 
     distance = skfmm.distance(floatMask)
     print(name, 'distance', numpy.amin(distance), numpy.amax(distance))
-    pyplot.imsave('%s_distance.png'%name, distance, vmin=-1., vmax=1.,origin='lower')
+    pyplot.imsave(f'{name}_distance.png', distance, vmin=-1., vmax=1.,origin='lower')
 
     # smooth it a little
     distance = gaussian_filter(distance, sigma = 0.5)
     print(name, 'distance smoothed', numpy.amin(distance), numpy.amax(distance))
-    pyplot.imsave('%s_distance_smoothed.png'%name, distance, vmin=-1., vmax=1., origin='lower')
+    pyplot.imsave(f'{name}_distance_smoothed.png', distance, vmin=-1., vmax=1., origin='lower')
 
     contourObj = cntr.Cntr(X,Y,distance)
 
@@ -153,4 +147,3 @@ for name in masks:
 out_file_name = "AntarcticIceCoverage.geojson"
 
 write_all_features(features_file, out_file_name, indend=4)
-

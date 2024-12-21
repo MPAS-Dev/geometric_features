@@ -12,14 +12,15 @@ iii) NinoRegionGroups, which includes the Nino3, Nino4, and Nino3.4
 """
 
 # stuff to make scipts work for python 2 and python 3
-from __future__ import absolute_import, division, print_function, \
-    unicode_literals
+from __future__ import (absolute_import, division, print_function,
+                        unicode_literals)
+
+import copy
 
 import matplotlib.pyplot as plt
-import copy
 import shapely
 
-from geometric_features import GeometricFeatures, FeatureCollection
+from geometric_features import FeatureCollection, GeometricFeatures
 
 
 def build_ocean_basins(gf, plot):
@@ -50,7 +51,7 @@ def build_ocean_basins(gf, plot):
     for oceanName in ['Atlantic', 'Pacific', 'Indian', 'Arctic',
                       'Southern_Ocean', 'Mediterranean']:
 
-        basinName = '{}_Basin'.format(oceanName)
+        basinName = f'{oceanName}_Basin'
         print(oceanName)
 
         print(' * merging features')
@@ -111,19 +112,19 @@ def build_MOC_basins(gf):
     # build MOC basins from regions with the appropriate tags
     for basinName in MOCSubBasins:
 
-        print('{} MOC'.format(basinName))
+        print(f'{basinName} MOC')
 
         print(' * merging features')
-        tags = ['{}_Basin'.format(basin) for basin in MOCSubBasins[basinName]]
+        tags = [f'{basin}_Basin' for basin in MOCSubBasins[basinName]]
 
         fcBasin = gf.read(componentName='ocean', objectType='region',
                           tags=tags, allTags=False)
 
         print(' * combining features')
-        fcBasin = fcBasin.combine(featureName='{}_MOC'.format(basinName))
+        fcBasin = fcBasin.combine(featureName=f'{basinName}_MOC')
 
         print(' * masking out features south of MOC region')
-        maskName = 'MOC mask {}'.format(MOCSouthernBoundary[basinName])
+        maskName = f'MOC mask {MOCSouthernBoundary[basinName]}'
         fcMask = gf.read(componentName='ocean', objectType='region',
                          featureNames=[maskName])
         # mask out the region covered by the mask
@@ -219,10 +220,9 @@ def remove_small_polygons(fc, minArea):
         if add:
             fcOut.add_feature(copy.deepcopy(feature))
         else:
-            print("{} has been removed.".format(
-                    feature['pproperties']['name']))
+            print(f"{feature['pproperties']['name']} has been removed.")
 
-    print(' * Removed {} small polygons'.format(removedCount))
+    print(f' * Removed {removedCount} small polygons')
 
     return fcOut
 

@@ -1,18 +1,18 @@
 #!/usr/bin/env python
 
-import numpy
 import json
 import sys
-from netCDF4 import Dataset
-from shapely.geometry import shape
-from descartes import PolygonPatch
 
 import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
+import numpy
+from descartes import PolygonPatch
+from netCDF4 import Dataset
+from shapely.geometry import shape
 
+matplotlib.use('Agg')
 import os.path
 
+import matplotlib.pyplot as plt
 from polar import toPolar
 
 
