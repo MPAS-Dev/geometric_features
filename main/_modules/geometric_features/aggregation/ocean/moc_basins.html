@@ -81,9 +81,10 @@
            <div itemprop="articleBody">
              
   <h1>Source code for geometric_features.aggregation.ocean.moc_basins</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">shapely.geometry</span>
+<span></span><span class="kn">import</span> <span class="nn">copy</span>
+
+<span class="kn">import</span> <span class="nn">shapely.geometry</span>
 <span class="kn">import</span> <span class="nn">shapely.ops</span>
-<span class="kn">import</span> <span class="nn">copy</span>
 
 <span class="kn">from</span> <span class="nn">geometric_features</span> <span class="kn">import</span> <span class="n">FeatureCollection</span>
 
@@ -126,15 +127,15 @@
 
     <span class="c1"># build MOC basins from regions with the appropriate tags</span>
     <span class="k">for</span> <span class="n">basinName</span> <span class="ow">in</span> <span class="n">MOCSubBasins</span><span class="p">:</span>
-        <span class="n">tags</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">_Basin&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">basin</span><span class="p">)</span> <span class="k">for</span> <span class="n">basin</span> <span class="ow">in</span>
+        <span class="n">tags</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">basin</span><span class="si">}</span><span class="s1">_Basin&#39;</span> <span class="k">for</span> <span class="n">basin</span> <span class="ow">in</span>
                 <span class="n">MOCSubBasins</span><span class="p">[</span><span class="n">basinName</span><span class="p">]]</span>
 
         <span class="n">fcBasin</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">componentName</span><span class="o">=</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="n">objectType</span><span class="o">=</span><span class="s1">&#39;region&#39;</span><span class="p">,</span>
                           <span class="n">tags</span><span class="o">=</span><span class="n">tags</span><span class="p">,</span> <span class="n">allTags</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-        <span class="n">fcBasin</span> <span class="o">=</span> <span class="n">fcBasin</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">featureName</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">_MOC&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">basinName</span><span class="p">))</span>
+        <span class="n">fcBasin</span> <span class="o">=</span> <span class="n">fcBasin</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">featureName</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">basinName</span><span class="si">}</span><span class="s1">_MOC&#39;</span><span class="p">)</span>
 
-        <span class="n">maskName</span> <span class="o">=</span> <span class="s1">&#39;MOC mask </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">MOCSouthernBoundary</span><span class="p">[</span><span class="n">basinName</span><span class="p">])</span>
+        <span class="n">maskName</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;MOC mask </span><span class="si">{</span><span class="n">MOCSouthernBoundary</span><span class="p">[</span><span class="n">basinName</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span>
         <span class="n">fcMask</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">componentName</span><span class="o">=</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="n">objectType</span><span class="o">=</span><span class="s1">&#39;region&#39;</span><span class="p">,</span>
                          <span class="n">featureNames</span><span class="o">=</span><span class="p">[</span><span class="n">maskName</span><span class="p">])</span>
         <span class="c1"># mask out the region covered by the mask</span>

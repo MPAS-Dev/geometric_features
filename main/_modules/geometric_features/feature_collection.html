@@ -80,10 +80,11 @@
            <div itemprop="articleBody">
              
   <h1>Source code for geometric_features.feature_collection</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span> \
-    <span class="n">unicode_literals</span>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+                        <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">json</span>
+
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
@@ -92,17 +93,17 @@
     <span class="n">mpl</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;Agg&#39;</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="kn">import</span> <span class="nn">shapely.geometry</span>
-<span class="kn">import</span> <span class="nn">shapely.ops</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+
 <span class="kn">import</span> <span class="nn">cartopy</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">progressbar</span>
-<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">shapely.geometry</span>
+<span class="kn">import</span> <span class="nn">shapely.ops</span>
 
+<span class="kn">from</span> <span class="nn">geometric_features.plot</span> <span class="kn">import</span> <span class="p">(</span><span class="n">build_projections</span><span class="p">,</span> <span class="n">plot_base</span><span class="p">,</span>
+                                     <span class="n">subdivide_geom</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">geometric_features.utils</span> <span class="kn">import</span> <span class="n">provenance_command</span>
-
-<span class="kn">from</span> <span class="nn">geometric_features.plot</span> <span class="kn">import</span> <span class="n">build_projections</span><span class="p">,</span> <span class="n">subdivide_geom</span><span class="p">,</span> \
-    <span class="n">plot_base</span>
 
 
 <div class="viewcode-block" id="read_feature_collection">
@@ -388,7 +389,7 @@
         <span class="k">for</span> <span class="n">featureIndex</span><span class="p">,</span> <span class="n">feature</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">):</span>
             <span class="n">name</span> <span class="o">=</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
             <span class="k">if</span> <span class="n">show_progress</span><span class="p">:</span>
-                <span class="n">widgets</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">: &#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+                <span class="n">widgets</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">: &#39;</span>
             <span class="n">featureShape</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">])</span>
             <span class="n">add</span> <span class="o">=</span> <span class="kc">True</span>
             <span class="n">masked</span> <span class="o">=</span> <span class="kc">False</span>
@@ -736,12 +737,10 @@
         <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;unknown&#39;</span>
     <span class="k">for</span> <span class="n">outerKey</span> <span class="ow">in</span> <span class="n">required</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">outerKey</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">feature</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s1">&#39;Feature </span><span class="si">{}</span><span class="s1"> missing [</span><span class="si">{}</span><span class="s1">] key&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                <span class="n">name</span><span class="p">,</span> <span class="n">outerKey</span><span class="p">))</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Feature </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> missing [</span><span class="si">{</span><span class="n">outerKey</span><span class="si">}</span><span class="s1">] key&#39;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">innerKey</span> <span class="ow">in</span> <span class="n">required</span><span class="p">[</span><span class="n">outerKey</span><span class="p">]:</span>
             <span class="k">if</span> <span class="n">innerKey</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">feature</span><span class="p">[</span><span class="n">outerKey</span><span class="p">]:</span>
-                <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s1">&#39;Feature </span><span class="si">{}</span><span class="s1"> missing [</span><span class="si">{}</span><span class="s1">][</span><span class="si">{}</span><span class="s1">] key&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                    <span class="n">name</span><span class="p">,</span> <span class="n">outerKey</span><span class="p">,</span> <span class="n">innerKey</span><span class="p">))</span>
+                <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Feature </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> missing [</span><span class="si">{</span><span class="n">outerKey</span><span class="si">}</span><span class="s1">][</span><span class="si">{</span><span class="n">innerKey</span><span class="si">}</span><span class="s1">] key&#39;</span><span class="p">)</span>
 
     <span class="n">geomType</span> <span class="o">=</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span>
     <span class="n">objectType</span> <span class="o">=</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;object&#39;</span><span class="p">]</span>
@@ -873,8 +872,7 @@
     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">coordinates</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">tuple</span><span class="p">([</span><span class="n">_round_coords</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">digits</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">coordinates</span><span class="p">])</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Unexpected type for coordinates </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                <span class="n">coordinates</span><span class="p">))</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Unexpected type for coordinates </span><span class="si">{</span><span class="n">coordinates</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 
            </div>

@@ -80,12 +80,17 @@
            <div itemprop="articleBody">
              
   <h1>Source code for geometric_features.aggregation</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">geometric_features.aggregation.ocean</span> <span class="kn">import</span> <span class="n">basins</span><span class="p">,</span> <span class="n">subbasins</span><span class="p">,</span> \
-    <span class="n">antarctic</span><span class="p">,</span> <span class="n">ismip6_greenland</span><span class="p">,</span> <span class="n">ice_shelves</span><span class="p">,</span> <span class="n">ismip6</span><span class="p">,</span> <span class="n">arctic</span> <span class="k">as</span> <span class="n">arctic_ocean</span><span class="p">,</span> \
-    <span class="n">transport</span><span class="p">,</span> <span class="n">arctic_transport</span><span class="p">,</span> <span class="n">moc</span>
-<span class="kn">from</span> <span class="nn">geometric_features.aggregation.landice</span> <span class="kn">import</span> <span class="n">nasa_greenland</span>
+<span></span><span class="kn">from</span> <span class="nn">geometric_features.aggregation.landice</span> <span class="kn">import</span> <span class="n">nasa_greenland</span>
+<span class="kn">from</span> <span class="nn">geometric_features.aggregation.ocean</span> <span class="kn">import</span> <span class="n">antarctic</span>
+<span class="kn">from</span> <span class="nn">geometric_features.aggregation.ocean</span> <span class="kn">import</span> <span class="n">arctic</span> <span class="k">as</span> <span class="n">arctic_ocean</span>
+<span class="kn">from</span> <span class="nn">geometric_features.aggregation.ocean</span> <span class="kn">import</span> <span class="p">(</span><span class="n">arctic_transport</span><span class="p">,</span> <span class="n">basins</span><span class="p">,</span>
+                                                  <span class="n">ice_shelves</span><span class="p">,</span> <span class="n">ismip6</span><span class="p">,</span>
+                                                  <span class="n">ismip6_greenland</span><span class="p">,</span> <span class="n">moc</span><span class="p">,</span>
+                                                  <span class="n">subbasins</span><span class="p">,</span> <span class="n">transport</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">geometric_features.aggregation.seaice</span> <span class="kn">import</span> <span class="n">arctic</span> <span class="k">as</span> <span class="n">arctic_seaice</span>
-<span class="kn">from</span> <span class="nn">geometric_features.aggregation.seaice</span> <span class="kn">import</span> <span class="n">qgreenland</span> <span class="k">as</span> <span class="n">qgreenland_seaice</span>
+<span class="kn">from</span> <span class="nn">geometric_features.aggregation.seaice</span> <span class="kn">import</span> \
+    <span class="n">qgreenland</span> <span class="k">as</span> <span class="n">qgreenland_seaice</span>
+
 
 <div class="viewcode-block" id="get_aggregator_by_name">
 <a class="viewcode-back" href="../../generated/geometric_features.aggregation.get_aggregator_by_name.html#geometric_features.aggregation.get_aggregator_by_name">[docs]</a>

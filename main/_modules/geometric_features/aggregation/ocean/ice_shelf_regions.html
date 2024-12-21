@@ -216,8 +216,8 @@
 
     <span class="n">nIMBIEBasins</span> <span class="o">=</span> <span class="mi">27</span>
     <span class="k">for</span> <span class="n">basinNumber</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nIMBIEBasins</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="n">basinName</span> <span class="o">=</span> <span class="s1">&#39;Antarctica_IMBIE</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">basinNumber</span><span class="p">)</span>
-        <span class="n">combinedIceShelves</span><span class="p">[</span><span class="s1">&#39;IMBIE</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">basinNumber</span><span class="p">)]</span> <span class="o">=</span> <span class="p">[</span><span class="n">basinName</span><span class="p">]</span>
+        <span class="n">basinName</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Antarctica_IMBIE</span><span class="si">{</span><span class="n">basinNumber</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="n">combinedIceShelves</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;IMBIE</span><span class="si">{</span><span class="n">basinNumber</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">basinName</span><span class="p">]</span>
 
     <span class="c1"># create a FeatureCollection containing all ice shelves and combined</span>
     <span class="c1"># ice-shelf regions</span>

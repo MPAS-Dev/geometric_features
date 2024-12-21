@@ -80,20 +80,17 @@
            <div itemprop="articleBody">
              
   <h1>Source code for geometric_features.geometric_features</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span> \
-    <span class="n">unicode_literals</span>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+                        <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">os</span>
-
 <span class="kn">from</span> <span class="nn">importlib.resources</span> <span class="kn">import</span> <span class="n">files</span> <span class="k">as</span> <span class="n">imp_res_files</span>
 
 <span class="kn">import</span> <span class="nn">geometric_features</span>
-
-<span class="kn">from</span> <span class="nn">geometric_features.feature_collection</span> <span class="kn">import</span> <span class="n">FeatureCollection</span><span class="p">,</span> \
-    <span class="n">read_feature_collection</span>
-
 <span class="kn">from</span> <span class="nn">geometric_features.download</span> <span class="kn">import</span> <span class="n">download_files</span>
+<span class="kn">from</span> <span class="nn">geometric_features.feature_collection</span> <span class="kn">import</span> <span class="p">(</span><span class="n">FeatureCollection</span><span class="p">,</span>
+                                                   <span class="n">read_feature_collection</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="GeometricFeatures">
@@ -169,7 +166,7 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        componentName : {&#39;bedmachine&#39;, &#39;bedmap2&#39;, &#39;iceshelves&#39;, &#39;landice&#39;, </span>
+<span class="sd">        componentName : {&#39;bedmachine&#39;, &#39;bedmap2&#39;, &#39;iceshelves&#39;, &#39;landice&#39;,</span>
 <span class="sd">        &#39;natural_earth&#39;, &#39;ocean&#39;,&#39;seaice&#39;}</span>
 <span class="sd">            The component from which to retrieve the geometric features</span>
 
@@ -267,7 +264,7 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        componentName : {&#39;bedmachine&#39;, &#39;bedmap2&#39;, &#39;iceshelves&#39;, &#39;landice&#39;, </span>
+<span class="sd">        componentName : {&#39;bedmachine&#39;, &#39;bedmap2&#39;, &#39;iceshelves&#39;, &#39;landice&#39;,</span>
 <span class="sd">        &#39;natural_earth&#39;, &#39;ocean&#39;,&#39;seaice&#39;}</span>
 <span class="sd">            The component from which to retrieve the geometric features</span>
 
@@ -318,7 +315,7 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        componentName : {&#39;bedmachine&#39;, &#39;bedmap2&#39;, &#39;iceshelves&#39;, &#39;landice&#39;, </span>
+<span class="sd">        componentName : {&#39;bedmachine&#39;, &#39;bedmap2&#39;, &#39;iceshelves&#39;, &#39;landice&#39;,</span>
 <span class="sd">        &#39;natural_earth&#39;, &#39;ocean&#39;,&#39;seaice&#39;}</span>
 <span class="sd">            The component from which to retrieve the geometric features</span>
 
@@ -353,13 +350,12 @@
         <span class="c1"># Xylar Asay-Davis</span>
 
         <span class="k">if</span> <span class="n">componentName</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">allFeaturesAndTags</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s1">&#39;invalid component </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">componentName</span><span class="p">))</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;invalid component </span><span class="si">{</span><span class="n">componentName</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
         <span class="n">component</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">allFeaturesAndTags</span><span class="p">[</span><span class="n">componentName</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="n">objectType</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">component</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s1">&#39;invalid object </span><span class="si">{}</span><span class="s1"> in component </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                <span class="n">objectType</span><span class="p">,</span> <span class="n">componentName</span><span class="p">))</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;invalid object </span><span class="si">{</span><span class="n">objectType</span><span class="si">}</span><span class="s1"> in component </span><span class="si">{</span><span class="n">componentName</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
         <span class="n">availableFeaturesAndTags</span> <span class="o">=</span> <span class="n">component</span><span class="p">[</span><span class="n">objectType</span><span class="p">]</span>
 
@@ -371,8 +367,7 @@
             <span class="k">if</span> <span class="n">featureNames</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="k">for</span> <span class="n">featureName</span> <span class="ow">in</span> <span class="n">featureNames</span><span class="p">:</span>
                     <span class="k">if</span> <span class="n">featureName</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">availableFeaturesAndTags</span><span class="p">:</span>
-                        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s1">&#39;invalid feature </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                            <span class="n">featureName</span><span class="p">))</span>
+                        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;invalid feature </span><span class="si">{</span><span class="n">featureName</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
                     <span class="n">outFeatureNames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">featureName</span><span class="p">)</span>
 
             <span class="k">if</span> <span class="n">tags</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -395,7 +390,7 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    componentName : {&#39;bedmachine&#39;, &#39;bedmap2&#39;, &#39;iceshelves&#39;, &#39;landice&#39;, </span>
+<span class="sd">    componentName : {&#39;bedmachine&#39;, &#39;bedmap2&#39;, &#39;iceshelves&#39;, &#39;landice&#39;,</span>
 <span class="sd">    &#39;natural_earth&#39;, &#39;ocean&#39;,&#39;seaice&#39;}</span>
 <span class="sd">        The component from which to retrieve the geometric features</span>
 
@@ -420,7 +415,7 @@
     <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">badCharacters</span><span class="p">:</span>
         <span class="n">featureDir</span> <span class="o">=</span> <span class="n">featureDir</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
     <span class="n">fileName</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">componentName</span><span class="p">,</span> <span class="n">objectType</span><span class="p">,</span> <span class="n">featureDir</span><span class="p">,</span>
-                            <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">.geojson&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">objectType</span><span class="p">))</span>
+                            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">objectType</span><span class="si">}</span><span class="s1">.geojson&#39;</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">fileName</span>
 </pre></div>
