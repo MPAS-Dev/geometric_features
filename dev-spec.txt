@@ -4,7 +4,6 @@
 # Base
 python>=3.9
 cartopy
-importlib_resources
 matplotlib-base
 numpy
 progressbar2
