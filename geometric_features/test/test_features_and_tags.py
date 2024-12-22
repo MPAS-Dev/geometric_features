@@ -1,21 +1,29 @@
 import difflib
 import os
+from importlib.resources import files as imp_res_files
 
-from geometric_features.test import TestCase
+import pytest
+
+from geometric_features.test import TestCase, loaddatadir  # noqa: F401
 from geometric_features.utils import write_feature_names_and_tags
 
 
+@pytest.mark.usefixtures('loaddatadir')
 class TestFeaturesAndTags(TestCase):
 
     def test_features_and_tags(self):
         if 'GEOMETRIC_DATA_DIR' in os.environ:
             cache_location = os.environ['GEOMETRIC_DATA_DIR']
         else:
-            cache_location = './geometric_data'
+            cache_location = os.path.abspath('./geometric_data')
+
+        os.chdir(self.datadir)
+
         write_feature_names_and_tags(cacheLocation=cache_location, quiet=True)
         assert os.path.exists('features_and_tags.json')
 
-        filename1 = 'geometric_features/features_and_tags.json'
+        filename1 = str(imp_res_files('geometric_features') /
+                        'features_and_tags.json')
         filename2 = 'features_and_tags.json'
         with open(filename1, 'r') as f:
             lines1 = f.readlines()
