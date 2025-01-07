@@ -1,0 +1,85 @@
+[project]
+name = "geometric_features"
+dynamic = ["version"]
+authors = [
+    { name="Xylar Asay-Davis", email="xylar@lanl.gov" },
+    { name="Milena Veneziani" },
+    { name="Althea Denlinger" },
+    { name="Phillip J. Wolfram" },
+    { name="Alex Hager" },
+    { name="Doug Jacobsen" },
+    { name="Carolyn Begeman" },
+    { name="Mark Petersen" },
+    { name="Stephen Price" },
+]
+description = """\
+    Tools for manipulating regions, transects, and points in geojson format
+    associated with climate modeling.\
+    """
+license = {file = "LICENSE"}
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    # these are only for searching/browsing projects on PyPI
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering",
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+]
+
+dependencies = [
+    "numpy",
+    "matplotlib",
+    "cartopy",
+    "shapely >=2.0,<3.0",
+    "requests",
+    "progressbar2",
+]
+
+[tool.isort]
+multi_line_output = "3"
+include_trailing_comma = true
+force_grid_wrap = "0"
+use_parentheses = true
+line_length = "79"
+
+[tool.mypy]
+python_version = "3.10"
+check_untyped_defs = true
+ignore_missing_imports = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_unused_configs = true
+
+[build-system]
+requires = ["setuptools>=60"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+exclude = ["docs*", "examples", "geometric_data", "contributors"]
+
+[tool.setuptools.dynamic]
+version = { attr = "geometric_features.version.__version__" }
+
+# evolution of options.entry-points
+[project.scripts]
+combine_features = "geometric_features.__main__:combine_features"
+difference_features = "geometric_features.__main__:difference_features"
+fix_features_at_antimeridian = "geometric_features.__main__:fix_features_at_antimeridian"
+merge_features = "geometric_features.__main__:merge_features"
+plot_features = "geometric_features.__main__:plot_features"
+set_group_name = "geometric_features.__main__:set_group_name"
+simplify_features = "geometric_features.__main__:simplify_features"
+split_features = "geometric_features.__main__:split_features"
+tag_features = "geometric_features.__main__:tag_features"
+
+[project.urls]
+Documentation = "http://mpas-dev.github.io/geometric_features/main/"
+"Bug Tracker" = "https://github.com/MPAS-Dev/geometric_features/issues"
