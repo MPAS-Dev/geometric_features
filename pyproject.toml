@@ -63,7 +63,7 @@ requires = ["setuptools>=60"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
-exclude = ["docs*", "examples", "geometric_data", "contributors"]
+include=["geometric_features", "geometric_features.*"]
 
 [tool.setuptools.dynamic]
 version = { attr = "geometric_features.version.__version__" }
