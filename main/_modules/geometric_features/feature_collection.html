@@ -6,7 +6,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>geometric_features.feature_collection &mdash; geometric_features 1.6.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
 
   
@@ -80,32 +80,32 @@
            <div itemprop="articleBody">
              
   <h1>Source code for geometric_features.feature_collection</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">json</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
 <span class="k">try</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
     <span class="c1"># maybe no xwindows, so let&#39;s use the &#39;Agg&#39; backend</span>
-    <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpl</span>
     <span class="n">mpl</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;Agg&#39;</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
-<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">copy</span>
 
-<span class="kn">import</span> <span class="nn">cartopy</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">progressbar</span>
-<span class="kn">import</span> <span class="nn">shapely.geometry</span>
-<span class="kn">import</span> <span class="nn">shapely.ops</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">cartopy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">progressbar</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shapely.geometry</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shapely.ops</span>
 
-<span class="kn">from</span> <span class="nn">geometric_features.plot</span> <span class="kn">import</span> <span class="p">(</span><span class="n">build_projections</span><span class="p">,</span> <span class="n">plot_base</span><span class="p">,</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geometric_features.plot</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">build_projections</span><span class="p">,</span> <span class="n">plot_base</span><span class="p">,</span>
                                      <span class="n">subdivide_geom</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">geometric_features.utils</span> <span class="kn">import</span> <span class="n">provenance_command</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geometric_features.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">provenance_command</span>
 
 
 <div class="viewcode-block" id="read_feature_collection">
 <a class="viewcode-back" href="../../generated/geometric_features.read_feature_collection.html#geometric_features.read_feature_collection">[docs]</a>
-<span class="k">def</span> <span class="nf">read_feature_collection</span><span class="p">(</span><span class="n">fileName</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">read_feature_collection</span><span class="p">(</span><span class="n">fileName</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Read a feature collection from a geojson file.</span>
 
@@ -136,7 +136,7 @@
 
 <div class="viewcode-block" id="FeatureCollection">
 <a class="viewcode-back" href="../../generated/geometric_features.FeatureCollection.html#geometric_features.FeatureCollection">[docs]</a>
-<span class="k">class</span> <span class="nc">FeatureCollection</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">FeatureCollection</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    An object for representing and manipulating a collection of geoscientific</span>
 <span class="sd">    geometric features.</span>
@@ -157,7 +157,7 @@
 
 <div class="viewcode-block" id="FeatureCollection.__init__">
 <a class="viewcode-back" href="../../generated/geometric_features.FeatureCollection.html#geometric_features.FeatureCollection.__init__">[docs]</a>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">otherProperties</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">otherProperties</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Construct a new feature collection</span>
 
@@ -187,7 +187,7 @@
 
 <div class="viewcode-block" id="FeatureCollection.add_feature">
 <a class="viewcode-back" href="../../generated/geometric_features.FeatureCollection.add_feature.html#geometric_features.FeatureCollection.add_feature">[docs]</a>
-    <span class="k">def</span> <span class="nf">add_feature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">feature</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_feature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">feature</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add a feature to the feature collection if it isn&#39;t already present</span>
 
@@ -207,7 +207,7 @@
 
 <div class="viewcode-block" id="FeatureCollection.merge">
 <a class="viewcode-back" href="../../generated/geometric_features.FeatureCollection.merge.html#geometric_features.FeatureCollection.merge">[docs]</a>
-    <span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Merge another feature collection into this one</span>
 
@@ -231,7 +231,7 @@
 
 <div class="viewcode-block" id="FeatureCollection.tag">
 <a class="viewcode-back" href="../../generated/geometric_features.FeatureCollection.tag.html#geometric_features.FeatureCollection.tag">[docs]</a>
-    <span class="k">def</span> <span class="nf">tag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tags</span><span class="p">,</span> <span class="n">remove</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">tag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tags</span><span class="p">,</span> <span class="n">remove</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add tags to all features in the collection</span>
 
@@ -259,7 +259,7 @@
 
 <div class="viewcode-block" id="FeatureCollection.set_group_name">
 <a class="viewcode-back" href="../../generated/geometric_features.FeatureCollection.set_group_name.html#geometric_features.FeatureCollection.set_group_name">[docs]</a>
-    <span class="k">def</span> <span class="nf">set_group_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">groupName</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_group_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">groupName</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set the group name of a feature collection</span>
 
@@ -277,7 +277,7 @@
 
 <div class="viewcode-block" id="FeatureCollection.combine">
 <a class="viewcode-back" href="../../generated/geometric_features.FeatureCollection.combine.html#geometric_features.FeatureCollection.combine">[docs]</a>
-    <span class="k">def</span> <span class="nf">combine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">featureName</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">combine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">featureName</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Combines the geometry of the feature collection into a single feature</span>
 
@@ -342,7 +342,7 @@
 
 <div class="viewcode-block" id="FeatureCollection.difference">
 <a class="viewcode-back" href="../../generated/geometric_features.FeatureCollection.difference.html#geometric_features.FeatureCollection.difference">[docs]</a>
-    <span class="k">def</span> <span class="nf">difference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maskingFC</span><span class="p">,</span> <span class="n">show_progress</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">difference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maskingFC</span><span class="p">,</span> <span class="n">show_progress</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Use features from a masking collection to mask out (remove part of</span>
 <span class="sd">        the geometry from) this collection.</span>
@@ -424,7 +424,7 @@
 
 <div class="viewcode-block" id="FeatureCollection.fix_antimeridian">
 <a class="viewcode-back" href="../../generated/geometric_features.FeatureCollection.fix_antimeridian.html#geometric_features.FeatureCollection.fix_antimeridian">[docs]</a>
-    <span class="k">def</span> <span class="nf">fix_antimeridian</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fix_antimeridian</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Split features at +/-180 degrees (the antimeridian) to make them valid</span>
 <span class="sd">        geojson geometries</span>
@@ -457,7 +457,7 @@
 
 <div class="viewcode-block" id="FeatureCollection.simplify">
 <a class="viewcode-back" href="../../generated/geometric_features.FeatureCollection.simplify.html#geometric_features.FeatureCollection.simplify">[docs]</a>
-    <span class="k">def</span> <span class="nf">simplify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">simplify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Features in the collection are simplified using ``shapely``</span>
 
@@ -490,7 +490,7 @@
 
 <div class="viewcode-block" id="FeatureCollection.feature_in_collection">
 <a class="viewcode-back" href="../../generated/geometric_features.FeatureCollection.feature_in_collection.html#geometric_features.FeatureCollection.feature_in_collection">[docs]</a>
-    <span class="k">def</span> <span class="nf">feature_in_collection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">feature</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">feature_in_collection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">feature</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Is this feature already in the collection?</span>
 
@@ -514,7 +514,7 @@
 
 <div class="viewcode-block" id="FeatureCollection.to_geojson">
 <a class="viewcode-back" href="../../generated/geometric_features.FeatureCollection.to_geojson.html#geometric_features.FeatureCollection.to_geojson">[docs]</a>
-    <span class="k">def</span> <span class="nf">to_geojson</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fileName</span><span class="p">,</span> <span class="n">stripHistory</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_geojson</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fileName</span><span class="p">,</span> <span class="n">stripHistory</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Write the feature collection to a geojson file</span>
 
@@ -565,7 +565,7 @@
 
 <div class="viewcode-block" id="FeatureCollection.plot">
 <a class="viewcode-back" href="../../generated/geometric_features.FeatureCollection.plot.html#geometric_features.FeatureCollection.plot">[docs]</a>
-    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">projection</span><span class="p">,</span> <span class="n">maxLength</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">projection</span><span class="p">,</span> <span class="n">maxLength</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
              <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plot the features on a map using cartopy.</span>
@@ -681,7 +681,7 @@
 
 
 
-<span class="k">def</span> <span class="nf">_get_geom_object_type</span><span class="p">(</span><span class="n">geomType</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_get_geom_object_type</span><span class="p">(</span><span class="n">geomType</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the object type for a given geometry type</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -694,7 +694,7 @@
     <span class="k">return</span> <span class="n">geomObjectTypes</span><span class="p">[</span><span class="n">geomType</span><span class="p">]</span>
 
 
-<span class="k">def</span> <span class="nf">_validate_feature</span><span class="p">(</span><span class="n">feature</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_validate_feature</span><span class="p">(</span><span class="n">feature</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Validate the geometric feature to ensure that it has all required keys:</span>
 <span class="sd">        - properties</span>
@@ -789,8 +789,8 @@
     <span class="k">return</span> <span class="n">outFeature</span>
 
 
-<span class="k">def</span> <span class="nf">_split_geometry_crossing_antimeridian</span><span class="p">(</span><span class="n">geometry</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">_to_polar</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_split_geometry_crossing_antimeridian</span><span class="p">(</span><span class="n">geometry</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_to_polar</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">):</span>
         <span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">180.</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">lon</span> <span class="o">+</span> <span class="mf">180.</span><span class="p">,</span> <span class="mf">360.</span><span class="p">)</span> <span class="o">-</span> <span class="mf">180.</span><span class="p">)</span>
         <span class="n">radius</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">180.</span> <span class="o">*</span> <span class="p">(</span><span class="mf">90.</span> <span class="o">-</span> <span class="n">sign</span> <span class="o">*</span> <span class="n">lat</span><span class="p">)</span>
 
@@ -812,7 +812,7 @@
 
         <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
 
-    <span class="k">def</span> <span class="nf">_from_polar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_from_polar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="n">radius</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
         <span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 
@@ -857,7 +857,7 @@
     <span class="k">return</span> <span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">mapping</span><span class="p">(</span><span class="n">outShape</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">_round_coords</span><span class="p">(</span><span class="n">coordinates</span><span class="p">,</span> <span class="n">digits</span><span class="o">=</span><span class="mi">6</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_round_coords</span><span class="p">(</span><span class="n">coordinates</span><span class="p">,</span> <span class="n">digits</span><span class="o">=</span><span class="mi">6</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Round the coordinates of geojson geometry data before writing to a file</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -880,7 +880,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright This software is open source software available under the BSD-3license. Copyright (c) 2024 Triad National Security, LLC. All rights reserved. Copyright (c) 2024 Lawrence Livermore National Security, LLC. All rights reserved. Copyright (c) 2024 UT-Battelle, LLC. All rights reserved..</p>
+    <p>&#169; Copyright This software is open source software available under the BSD-3license. Copyright (c) 2025 Triad National Security, LLC. All rights reserved. Copyright (c) 2025 Lawrence Livermore National Security, LLC. All rights reserved. Copyright (c) 2025 UT-Battelle, LLC. All rights reserved..</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -6,7 +6,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>geometric_features.__main__ &mdash; geometric_features 1.6.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
 
   
@@ -80,18 +80,18 @@
            <div itemprop="articleBody">
              
   <h1>Source code for geometric_features.__main__</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">argparse</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
-<span class="kn">from</span> <span class="nn">geometric_features.feature_collection</span> <span class="kn">import</span> <span class="p">(</span><span class="n">FeatureCollection</span><span class="p">,</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geometric_features.feature_collection</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">FeatureCollection</span><span class="p">,</span>
                                                    <span class="n">read_feature_collection</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">geometric_features.geometric_features</span> <span class="kn">import</span> <span class="n">GeometricFeatures</span>
-<span class="kn">from</span> <span class="nn">geometric_features.version</span> <span class="kn">import</span> <span class="n">__version__</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geometric_features.geometric_features</span><span class="w"> </span><span class="kn">import</span> <span class="n">GeometricFeatures</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geometric_features.version</span><span class="w"> </span><span class="kn">import</span> <span class="n">__version__</span>
 
 
 <div class="viewcode-block" id="combine_features">
 <a class="viewcode-back" href="../../generated/geometric_features.combine_features.html#geometric_features.combine_features">[docs]</a>
-<span class="k">def</span> <span class="nf">combine_features</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">combine_features</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Entry point for combining features from a file</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -122,7 +122,7 @@
 
 <div class="viewcode-block" id="difference_features">
 <a class="viewcode-back" href="../../generated/geometric_features.difference_features.html#geometric_features.difference_features">[docs]</a>
-<span class="k">def</span> <span class="nf">difference_features</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">difference_features</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Entry point for differencing features from a file</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -155,7 +155,7 @@
 
 <div class="viewcode-block" id="fix_features_at_antimeridian">
 <a class="viewcode-back" href="../../generated/geometric_features.fix_features_at_antimeridian.html#geometric_features.fix_features_at_antimeridian">[docs]</a>
-<span class="k">def</span> <span class="nf">fix_features_at_antimeridian</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fix_features_at_antimeridian</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Entry point for splitting features that cross +/- 180 degrees</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -182,7 +182,7 @@
 
 <div class="viewcode-block" id="merge_features">
 <a class="viewcode-back" href="../../generated/geometric_features.merge_features.html#geometric_features.merge_features">[docs]</a>
-<span class="k">def</span> <span class="nf">merge_features</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">merge_features</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Entry point for merging features from the geometric_data cache</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -243,7 +243,7 @@
 
 <div class="viewcode-block" id="plot_features">
 <a class="viewcode-back" href="../../generated/geometric_features.plot_features.html#geometric_features.plot_features">[docs]</a>
-<span class="k">def</span> <span class="nf">plot_features</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_features</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Entry point for plotting features from a file</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -293,7 +293,7 @@
 
 <div class="viewcode-block" id="set_group_name">
 <a class="viewcode-back" href="../../generated/geometric_features.set_group_name.html#geometric_features.set_group_name">[docs]</a>
-<span class="k">def</span> <span class="nf">set_group_name</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">set_group_name</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Set the group name of the feature collection</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -321,7 +321,7 @@
 
 <div class="viewcode-block" id="simplify_features">
 <a class="viewcode-back" href="../../generated/geometric_features.simplify_features.html#geometric_features.simplify_features">[docs]</a>
-<span class="k">def</span> <span class="nf">simplify_features</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">simplify_features</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Features in the collection are simplified using ``shapely``</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -352,7 +352,7 @@
 
 <div class="viewcode-block" id="split_features">
 <a class="viewcode-back" href="../../generated/geometric_features.split_features.html#geometric_features.split_features">[docs]</a>
-<span class="k">def</span> <span class="nf">split_features</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">split_features</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Features in the collection are split into individual files in the</span>
 <span class="sd">    geometric_data cache</span>
@@ -380,7 +380,7 @@
 
 <div class="viewcode-block" id="tag_features">
 <a class="viewcode-back" href="../../generated/geometric_features.tag_features.html#geometric_features.tag_features">[docs]</a>
-<span class="k">def</span> <span class="nf">tag_features</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">tag_features</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Features in the collection are tagged with the given tag(s)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -417,7 +417,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright This software is open source software available under the BSD-3license. Copyright (c) 2024 Triad National Security, LLC. All rights reserved. Copyright (c) 2024 Lawrence Livermore National Security, LLC. All rights reserved. Copyright (c) 2024 UT-Battelle, LLC. All rights reserved..</p>
+    <p>&#169; Copyright This software is open source software available under the BSD-3license. Copyright (c) 2025 Triad National Security, LLC. All rights reserved. Copyright (c) 2025 Lawrence Livermore National Security, LLC. All rights reserved. Copyright (c) 2025 UT-Battelle, LLC. All rights reserved..</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

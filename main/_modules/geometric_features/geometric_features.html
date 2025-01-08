@@ -6,7 +6,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>geometric_features.geometric_features &mdash; geometric_features 1.6.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
 
   
@@ -80,19 +80,19 @@
            <div itemprop="articleBody">
              
   <h1>Source code for geometric_features.geometric_features</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">importlib.resources</span> <span class="kn">import</span> <span class="n">files</span> <span class="k">as</span> <span class="n">imp_res_files</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">importlib.resources</span><span class="w"> </span><span class="kn">import</span> <span class="n">files</span> <span class="k">as</span> <span class="n">imp_res_files</span>
 
-<span class="kn">from</span> <span class="nn">geometric_features.download</span> <span class="kn">import</span> <span class="n">download_files</span>
-<span class="kn">from</span> <span class="nn">geometric_features.feature_collection</span> <span class="kn">import</span> <span class="p">(</span><span class="n">FeatureCollection</span><span class="p">,</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geometric_features.download</span><span class="w"> </span><span class="kn">import</span> <span class="n">download_files</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geometric_features.feature_collection</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">FeatureCollection</span><span class="p">,</span>
                                                    <span class="n">read_feature_collection</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">geometric_features.version</span> <span class="kn">import</span> <span class="n">__version__</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geometric_features.version</span><span class="w"> </span><span class="kn">import</span> <span class="n">__version__</span>
 
 
 <div class="viewcode-block" id="GeometricFeatures">
 <a class="viewcode-back" href="../../generated/geometric_features.GeometricFeatures.html#geometric_features.GeometricFeatures">[docs]</a>
-<span class="k">class</span> <span class="nc">GeometricFeatures</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">GeometricFeatures</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    An object for keeping track of where geometric features are cached and</span>
 <span class="sd">    downloading missing features as needed.</span>
@@ -115,7 +115,7 @@
 
 <div class="viewcode-block" id="GeometricFeatures.__init__">
 <a class="viewcode-back" href="../../generated/geometric_features.GeometricFeatures.html#geometric_features.GeometricFeatures.__init__">[docs]</a>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cacheLocation</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">remoteBranchOrTag</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cacheLocation</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">remoteBranchOrTag</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The constructor for the GeometricFeatures object</span>
 
@@ -152,7 +152,7 @@
 
 <div class="viewcode-block" id="GeometricFeatures.read">
 <a class="viewcode-back" href="../../generated/geometric_features.GeometricFeatures.read.html#geometric_features.GeometricFeatures.read">[docs]</a>
-    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">componentName</span><span class="p">,</span> <span class="n">objectType</span><span class="p">,</span> <span class="n">featureNames</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">componentName</span><span class="p">,</span> <span class="n">objectType</span><span class="p">,</span> <span class="n">featureNames</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
              <span class="n">allTags</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Read one or more features from the cached collection of geometric</span>
@@ -205,7 +205,7 @@
 
 <div class="viewcode-block" id="GeometricFeatures.split">
 <a class="viewcode-back" href="../../generated/geometric_features.GeometricFeatures.split.html#geometric_features.GeometricFeatures.split">[docs]</a>
-    <span class="k">def</span> <span class="nf">split</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fc</span><span class="p">,</span> <span class="n">destinationDir</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">split</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fc</span><span class="p">,</span> <span class="n">destinationDir</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Split a feature collection into individual files for each feature. This</span>
 <span class="sd">        is how new geometry should be added to the ``geometric_features`` repo.</span>
@@ -253,7 +253,7 @@
             <span class="n">singleFC</span><span class="o">.</span><span class="n">to_geojson</span><span class="p">(</span><span class="n">fullPath</span><span class="p">,</span> <span class="n">stripHistory</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
 
 
-    <span class="k">def</span> <span class="nf">_download_geometric_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">componentName</span><span class="p">,</span> <span class="n">objectType</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_download_geometric_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">componentName</span><span class="p">,</span> <span class="n">objectType</span><span class="p">,</span>
                                      <span class="n">featureNames</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Determine a list of requested files and download the any that are</span>
@@ -305,7 +305,7 @@
 
         <span class="k">return</span> <span class="n">fileList</span>
 
-    <span class="k">def</span> <span class="nf">_get_feature_names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">componentName</span><span class="p">,</span> <span class="n">objectType</span><span class="p">,</span> <span class="n">featureNames</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_feature_names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">componentName</span><span class="p">,</span> <span class="n">objectType</span><span class="p">,</span> <span class="n">featureNames</span><span class="p">,</span>
                            <span class="n">tags</span><span class="p">,</span> <span class="n">allTags</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Find features by name or tags, reporting errors in the process</span>
@@ -381,7 +381,7 @@
 
 
 
-<span class="k">def</span> <span class="nf">_get_file_name</span><span class="p">(</span><span class="n">componentName</span><span class="p">,</span> <span class="n">objectType</span><span class="p">,</span> <span class="n">featureName</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_get_file_name</span><span class="p">(</span><span class="n">componentName</span><span class="p">,</span> <span class="n">objectType</span><span class="p">,</span> <span class="n">featureName</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the relative path of a cached geometric feature from its component,</span>
 <span class="sd">    object type and feature name.</span>
@@ -425,7 +425,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright This software is open source software available under the BSD-3license. Copyright (c) 2024 Triad National Security, LLC. All rights reserved. Copyright (c) 2024 Lawrence Livermore National Security, LLC. All rights reserved. Copyright (c) 2024 UT-Battelle, LLC. All rights reserved..</p>
+    <p>&#169; Copyright This software is open source software available under the BSD-3license. Copyright (c) 2025 Triad National Security, LLC. All rights reserved. Copyright (c) 2025 Lawrence Livermore National Security, LLC. All rights reserved. Copyright (c) 2025 UT-Battelle, LLC. All rights reserved..</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
