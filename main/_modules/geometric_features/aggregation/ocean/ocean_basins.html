@@ -113,13 +113,10 @@
                       <span class="s1">&#39;Southern_Ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;Mediterranean&#39;</span><span class="p">]:</span>
 
         <span class="n">basinName</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">oceanName</span><span class="si">}</span><span class="s1">_Basin&#39;</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">oceanName</span><span class="p">)</span>
 
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; * merging features&#39;</span><span class="p">)</span>
         <span class="n">fcBasin</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">componentName</span><span class="o">=</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="n">objectType</span><span class="o">=</span><span class="s1">&#39;region&#39;</span><span class="p">,</span>
                           <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="n">basinName</span><span class="p">])</span>
 
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; * combining features&#39;</span><span class="p">)</span>
         <span class="n">fcBasin</span> <span class="o">=</span> <span class="n">fcBasin</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">featureName</span><span class="o">=</span><span class="n">basinName</span><span class="p">)</span>
 
         <span class="n">fc</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fcBasin</span><span class="p">)</span>

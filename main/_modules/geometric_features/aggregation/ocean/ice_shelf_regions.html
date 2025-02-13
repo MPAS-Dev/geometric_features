@@ -227,13 +227,10 @@
     <span class="c1"># appropriate tags</span>
     <span class="k">for</span> <span class="n">shelfName</span> <span class="ow">in</span> <span class="n">combinedIceShelves</span><span class="p">:</span>
         <span class="n">subNames</span> <span class="o">=</span> <span class="n">combinedIceShelves</span><span class="p">[</span><span class="n">shelfName</span><span class="p">]</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">shelfName</span><span class="p">)</span>
 
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; * merging features&#39;</span><span class="p">)</span>
         <span class="n">fcShelf</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">componentName</span><span class="o">=</span><span class="s1">&#39;iceshelves&#39;</span><span class="p">,</span> <span class="n">objectType</span><span class="o">=</span><span class="s1">&#39;region&#39;</span><span class="p">,</span>
                           <span class="n">tags</span><span class="o">=</span><span class="n">subNames</span><span class="p">,</span> <span class="n">allTags</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; * combining features&#39;</span><span class="p">)</span>
         <span class="n">fcShelf</span> <span class="o">=</span> <span class="n">fcShelf</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">featureName</span><span class="o">=</span><span class="n">shelfName</span><span class="p">)</span>
 
         <span class="c1"># merge the feature for the basin into the collection of all basins</span>
@@ -241,13 +238,10 @@
 
     <span class="c1"># build ice shelves from regions with the appropriate tags</span>
     <span class="k">for</span> <span class="n">shelfName</span> <span class="ow">in</span> <span class="n">iceShelfNames</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">shelfName</span><span class="p">)</span>
 
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; * merging features&#39;</span><span class="p">)</span>
         <span class="n">fcShelf</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">componentName</span><span class="o">=</span><span class="s1">&#39;iceshelves&#39;</span><span class="p">,</span> <span class="n">objectType</span><span class="o">=</span><span class="s1">&#39;region&#39;</span><span class="p">,</span>
                           <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="n">shelfName</span><span class="p">])</span>
 
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; * combining features&#39;</span><span class="p">)</span>
         <span class="n">fcShelf</span> <span class="o">=</span> <span class="n">fcShelf</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">featureName</span><span class="o">=</span><span class="n">shelfName</span><span class="p">)</span>
 
         <span class="c1"># merge the feature for the basin into the collection of all basins</span>
