@@ -142,13 +142,10 @@ def ice_shelves(gf):
     # appropriate tags
     for shelfName in combinedIceShelves:
         subNames = combinedIceShelves[shelfName]
-        print(shelfName)
 
-        print(' * merging features')
         fcShelf = gf.read(componentName='iceshelves', objectType='region',
                           tags=subNames, allTags=False)
 
-        print(' * combining features')
         fcShelf = fcShelf.combine(featureName=shelfName)
 
         # merge the feature for the basin into the collection of all basins
@@ -156,13 +153,10 @@ def ice_shelves(gf):
 
     # build ice shelves from regions with the appropriate tags
     for shelfName in iceShelfNames:
-        print(shelfName)
 
-        print(' * merging features')
         fcShelf = gf.read(componentName='iceshelves', objectType='region',
                           tags=[shelfName])
 
-        print(' * combining features')
         fcShelf = fcShelf.combine(featureName=shelfName)
 
         # merge the feature for the basin into the collection of all basins

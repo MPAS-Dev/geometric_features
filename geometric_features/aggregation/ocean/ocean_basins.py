@@ -28,13 +28,10 @@ def basins(gf):
                       'Southern_Ocean', 'Mediterranean']:
 
         basinName = f'{oceanName}_Basin'
-        print(oceanName)
 
-        print(' * merging features')
         fcBasin = gf.read(componentName='ocean', objectType='region',
                           tags=[basinName])
 
-        print(' * combining features')
         fcBasin = fcBasin.combine(featureName=basinName)
 
         fc.merge(fcBasin)
