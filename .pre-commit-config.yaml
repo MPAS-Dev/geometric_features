@@ -27,7 +27,7 @@ repos:
   # Need to use flake8 GitHub mirror due to CentOS git issue with GitLab
   # https://github.com/pre-commit/pre-commit/issues/1206
   - repo: https://github.com/pycqa/flake8
-    rev: 7.1.1
+    rev: 7.1.2
     hooks:
       - id: flake8
         args: ["--config=.flake8"]
