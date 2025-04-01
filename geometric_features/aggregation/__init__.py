@@ -64,45 +64,73 @@ def get_aggregator_by_name(region_group):
         remains the same.
     """
 
-    regions = {'Antarctic Regions': {'prefix': 'antarcticRegions',
-                                     'date': '20230403',
-                                     'function': antarctic},
-               'Arctic Ocean Regions': {'prefix': 'arcticOceanRegions',
-                                        'date': '20201130',
-                                        'function': arctic_ocean},
-               'Arctic Sea Ice Regions': {'prefix': 'arcticSeaIceRegions',
-                                          'date': '20201130',
-                                          'function': arctic_seaice},
-               'Ocean Basins': {'prefix': 'oceanBasins',
-                                'date': '20240830',
-                                'function': basins},
-               'Ice Shelves': {'prefix': 'iceShelves',
-                               'date': '20200621',
-                               'function': ice_shelves},
-               'Ocean Subbasins': {'prefix': 'oceanSubbasins',
-                                   'date': '20201123',
-                                   'function': subbasins},
-               'ISMIP6 Greenland Regions': {'prefix': 'ismip6GreenlandRegions',
-                                            'date': '20240510',
-                                            'function': ismip6_greenland},
-               'NASA Greenland Regions': {'prefix': 'nasaGreenlandRegions',
-                                          'date': '20241017',
-                                          'function': nasa_greenland},
-               'ISMIP6 Regions': {'prefix': 'ismip6Regions',
-                                  'date': '20210201',
-                                  'function': ismip6},
-               'MOC Basins': {'prefix': 'mocBasins',
-                              'date': '20210623',
-                              'function': moc},
-               'Historical Sea Ice': {'prefix': 'historicalSeaIce',
-                                      'date': '20241018',
-                                      'function': qgreenland_seaice},
-               'Transport Transects': {'prefix': 'transportTransects',
-                                       'date': '20210323',
-                                       'function': transport},
-               'Arctic Transport Transects': {'prefix': 'arcticTransportTransects',  # noqa: E501
-                                              'date': '20220926',
-                                              'function': arctic_transport}}
+    regions = {
+        'Antarctic Regions': {
+            'prefix': 'antarcticRegions',
+            'date': '20230403',
+            'function': antarctic,
+        },
+        'Arctic Ocean Regions': {
+            'prefix': 'arcticOceanRegions',
+            'date': '20201130',
+            'function': arctic_ocean,
+        },
+        'Arctic Sea Ice Regions': {
+            'prefix': 'arcticSeaIceRegions',
+            'date': '20201130',
+            'function': arctic_seaice,
+        },
+        'Ocean Basins': {
+            'prefix': 'oceanBasins',
+            'date': '20240830',
+            'function': basins,
+        },
+        'Ice Shelves': {
+            'prefix': 'iceShelves',
+            'date': '20200621',
+            'function': ice_shelves,
+        },
+        'Ocean Subbasins': {
+            'prefix': 'oceanSubbasins',
+            'date': '20201123',
+            'function': subbasins,
+        },
+        'ISMIP6 Greenland Regions': {
+            'prefix': 'ismip6GreenlandRegions',
+            'date': '20240510',
+            'function': ismip6_greenland,
+        },
+        'NASA Greenland Regions': {
+            'prefix': 'nasaGreenlandRegions',
+            'date': '20241017',
+            'function': nasa_greenland,
+        },
+        'ISMIP6 Regions': {
+            'prefix': 'ismip6Regions',
+            'date': '20210201',
+            'function': ismip6,
+        },
+        'MOC Basins': {
+            'prefix': 'mocBasins',
+            'date': '20210623',
+            'function': moc,
+        },
+        'Historical Sea Ice': {
+            'prefix': 'historicalSeaIce',
+            'date': '20241018',
+            'function': qgreenland_seaice,
+        },
+        'Transport Transects': {
+            'prefix': 'transportTransects',
+            'date': '20210323',
+            'function': transport,
+        },
+        'Arctic Transport Transects': {
+            'prefix': 'arcticTransportTransects',  # noqa: E501
+            'date': '20220926',
+            'function': arctic_transport,
+        },
+    }
 
     if region_group not in regions:
         raise ValueError(f'Unknown region group {region_group}')
