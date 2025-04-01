@@ -11,12 +11,12 @@ requests
 shapely>=2.0,<3.0
 
 # Development
+flynt
 pip
-pytest
-setuptools>=60
 pre-commit
-isort
-flake8
+pytest
+ruff
+setuptools>=60
 
 # Documentation
 sphinx
