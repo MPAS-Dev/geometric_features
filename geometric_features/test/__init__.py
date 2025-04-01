@@ -5,20 +5,20 @@ Phillip J. Wolfram
 03/16/2017
 """
 
-import os
-import shutil
-import warnings
-from contextlib import contextmanager
+import os as os
+import shutil as shutil
+import warnings as warnings
+from contextlib import contextmanager as contextmanager
 
-from pytest import fixture
+from pytest import fixture as fixture
 
 try:
     import unittest2 as unittest
 except ImportError:
-    import unittest
+    import unittest as unittest
 
 try:
-    import lxml
+    import lxml as lxml
     has_lxml = True
 except ImportError:
     has_lxml = False
