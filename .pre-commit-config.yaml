@@ -9,12 +9,6 @@ repos:
       - id: trailing-whitespace
       - id: end-of-file-fixer
 
-  # Can run individually with `pre-commit run isort --all-files`
-  - repo: https://github.com/PyCQA/isort
-    rev: 6.0.1
-    hooks:
-      - id: isort
-
   # Can run individually with `flynt [file]` or `flynt [source]`
   - repo: https://github.com/ikamensh/flynt
     rev: '1.0.1'
@@ -23,12 +17,11 @@ repos:
         args: ["--fail-on-change", "--verbose"]
         require_serial: true
 
-  # Can run individually with `pre-commit run flake8 --all-files`
-  # Need to use flake8 GitHub mirror due to CentOS git issue with GitLab
-  # https://github.com/pre-commit/pre-commit/issues/1206
-  - repo: https://github.com/pycqa/flake8
-    rev: 7.1.2
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.11.2
     hooks:
-      - id: flake8
-        args: ["--config=.flake8"]
-        additional_dependencies: [flake8-isort]
+      # Run the linter.
+      - id: ruff
+        args: [--fix]
+      # Run the formatter.
+      - id: ruff-format
