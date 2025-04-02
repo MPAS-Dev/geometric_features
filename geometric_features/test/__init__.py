@@ -5,26 +5,28 @@ Phillip J. Wolfram
 03/16/2017
 """
 
-import os
-import shutil
-import warnings
-from contextlib import contextmanager
+import os as os
+import shutil as shutil
+import warnings as warnings
+from contextlib import contextmanager as contextmanager
 
-from pytest import fixture
+from pytest import fixture as fixture
 
 try:
     import unittest2 as unittest
 except ImportError:
-    import unittest
+    import unittest as unittest
 
 try:
-    import lxml
+    import lxml as lxml
+
     has_lxml = True
 except ImportError:
     has_lxml = False
 
 try:
     import numpy as np
+
     has_numpy = True
 except ImportError:
     has_numpy = False
@@ -42,11 +44,11 @@ def requires_numpy(test):
 # http://stackoverflow.com/questions/29627341/pytest-where-to-store-expected-data
 @fixture
 def loaddatadir(request, tmpdir):
-    '''
+    """
     Fixture responsible for searching a folder with the same name of test
     module and, if available, moving all contents to a temporary directory so
     tests can use them freely.
-    '''
+    """
     filename = request.module.__file__
     test_dir, _ = os.path.splitext(filename)
 
