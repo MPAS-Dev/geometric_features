@@ -36,35 +36,33 @@ jobs:
 
       - if: ${{ steps.skip_check.outputs.should_skip != 'true' }}
         name: Set up Conda Environment
-        uses: conda-incubator/setup-miniconda@v3
+        uses: mamba-org/setup-micromamba@v2
         with:
-          activate-environment: "geometric_features_ci"
-          miniforge-version: latest
-          channels: conda-forge
-          channel-priority: strict
-          auto-update-conda: true
-          python-version: ${{ env.PYTHON_VERSION }}
+          environment-name: pyremap_dev
+          init-shell: bash
+          condarc: |
+            channel_priority: strict
+            channels:
+                - conda-forge
+          create-args: >-
+            python=${{ env.PYTHON_VERSION }}
 
       - if: ${{ steps.skip_check.outputs.should_skip != 'true' }}
         name: Install geometric_features
         run: |
           git config --global url."https://github.com/".insteadOf "git@github.com:"
-          conda create -n geometric_features_dev --file dev-spec.txt \
-            python=${{ env.PYTHON_VERSION }}
-          conda activate geometric_features_dev
+          conda install -y --file dev-spec.txt python=${{ env.PYTHON_VERSION }}
           python -m pip install -vv --no-deps --no-build-isolation -e .
 
       - name: Build Sphinx Docs
         run: |
           set -e
-          conda activate geometric_features_dev
           pip check
           cd docs
           sphinx-multiversion . _build/html
       - name: Copy Docs and Commit
         run: |
           set -e
-          conda activate geometric_features_dev
           pip check
           cd docs
           # gh-pages branch must already exist
