@@ -13,7 +13,17 @@ Then, run:
 .. code-block:: bash
 
     cd docs
-    make clean
-    make html
+    DOCS_VERSION=test make clean versioned-html
 
-You can find the test build in ``_build/html/index.html``.
+Previewing the Documentation
+============================
+
+To preview the documentation locally, open the ``index.html`` file in the
+``_build/html/test`` directory with your browser or try:
+
+.. code-block:: bash
+
+   cd _build/html
+   python -m http.server 8000
+
+Then, open http://0.0.0.0:8000/test/ in your browser.
