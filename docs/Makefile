@@ -8,6 +8,22 @@ SPHINXPROJ    = geometric_features
 SOURCEDIR     = .
 BUILDDIR      = _build
 
+# Build into a versioned subdirectory
+versioned-html:
+	@echo "Building version: $(DOCS_VERSION)"
+	$(SPHINXBUILD) -b html "$(SOURCEDIR)" "$(BUILDDIR)/html/$(DOCS_VERSION)"
+	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html/$(DOCS_VERSION)."
+	@echo "Setting up shared version switcher for local preview..."
+	mkdir -p _build/html/shared
+	cp shared/version-switcher.js _build/html/shared/version-switcher.js
+	python generate_versions_json.py --local
+
+# Override html target to include local setup
+html:
+	$(SPHINXBUILD) -b html "$(SOURCEDIR)" "$(BUILDDIR)/html"
+	@echo
+	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
+
 # Put it first so that "make" without argument is like "make help".
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
@@ -22,3 +38,7 @@ clean:
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 %: Makefile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
+clean-versioned-html:
+	rm -rf $(BUILDDIR)/html/*
+	@echo "Cleaned versioned HTML builds."
