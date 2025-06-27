@@ -21,5 +21,4 @@ setuptools>=60
 # Documentation
 sphinx
 sphinx_rtd_theme
-sphinx-multiversion
 m2r2
