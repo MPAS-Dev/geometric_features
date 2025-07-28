@@ -76,5 +76,46 @@ features to ensure consistent formatting.
     # ./geometric_data to clean things up
     gf.split(fc)
 
+.. _codeveloping:
+
+Co-developing geometric_features with Other Packages
+----------------------------------------------------
+
+If you are developing ``geometric_features`` alongside another package (such as
+`MPAS-Analysis`_), you can set up a single development environment for both
+projects. This is useful for testing changes in both packages together.
+
+1. **Create a development environment with dependencies from both packages:**
+
+   ::
+
+      conda create -n gf-dev --file /path/to/geometric_features/dev-spec.txt --file /path/to/MPAS-Analysis/dev-spec.txt
+
+   Replace the paths above with the actual locations of the two repositories.
+
+2. **Install both packages in editable mode:**
+
+   ::
+
+      conda activate gf-dev
+      pip install --no-deps --no-build-isolation -e /path/to/geometric_features
+      pip install --no-deps --no-build-isolation -e /path/to/MPAS-Analysis
+
+3. **Set the GEOMETRIC_DATA_DIR environment variable:**
+
+   You must set the ``$GEOMETRIC_DATA_DIR`` environment variable to the absolute
+   path of the ``geometric_data`` subdirectory in your ``geometric_features``
+   repository. This is required so that other packages (like MPAS-Analysis) can
+   find the geometric data during development.
+
+   ::
+
+      export GEOMETRIC_DATA_DIR=/absolute/path/to/geometric_features/geometric_data
+
+   You will need to run this command every time you activate your development
+   environment. If you are running jobs (e.g., with MPAS-Analysis), make sure to
+   include this export in your job scripts as well.
+
 
 .. _`GitHub repository`: https://github.com/MPAS-Dev/geometric_features
+.. _MPAS-Analysis: https://github.com/MPAS-Dev/MPAS-Analysis

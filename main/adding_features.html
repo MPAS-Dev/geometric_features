@@ -53,9 +53,13 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Developer's Guide</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Adding New Features</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Adding New Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#co-developing-geometric-features-with-other-packages">Co-developing geometric_features with Other Packages</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="build_docs.html">Building the Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="build_docs.html#previewing-the-documentation">Previewing the Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releasing.html">Releasing a New Version</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API reference</a></li>
 </ul>
 
@@ -155,6 +159,39 @@ features to ensure consistent formatting.</p>
 <span class="n">gf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">fc</span><span class="p">)</span>
 </pre></div>
 </div>
+<section id="co-developing-geometric-features-with-other-packages">
+<span id="codeveloping"></span><h2>Co-developing geometric_features with Other Packages<a class="headerlink" href="#co-developing-geometric-features-with-other-packages" title="Link to this heading"></a></h2>
+<p>If you are developing <code class="docutils literal notranslate"><span class="pre">geometric_features</span></code> alongside another package (such as
+<a class="reference external" href="https://github.com/MPAS-Dev/MPAS-Analysis">MPAS-Analysis</a>), you can set up a single development environment for both
+projects. This is useful for testing changes in both packages together.</p>
+<ol class="arabic">
+<li><p><strong>Create a development environment with dependencies from both packages:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">gf</span><span class="o">-</span><span class="n">dev</span> <span class="o">--</span><span class="n">file</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">geometric_features</span><span class="o">/</span><span class="n">dev</span><span class="o">-</span><span class="n">spec</span><span class="o">.</span><span class="n">txt</span> <span class="o">--</span><span class="n">file</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">MPAS</span><span class="o">-</span><span class="n">Analysis</span><span class="o">/</span><span class="n">dev</span><span class="o">-</span><span class="n">spec</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>Replace the paths above with the actual locations of the two repositories.</p>
+</li>
+<li><p><strong>Install both packages in editable mode:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">gf</span><span class="o">-</span><span class="n">dev</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">deps</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">build</span><span class="o">-</span><span class="n">isolation</span> <span class="o">-</span><span class="n">e</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">geometric_features</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">deps</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">build</span><span class="o">-</span><span class="n">isolation</span> <span class="o">-</span><span class="n">e</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">MPAS</span><span class="o">-</span><span class="n">Analysis</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Set the GEOMETRIC_DATA_DIR environment variable:</strong></p>
+<p>You must set the <code class="docutils literal notranslate"><span class="pre">$GEOMETRIC_DATA_DIR</span></code> environment variable to the absolute
+path of the <code class="docutils literal notranslate"><span class="pre">geometric_data</span></code> subdirectory in your <code class="docutils literal notranslate"><span class="pre">geometric_features</span></code>
+repository. This is required so that other packages (like MPAS-Analysis) can
+find the geometric data during development.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">GEOMETRIC_DATA_DIR</span><span class="o">=/</span><span class="n">absolute</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">geometric_features</span><span class="o">/</span><span class="n">geometric_data</span>
+</pre></div>
+</div>
+<p>You will need to run this command every time you activate your development
+environment. If you are running jobs (e.g., with MPAS-Analysis), make sure to
+include this export in your job scripts as well.</p>
+</li>
+</ol>
+</section>
 </section>
 
 
