@@ -102,3 +102,4 @@ Aggregation
    aggregation.seaice.arctic
    aggregation.seaice.qgreenland
    aggregation.landice.nasa_greenland
+   aggregation.landice.uummannaq_disko

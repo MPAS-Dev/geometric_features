@@ -5,7 +5,7 @@ from geometric_features.aggregation import (antarctic, arctic_ocean,
                                             ice_shelves, ismip6,
                                             ismip6_greenland, moc,
                                             nasa_greenland, qgreenland_seaice,
-                                            subbasins, transport)
+                                            subbasins, transport, uummannaq_disko)
 from geometric_features.test import TestCase
 
 
@@ -18,7 +18,7 @@ class TestAggregation(TestCase):
                  'Arctic Sea Ice Regions', 'Ocean Basins', 'Ice Shelves',
                  'Ocean Subbasins', 'ISMIP6 Regions', 'MOC Basins',
                  'Historical Sea Ice', 'Transport Transects',
-                 'Arctic Transport Transects']
+                 'Arctic Transport Transects', 'Uummannaq/Disko GIS Glaciers']
 
         for name in names:
             function, prefix, date = get_aggregator_by_name(name)
@@ -75,3 +75,7 @@ class TestAggregation(TestCase):
     def test_ismip6_greenland(self):
         gf = GeometricFeatures()
         ismip6_greenland(gf)
+
+    def test_uummannaq_disko(self):
+        gf = GeometricFeatures()
+        uummannaq_disko(gf)
