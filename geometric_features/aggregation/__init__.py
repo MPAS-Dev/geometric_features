@@ -1,6 +1,9 @@
 from geometric_features.aggregation.landice import (
     nasa_greenland as nasa_greenland,
 )
+from geometric_features.aggregation.landice import (
+    uummannaq_disko as uummannaq_disko,
+)
 from geometric_features.aggregation.ocean import (
     antarctic as antarctic,
 )
@@ -104,6 +107,11 @@ def get_aggregator_by_name(region_group):
             'prefix': 'nasaGreenlandRegions',
             'date': '20241017',
             'function': nasa_greenland,
+        },
+        'Uummannaq/Disko GIS Glaciers': {
+            'prefix':'UummannaqDisko',
+            'date': '20250812',
+            'function': uummannaq_disko,
         },
         'ISMIP6 Regions': {
             'prefix': 'ismip6Regions',
