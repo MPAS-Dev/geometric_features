@@ -4,21 +4,21 @@ fail_fast: true
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
 
   # Can run individually with `flynt [file]` or `flynt [source]`
   - repo: https://github.com/ikamensh/flynt
-    rev: '1.0.1'
+    rev: '1.0.6'
     hooks:
       - id: flynt
         args: ["--fail-on-change", "--verbose"]
         require_serial: true
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.12.4
+    rev: v0.12.11
     hooks:
       # Run the linter.
       - id: ruff-check

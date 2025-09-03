@@ -66,8 +66,7 @@ jobs:
           gh pr create \
           --title "Update pre-commit and its dependencies" \
           --body "This PR was auto-generated to update pre-commit and its dependencies." \
-          --head update-pre-commit-deps \
-          --label ci
+          --head update-pre-commit-deps
         env:
           GH_TOKEN: ${{ github.token }}
 
