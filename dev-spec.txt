@@ -2,7 +2,6 @@
 # $ conda create --name <env> --file <this file>
 
 # Base
-python>=3.9
 cartopy
 matplotlib-base
 numpy
