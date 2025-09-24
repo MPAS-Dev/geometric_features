@@ -25,11 +25,11 @@ build:
 
 requirements:
   host:
-    - python >=3.9
+    - python >=3.10
     - pip
     - setuptools >=60
   run:
-    - python >=3.9
+    - python >=3.10
     - cartopy
     - matplotlib-base
     - numpy
