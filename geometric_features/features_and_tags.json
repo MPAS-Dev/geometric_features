@@ -919,7 +919,64 @@
       ],
       "westCentralGreenland2_oceanExtended": [
         "westCentralGreenland"
-      ]
+      ],
+		"UummannaqDisko_AlanngorliupSermia": [
+		  "UummannaqDisko"
+		],
+		"UummannaqDisko_EqipSermia": [
+		  "UummannaqDisko"
+		],
+		"UummannaqDisko_KangerluarsuupSermia": [
+		  "UummannaqDisko"
+		],
+		"UummannaqDisko_KangerlussuupSermia": [
+		  "UummannaqDisko"
+		],
+		"UummannaqDisko_KangilernataSermia": [
+		  "UummannaqDisko"
+		],
+		"UummannaqDisko_Kangilleq": [
+		  "UummannaqDisko"
+		],
+		"UummannaqDisko_KangilliupSermia_RinkIsbrae": [
+		  "UummannaqDisko"
+		],
+		"UummannaqDisko_PerlerfiupSermia": [
+		  "UummannaqDisko"
+		],
+		"UummannaqDisko_SalliarutsipSermia_InngiaIsbrae": [
+		  "UummannaqDisko"
+		],
+		"UummannaqDisko_SaqqarliupSermia": [
+		  "UummannaqDisko"
+		],
+		"UummannaqDisko_SermeqAvannarleq.south": [
+		  "UummannaqDisko"
+		],
+		"UummannaqDisko_SermeqAvannarleq.north": [
+		  "UummannaqDisko"
+		],
+		"UummannaqDisko_SermeqAvannarleq_LilleGletsjer": [
+		  "UummannaqDisko"
+		],
+		"UummannaqDisko_SermeqKujalleq_AlianaatsupSermia": [
+		  "UummannaqDisko"
+		],
+		"UummannaqDisko_SermeqKujalleq_JakobshavnIsbrae": [
+		  "UummannaqDisko"
+		],
+		"UummannaqDisko_SermeqKujalleq_StoreGletsjer": [
+		  "UummannaqDisko"
+		],
+		"UummannaqDisko_SermeqSilarleq": [
+		  "UummannaqDisko"
+		],
+		"UummannaqDisko_Sermilik": [
+		  "UummannaqDisko"
+		],
+		"UummannaqDisko_UmiammakkuSermia": [
+		  "UummannaqDisko"
+		]
     }
   },
   "natural_earth": {

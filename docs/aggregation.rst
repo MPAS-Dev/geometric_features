@@ -33,6 +33,8 @@ the following group names:
 
 * Transport Transects
 
+* Uummannaq/Disko GIS Glaciers
+
 This function returns the function that will aggregate the requested group,
 a prefix for the group (a modified version of the group name) and a date stamp
 that is updated each time the features in the group are changed.  This way,
@@ -113,6 +115,16 @@ The drainage basins have been altered to extend to the continental shelf break. 
 have also been altered so that all glaciers terminating in an individual fjord 
 are from the same drainage basin. Regions cover both landice and ocean, and could be used for either
 component.
+
+Uummannaq/Disko GIS Glaciers
+~~~~~~~~~~~~~~~~~~
+
+The function :py:func:`geometric_features.aggregation.landice.uummannaq_disko`
+aggregates the GIS tidewater outlet glaciers flowing into the Ummannaq and Disko Bay region of
+Greenland. Glacier boundaries were defined using the ice basin layer in QGreenland 
+(https://github.com/nsidc/qgreenland/) and manually manipulated near the glacier termini to create
+a buffer zone around each outlet glacier, so that QGreenland boundaries encompass the full glacier area
+defined on the MALI mesh.
 
 Historical Sea Ice
 ~~~~~~~~~~~~~~~~~~
