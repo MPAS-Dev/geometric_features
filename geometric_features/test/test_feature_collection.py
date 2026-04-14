@@ -5,14 +5,16 @@ import pytest
 import shapely
 import shapely.geometry
 
-from geometric_features import (FeatureCollection, GeometricFeatures,
-                                read_feature_collection)
+from geometric_features import (
+    FeatureCollection,
+    GeometricFeatures,
+    read_feature_collection,
+)
 from geometric_features.test import TestCase, loaddatadir  # noqa: F401
 
 
 @pytest.mark.usefixtures('loaddatadir')
 class TestFeatureCollection(TestCase):
-
     @staticmethod
     def read_feature(region='Adriatic_Sea'):
         """
@@ -39,8 +41,9 @@ class TestFeatureCollection(TestCase):
         return fc
 
     @staticmethod
-    def check_feature(feature, expected_name='Adriatic Sea',
-                      expected_type='Polygon'):
+    def check_feature(
+        feature, expected_name='Adriatic Sea', expected_type='Polygon'
+    ):
         """
         Check some properties of the feature
 
@@ -73,8 +76,9 @@ class TestFeatureCollection(TestCase):
         Test copying the features in a feature collection
         """
         fc = self.read_feature()
-        other = FeatureCollection(features=fc.features,
-                                  otherProperties=fc.otherProperties)
+        other = FeatureCollection(
+            features=fc.features, otherProperties=fc.otherProperties
+        )
         assert len(other.features) == 1
         feature = other.features[0]
 
@@ -123,8 +127,10 @@ class TestFeatureCollection(TestCase):
         fc = self.read_feature(region='Adriatic_Sea')
 
         fc.tag(tags=['tag1', 'tag2', 'Mediterranean_Basin'])
-        assert (fc.features[0]['properties']['tags'] ==
-                'Adriatic_Sea;Mediterranean_Basin;tag1;tag2')
+        assert (
+            fc.features[0]['properties']['tags']
+            == 'Adriatic_Sea;Mediterranean_Basin;tag1;tag2'
+        )
 
         self.check_feature(fc.features[0])
 
@@ -135,13 +141,17 @@ class TestFeatureCollection(TestCase):
         fc = self.read_feature(region='Adriatic_Sea')
 
         fc.tag(tags=['Mediterranean_Basin', 'tag1'], remove=True)
-        assert (fc.features[0]['properties']['tags'] == 'Adriatic_Sea')
+        assert fc.features[0]['properties']['tags'] == 'Adriatic_Sea'
 
         self.check_feature(fc.features[0])
 
-    def test_set_group_name(self, componentName='ocean', objectType='region',
-                            featureName='Celtic Sea',
-                            groupName='testGroupName'):
+    def test_set_group_name(
+        self,
+        componentName='ocean',
+        objectType='region',
+        featureName='Celtic Sea',
+        groupName='testGroupName',
+    ):
         """
         Write example file to test groupName functionality.
 
@@ -169,17 +179,20 @@ class TestFeatureCollection(TestCase):
         def verify_groupName(destfile, groupName):
             with open(destfile) as f:
                 filevals = json.load(f)
-                assert 'groupName' in filevals, \
+                assert 'groupName' in filevals, (
                     f'groupName does not exist in {destfile}'
-                assert filevals['groupName'] == groupName, \
-                    'Incorrect groupName of {} specified instead of ' \
+                )
+                assert filevals['groupName'] == groupName, (
+                    'Incorrect groupName of {} specified instead of '
                     '{}.'.format(filevals['groupName'], groupName)
+                )
 
         gf = GeometricFeatures()
         fc = gf.read(componentName, objectType, [featureName])
         fc.set_group_name(groupName)
-        assert fc.otherProperties['groupName'] == groupName, \
+        assert fc.otherProperties['groupName'] == groupName, (
             'groupName not assigned to FeatureCollection'
+        )
         destfile = str(self.datadir.join('test.geojson'))
         fc.to_geojson(destfile)
         verify_groupName(destfile, groupName)
@@ -194,8 +207,11 @@ class TestFeatureCollection(TestCase):
         name = 'Weird Disjoint Regions'
         combined = fc1.combine(name)
         assert len(combined.features) == 1
-        self.check_feature(combined.features[0], expected_name=name,
-                           expected_type='MultiPolygon')
+        self.check_feature(
+            combined.features[0],
+            expected_name=name,
+            expected_type='MultiPolygon',
+        )
 
     def test_difference(self):
         """
@@ -205,9 +221,11 @@ class TestFeatureCollection(TestCase):
         mask = self.read_feature()
         difference = fc.difference(maskingFC=mask)
         assert len(difference.features) == 1
-        self.check_feature(difference.features[0],
-                           expected_name='Global Ocean',
-                           expected_type='Polygon')
+        self.check_feature(
+            difference.features[0],
+            expected_name='Global Ocean',
+            expected_type='Polygon',
+        )
 
         # make sure the original global ocean and mask have no holes
         for fc_test in [fc, mask]:
@@ -236,52 +254,31 @@ class TestFeatureCollection(TestCase):
                 'tags': '',
                 'object': 'region',
                 'component': 'ocean',
-                'author': 'Xylar Asay-Davis'
+                'author': 'Xylar Asay-Davis',
             },
             'geometry': {
                 'type': 'Polygon',
                 'coordinates': [
                     [
-                        [
-                            190.000000,
-                            -70.000000
-                        ],
-                        [
-                            190.000000,
-                            -90.000000
-                        ],
-                        [
-                            180.000000,
-                            -90.000000
-                        ],
-                        [
-                            170.000000,
-                            -90.000000
-                        ],
-                        [
-                            170.000000,
-                            -70.000000
-                        ],
-                        [
-                            180.000000,
-                            -70.000000
-                        ],
-                        [
-                            190.000000,
-                            -70.000000
-                        ]
+                        [190.000000, -70.000000],
+                        [190.000000, -90.000000],
+                        [180.000000, -90.000000],
+                        [170.000000, -90.000000],
+                        [170.000000, -70.000000],
+                        [180.000000, -70.000000],
+                        [190.000000, -70.000000],
                     ]
-                ]
-            }
+                ],
+            },
         }
         fc.add_feature(feature=feature)
-        self.check_feature(fc.features[0],
-                           expected_name=name,
-                           expected_type='Polygon')
+        self.check_feature(
+            fc.features[0], expected_name=name, expected_type='Polygon'
+        )
         fixed = fc.fix_antimeridian()
-        self.check_feature(fixed.features[0],
-                           expected_name=name,
-                           expected_type='MultiPolygon')
+        self.check_feature(
+            fixed.features[0], expected_name=name, expected_type='MultiPolygon'
+        )
 
         geom = globe.features[0]['geometry']
         globe_shape = shapely.geometry.shape(geom)
@@ -304,49 +301,28 @@ class TestFeatureCollection(TestCase):
                 'tags': '',
                 'object': 'region',
                 'component': 'ocean',
-                'author': 'Xylar Asay-Davis'
+                'author': 'Xylar Asay-Davis',
             },
             'geometry': {
                 'type': 'Polygon',
                 'coordinates': [
                     [
-                        [
-                            90.000000,
-                            -70.000000
-                        ],
-                        [
-                            90.000000,
-                            -80.000000
-                        ],
-                        [
-                            90.000000,
-                            -80.000000
-                        ],
-                        [
-                            70.000000,
-                            -80.000000
-                        ],
-                        [
-                            70.000000,
-                            -70.000000
-                        ],
-                        [
-                            90.000000,
-                            -70.000000
-                        ],
-                        [
-                            90.000000,
-                            -70.000000
-                        ]
+                        [90.000000, -70.000000],
+                        [90.000000, -80.000000],
+                        [90.000000, -80.000000],
+                        [70.000000, -80.000000],
+                        [70.000000, -70.000000],
+                        [90.000000, -70.000000],
+                        [90.000000, -70.000000],
                     ]
-                ]
-            }
+                ],
+            },
         }
         fc = FeatureCollection()
         fc.add_feature(feature=feature)
-        self.check_feature(fc.features[0],
-                           expected_name=name,
-                           expected_type='Polygon')
+        self.check_feature(
+            fc.features[0], expected_name=name, expected_type='Polygon'
+        )
 
         # verify that the original shape has 7 coordinates (with 2 redundant
         # points)
@@ -385,16 +361,51 @@ class TestFeatureCollection(TestCase):
         fc_check = read_feature_collection(dest_filename)
         self.check_feature(fc_check.features[0])
 
+    def test_to_geojson_without_user_env(self):
+        """
+        Test writing a feature when username environment variables are unset
+        """
+        fc = self.read_feature()
+        dest_filename = str(self.datadir.join('test_no_user.geojson'))
+
+        saved_env = {}
+        for env_var in ['USER', 'LOGNAME', 'LNAME', 'USERNAME']:
+            saved_env[env_var] = os.environ.get(env_var)
+
+        try:
+            for env_var in saved_env:
+                os.environ.pop(env_var, None)
+            fc.to_geojson(dest_filename)
+        finally:
+            for env_var, value in saved_env.items():
+                if value is None:
+                    os.environ.pop(env_var, None)
+                else:
+                    os.environ[env_var] = value
+
+        fc_check = read_feature_collection(dest_filename)
+        self.check_feature(fc_check.features[0])
+        history = fc_check.features[0]['properties']['history']
+        assert 'unknown-user' in history
+
     def test_plot(self):
         fc = self.read_feature()
 
-        colors = ['#7fc97f', '#beaed4', '#fdc086', '#ffff99', '#386cb0',
-                  '#f0027f', '#bf5b17']
+        colors = [
+            '#7fc97f',
+            '#beaed4',
+            '#fdc086',
+            '#ffff99',
+            '#386cb0',
+            '#f0027f',
+            '#bf5b17',
+        ]
 
         projection = 'cyl'
 
-        fig = fc.plot(projection, maxLength=4.0, figsize=(12, 12),
-                      colors=colors, dpi=200)
+        fig = fc.plot(
+            projection, maxLength=4.0, figsize=(12, 12), colors=colors, dpi=200
+        )
 
         dest_filename = str(self.datadir.join('plot.png'))
         fig.savefig(dest_filename)
