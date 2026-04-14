@@ -42,8 +42,7 @@ def write_feature_names_and_tags(cacheLocation='./geometry_data', quiet=False):
                 allFeaturesAndTags[componentName] = OrderedDict()
             if objectType not in allFeaturesAndTags[componentName]:
                 allFeaturesAndTags[componentName][objectType] = OrderedDict()
-            allFeaturesAndTags[componentName][objectType][featureName] = \
-                tags
+            allFeaturesAndTags[componentName][objectType][featureName] = tags
 
     outFile = open(outFileName, 'w')
 
@@ -59,7 +58,13 @@ def provenance_command():
     # Phillip J. Wolfram, Xylar Asay-Davis
 
     cwd = os.getcwd()
-    user = os.getenv('USER')
+    user = (
+        os.getenv('USER')
+        or os.getenv('LOGNAME')
+        or os.getenv('LNAME')
+        or os.getenv('USERNAME')
+        or 'unknown-user'
+    )
     curtime = datetime.datetime.now().strftime('%m/%d/%y %H:%M')
     call = ' '.join(sys.argv)
     host = socket.gethostname()
