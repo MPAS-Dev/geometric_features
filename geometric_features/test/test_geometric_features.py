@@ -8,11 +8,13 @@ from geometric_features.test import TestCase, loaddatadir  # noqa: F401
 
 @pytest.mark.usefixtures('loaddatadir')
 class TestGeometricFeatures(TestCase):
-
     @staticmethod
-    def check_feature(feature, expected_name='Celtic Sea',
-                      expected_component='ocean',
-                      expected_type='region'):
+    def check_feature(
+        feature,
+        expected_name='Celtic Sea',
+        expected_component='ocean',
+        expected_type='region',
+    ):
         """
         Check some properties of the feature
 
@@ -35,8 +37,9 @@ class TestGeometricFeatures(TestCase):
         assert feature['properties']['component'] == expected_component
         assert feature['properties']['object'] == expected_type
 
-    def test_read_by_name(self, component='ocean', object_type='region',
-                          feature='Celtic Sea'):
+    def test_read_by_name(
+        self, component='ocean', object_type='region', feature='Celtic Sea'
+    ):
         """
         Read an example feature by name and test for a few expected
         attributes.
@@ -54,14 +57,21 @@ class TestGeometricFeatures(TestCase):
             The name of a geometric feature to read
         """
         gf = GeometricFeatures()
-        fc = gf.read(componentName=component, objectType=object_type,
-                     featureNames=[feature])
-        self.check_feature(fc.features[0], expected_name=feature,
-                           expected_component=component,
-                           expected_type=object_type)
+        fc = gf.read(
+            componentName=component,
+            objectType=object_type,
+            featureNames=[feature],
+        )
+        self.check_feature(
+            fc.features[0],
+            expected_name=feature,
+            expected_component=component,
+            expected_type=object_type,
+        )
 
-    def test_read_by_tag(self, component='ocean', object_type='region',
-                         tag='Adriatic_Sea'):
+    def test_read_by_tag(
+        self, component='ocean', object_type='region', tag='Adriatic_Sea'
+    ):
         """
         Read an example feature by name and test for a few expected
         attributes.
@@ -79,14 +89,22 @@ class TestGeometricFeatures(TestCase):
             The name of a tag to read
         """
         gf = GeometricFeatures()
-        fc = gf.read(componentName=component, objectType=object_type,
-                     tags=[tag])
-        self.check_feature(fc.features[0], expected_name='Adriatic Sea',
-                           expected_component=component,
-                           expected_type=object_type)
+        fc = gf.read(
+            componentName=component, objectType=object_type, tags=[tag]
+        )
+        self.check_feature(
+            fc.features[0],
+            expected_name='Adriatic Sea',
+            expected_component=component,
+            expected_type=object_type,
+        )
 
-    def test_read_all_tag(self, component='ocean', object_type='region',
-                          tags=('Adriatic_Sea', 'Mediterranean_Basin')):
+    def test_read_all_tag(
+        self,
+        component='ocean',
+        object_type='region',
+        tags=('Adriatic_Sea', 'Mediterranean_Basin'),
+    ):
         """
         Read an example feature by name and test for a few expected
         attributes.
@@ -104,15 +122,26 @@ class TestGeometricFeatures(TestCase):
             The names of tags to read
         """
         gf = GeometricFeatures()
-        fc = gf.read(componentName=component, objectType=object_type,
-                     tags=tags, allTags=True)
+        fc = gf.read(
+            componentName=component,
+            objectType=object_type,
+            tags=tags,
+            allTags=True,
+        )
         assert len(fc.features) == 1
-        self.check_feature(fc.features[0], expected_name='Adriatic Sea',
-                           expected_component=component,
-                           expected_type=object_type)
+        self.check_feature(
+            fc.features[0],
+            expected_name='Adriatic Sea',
+            expected_component=component,
+            expected_type=object_type,
+        )
 
-    def test_split(self, component='ocean', object_type='region',
-                   tag='Mediterranean_Basin'):
+    def test_split(
+        self,
+        component='ocean',
+        object_type='region',
+        tag='Mediterranean_Basin',
+    ):
         """
         Read an example feature by name and test for a few expected
         attributes.
@@ -130,8 +159,9 @@ class TestGeometricFeatures(TestCase):
             The name of a tag to read
         """
         gf = GeometricFeatures()
-        fc = gf.read(componentName=component, objectType=object_type,
-                     tags=[tag])
+        fc = gf.read(
+            componentName=component, objectType=object_type, tags=[tag]
+        )
 
         gf.split(fc, destinationDir=self.datadir)
 
@@ -140,3 +170,41 @@ class TestGeometricFeatures(TestCase):
             subdir = name.replace(' ', '_')
             path = f'{self.datadir}/{component}/{object_type}/{subdir}/{object_type}.geojson'  # noqa: E501
             assert os.path.exists(path)
+
+    def test_read_by_name_from_outside_repo_data_dir(
+        self, component='ocean', object_type='region', feature='Celtic Sea'
+    ):
+        """
+        Read a feature while the current working directory is outside the repo.
+
+        Parameters
+        ----------
+         component : str, optional
+            The component from which to retrieve the feature
+
+        object_type : {'point', 'transect', 'region'}, optional
+            The type of geometry to load, a point (0D), transect (1D) or region
+            (2D)
+
+        feature : str, optional
+            The name of a geometric feature to read
+        """
+        cwd = os.getcwd()
+        os.chdir(self.datadir)
+
+        try:
+            gf = GeometricFeatures()
+            fc = gf.read(
+                componentName=component,
+                objectType=object_type,
+                featureNames=[feature],
+            )
+        finally:
+            os.chdir(cwd)
+
+        self.check_feature(
+            fc.features[0],
+            expected_name=feature,
+            expected_component=component,
+            expected_type=object_type,
+        )
