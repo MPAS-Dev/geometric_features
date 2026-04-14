@@ -1,0 +1,6 @@
+﻿geometric\_features.tag\_features
+=================================
+
+.. currentmodule:: geometric_features
+
+.. autofunction:: tag_features
