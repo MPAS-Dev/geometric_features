@@ -15,7 +15,7 @@ Version Bump and Dependency Updates
    - Manually update the version number in the following files:
 
      - ``geometric_features/version.py``
-     - ``recipe/meta.yaml``
+     - ``recipe/recipe.yaml``
 
    - Make sure the version follows `semantic versioning <https://semver.org/>`_.
      For release candidates, use versions like ``1.6.2rc1``.
@@ -25,11 +25,11 @@ Version Bump and Dependency Updates
    - Ensure that dependencies and their constraints are up-to-date and
      consistent in:
 
-     - ``recipe/meta.yaml`` (for the conda-forge release)
+     - ``recipe/recipe.yaml`` (for the rattler-build recipe)
 
      - ``pyproject.toml`` (for PyPI; used for sanity checks)
 
-     - ``dev-spec.txt`` (development dependencies; should be a superset)
+     - ``pixi.toml`` (development dependencies; should be a superset)
 
    - Use the GitHub "Compare" feature to check for dependency changes between
      releases:

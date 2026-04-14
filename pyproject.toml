@@ -12,11 +12,9 @@ authors = [
     { name="Mark Petersen" },
     { name="Stephen Price" },
 ]
-description = """\
-    Tools for manipulating regions, transects, and points in geojson format
-    associated with climate modeling.\
-    """
-license = {file = "LICENSE"}
+description = "Tools for manipulating regions, transects, and points in geojson format associated with climate modeling."
+license = "BSD-3-Clause"
+license-files = ["LICENSE"]
 readme = "README.md"
 requires-python = ">=3.10"
 classifiers = [
@@ -27,7 +25,6 @@ classifiers = [
     "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3.14",
 
-    "License :: OSI Approved :: BSD License",
     "Operating System :: OS Independent",
     "Topic :: Scientific/Engineering",
     "Development Status :: 3 - Alpha",
@@ -93,6 +90,9 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 include=["geometric_features", "geometric_features.*"]
+
+[tool.setuptools.package-data]
+geometric_features = ["features_and_tags.json"]
 
 [tool.setuptools.dynamic]
 version = { attr = "geometric_features.version.__version__" }

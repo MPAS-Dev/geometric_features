@@ -1,0 +1,54 @@
+[workspace]
+name = "geometric_features"
+channels = ["conda-forge"]
+platforms = ["linux-64", "osx-64", "osx-arm64", "win-64"]
+
+[dependencies]
+cartopy = "*"
+flynt = "*"
+m2r2 = "*"
+matplotlib-base = "*"
+numpy = "*"
+pip = "*"
+pre-commit = "*"
+progressbar2 = "*"
+pytest = "*"
+requests = "*"
+ruff = "*"
+setuptools = ">=60"
+shapely = ">=2.0,<3.0"
+sphinx = "*"
+sphinx_rtd_theme = "*"
+
+[pypi-dependencies]
+geometric_features = { path = ".", editable = true }
+
+[pypi-options]
+no-build-isolation = true
+
+[feature.py310.dependencies]
+python = "3.10.*"
+
+[feature.py311.dependencies]
+python = "3.11.*"
+
+[feature.py312.dependencies]
+python = "3.12.*"
+
+[feature.py313.dependencies]
+python = "3.13.*"
+
+[feature.py314.dependencies]
+python = "3.14.*"
+
+[feature.package.dependencies]
+rattler-build = "*"
+
+[environments]
+default = ["py314"]
+py310 = ["py310"]
+py311 = ["py311"]
+py312 = ["py312"]
+py313 = ["py313"]
+py314 = ["py314"]
+package = ["py314", "package"]
