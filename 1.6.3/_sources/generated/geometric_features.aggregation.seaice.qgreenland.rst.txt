@@ -1,0 +1,6 @@
+﻿geometric\_features.aggregation.seaice.qgreenland
+=================================================
+
+.. currentmodule:: geometric_features.aggregation.seaice
+
+.. autofunction:: qgreenland
