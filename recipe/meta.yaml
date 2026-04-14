@@ -1,5 +1,5 @@
 {% set name = "geometric_features" %}
-{% set version = "1.6.1" %}
+{% set version = "1.6.2" %}
 {% set build = 0 %}
 
 package:
