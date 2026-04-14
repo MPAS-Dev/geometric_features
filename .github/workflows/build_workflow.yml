@@ -43,8 +43,14 @@ jobs:
           locked: true
 
       - if: ${{ steps.skip_check.outputs.should_skip != 'true' }}
+        id: file_changes
+        uses: trilom/file-changes-action@1.2.4
+        with:
+          output: ' '
+
+      - if: ${{ steps.skip_check.outputs.should_skip != 'true' }}
         name: Run Pre-commit
-        run: pre-commit run --all-files
+        run: pre-commit run --file ${{ steps.file_changes.outputs.files}}
 
   package:
     name: build rattler recipe
