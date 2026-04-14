@@ -3,8 +3,10 @@ import os
 from importlib.resources import files as imp_res_files
 
 from geometric_features.download import download_files
-from geometric_features.feature_collection import (FeatureCollection,
-                                                   read_feature_collection)
+from geometric_features.feature_collection import (
+    FeatureCollection,
+    read_feature_collection,
+)
 from geometric_features.version import __version__
 
 
@@ -25,6 +27,7 @@ class GeometricFeatures(object):
         from if files are missing from the local cache
 
     """
+
     # Authors
     # -------
     # Xylar Asay-Davis
@@ -47,10 +50,7 @@ class GeometricFeatures(object):
         """
 
         if cacheLocation is None:
-            if 'GEOMETRIC_DATA_DIR' in os.environ:
-                self.cacheLocation = os.environ['GEOMETRIC_DATA_DIR']
-            else:
-                self.cacheLocation = './geometric_data'
+            self.cacheLocation = _get_default_cache_location()
         else:
             self.cacheLocation = cacheLocation
         if remoteBranchOrTag is None:
@@ -58,13 +58,20 @@ class GeometricFeatures(object):
         else:
             self.remoteBranch = remoteBranchOrTag
 
-        features_file = (imp_res_files('geometric_features') /
-                         'features_and_tags.json')
+        features_file = (
+            imp_res_files('geometric_features') / 'features_and_tags.json'
+        )
         with features_file.open('r') as file:
             self.allFeaturesAndTags = json.load(file)
 
-    def read(self, componentName, objectType, featureNames=None, tags=None,
-             allTags=True):
+    def read(
+        self,
+        componentName,
+        objectType,
+        featureNames=None,
+        tags=None,
+        allTags=True,
+    ):
         """
         Read one or more features from the cached collection of geometric
         features. If any of the requested features have not been cached, they
@@ -102,10 +109,12 @@ class GeometricFeatures(object):
         # -------
         # Xylar Asay-Davis
 
-        featureNames = self._get_feature_names(componentName, objectType,
-                                               featureNames, tags, allTags)
-        fileList = self._download_geometric_features(componentName, objectType,
-                                                     featureNames)
+        featureNames = self._get_feature_names(
+            componentName, objectType, featureNames, tags, allTags
+        )
+        fileList = self._download_geometric_features(
+            componentName, objectType, featureNames
+        )
 
         fc = FeatureCollection()
         for fileName in fileList:
@@ -144,8 +153,9 @@ class GeometricFeatures(object):
             componentName = feature['properties']['component']
             objectType = feature['properties']['object']
 
-            relativePath = _get_file_name(componentName, objectType,
-                                          featureName)
+            relativePath = _get_file_name(
+                componentName, objectType, featureName
+            )
             fullPath = os.path.join(destinationDir, relativePath)
 
             path, file = os.path.split(fullPath)
@@ -160,8 +170,9 @@ class GeometricFeatures(object):
 
             singleFC.to_geojson(fullPath, stripHistory=True)
 
-    def _download_geometric_features(self, componentName, objectType,
-                                     featureNames):
+    def _download_geometric_features(
+        self, componentName, objectType, featureNames
+    ):
         """
         Determine a list of requested files and download the any that are
         missing from the repo
@@ -197,23 +208,28 @@ class GeometricFeatures(object):
         fileList = []
         filesToDownload = []
         for featureName in featureNames:
-            relativePath = _get_file_name(componentName, objectType,
-                                          featureName)
+            relativePath = _get_file_name(
+                componentName, objectType, featureName
+            )
             fullPath = os.path.join(self.cacheLocation, relativePath)
             fileList.append(fullPath)
             if not os.path.exists(fullPath):
                 filesToDownload.append(relativePath)
 
         if len(filesToDownload) > 0:
-            baseURL = 'https://raw.githubusercontent.com/MPAS-Dev/' \
+            baseURL = (
+                'https://raw.githubusercontent.com/MPAS-Dev/'
                 'geometric_features/{}/geometric_data'.format(
-                    self.remoteBranch)
+                    self.remoteBranch
+                )
+            )
             download_files(filesToDownload, baseURL, self.cacheLocation)
 
         return fileList
 
-    def _get_feature_names(self, componentName, objectType, featureNames,
-                           tags, allTags):
+    def _get_feature_names(
+        self, componentName, objectType, featureNames, tags, allTags
+    ):
         """
         Find features by name or tags, reporting errors in the process
 
@@ -260,7 +276,8 @@ class GeometricFeatures(object):
 
         if objectType not in component:
             raise KeyError(
-                f'invalid object {objectType} in component {componentName}')
+                f'invalid object {objectType} in component {componentName}'
+            )
 
         availableFeaturesAndTags = component[objectType]
 
@@ -318,7 +335,28 @@ def _get_file_name(componentName, objectType, featureName):
     featureDir = featureName.strip().replace(' ', '_').strip('.')
     for char in badCharacters:
         featureDir = featureDir.replace(char, '')
-    fileName = os.path.join(componentName, objectType, featureDir,
-                            f'{objectType}.geojson')
+    fileName = os.path.join(
+        componentName, objectType, featureDir, f'{objectType}.geojson'
+    )
 
     return fileName
+
+
+def _get_default_cache_location():
+    """
+    Get the default location of the local geometric features cache.
+
+    Returns
+    -------
+    cache_location : str
+        The default cache location
+    """
+    if 'GEOMETRIC_DATA_DIR' in os.environ:
+        return os.environ['GEOMETRIC_DATA_DIR']
+
+    package_dir = os.path.dirname(os.path.abspath(__file__))
+    repo_cache = os.path.join(os.path.dirname(package_dir), 'geometric_data')
+    if os.path.isdir(repo_cache):
+        return repo_cache
+
+    return './geometric_data'
