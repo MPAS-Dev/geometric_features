@@ -102,7 +102,7 @@ version of <code class="docutils literal notranslate"><span class="pre">geometri
 <li><p>Manually update the version number in the following files:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">geometric_features/version.py</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">recipe/meta.yaml</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">recipe/recipe.yaml</span></code></p></li>
 </ul>
 </li>
 <li><p>Make sure the version follows <a class="reference external" href="https://semver.org/">semantic versioning</a>.
@@ -114,9 +114,9 @@ For release candidates, use versions like <code class="docutils literal notransl
 <li><p>Ensure that dependencies and their constraints are up-to-date and
 consistent in:</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">recipe/meta.yaml</span></code> (for the conda-forge release)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">recipe/recipe.yaml</span></code> (for the rattler-build recipe)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> (for PyPI; used for sanity checks)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dev-spec.txt</span></code> (development dependencies; should be a superset)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code> (development dependencies; should be a superset)</p></li>
 </ul>
 </li>
 <li><p>Use the GitHub “Compare” feature to check for dependency changes between
