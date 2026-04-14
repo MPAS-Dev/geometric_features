@@ -9,14 +9,14 @@ on:
     types: [published]
 
 env:
-  PYTHON_VERSION: "3.14"
+  PIXI_VERSION: "v0.63.0"
 
 jobs:
   publish-docs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        shell: bash -l {0}
+        shell: bash -el {0}
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v6
@@ -24,35 +24,14 @@ jobs:
           persist-credentials: false
           fetch-depth: 0
 
-      - name: Cache Conda
-        uses: actions/cache@v5
-        env:
-          # Increase this value to reset cache if deploy/conda-dev-spec.template has not changed in the workflow
-          CACHE_NUMBER: 0
+      - name: Set up Pixi
+        uses: prefix-dev/setup-pixi@v0.9.3
         with:
-          path: ~/conda_pkgs_dir
-          key: ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{
-            hashFiles('dev-spec.txt') }}
-
-      - if: ${{ steps.skip_check.outputs.should_skip != 'true' }}
-        name: Set up Conda Environment
-        uses: mamba-org/setup-micromamba@v3
-        with:
-          environment-name: pyremap_dev
-          init-shell: bash
-          condarc: |
-            channel_priority: strict
-            channels:
-                - conda-forge
-          create-args: >-
-            python=${{ env.PYTHON_VERSION }}
-
-      - if: ${{ steps.skip_check.outputs.should_skip != 'true' }}
-        name: Install geometric_features
-        run: |
-          git config --global url."https://github.com/".insteadOf "git@github.com:"
-          conda install -y --file dev-spec.txt python=${{ env.PYTHON_VERSION }}
-          python -m pip install -vv --no-deps --no-build-isolation -e .
+          pixi-version: ${{ env.PIXI_VERSION }}
+          environments: default
+          activate-environment: true
+          cache: true
+          locked: true
 
       - name: Build Sphinx Docs
         run: |
@@ -92,4 +71,3 @@ jobs:
           directory: docs/gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
           force: true
-

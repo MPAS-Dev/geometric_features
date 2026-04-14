@@ -27,13 +27,22 @@ conda create -n geometric_features -c conda-forge python=3.13 geometric_features
 conda activate geometric_features
 ```
 
-To develop `geometric_features` (e.g. to add new features), create and activate
- an environment with all of the required dependencies:
+To develop `geometric_features` (e.g. to add new features), install the
+default pixi environment:
 ```bash
-conda create -y -n mpas_dev --file dev-spec.txt
-conda activate mpas_dev
-python -m pip install --no-deps --no-build-isolation -e .
+pixi install
 ```
+
+If you want a different Python version, choose one of the versioned pixi
+environments:
+```bash
+pixi install -e py310
+```
+
+The development environment in `pixi.toml` is equivalent to the legacy
+`dev-spec.txt`, with the local package installed in editable mode and an
+additional `package` environment for
+`rattler-build`.
 
 A typical workflow will look like:
 * Create a `GeometricFeatures` object and point it to a location where you have

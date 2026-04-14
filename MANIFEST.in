@@ -1,0 +1,2 @@
+include geometric_features/features_and_tags.json
+recursive-include geometric_data *.geojson

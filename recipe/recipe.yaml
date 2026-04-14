@@ -1,0 +1,75 @@
+context:
+  name: geometric_features
+  version: "1.6.2"
+  build_number: 0
+
+package:
+  name: ${{ name }}
+  version: ${{ version }}
+
+source:
+  path: ..
+
+build:
+  number: ${{ build_number }}
+  noarch: python
+  script: build.sh
+  python:
+    entry_points:
+      - combine_features = geometric_features.__main__:combine_features
+      - difference_features = geometric_features.__main__:difference_features
+      - fix_features_at_antimeridian = geometric_features.__main__:fix_features_at_antimeridian
+      - merge_features = geometric_features.__main__:merge_features
+      - plot_features = geometric_features.__main__:plot_features
+      - set_group_name = geometric_features.__main__:set_group_name
+      - simplify_features = geometric_features.__main__:simplify_features
+      - split_features = geometric_features.__main__:split_features
+      - tag_features = geometric_features.__main__:tag_features
+
+requirements:
+  host:
+    - python >=3.10
+    - pip
+    - setuptools >=60
+  run:
+    - python >=3.10
+    - cartopy
+    - matplotlib-base
+    - numpy
+    - progressbar2
+    - requests
+    - shapely >=2.0,<3.0
+
+tests:
+  - python:
+      imports:
+        - geometric_features
+  - script:
+      - pytest --pyargs geometric_features
+      - combine_features --help
+      - difference_features --help
+      - fix_features_at_antimeridian --help
+      - merge_features --help
+      - plot_features --help
+      - set_group_name --help
+      - simplify_features --help
+      - split_features --help
+      - tag_features --help
+    requirements:
+      run:
+        - pytest
+
+about:
+  homepage: https://github.com/MPAS-Dev/geometric_features
+  license: BSD-3-Clause
+  license_file: LICENSE
+  summary: Tools for manipulating collections of geojson geometric features
+  description: |
+    Tools for manipulating regions, transects, and points in geojson format
+    for use in initializing climate models and analyzing their output.
+  documentation: https://github.com/MPAS-Dev/geometric_features/README.md
+  repository: https://github.com/MPAS-Dev/geometric_features
+
+extra:
+  recipe-maintainers:
+    - xylar

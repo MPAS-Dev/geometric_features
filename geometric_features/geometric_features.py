@@ -1,5 +1,6 @@
 import json
 import os
+import sys
 from importlib.resources import files as imp_res_files
 
 from geometric_features.download import download_files
@@ -358,5 +359,9 @@ def _get_default_cache_location():
     repo_cache = os.path.join(os.path.dirname(package_dir), 'geometric_data')
     if os.path.isdir(repo_cache):
         return repo_cache
+
+    prefix_cache = os.path.join(sys.prefix, 'share', 'geometric_data')
+    if os.path.isdir(prefix_cache):
+        return prefix_cache
 
     return './geometric_data'
