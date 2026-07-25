@@ -920,6 +920,422 @@
       "westCentralGreenland2_oceanExtended": [
         "westCentralGreenland"
       ]
+    },
+    "transect": {
+      "Abbot": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "abbot"
+      ],
+      "Adelie Coast": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "adelie_coast"
+      ],
+      "American Highland": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "american_highland"
+      ],
+      "Amundsen": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "amundsen"
+      ],
+      "Bailey": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "bailey"
+      ],
+      "Baudouin": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "baudouin"
+      ],
+      "Beardmore": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "beardmore"
+      ],
+      "Bindschadler": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "bindschadler"
+      ],
+      "Borchgrevink": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "borchgrevink"
+      ],
+      "Brunt Stancomb": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "brunt_stancomb"
+      ],
+      "Byrd": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "byrd"
+      ],
+      "Clarie Coast": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "clarie_coast"
+      ],
+      "Coats Coast": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "coats_coast"
+      ],
+      "Cook": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "cook"
+      ],
+      "D Orville Coast": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "d_orville_coast"
+      ],
+      "David": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "david"
+      ],
+      "Denman Scott": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "denman_scott"
+      ],
+      "Dibble": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "dibble"
+      ],
+      "Dry Valleys": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "dry_valleys"
+      ],
+      "Enderby Land": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "enderby_land"
+      ],
+      "Evans": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "evans"
+      ],
+      "Fisher": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "fisher"
+      ],
+      "Foundation": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "foundation"
+      ],
+      "Frost": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "frost"
+      ],
+      "George Vi": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "george_vi"
+      ],
+      "Getz": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "getz"
+      ],
+      "Holmes": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "holmes"
+      ],
+      "Ingrid Christensen Coast": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "ingrid_christensen_coast"
+      ],
+      "Institute": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "institute"
+      ],
+      "Islands": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "islands"
+      ],
+      "Jutulstraumen": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "jutulstraumen"
+      ],
+      "Kamb": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "kamb"
+      ],
+      "Lambert": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "lambert"
+      ],
+      "Larsend": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "larsend"
+      ],
+      "Lazarev": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "lazarev"
+      ],
+      "Leopold And Astrid Coast": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "leopold_and_astrid_coast"
+      ],
+      "Macayeal": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "macayeal"
+      ],
+      "Macrobertson Land": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "macrobertson_land"
+      ],
+      "Mawson Coast": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "mawson_coast"
+      ],
+      "Mellor": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "mellor"
+      ],
+      "Mercer": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "mercer"
+      ],
+      "Mertz": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "mertz"
+      ],
+      "Moller": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "moller"
+      ],
+      "Moscow": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "moscow"
+      ],
+      "Mulock": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "mulock"
+      ],
+      "Nimrod": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "nimrod"
+      ],
+      "Ninnis": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "ninnis"
+      ],
+      "Nivl": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "nivl"
+      ],
+      "Pine Island": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "pine_island"
+      ],
+      "Prince Olav Coast": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "prince_olav_coast"
+      ],
+      "Publications": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "publications"
+      ],
+      "Rayner Thyer": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "rayner_thyer"
+      ],
+      "Recovery": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "recovery"
+      ],
+      "Rennick": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "rennick"
+      ],
+      "Riiser Larsen": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "riiser_larsen"
+      ],
+      "Rutford": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "rutford"
+      ],
+      "Scott": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "scott"
+      ],
+      "Shirase Glacier": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "shirase_glacier"
+      ],
+      "Slessor": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "slessor"
+      ],
+      "Sulzberger": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "sulzberger"
+      ],
+      "Support Force": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "support_force"
+      ],
+      "Thwaites": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "thwaites"
+      ],
+      "Totten": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "totten"
+      ],
+      "Vigrid": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "vigrid"
+      ],
+      "Vincennes Bay": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "vincennes_bay"
+      ],
+      "West Graham Land": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "west_graham_land"
+      ],
+      "Whillans": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "whillans"
+      ],
+      "Wilhelm Ii Coast": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "wilhelm_ii_coast"
+      ],
+      "Wilmarobertdowner": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "wilmarobertdowner"
+      ]
     }
   },
   "natural_earth": {
