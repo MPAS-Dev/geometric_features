@@ -827,6 +827,90 @@
       "eastCentralGreenland3_oceanExtended": [
         "eastCentralGreenland"
       ],
+      "ice_shelf_extended_abbot_cosgrove_venable": [
+        "ais_ice_shelf_calving_calibration"
+      ],
+      "ice_shelf_extended_amery": [
+        "ais_ice_shelf_calving_calibration"
+      ],
+      "ice_shelf_extended_bellinghausen_north": [
+        "ais_ice_shelf_calving_calibration"
+      ],
+      "ice_shelf_extended_brunt_stancomb": [
+        "ais_ice_shelf_calving_calibration"
+      ],
+      "ice_shelf_extended_dibble": [
+        "ais_ice_shelf_calving_calibration"
+      ],
+      "ice_shelf_extended_dotson_crosson": [
+        "ais_ice_shelf_calving_calibration"
+      ],
+      "ice_shelf_extended_dronning_maud_land": [
+        "ais_ice_shelf_calving_calibration"
+      ],
+      "ice_shelf_extended_eastern_weddell": [
+        "ais_ice_shelf_calving_calibration"
+      ],
+      "ice_shelf_extended_fimbulisen": [
+        "ais_ice_shelf_calving_calibration"
+      ],
+      "ice_shelf_extended_fris": [
+        "ais_ice_shelf_calving_calibration"
+      ],
+      "ice_shelf_extended_george_v_oates_coast": [
+        "ais_ice_shelf_calving_calibration"
+      ],
+      "ice_shelf_extended_getz": [
+        "ais_ice_shelf_calving_calibration"
+      ],
+      "ice_shelf_extended_ingrid_christensen_coast": [
+        "ais_ice_shelf_calving_calibration"
+      ],
+      "ice_shelf_extended_larsen_c": [
+        "ais_ice_shelf_calving_calibration"
+      ],
+      "ice_shelf_extended_larsen_north": [
+        "ais_ice_shelf_calving_calibration"
+      ],
+      "ice_shelf_extended_larsen_south": [
+        "ais_ice_shelf_calving_calibration"
+      ],
+      "ice_shelf_extended_marie_byrd_land": [
+        "ais_ice_shelf_calving_calibration"
+      ],
+      "ice_shelf_extended_moscow_university": [
+        "ais_ice_shelf_calving_calibration"
+      ],
+      "ice_shelf_extended_ninnis_mertz_cook": [
+        "ais_ice_shelf_calving_calibration"
+      ],
+      "ice_shelf_extended_pine_island": [
+        "ais_ice_shelf_calving_calibration"
+      ],
+      "ice_shelf_extended_princess_astrid_coast": [
+        "ais_ice_shelf_calving_calibration"
+      ],
+      "ice_shelf_extended_ross": [
+        "ais_ice_shelf_calving_calibration"
+      ],
+      "ice_shelf_extended_shackleton": [
+        "ais_ice_shelf_calving_calibration"
+      ],
+      "ice_shelf_extended_stange_ferrigno": [
+        "ais_ice_shelf_calving_calibration"
+      ],
+      "ice_shelf_extended_thwaites": [
+        "ais_ice_shelf_calving_calibration"
+      ],
+      "ice_shelf_extended_totten": [
+        "ais_ice_shelf_calving_calibration"
+      ],
+      "ice_shelf_extended_vincennes": [
+        "ais_ice_shelf_calving_calibration"
+      ],
+      "ice_shelf_extended_wilkes_land": [
+        "ais_ice_shelf_calving_calibration"
+      ],
       "northEastGreenland1": [
         "northEastGreenland"
       ],
