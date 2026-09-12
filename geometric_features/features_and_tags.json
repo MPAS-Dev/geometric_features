@@ -920,6 +920,1350 @@
       "westCentralGreenland2_oceanExtended": [
         "westCentralGreenland"
       ]
+    },
+    "transect": {
+      "Abbot": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "abbot"
+      ],
+      "Adelie Coast": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "adelie_coast"
+      ],
+      "American Highland": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "american_highland"
+      ],
+      "Amundsen": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "amundsen"
+      ],
+      "Bailey": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "bailey"
+      ],
+      "Baudouin": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "baudouin"
+      ],
+      "Beardmore": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "beardmore"
+      ],
+      "Bindschadler": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "bindschadler"
+      ],
+      "Borchgrevink": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "borchgrevink"
+      ],
+      "Brunt Stancomb": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "brunt_stancomb"
+      ],
+      "Byrd": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "byrd"
+      ],
+      "Clarie Coast": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "clarie_coast"
+      ],
+      "Coats Coast": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "coats_coast"
+      ],
+      "Cook": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "cook"
+      ],
+      "D Orville Coast": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "d_orville_coast"
+      ],
+      "David": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "david"
+      ],
+      "Denman Scott": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "denman_scott"
+      ],
+      "Dibble": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "dibble"
+      ],
+      "Dry Valleys": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "dry_valleys"
+      ],
+      "Enderby Land": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "enderby_land"
+      ],
+      "Evans": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "evans"
+      ],
+      "Fisher": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "fisher"
+      ],
+      "Foundation": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "foundation"
+      ],
+      "Frost": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "frost"
+      ],
+      "George Vi": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "george_vi"
+      ],
+      "Getz": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "getz"
+      ],
+      "Greenland Glacier 0001": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0001",
+        "jakobshavn_isbr\u00e6"
+      ],
+      "Greenland Glacier 0002": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0002",
+        "sermeq_avannarleq"
+      ],
+      "Greenland Glacier 0003": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0003",
+        "eqip_sermia"
+      ],
+      "Greenland Glacier 0004": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0004",
+        "kangilernata_sermia"
+      ],
+      "Greenland Glacier 0005": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0005",
+        "sermeq_kujalleq"
+      ],
+      "Greenland Glacier 0006": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0006",
+        "sermeq_avannarleq"
+      ],
+      "Greenland Glacier 0007": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0007",
+        "store_gletsjer"
+      ],
+      "Greenland Glacier 0008": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0008",
+        "lille_gletsjer"
+      ],
+      "Greenland Glacier 0009": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0009",
+        "sermilik_isbr\u00e6"
+      ],
+      "Greenland Glacier 0010": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0010",
+        "kangilleq"
+      ],
+      "Greenland Glacier 0011": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0011",
+        "sermeq_silarleq"
+      ],
+      "Greenland Glacier 0012": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0012",
+        "perlerfiup_sermia"
+      ],
+      "Greenland Glacier 0013": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0013",
+        "kangerluarsuup_sermia"
+      ],
+      "Greenland Glacier 0014": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0014",
+        "kangerlussuup_sermia"
+      ],
+      "Greenland Glacier 0015": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0015",
+        "johannes_br\u00e6"
+      ],
+      "Greenland Glacier 0016": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0016",
+        "umiammakku_isbr\u00e6"
+      ],
+      "Greenland Glacier 0017": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0017",
+        "inngia_isbr\u00e6"
+      ],
+      "Greenland Glacier 0018": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0018",
+        "upernavik_isstr\u00f8m"
+      ],
+      "Greenland Glacier 0019": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0019",
+        "upernavik_isstr\u00f8m"
+      ],
+      "Greenland Glacier 0020": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0020",
+        "upernavik_isstr\u00f8m"
+      ],
+      "Greenland Glacier 0021": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0021",
+        "upernavik_isstr\u00f8m"
+      ],
+      "Greenland Glacier 0022": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0022"
+      ],
+      "Greenland Glacier 0023": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0023"
+      ],
+      "Greenland Glacier 0024": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0024",
+        "naajarsuit_sermiat"
+      ],
+      "Greenland Glacier 0025": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0025",
+        "naajarsuit_sermiat"
+      ],
+      "Greenland Glacier 0026": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0026",
+        "kakiffaat_sermiat"
+      ],
+      "Greenland Glacier 0027": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0027",
+        "qeqertarsuup_sermia"
+      ],
+      "Greenland Glacier 0028": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0028",
+        "qeqertarsuup_sermia"
+      ],
+      "Greenland Glacier 0029": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0029",
+        "sermeq_kujalleq"
+      ],
+      "Greenland Glacier 0030": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0030",
+        "sermeq_avanarleq"
+      ],
+      "Greenland Glacier 0031": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0031"
+      ],
+      "Greenland Glacier 0032": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0032",
+        "illullip_sermia"
+      ],
+      "Greenland Glacier 0033": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0033",
+        "illullip_sermia"
+      ],
+      "Greenland Glacier 0034": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0034",
+        "nunatakassaap_sermia"
+      ],
+      "Greenland Glacier 0035": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0035",
+        "nunatakassaap_sermia"
+      ],
+      "Greenland Glacier 0036": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0036"
+      ],
+      "Greenland Glacier 0037": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0037"
+      ],
+      "Greenland Glacier 0038": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0038",
+        "hayes_gletsjer"
+      ],
+      "Greenland Glacier 0039": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0039",
+        "hayes_gletsjer"
+      ],
+      "Greenland Glacier 0040": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0040"
+      ],
+      "Greenland Glacier 0041": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0041",
+        "steenstrup_gletsjer"
+      ],
+      "Greenland Glacier 0042": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0042",
+        "steenstrup_gletsjer"
+      ],
+      "Greenland Glacier 0043": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0043",
+        "steenstrup_gletsjer"
+      ],
+      "Greenland Glacier 0044": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0044",
+        "dietrichson_gletsjer"
+      ],
+      "Greenland Glacier 0045": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0045",
+        "dietrichson_gletsjer"
+      ],
+      "Greenland Glacier 0046": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0046",
+        "nordenski\u00f6ld_gletsjer"
+      ],
+      "Greenland Glacier 0047": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0047",
+        "nordenski\u00f6ld_gletsjer"
+      ],
+      "Greenland Glacier 0048": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0048",
+        "nordenski\u00f6ld_gletsjer"
+      ],
+      "Greenland Glacier 0049": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0049"
+      ],
+      "Greenland Glacier 0050": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0050",
+        "kong_oscar_gletsjer"
+      ],
+      "Greenland Glacier 0051": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0051",
+        "kong_oscar_gletsjer"
+      ],
+      "Greenland Glacier 0052": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0052"
+      ],
+      "Greenland Glacier 0053": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0053",
+        "issuusarsuit_sermiat"
+      ],
+      "Greenland Glacier 0054": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0054",
+        "issuusarsuit_sermiat"
+      ],
+      "Greenland Glacier 0055": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0055",
+        "rink_gletsjer"
+      ],
+      "Greenland Glacier 0056": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0056"
+      ],
+      "Greenland Glacier 0057": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0057",
+        "d\u00f6cker_smith_gletsjer"
+      ],
+      "Greenland Glacier 0058": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0058"
+      ],
+      "Greenland Glacier 0059": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0059",
+        "d\u00f6cker_smith_gletsjer"
+      ],
+      "Greenland Glacier 0061": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0061",
+        "gade_gletsjer"
+      ],
+      "Greenland Glacier 0063": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0063"
+      ],
+      "Greenland Glacier 0065": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0065",
+        "yngvar_nielsen_gletsjer"
+      ],
+      "Greenland Glacier 0067": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0067"
+      ],
+      "Greenland Glacier 0070": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0070"
+      ],
+      "Greenland Glacier 0071": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0071"
+      ],
+      "Greenland Glacier 0072": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0072"
+      ],
+      "Greenland Glacier 0073": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0073"
+      ],
+      "Greenland Glacier 0074": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0074"
+      ],
+      "Greenland Glacier 0076": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0076",
+        "harald_moltke_br\u00e6"
+      ],
+      "Greenland Glacier 0077": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0077"
+      ],
+      "Greenland Glacier 0083": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0083",
+        "tracy_gletsjer"
+      ],
+      "Greenland Glacier 0084": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0084",
+        "farquhar_gletsjer"
+      ],
+      "Greenland Glacier 0085": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0085",
+        "farquhar_gletsjer"
+      ],
+      "Greenland Glacier 0088": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0088",
+        "melville_gletsjer"
+      ],
+      "Greenland Glacier 0098": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0098"
+      ],
+      "Greenland Glacier 0099": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0099"
+      ],
+      "Greenland Glacier 0101": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0101"
+      ],
+      "Greenland Glacier 0102": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0102"
+      ],
+      "Greenland Glacier 0103": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0103",
+        "ryder_gletsjer"
+      ],
+      "Greenland Glacier 0105": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0105"
+      ],
+      "Greenland Glacier 0106": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0106"
+      ],
+      "Greenland Glacier 0111": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0111"
+      ],
+      "Greenland Glacier 0112": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0112",
+        "academy_ggletsjer"
+      ],
+      "Greenland Glacier 0113": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0113",
+        "hagen_br\u00e6"
+      ],
+      "Greenland Glacier 0114": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0114"
+      ],
+      "Greenland Glacier 0115": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0115"
+      ],
+      "Greenland Glacier 0116": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0116",
+        "kofoed-hansen_br\u00e6"
+      ],
+      "Greenland Glacier 0124": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0124"
+      ],
+      "Greenland Glacier 0127": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0127"
+      ],
+      "Greenland Glacier 0129": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0129",
+        "nordenski\u00f6ld_gletsjer"
+      ],
+      "Greenland Glacier 0132": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0132"
+      ],
+      "Greenland Glacier 0135": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0135"
+      ],
+      "Greenland Glacier 0147": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0147"
+      ],
+      "Greenland Glacier 0148": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0148"
+      ],
+      "Greenland Glacier 0150": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0150"
+      ],
+      "Greenland Glacier 0152": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0152"
+      ],
+      "Greenland Glacier 0154": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0154"
+      ],
+      "Greenland Glacier 0167": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0167"
+      ],
+      "Greenland Glacier 0168": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0168"
+      ],
+      "Greenland Glacier 0173": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0173",
+        "kangerlussuaq_gletsjer"
+      ],
+      "Greenland Glacier 0174": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0174"
+      ],
+      "Greenland Glacier 0177": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0177"
+      ],
+      "Greenland Glacier 0181": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0181"
+      ],
+      "Greenland Glacier 0183": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0183"
+      ],
+      "Greenland Glacier 0184": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0184"
+      ],
+      "Greenland Glacier 0198": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0198",
+        "fenris_gletsjer"
+      ],
+      "Greenland Glacier 0199": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0199",
+        "helheim_gletsjer"
+      ],
+      "Greenland Glacier 0202": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0202"
+      ],
+      "Greenland Glacier 0207": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0207"
+      ],
+      "Greenland Glacier 0208": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0208"
+      ],
+      "Greenland Glacier 0212": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0212",
+        "gr\u00e5ulv"
+      ],
+      "Greenland Glacier 0213": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0213",
+        "gr\u00e5ulv"
+      ],
+      "Greenland Glacier 0216": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0216",
+        "a.p._bernstorff_gletsjer"
+      ],
+      "Greenland Glacier 0217": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0217",
+        "storebj\u00f8rn"
+      ],
+      "Greenland Glacier 0219": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0219",
+        "skinfaxe"
+      ],
+      "Greenland Glacier 0220": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0220",
+        "tjasse_gletsjer"
+      ],
+      "Greenland Glacier 0221": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0221",
+        "heimdal_gletsjer"
+      ],
+      "Greenland Glacier 0222": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0222"
+      ],
+      "Greenland Glacier 0223": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0223"
+      ],
+      "Greenland Glacier 0224": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0224"
+      ],
+      "Greenland Glacier 0226": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0226"
+      ],
+      "Greenland Glacier 0228": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0228",
+        "sikuijivittip_apusiia"
+      ],
+      "Greenland Glacier 0229": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0229"
+      ],
+      "Greenland Glacier 0230": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0230"
+      ],
+      "Greenland Glacier 0233": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0233"
+      ],
+      "Greenland Glacier 0234": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0234"
+      ],
+      "Greenland Glacier 0237": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0237"
+      ],
+      "Greenland Glacier 0238": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0238"
+      ],
+      "Greenland Glacier 0239": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0239"
+      ],
+      "Greenland Glacier 0240": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0240"
+      ],
+      "Greenland Glacier 0242": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0242",
+        "nordtunge"
+      ],
+      "Greenland Glacier 0243": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0243",
+        "kiattuut_sermiat"
+      ],
+      "Greenland Glacier 0245": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0245",
+        "eqalorutsit_kangilliit_sermiat"
+      ],
+      "Greenland Glacier 0251": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0251",
+        "sermiligaarsuk_br\u00e6"
+      ],
+      "Greenland Glacier 0252": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0252",
+        "nigerlikasik_br\u00e6"
+      ],
+      "Greenland Glacier 0260": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0260",
+        "kangiata_nunaata_sermia"
+      ],
+      "Greenland Glacier 0261": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0261",
+        "kangiata_nunaata_sermia"
+      ],
+      "Greenland Glacier 0263": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0263",
+        "narsap_sermia"
+      ],
+      "Greenland Glacier 0265": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0265"
+      ],
+      "Greenland Glacier 0276": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0276",
+        "saqqarliup_sermia"
+      ],
+      "Greenland Glacier 0277": [
+        "Greenland_Ice_Sheet",
+        "flowline",
+        "zenodo_4284759",
+        "glacier_0277",
+        "alanngorliup_sermia"
+      ],
+      "Holmes": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "holmes"
+      ],
+      "Ingrid Christensen Coast": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "ingrid_christensen_coast"
+      ],
+      "Institute": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "institute"
+      ],
+      "Islands": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "islands"
+      ],
+      "Jutulstraumen": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "jutulstraumen"
+      ],
+      "Kamb": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "kamb"
+      ],
+      "Lambert": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "lambert"
+      ],
+      "Larsend": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "larsend"
+      ],
+      "Lazarev": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "lazarev"
+      ],
+      "Leopold And Astrid Coast": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "leopold_and_astrid_coast"
+      ],
+      "Macayeal": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "macayeal"
+      ],
+      "Macrobertson Land": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "macrobertson_land"
+      ],
+      "Mawson Coast": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "mawson_coast"
+      ],
+      "Mellor": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "mellor"
+      ],
+      "Mercer": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "mercer"
+      ],
+      "Mertz": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "mertz"
+      ],
+      "Moller": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "moller"
+      ],
+      "Moscow": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "moscow"
+      ],
+      "Mulock": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "mulock"
+      ],
+      "Nimrod": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "nimrod"
+      ],
+      "Ninnis": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "ninnis"
+      ],
+      "Nivl": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "nivl"
+      ],
+      "Pine Island": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "pine_island"
+      ],
+      "Prince Olav Coast": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "prince_olav_coast"
+      ],
+      "Publications": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "publications"
+      ],
+      "Rayner Thyer": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "rayner_thyer"
+      ],
+      "Recovery": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "recovery"
+      ],
+      "Rennick": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "rennick"
+      ],
+      "Riiser Larsen": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "riiser_larsen"
+      ],
+      "Rutford": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "rutford"
+      ],
+      "Scott": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "scott"
+      ],
+      "Shirase Glacier": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "shirase_glacier"
+      ],
+      "Slessor": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "slessor"
+      ],
+      "Sulzberger": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "sulzberger"
+      ],
+      "Support Force": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "support_force"
+      ],
+      "Thwaites": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "thwaites"
+      ],
+      "Totten": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "totten"
+      ],
+      "Vigrid": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "vigrid"
+      ],
+      "Vincennes Bay": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "vincennes_bay"
+      ],
+      "West Graham Land": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "west_graham_land"
+      ],
+      "Whillans": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "whillans"
+      ],
+      "Wilhelm Ii Coast": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "wilhelm_ii_coast"
+      ],
+      "Wilmarobertdowner": [
+        "Antarctic_Ice_Sheet",
+        "flowline",
+        "sl-ice",
+        "wilmarobertdowner"
+      ]
     }
   },
   "natural_earth": {
