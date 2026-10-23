@@ -1,6 +1,6 @@
 context:
   name: geometric_features
-  version: "1.6.3"
+  version: "1.6.4"
   build_number: 0
 
 package:

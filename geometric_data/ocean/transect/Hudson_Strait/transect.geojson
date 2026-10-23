@@ -1,0 +1,52 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Hudson Strait",
+                "tags": "Critical_Passage",
+                "object": "transect",
+                "component": "ocean",
+                "author": "Xylar Asay-Davis"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -80.0,
+                        62.8
+                    ],
+                    [
+                        -77.9,
+                        62.85
+                    ],
+                    [
+                        -75.5,
+                        63.0
+                    ],
+                    [
+                        -72.5,
+                        62.4
+                    ],
+                    [
+                        -70.0,
+                        61.8
+                    ],
+                    [
+                        -67.5,
+                        61.2
+                    ],
+                    [
+                        -65.0,
+                        60.9
+                    ],
+                    [
+                        -63.0,
+                        60.8
+                    ]
+                ]
+            }
+        }
+    ]
+}
